@@ -1,0 +1,14 @@
+/*Joel George
+*/
+
+/* part zero  Create and use a new database called <lastname>HW2.*/
+DROP Database if exists ToiletTalk;
+Create Database ToiletTalk;
+use ToiletTalk;
+/*
+
+/* part 1 Create the data model*/
+Create table users(username varchar(80), Password_hashed varchar(80),Permissions Int);
+Create table tags(tag_id INT NOT NULL,user_id INT NOT NULL,avg_rating INT ,longitude INT,latitude INT);
+Create table review( review_id INT NOT NULL, tag_id INT , user_id INT,star_rating Int, review varchar(255));
+Create table starsin( comment_id INT , user_id INT ,review_id INT ,Time Date,comment varchar(150));
