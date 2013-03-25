@@ -27,6 +27,28 @@ function initializeRoute() {
     service.route(directions, function(result,status){
         if (status === google.maps.DirectionsStatus.OK){
             renderer.setDirections(result);
+
+
+            var path = result["routes"][0]["overview_path"];    //Array of LatLng that are positions along route
+
+            var titles = ["McDonalds", "Chick-fil-a", "Pizza Hut"];
+            var stars = [4, 5, 3];
+            var lats = [31, 32, 33];
+            var longs = [-95, -96, -97];
+            var icons;
+            for (var count = 0; count <= 2; count++){
+                var location = new google.maps.LatLng(lats[count], longs[count]);
+                for (index in path){
+                    if (Math.pow(location.lat() - path[index].lat(),2) + Math.pow(location.lng() - path[index].lng(),2) <= 0.1){
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map,
+                            title: titles[count]
+                        });
+                        attachInfo(map, marker, titles[count], stars[count], icons);
+                    }
+                }
+            }
         }
     });
 }
