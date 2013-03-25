@@ -1,0 +1,55 @@
+/* All */
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+/* Road Map */
+#map_canvas{
+	height: 100%;
+	width: 50%;
+	float: right;
+}
+
+#map_canvas h1.restroomName{
+	margin: 0;
+}
+
+#map_canvas img.star{
+	height: 15px;
+	width: 15px;
+}
+
+#map_canvas img.icon{
+	height: 20px;
+	width: 20px;
+}
+
+#directions{
+	width: 50%;
+}
+
+/* Nearby Restrooms */
+#map_canvas_2{
+	height: 100%;
+	width: 100%;
+}
+
+#map_canvas_2 h1.restroomName{
+	margin: 0;
+}
+
+#map_canvas_2 img.star{
+	height: 15px;
+	width: 15px;
+}
+
+#map_canvas_2 img.icon{
+	height: 20px;
+	width: 20px;
+}
