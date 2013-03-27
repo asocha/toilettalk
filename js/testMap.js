@@ -12,7 +12,7 @@ function initializeRoute() {
 
     var mapOptions = {
         center: start,
-        zoom: 8,
+        zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -27,7 +27,6 @@ function initializeRoute() {
     service.route(directions, function(result,status){
         if (status === google.maps.DirectionsStatus.OK){
             renderer.setDirections(result);
-
 
             var path = result["routes"][0]["overview_path"];    //Array of LatLng that are positions along route
 
@@ -54,13 +53,31 @@ innerloop:      for (index in path){
     });
 }
 
+function GeoLocateSuccess(position){
+    createNearbyMap(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));   //geolocate user's current position
+}
+
+function GeoLocateError(msg){
+    alert("Geolocation error: " + msg.code);
+    alert("Could not get your current location, defaulting to Dallas, Texas.");
+    createNearbyMap(new google.maps.LatLng(32.779193,-96.800537));
+}
+
 //create nearby Restrooms
 function initializeNearby() {
-    var centerLocation = new google.maps.LatLng(32.8442304, -96.7856456);
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(GeoLocateSuccess,GeoLocateError);
+    }
+    else{
+        alert("Could not get your current location, defaulting to Dallas, Texas.");
+        createNearbyMap(new google.maps.LatLng(32.779193,-96.800537));
+    }
+}
 
+function createNearbyMap(center){
     var mapOptions = {
-        center: centerLocation,
-        zoom: 7,
+        center: center,
+        zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -73,6 +90,7 @@ function initializeNearby() {
     var longs = [-95, -96, -97];
     var icons;
     for (var count = 0; count <= 2; count++){
+        //add if statement to check markers
         var location = new google.maps.LatLng(lats[count], longs[count]);
         var marker = new google.maps.Marker({
             position: location,
