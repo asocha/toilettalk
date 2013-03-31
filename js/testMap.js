@@ -34,7 +34,7 @@ function initializeRoute() {
             var stars = [4, 5, 3];
             var lats = [31, 32, 33];
             var longs = [-95, -96, -97];
-            var icons;
+            var icons = [[0, 0, 0, 0, 0, 0], [0, 1, 0, 1, 0, 1], [1, 1, 1, 1, 1, 1]];
             for (var count = 0; count <= 2; count++){
                 var location = new google.maps.LatLng(lats[count], longs[count]);
 innerloop:      for (index in path){
@@ -44,7 +44,7 @@ innerloop:      for (index in path){
                             map: map,
                             title: titles[count]
                         });
-                        attachInfo(map, marker, titles[count], stars[count], icons);
+                        attachInfo(map, marker, titles[count], stars[count], icons[count]);
                         break innerloop;    //breaks the innerloop so that the same marker isn't added twice
                     }
                 }
@@ -58,8 +58,7 @@ function GeoLocateSuccess(position){
 }
 
 function GeoLocateError(msg){
-    alert("Geolocation error: " + msg.code);
-    alert("Could not get your current location, defaulting to Dallas, Texas.");
+    alert("Geolocation error: " + msg.code + "\nCould not get your current location, defaulting to Dallas, Texas.");
     createNearbyMap(new google.maps.LatLng(32.779193,-96.800537));
 }
 
@@ -77,7 +76,7 @@ function initializeNearby() {
 function createNearbyMap(center){
     var mapOptions = {
         center: center,
-        zoom: 13,
+        zoom: 5,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -88,17 +87,23 @@ function createNearbyMap(center){
     var stars = [4, 5, 3];
     var lats = [31, 32, 33];
     var longs = [-95, -96, -97];
-    var icons;
+    var icons = [[0, 0, 0, 0, 0, 0], [0, 1, 0, 1, 0, 1], [1, 1, 1, 1, 1, 1]];
     for (var count = 0; count <= 2; count++){
-        //add if statement to check markers
+        //add if statement to check icons
         var location = new google.maps.LatLng(lats[count], longs[count]);
         var marker = new google.maps.Marker({
             position: location,
             map: map,
             title: titles[count]
         });
-        attachInfo(map, marker, titles[count], stars[count], icons);
+        attachInfo(map, marker, titles[count], stars[count], icons[count]);
+
+        //zoom map so only a few markers are visible
+        while (map.getBounds().contains(location)){
+            map.setZoom(map.getZoom() + 1);
+        }
     }
+    map.setZoom(map.getZoom() - 2);
 }
 
 //add Info Window for when user clicks on a map marker
@@ -117,10 +122,24 @@ function attachInfo(map, marker, title, stars, icons){
 
     title += "<br>";
 
-    title += "icons go here";
     //add icons
-    for (var count = 1; count <= 6; count++){
-        //title += "<img class=\'icon\' src=\'img/star.png\'>";
+    if (icons[0]){
+        title += "<img class='icon' src='img/icon_men.jpg'>";
+    }
+    if (icons[1]){
+        title += "<img class='icon' src='img/icon_women.jpg'>";
+    }
+    if (icons[2]){
+        title += "<img class='icon' src='img/icon_handicap.jpg'>";
+    }
+    if (icons[3]){
+        title += "<img class='icon' src='img/icon_24.jpg'>";
+    }
+    if (icons[4]){
+        title += "<img class='icon' src='img/icon_diaper.jpg'>";
+    }
+    if (icons[5]){
+        title += "<img class='icon' src='img/icon_pay.jpg'>";
     }
 
     var infoWindow = new google.maps.InfoWindow({
