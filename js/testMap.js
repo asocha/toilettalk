@@ -54,12 +54,12 @@ innerloop:      for (index in path){
 }
 
 function GeoLocateSuccess(position){
-    createNearbyMap(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));   //geolocate user's current position
+    createNearbyMap(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 1);   //geolocate user's current position
 }
 
 function GeoLocateError(msg){
     alert("Geolocation error: " + msg.code + "\nCould not get your current location, defaulting to Dallas, Texas.");
-    createNearbyMap(new google.maps.LatLng(32.779193,-96.800537));
+    createNearbyMap(new google.maps.LatLng(32.779193,-96.800537), 0);
 }
 
 //create nearby Restrooms
@@ -69,11 +69,11 @@ function initializeNearby() {
     }
     else{
         alert("Could not get your current location, defaulting to Dallas, Texas.");
-        createNearbyMap(new google.maps.LatLng(32.779193,-96.800537));
+        createNearbyMap(new google.maps.LatLng(32.779193,-96.800537), 0);
     }
 }
 
-function createNearbyMap(center){
+function createNearbyMap(center, success){
     var mapOptions = {
         center: center,
         zoom: 5,
@@ -99,11 +99,21 @@ function createNearbyMap(center){
         attachInfo(map, marker, titles[count], stars[count], icons[count]);
 
         //zoom map so only a few markers are visible
-        while (map.getBounds().contains(location)){
+        while (map.getBounds().contains(location) && map.getZoom() < 18){
             map.setZoom(map.getZoom() + 1);
         }
     }
     map.setZoom(map.getZoom() - 2);
+
+    //add You Are Here marker
+    if (success){
+        var marker = new google.maps.Marker({
+            position: center,
+            map: map,
+            icon: "img/you_are_here.png",
+            title: "You Are Here"
+        });
+    }
 }
 
 //add Info Window for when user clicks on a map marker
