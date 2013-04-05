@@ -1,2 +1,2 @@
-CREATE USER 'ToiletTalk'@'localhost' IDENTIFIED BY 'Toilet123';
-GRANT ALL PRIVILEGES ON ToiletTalk.* TO 'ToiletTalk'@'localhost';
+CREATE USER 'ToiletTalk'@'localhost' IDENTIFIED BY 'toilet';
+GRANT ALL PRIVILEGES ON ToiletTalk.* TO 'ToiletTalk'@'localhost'IDENTIFIED BY 'toilet';
