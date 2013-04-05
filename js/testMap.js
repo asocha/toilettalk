@@ -128,6 +128,8 @@ function createNearbyMap(center, success){
 function attachInfo(map, marker, title, stars, icons){
     title = "<h1 class='restroomName'>" + title + "</h1>";
 
+    //title += "<img class='restroom_image' src=img/" + image + ">";
+
     //add stars
     for (var count = 1; count <= 5; count++){
         if (stars >= count){
