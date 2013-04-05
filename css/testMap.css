@@ -12,16 +12,22 @@ body{
 /* Road Map */
 #map_canvas{
 	height: 100%;
-	width: 50%;
+	width: 100%;
 	float: right;
 }
-
+/*
 #directions{
 	width: 50%;
-}
+}*/
 
 /* Nearby Restrooms */
 #map_canvas_2{
+	height: 100%;
+	width: 100%;
+}
+
+/* Search */
+#map_canvas_3{
 	height: 100%;
 	width: 100%;
 }

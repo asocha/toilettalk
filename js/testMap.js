@@ -1,3 +1,11 @@
+var lastInfoWindow; //tracks the last info window to open
+
+window.onload = function(){
+    initializeRoute();
+    initializeNearby();
+    initializeSearch("12673 Markaire Drive");
+}
+
 //create Road Map and directions
 function initializeRoute() {
     var start = new google.maps.LatLng(32.8442304, -96.7856456);
@@ -20,7 +28,7 @@ function initializeRoute() {
     var renderer = new google.maps.DirectionsRenderer();
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     renderer.setMap(map);
-    renderer.setPanel(document.getElementById("directions"));
+    //renderer.setPanel(document.getElementById("directions"));
 
     //render route overlay
     var service = new google.maps.DirectionsService();
@@ -157,7 +165,7 @@ function attachInfo(map, marker, title, stars, icons){
         size: new google.maps.Size(50,50)
     });
     google.maps.event.addListener(marker, 'click', function() {
-        if (window.lastInfoWindow){
+        if (lastInfoWindow){
             lastInfoWindow.close(); //closes the last info window that opened, ensuring only one is open at a time
         }
         infoWindow.open(map,marker);
@@ -165,9 +173,55 @@ function attachInfo(map, marker, title, stars, icons){
     });
 }
 
-window.onload = function(){
-    window.lastInfoWindow; //tracks the last info window to open
+//create Search
+function initializeSearch(address) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            createSearchMap(results[0].geometry.location, address);
+        }
+        else {
+            alert("Sorry. We were unable to find that location.\nError: " + status);
+        }
+    });
+}
 
-    initializeRoute();
-    initializeNearby();
+function createSearchMap(coords, address){
+    var mapOptions = {
+        center: coords,
+        zoom: 5,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    //render map
+    var map = new google.maps.Map(document.getElementById("map_canvas_3"), mapOptions);
+
+    var titles = ["McDonalds", "Chick-fil-a", "Pizza Hut"];
+    var stars = [4, 5, 3];
+    var lats = [31, 32, 33];
+    var longs = [-95, -96, -97];
+    var icons = [[0, 0, 0, 0, 0, 0], [0, 1, 0, 1, 0, 1], [1, 1, 1, 1, 1, 1]];
+    for (var count = 0; count <= 2; count++){
+        //add if statement to check icons
+        var location = new google.maps.LatLng(lats[count], longs[count]);
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: titles[count]
+        });
+        attachInfo(map, marker, titles[count], stars[count], icons[count]);
+
+        //zoom map so only a few markers are visible
+        while (map.getBounds().contains(location) && map.getZoom() < 18){
+            map.setZoom(map.getZoom() + 1);
+        }
+    }
+    map.setZoom(map.getZoom() - 2);
+
+    var marker = new google.maps.Marker({
+        position: coords,
+        map: map,
+        icon: "img/you_are_here.png",
+        title: address
+    });
 }
