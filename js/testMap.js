@@ -1,9 +1,10 @@
 var lastInfoWindow; //tracks the last info window to open
 
 window.onload = function(){
-    initializeRoute("Dallas, TX", "Austin, TX");
-    initializeNearby();
-    initializeSearch("Plano, TX");
+    //initializeRoute("Dallas, TX", "Austin, TX");
+    //initializeNearby();
+    //initializeSearch("Plano, TX");
+    getRestrooms1(5);
 }
 
 //create Road Map and directions
@@ -255,13 +256,16 @@ function attachInfo(map, marker, title, stars, icons){
 }
 
 //query database for Restrooms nearby 1 location
-function getRestrooms(location){
+function getRestrooms1(location){
+    alert("test");
     var request = new XMLHttpRequest();
-    request.open("GET", '', false);
-    request.send(location);
+    request.open("GET", "phpscript/get_lat_long.php", false);
+    request.send();//location.lat(), location.lng(), 10);
 
     if(request.status === 200){
-        return $.parseJSON(request.responseText);
+        alert(request.responseText);
+        var res = $.parseJSON(request.responseText);
+        return res;
     }
     else {
         alert("Error Retrieving Restrooms: " + request.status);
@@ -270,10 +274,10 @@ function getRestrooms(location){
 }
 
 //query database for Restrooms nearby 2 locations (start/end of a route)
-function getRestrooms(location1, location2){
+function getRestrooms2(location1, location2){
     var request = new XMLHttpRequest();
-    request.open("GET", '', false);
-    request.send([location1, location2]);
+    request.open("GET", "phpscript/get_lat_long.php", false);
+    request.send();
 
     if(request.status === 200){
         return $.parseJSON(request.responseText);
