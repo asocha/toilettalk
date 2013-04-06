@@ -1,0 +1,29 @@
+<?php
+$host="localhost"; // Host name
+$username="ToiletTalk"; // Mysql username
+$password="toilet"; // Mysql password
+$db_name="ToiletTalk"; // Database name
+$tbl_name="restroom"; // Table name
+
+/*
+$responds_to_id =$_POST['responds_to_id']
+$user_id=$_POST['user_id'];
+$origin=$_POST['origin'];
+$destination=$_POST['destination'];
+//$info = mysql_fetch_array( $data );*/
+$user_id=123;
+$origin='7369 Maryland ave. 63130';
+$destination='5555 E mockingbird ln 75206';
+
+//$info = mysql_fetch_array( $data );
+
+mysql_connect("$host", "$username", "$password")or die("cannot connect");
+mysql_select_db("$db_name")or die("cannot select DB");
+$sql="insert into routes(user_id, origin, destination) values ('$user_id', '$origin', '$destination');";
+$ok = mysql_query($sql);
+
+if($ok)
+{echo "Success";}
+else
+{echo "failure";}
+?>
