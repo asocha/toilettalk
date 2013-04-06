@@ -1,16 +1,32 @@
 var lastInfoWindow; //tracks the last info window to open
 
 window.onload = function(){
-    initializeRoute();
+    initializeRoute("Dallas, TX", "Austin, TX");
     initializeNearby();
-    initializeSearch("12673 Markaire Drive");
+    initializeSearch("Plano, TX");
 }
 
 //create Road Map and directions
-function initializeRoute() {
-    var start = new google.maps.LatLng(32.8442304, -96.7856456);
-    var end = new google.maps.LatLng(31, -97);
+function initializeRoute(start, end) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': start}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            geocoder.geocode( { 'address': end}, function(results2, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    createRoute(results[0].geometry.location, results2[0].geometry.location);
+                }
+                else {
+                    alert("Sorry. We were unable to find that Destination.\nError: " + status);
+                }
+            });
+        }
+        else {
+            alert("Sorry. We were unable to find that Origin.\nError: " + status);
+        }
+    });
+}
 
+function createRoute(start, end){
     //create route
     var directions = {
         origin: start,
@@ -20,15 +36,15 @@ function initializeRoute() {
 
     var mapOptions = {
         center: start,
-        zoom: 5,
+        zoom: 7,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    //render map and directions
+    //render map
     var renderer = new google.maps.DirectionsRenderer();
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     renderer.setMap(map);
-    //renderer.setPanel(document.getElementById("directions"));
+    //renderer.setPanel(document.getElementById("directions")); //render directions
 
     //render route overlay
     var service = new google.maps.DirectionsService();
@@ -38,21 +54,23 @@ function initializeRoute() {
 
             var path = result["routes"][0]["overview_path"];    //Array of LatLng that are positions along route
 
-            var titles = ["McDonalds", "Chick-fil-a", "Pizza Hut"];
-            var stars = [4, 5, 3];
-            var lats = [31, 32, 33];
-            var longs = [-95, -96, -97];
-            var icons = [[0, 0, 0, 0, 0, 0], [0, 1, 0, 1, 0, 1], [1, 1, 1, 1, 1, 1]];
-            for (var count = 0; count <= 2; count++){
-                var location = new google.maps.LatLng(lats[count], longs[count]);
+            var restrooms = getRestrooms(start, end);   //get Restrooms from Database
+
+            for (var count = 0; restrooms && count <= restrooms.length(); count++){
+                var title = restrooms[count]['title'];
+                var stars = restrooms[count]['stars'];
+                var lat = restrooms[count]['lat'];
+                var lng = restrooms[count]['long'];
+                var icons = restrooms[count]['icons'];
+                var location = new google.maps.LatLng(lat, lng);
 innerloop:      for (index in path){
-                    if (Math.pow(location.lat() - path[index].lat(),2) + Math.pow(location.lng() - path[index].lng(),2) <= 0.1){
+                    if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 0.1){
                         var marker = new google.maps.Marker({
                             position: location,
                             map: map,
-                            title: titles[count]
+                            title: title
                         });
-                        attachInfo(map, marker, titles[count], stars[count], icons[count]);
+                        attachInfo(map, marker, title, stars, icons);
                         break innerloop;    //breaks the innerloop so that the same marker isn't added twice
                     }
                 }
@@ -84,30 +102,34 @@ function initializeNearby() {
 function createNearbyMap(center, success){
     var mapOptions = {
         center: center,
-        zoom: 5,
+        zoom: 7,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
     //render map
     var map = new google.maps.Map(document.getElementById("map_canvas_2"), mapOptions);
 
-    var titles = ["McDonalds", "Chick-fil-a", "Pizza Hut"];
-    var stars = [4, 5, 3];
-    var lats = [31, 32, 33];
-    var longs = [-95, -96, -97];
-    var icons = [[0, 0, 0, 0, 0, 0], [0, 1, 0, 1, 0, 1], [1, 1, 1, 1, 1, 1]];
-    for (var count = 0; count <= 2; count++){
-        //add if statement to check icons
-        var location = new google.maps.LatLng(lats[count], longs[count]);
+    var restrooms = getRestrooms(center);   //get Restrooms from Database
+
+    for (var count = 0; restrooms && count <= restrooms.length(); count++){
+        var title = restrooms[count]['title'];
+        var stars = restrooms[count]['stars'];
+        var lat = restrooms[count]['lat'];
+        var lng = restrooms[count]['long'];
+        var icons = restrooms[count]['icons'];
+        var location = new google.maps.LatLng(lat, lng);
+
+        //add if statement to check icons if we do that
+
         var marker = new google.maps.Marker({
             position: location,
             map: map,
-            title: titles[count]
+            title: title
         });
-        attachInfo(map, marker, titles[count], stars[count], icons[count]);
+        attachInfo(map, marker, title, stars, icons);
 
         //zoom map so only a few markers are visible
-        while (map.getBounds().contains(location) && map.getZoom() < 18){
+        while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
             map.setZoom(map.getZoom() + 1);
         }
     }
@@ -122,6 +144,63 @@ function createNearbyMap(center, success){
             title: "You Are Here"
         });
     }
+}
+
+//create Search
+function initializeSearch(address) {
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            createSearchMap(results[0].geometry.location, address);
+        }
+        else {
+            alert("Sorry. We were unable to find that location.\nError: " + status);
+        }
+    });
+}
+
+function createSearchMap(coords, address){
+    var mapOptions = {
+        center: coords,
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    //render map
+    var map = new google.maps.Map(document.getElementById("map_canvas_3"), mapOptions);
+
+    var restrooms = getRestrooms(coords);   //get Restrooms from Database
+
+    for (var count = 0; restrooms && count <= restrooms.length(); count++){
+        var title = restrooms[count]['title'];
+        var stars = restrooms[count]['stars'];
+        var lat = restrooms[count]['lat'];
+        var lng = restrooms[count]['long'];
+        var icons = restrooms[count]['icons'];
+        var location = new google.maps.LatLng(lat, lng);
+
+        //add if statement to check icons if we do that
+
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            title: title
+        });
+        attachInfo(map, marker, title, stars, icons);
+
+        //zoom map so only a few markers are visible
+        while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
+            map.setZoom(map.getZoom() + 1);
+        }
+    }
+    map.setZoom(map.getZoom() - 2);
+
+    var marker = new google.maps.Marker({
+        position: coords,
+        map: map,
+        icon: "img/you_are_here.png",
+        title: address
+    });
 }
 
 //add Info Window for when user clicks on a map marker
@@ -162,7 +241,7 @@ function attachInfo(map, marker, title, stars, icons){
         title += "<img class='icon' src='img/icon_pay.jpg'>";
     }
 
-    var infoWindow = new google.maps.InfoWindow({
+    var infoWindow = new google.maps.InfoBox({
         content: title,
         size: new google.maps.Size(50,50)
     });
@@ -175,55 +254,32 @@ function attachInfo(map, marker, title, stars, icons){
     });
 }
 
-//create Search
-function initializeSearch(address) {
-    var geocoder = new google.maps.Geocoder();
-    geocoder.geocode( { 'address': address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            createSearchMap(results[0].geometry.location, address);
-        }
-        else {
-            alert("Sorry. We were unable to find that location.\nError: " + status);
-        }
-    });
+//query database for Restrooms nearby 1 location
+function getRestrooms(location){
+    var request = new XMLHttpRequest();
+    request.open("GET", '', false);
+    request.send(location);
+
+    if(request.status === 200){
+        return $.parseJSON(request.responseText);
+    }
+    else {
+        alert("Error Retrieving Restrooms: " + request.status);
+        return null;
+    }
 }
 
-function createSearchMap(coords, address){
-    var mapOptions = {
-        center: coords,
-        zoom: 5,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
+//query database for Restrooms nearby 2 locations (start/end of a route)
+function getRestrooms(location1, location2){
+    var request = new XMLHttpRequest();
+    request.open("GET", '', false);
+    request.send([location1, location2]);
 
-    //render map
-    var map = new google.maps.Map(document.getElementById("map_canvas_3"), mapOptions);
-
-    var titles = ["McDonalds", "Chick-fil-a", "Pizza Hut"];
-    var stars = [4, 5, 3];
-    var lats = [31, 32, 33];
-    var longs = [-95, -96, -97];
-    var icons = [[0, 0, 0, 0, 0, 0], [0, 1, 0, 1, 0, 1], [1, 1, 1, 1, 1, 1]];
-    for (var count = 0; count <= 2; count++){
-        //add if statement to check icons
-        var location = new google.maps.LatLng(lats[count], longs[count]);
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            title: titles[count]
-        });
-        attachInfo(map, marker, titles[count], stars[count], icons[count]);
-
-        //zoom map so only a few markers are visible
-        while (map.getBounds().contains(location) && map.getZoom() < 18){
-            map.setZoom(map.getZoom() + 1);
-        }
+    if(request.status === 200){
+        return $.parseJSON(request.responseText);
     }
-    map.setZoom(map.getZoom() - 2);
-
-    var marker = new google.maps.Marker({
-        position: coords,
-        map: map,
-        icon: "img/you_are_here.png",
-        title: address
-    });
+    else {
+        alert("Error Retrieving Restrooms: " + request.status);
+        return null;
+    }
 }

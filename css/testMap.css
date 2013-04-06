@@ -33,16 +33,20 @@ body{
 }
 
 /* Info Windows */
-h1.restroomName{
+.infoBox{
+	background-color: blue;
+}
+
+.infoBox h1.restroomName{
 	margin: 0;
 }
 
-img.star{
+.infoBox img.star{
 	height: 15px;
 	width: 15px;
 }
 
-img.icon{
+.infoBox img.icon{
 	height: 20px;
 	width: 20px;
 }
