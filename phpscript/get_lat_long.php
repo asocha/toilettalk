@@ -1,20 +1,26 @@
 <?php
-
-$host="localhost"; // Host name
-$username="ToiletTalk"; // Mysql username
-$password="toilet"; // Mysql password
-$db_name="ToiletTalk"; // Database name
-$tbl_name="users"; // Table name
-//$less_than_long=10.0;
-// Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect");
-mysql_select_db("$db_name")or die("cannot select DB");
-
-$result = mysql_query("Select latitude, longitude From restroom Where longitude <= 10.0 and longitude >= 0.0 and latitude <= 10.0 and latitude >= 0.0;") or die(mysql_error());
-//$info = mysql_fetch_array( $data );
-
-while($row = mysql_fetch_array($result)){
-  echo "Latitude".$row['latitude']. " - ". "Longitude".$row['longitude'];
-	echo "<br />";
-}
+	function findLocalRestrooms($currentLatitude, $currentLongitude, $radius) {
+		$con = mysql_connect('ec2-54-242-116-188.compute-1.amazonaws.com','ToiletTalk','toilet');
+	        mysql_select_db('ToiletTalk');
+	        if (!$con)
+	        {
+	            die('Could not connect: ' . mysql_error());
+	        }
+	        $radius = $radius/69.055;
+		    $lowerBoarder=$currentLatitude-$radius;
+		    $upperBoarder=$currentLatitude+$radius;
+		    $rightBoarder=$currentLongitude-$radius;
+		    $leftBoarder=$currentLongitude+$radius;
+		    $query = "Select latitude, longitude 
+			    From restroom 
+			    Where longitude <= $leftBoarder and longitude >= $rightBoarder and 
+				    latitude <= $upperBoarder and latitude >= $lowerBoarder;";
+		    $results = mysql_query($query);
+	        $rows = array();
+	        while($r = mysql_fetch_assoc($results)) {
+	            $rows[] = $r;
+	        }
+	        return json_encode($rows);
+		
+	}
 ?>
