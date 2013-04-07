@@ -1,5 +1,5 @@
-<?php $currentLatitude = 8;$currentLongitude=7;$radius=1000; 
-	//function findLocalRestrooms($currentLatitude, $currentLongitude, $radius) {
+<?php
+	function rrlocation($currentLatitude, $currentLongitude, $radius) {
 		$con = mysql_connect('ec2-54-242-116-188.compute-1.amazonaws.com','ToiletTalk','toilet');
 	        mysql_select_db('ToiletTalk');
 	        if (!$con)
