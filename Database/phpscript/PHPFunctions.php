@@ -126,6 +126,33 @@
 	 insertNewUser('4', 'gcas', 'gus', 'cas', '12345', '1', '1');
          insertNewRestroom(4, 3, 100, 100);
 	 insertNewResponse(1, 4, '$user_comments', 1, 0, 0, 0, CURRENT_TIMESTAMP, 0,1);
-
+	function update_response($review_id,$responds_to_id) { 
+   	 
+   	 $con = mysql_connect('ec2-54-242-116-188.compute-1.amazonaws.com','ToiletTalk','toilet');
+   	 mysql_select_db('ToiletTalk');
+  	  if (!$con)
+  	  {
+  	    die('Could not connect: ' . mysql_error());
+  	  }
+ 	   $query="update response set thumbs_up=thumbs_up+1 where review_id = '$review_id' AND responds_to_id = '$responds_to_id';";
+ 	   mysql_query($query);
+	   
+ 	 }
+ 	 function Restrooms_in_route( $user_id,$route_id) {
+		$con = mysql_connect('ec2-54-242-116-188.compute-1.amazonaws.com','ToiletTalk','toilet');
+       		 mysql_select_db('ToiletTalk');
+        	if (!$con)
+        	{
+        	    die('Could not connect: ' . mysql_error());
+        	}
+       		
+	    	$query = "select re.avg_rating, re.latitude, re.longitude from restroom re, restrooms_for_route rfr, routes ro where re.restroom_id = rfr.restroom_id and rfr.route_id = ro.route_id and ro.user_id ='$user_id' and ro.route_id='$route_id';";
+	        $results = mysql_query($query);
+        	$rows = array();
+       		 while($r = mysql_fetch_assoc($results)) {
+       		      $rows[] = $r;
+       		 }
+      		  return json_encode($rows);
+	}
 
 ?>
