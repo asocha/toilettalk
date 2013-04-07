@@ -13,9 +13,12 @@ body{
 #map_canvas{
 	height: 100%;
 	width: 100%;
-	float: right;
+	overflow: visible;
 }
-/*
+
+#map_canvas div{
+	overflow: visible;
+}
 
 /* Nearby Restrooms */
 #map_canvas_2{
