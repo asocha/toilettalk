@@ -20,18 +20,6 @@ body{
 	overflow: visible;
 }
 
-/* Nearby Restrooms */
-#map_canvas_2{
-	height: 100%;
-	width: 100%;
-}
-
-/* Search */
-#map_canvas_3{
-	height: 100%;
-	width: 100%;
-}
-
 /* Info Windows */
 .infoBox{
 	border-radius: 15px;

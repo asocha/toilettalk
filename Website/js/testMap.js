@@ -1,12 +1,10 @@
 var lastInfoWindow; //tracks the last info window to open
 
 window.onload = function(){
-    //initializeRoute("Dallas, TX", "Austin, TX");
     initializeNearby();
-    //initializeSearch("Plano, TX");
-    document.getElementById("Search").onclick=initializeSearch("Plano, TX");
-    document.getElementById("Nearby").onclick=initializeNearby();
-    document.getElementById("RoadTrip").onclick=initializeRoute("Dallas, TX", "Austin, TX");
+    //document.getElementById("Search").onclick=initializeSearch("Plano, TX");
+    //document.getElementById("Nearby").onclick=initializeNearby();
+    //document.getElementById("RoadTrip").onclick=initializeRoute("Dallas, TX", "Austin, TX");
 }
 
 //create Road Map and directions

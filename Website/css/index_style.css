@@ -90,7 +90,7 @@ div {
 }
 
 #navbar #home{
-	border-bottom: 2px solid #001157;
+	border-bottom: 2px solid #A62000;
 }
 
 #navbar li a {
@@ -100,7 +100,7 @@ div {
 	height:10px;
 	padding:10px;
 	display:block;
-	color:#D00000;
+	color:#3D4A59;
 	text-decoration: none;
 	font-size:16pt;
 	font-family:arial;
@@ -111,15 +111,13 @@ div {
 	border-top: 5px solid #F0F0F0;
 	border-bottom: 5px solid #F0F0F0;
 	background: #F0F0F0;
-	font-family: "hn_2";
 }
 
 #navbar li a:hover {
 	background:#F0F0F0;
 	font-size:16pt;
 	font-weight:bold;
-	border-bottom: 2px solid #D00000;
-	font-family: "hn_1";
+	border-bottom: 2px solid #EB6C4E;
 }
 
 #empty{
@@ -245,17 +243,3 @@ ul.sidenav li a:hover span {
     height: 430px;
 }
 
-#sre, #sro{
-	float:left;
-}
-
-#sre, #sro, #rv{
-	background-color:#8392A6;
-	width: 324px;
-    height: 465px;
-
-}
-
-#sre{
-	
-}
