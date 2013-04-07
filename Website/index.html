@@ -8,13 +8,19 @@
   <script type="text/javascript" src="js/formValidation.js"></script>
   <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/testMap.css"/>
+  <script type="text/javascript" src='js/testMap.js'></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGOadh9EKbHbQP8S1ceKKlLS_HOVhxU60&sensor=false"></script>
+  <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/src/infobox.js" type="text/javascript"></script>
 <title>ToiletTalk</title>
 
 </head>
 <body id ="body">
 <div id = "wrapper">
 	<div id="brand">
-		<img id="logo"src="img/ToiletTalk_logo.png" alt="Toilet_talk_logo">
+		<img id="logo"src="img/ToiletTalk_logo.svg" alt="Toilet_talk_logo">
 	</div>
 	<!--<div id="logining">
 		<p><form id="login">
@@ -95,7 +101,7 @@
 </div>
 
 <fieldset id="map">
-<p><img id="m"src="img/Map.png" alt="Toilet_talk_map_sample"></p>
+<p><div id="map_canvas"></p>
 </fieldset>
 </div>
 </body>

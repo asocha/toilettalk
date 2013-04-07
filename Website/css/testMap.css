@@ -16,9 +16,6 @@ body{
 	float: right;
 }
 /*
-#directions{
-	width: 50%;
-}*/
 
 /* Nearby Restrooms */
 #map_canvas_2{
@@ -34,7 +31,10 @@ body{
 
 /* Info Windows */
 .infoBox{
-	background-color: blue;
+	border-radius: 15px;
+	background-color: #00A;
+	width: 200px;
+	height: 100px;
 }
 
 .infoBox h1.restroomName{

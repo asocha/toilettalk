@@ -1,10 +1,9 @@
 var lastInfoWindow; //tracks the last info window to open
 
 window.onload = function(){
-    //initializeRoute("Dallas, TX", "Austin, TX");
-    //initializeNearby();
-    //initializeSearch("Plano, TX");
-    getRestrooms1(5);
+    initializeRoute("Dallas, TX", "Austin, TX");
+    initializeNearby();
+    initializeSearch("Plano, TX");
 }
 
 //create Road Map and directions
@@ -55,7 +54,7 @@ function createRoute(start, end){
 
             var path = result["routes"][0]["overview_path"];    //Array of LatLng that are positions along route
 
-            var restrooms = getRestrooms(start, end);   //get Restrooms from Database
+            var restrooms = getRestrooms2(start, end);   //get Restrooms from Database
 
             for (var count = 0; restrooms && count <= restrooms.length(); count++){
                 var title = restrooms[count]['title'];
@@ -110,7 +109,7 @@ function createNearbyMap(center, success){
     //render map
     var map = new google.maps.Map(document.getElementById("map_canvas_2"), mapOptions);
 
-    var restrooms = getRestrooms(center);   //get Restrooms from Database
+    var restrooms = getRestrooms1(center);   //get Restrooms from Database
 
     for (var count = 0; restrooms && count <= restrooms.length(); count++){
         var title = restrooms[count]['title'];
@@ -170,7 +169,7 @@ function createSearchMap(coords, address){
     //render map
     var map = new google.maps.Map(document.getElementById("map_canvas_3"), mapOptions);
 
-    var restrooms = getRestrooms(coords);   //get Restrooms from Database
+    var restrooms = getRestrooms1(coords);   //get Restrooms from Database
 
     for (var count = 0; restrooms && count <= restrooms.length(); count++){
         var title = restrooms[count]['title'];
@@ -242,9 +241,8 @@ function attachInfo(map, marker, title, stars, icons){
         title += "<img class='icon' src='img/icon_pay.jpg'>";
     }
 
-    var infoWindow = new google.maps.InfoBox({
-        content: title,
-        size: new google.maps.Size(50,50)
+    var infoWindow = new InfoBox({
+        content: title
     });
     google.maps.event.addListener(marker, 'click', function() {
         if (lastInfoWindow){
@@ -257,15 +255,12 @@ function attachInfo(map, marker, title, stars, icons){
 
 //query database for Restrooms nearby 1 location
 function getRestrooms1(location){
-    alert("test");
     var request = new XMLHttpRequest();
-    request.open("GET", "phpscript/get_lat_long.php", false);
-    request.send();//location.lat(), location.lng(), 10);
+    request.open("GET", "../Database/phpscript/get_lat_long.php?latitude="+location.lat()+"&longitude="+location.lng()+"&radius=10", false);
+    request.send();
 
     if(request.status === 200){
-        alert(request.responseText);
-        var res = $.parseJSON(request.responseText);
-        return res;
+        return $.parseJSON(request.responseText);
     }
     else {
         alert("Error Retrieving Restrooms: " + request.status);
@@ -275,8 +270,12 @@ function getRestrooms1(location){
 
 //query database for Restrooms nearby 2 locations (start/end of a route)
 function getRestrooms2(location1, location2){
+    var centerLat = (location1.lat() + location2.lat()) / 2;
+    var centerLng = (location1.lng() + location2.lng()) / 2;
+    var distance = Math.sqrt(Math.pow(location1.lat() - location2.lat(),2) + Math.pow(location1.lng() + location2.lng(), 2)) * 69.055;
+
     var request = new XMLHttpRequest();
-    request.open("GET", "phpscript/get_lat_long.php", false);
+    request.open("GET", "../Database/phpscript/get_lat_long.php?latitude="+centerLat+"&longitude="+centerLng+"&radius="+distance+10, false);
     request.send();
 
     if(request.status === 200){
