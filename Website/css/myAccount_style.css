@@ -1,14 +1,9 @@
 body{
-  background-color:#F0F0F0;
-}
-
-#wrapper{
-	width: 1020px;
-	margin: 0 auto;
+	background-color:#D7E3F2;
 }
 
 #brand{
-	width: 550px;
+	width: 850px;
 	float: top;
 	float:left;
 }
@@ -88,7 +83,7 @@ div {
 #Fun_Facts {
 	width: 195px;
         height: 450px;
-        background-color: #8392A6;
+        background-color: lightgrey;
 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	float:left;
 }
@@ -120,6 +115,7 @@ div {
 }
 
 .menu-item p {
+  background: lightgrey;
   font-size: 13px;
   line-height: 20px;
   height: 0px;
@@ -181,9 +177,9 @@ div {
 }
 
 #map {
-	width: 465px;
+	width: 795px;
         height: 450px;
-        background-color: #8392A6;
+        background-color: lightgrey;
 	margin-top: 0.0002cm;
 }
 
@@ -197,6 +193,6 @@ div {
 
 #m{
 	margin-top:0.001cm;
-	width: 460px;
+	width: 790px;
         height: 430px;
 }
