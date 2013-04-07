@@ -2,9 +2,8 @@ var lastInfoWindow; //tracks the last info window to open
 
 window.onload = function(){
     //initializeRoute("Dallas, TX", "Austin, TX");
-    //initializeNearby();
+    initializeNearby();
     //initializeSearch("Plano, TX");
-    getRestrooms1(5);
 }
 
 //create Road Map and directions
@@ -55,25 +54,25 @@ function createRoute(start, end){
 
             var path = result["routes"][0]["overview_path"];    //Array of LatLng that are positions along route
 
-            var restrooms = getRestrooms(start, end);   //get Restrooms from Database
-
-            for (var count = 0; restrooms && count <= restrooms.length(); count++){
-                var title = restrooms[count]['title'];
-                var stars = restrooms[count]['stars'];
-                var lat = restrooms[count]['lat'];
-                var lng = restrooms[count]['long'];
-                var icons = restrooms[count]['icons'];
+            var restrooms = getRestrooms2(start, end);   //get Restrooms from Database
+            
+            for (var count = 0; restrooms && count < restrooms.length; count++){
+                //var title = restrooms[count]['title'];
+                //var stars = restrooms[count]['stars'];
+                var lat = restrooms[count]['latitude'];
+                var lng = restrooms[count]['longitude'];
+                //var icons = restrooms[count]['icons'];
                 var location = new google.maps.LatLng(lat, lng);
 innerloop:      for (index in path){
-                    if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 0.1){
+                    //if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 0.1){
                         var marker = new google.maps.Marker({
                             position: location,
                             map: map,
-                            title: title
+                            title: "test"//title
                         });
                         attachInfo(map, marker, title, stars, icons);
                         break innerloop;    //breaks the innerloop so that the same marker isn't added twice
-                    }
+                    //}
                 }
             }
         }
@@ -108,15 +107,15 @@ function createNearbyMap(center, success){
     };
 
     //render map
-    var map = new google.maps.Map(document.getElementById("map_canvas_2"), mapOptions);
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-    var restrooms = getRestrooms(center);   //get Restrooms from Database
+    var restrooms = getRestrooms1(center);   //get Restrooms from Database
 
-    for (var count = 0; restrooms && count <= restrooms.length(); count++){
+    for (var count = 0; restrooms && count < restrooms.length; count++){
         var title = restrooms[count]['title'];
         var stars = restrooms[count]['stars'];
-        var lat = restrooms[count]['lat'];
-        var lng = restrooms[count]['long'];
+        var lat = restrooms[count]['latitude'];
+        var lng = restrooms[count]['longitude'];
         var icons = restrooms[count]['icons'];
         var location = new google.maps.LatLng(lat, lng);
 
@@ -168,11 +167,11 @@ function createSearchMap(coords, address){
     };
 
     //render map
-    var map = new google.maps.Map(document.getElementById("map_canvas_3"), mapOptions);
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-    var restrooms = getRestrooms(coords);   //get Restrooms from Database
+    var restrooms = getRestrooms1(coords);   //get Restrooms from Database
 
-    for (var count = 0; restrooms && count <= restrooms.length(); count++){
+    for (var count = 0; restrooms && count < restrooms.length; count++){
         var title = restrooms[count]['title'];
         var stars = restrooms[count]['stars'];
         var lat = restrooms[count]['lat'];
@@ -221,7 +220,7 @@ function attachInfo(map, marker, title, stars, icons){
     }
 
     title += "<br>";
-
+/*
     //add icons
     if (icons[0]){
         title += "<img class='icon' src='img/icon_men.jpg'>";
@@ -241,10 +240,9 @@ function attachInfo(map, marker, title, stars, icons){
     if (icons[5]){
         title += "<img class='icon' src='img/icon_pay.jpg'>";
     }
-
-    var infoWindow = new google.maps.InfoBox({
-        content: title,
-        size: new google.maps.Size(50,50)
+*/
+    var infoWindow = new InfoBox({
+        content: title
     });
     google.maps.event.addListener(marker, 'click', function() {
         if (lastInfoWindow){
@@ -257,15 +255,13 @@ function attachInfo(map, marker, title, stars, icons){
 
 //query database for Restrooms nearby 1 location
 function getRestrooms1(location){
-    alert("test");
     var request = new XMLHttpRequest();
-    request.open("GET", "phpscript/get_lat_long.php", false);
-    request.send();//location.lat(), location.lng(), 10);
+    //request.open("GET", "../Database/phpscript/get_lat_long.php?currentLatitude="+location.lat()+"&currentLongitude="+location.lng()+"&radius=10", false);
+    request.open("GET", "../Database/phpscript/get_lat_long.php?currentLatitude="+8+"&currentLongitude="+9+"&radius=1000000", false);
+    request.send();
 
     if(request.status === 200){
-        alert(request.responseText);
-        var res = $.parseJSON(request.responseText);
-        return res;
+        return $.parseJSON(request.responseText);
     }
     else {
         alert("Error Retrieving Restrooms: " + request.status);
@@ -275,8 +271,13 @@ function getRestrooms1(location){
 
 //query database for Restrooms nearby 2 locations (start/end of a route)
 function getRestrooms2(location1, location2){
+    var centerLat = (location1.lat() + location2.lat()) / 2;
+    var centerLng = (location1.lng() + location2.lng()) / 2;
+    var distance = Math.sqrt(Math.pow(location1.lat() - location2.lat(),2) + Math.pow(location1.lng() + location2.lng(), 2)) * 69.055;
+
     var request = new XMLHttpRequest();
-    request.open("GET", "phpscript/get_lat_long.php", false);
+    //request.open("GET", "../Database/phpscript/get_lat_long.php?currentLatitude="+centerLat+"&currentLongitude="+centerLng+"&radius="+distance+10, false);
+    request.open("GET", "../Database/phpscript/get_lat_long.php?currentLatitude="+8+"&currentLongitude="+9+"&radius="+10, false);
     request.send();
 
     if(request.status === 200){
