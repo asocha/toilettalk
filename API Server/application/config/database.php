@@ -41,10 +41,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = '';
-$db['default']['password'] = '';
-$db['default']['database'] = '';
+$db['default']['hostname'] = 'ec2-54-242-116-188.compute-1.amazonaws.com';
+$db['default']['username'] = 'ToiletTalk';
+$db['default']['password'] = 'toilet';
+$db['default']['database'] = 'ToiletTalk';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
