@@ -1,62 +1,89 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-// Chintan Patel
-// ToiletTalkAPIv1
+/**
+ * ToiletTalk API v1
+ * @package     CodeIgniter
+ * @subpackage  Rest Server
+ * @category    Controller
+ * @author      Chintan Patel
+ */
 
-require(APPPATH.'/libraries/REST_Controller.php');
+require APPPATH.'/libraries/REST_Controller.php';
 
 class toilettalkapi extends REST_Controller
 {
-
-    function restrooms_get()
-    {   
-        switch($this->get('from'))
-        {
-            case "":
-                $this->response(NULL, 400);
-                break;
-
-            case "nearby":
-                $latitude = $_GET['latitude'];
-                $longitude = $_GET['longitude'];
-                $radius = $_GET['radius'];
-
-                $radius = $radius/69.055;
-                $lowerBoarder=$latitude-$radius;
-                $upperBoarder=$latitude+$radius;
-                $rightBoarder=$longitude-$radius;
-                $leftBoarder=$currentLongitude+$radius;
-                
-                $query = "Select latitude, longitude 
-                From restroom 
-                Where longitude <= $leftBoarder and longitude >= $rightBoarder and 
-                    latitude <= $upperBoarder and latitude >= $lowerBoarder;";
-
-                $results = execute($query);
-
-                $this->response($results, 200);
-
-                break;
-        }
+    function test_get()
+    {
+        $result = array('key' => $this->get('id'), 'parameter' => $this->get('parm')); 
+        $this->response($result, 200);
     }
 
-    function users_get()
+    function response_get()
     {
-        //$users = $this->some_model->getSomething( $this->get('limit') );
-        $users = array(
-            array('id' => 1, 'name' => 'Some Guy', 'email' => 'example1@example.com'),
-            array('id' => 2, 'name' => 'Person Face', 'email' => 'example2@example.com'),
-            3 => array('id' => 3, 'name' => 'Scotty', 'email' => 'example3@example.com', 'fact' => array('hobbies' => array('fartings', 'bikes'))),
-        );
-        
-        if($users)
+        if(!$this->get('id'))
         {
-            $this->response($users, 200); // 200 being the HTTP response code
+            $this->response(NULL, 400);
         }
 
         else
         {
-            $this->response(array('error' => 'Couldn\'t find any users!'), 404);
+            $this->db->select('responds_to_id');
+            $this->db->where('review_id', $this->get('id'));
+            $this->db->group_by("review_id");
+            $this->db->order_by("review_id", "desc"); 
+
+            $query = $this->db->get('response');
+            $this->response($query->result(), 200);
         }
     }
-?>
+
+    function user_get()
+    {
+        if(!$this->get('id'))
+        {
+            $this->response(NULL, 400);
+        }
+
+        else
+        {
+            $this->db->where('user_id', $this->get('id'));
+
+            $query = $this->db->get('users');
+            $this->response($query->result(), 200);
+        }
+    }
+    
+    function user_post()
+    {
+        //$this->some_model->updateUser( $this->get('id') );
+        $message = array('id' => $this->get('id'), 'name' => $this->post('name'), 'email' => $this->post('email'), 'message' => 'ADDED!');
+        
+        $this->response($message, 200); // 200 being the HTTP response code
+    }
+    
+    function user_delete()
+    {
+        //$this->some_model->deletesomething( $this->get('id') );
+        $message = array('id' => $this->get('id'), 'message' => 'DELETED!');
+        
+        $this->response($message, 200); // 200 being the HTTP response code
+    }
+    
+    function users_get()
+    {
+        $query = $this->db->get('users');
+        $this->response($query->result(), 200);
+    }
+
+
+    public function send_post()
+    {
+        var_dump($this->request->body);
+    }
+
+
+    public function send_put()
+    {
+        var_dump($this->put('foo'));
+    }
+}
