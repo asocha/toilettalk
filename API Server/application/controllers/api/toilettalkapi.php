@@ -18,6 +18,12 @@ class toilettalkapi extends REST_Controller
         $this->response($result, 200);
     }
 
+    function test_post()
+    {
+        $result = array('key' => $this->post('id'), 'parameter' => $this->post('parm')); 
+        $this->response($result, 200);
+    }
+
     function response_get()
     {
         if(!$this->get('id'))
@@ -34,6 +40,32 @@ class toilettalkapi extends REST_Controller
 
             $query = $this->db->get('response');
             $this->response($query->result(), 200);
+        }
+    }
+
+    function restrooms_get()
+    {
+        switch($this->get('method'))
+        {
+            case 'location':
+                $currentLatitude = $this->get('latitude');
+                $currentLongitude = $this->get('longitude');
+                $radius = $this->get('radius');
+
+                $radius = $radius/69.055;
+                $lowerBoarder=$currentLatitude-$radius;
+                $upperBoarder=$currentLatitude+$radius;
+                $rightBoarder=$currentLongitude-$radius;
+                $leftBoarder=$currentLongitude+$radius;
+
+                $this->db->where('longitude <= ', $leftBoarder);
+                $this->db->where('longitude >= ', $rightBoarder);
+                $this->db->where('latitude <= ', $upperBoarder);
+                $this->db->where('latitude >= ', $lowerBoarder);
+
+                $query = $this->db->get('restroom');
+                $this->response($query->result(), 200);
+                break;
         }
     }
 
@@ -55,35 +87,29 @@ class toilettalkapi extends REST_Controller
     
     function user_post()
     {
-        //$this->some_model->updateUser( $this->get('id') );
-        $message = array('id' => $this->get('id'), 'name' => $this->post('name'), 'email' => $this->post('email'), 'message' => 'ADDED!');
-        
-        $this->response($message, 200); // 200 being the HTTP response code
+        $this->db->set('user_id', 'DEFAULT');
+        $this->db->set('username', $this->post('uname'));
+        $this->db->set('first_name', $this->post('fname'));
+        $this->db->set('last_name', $this->post('lname'));
+        $this->db->set('password', $this->post('password'));
+        $this->db->set('gender', $this->post('gender'));
+        $this->db->set('permission', $this->post('permission'));
+
+        $this->db->insert('users');
+
+        $this->response(array('success' => 'true'), 200);
     }
     
     function user_delete()
     {
-        //$this->some_model->deletesomething( $this->get('id') );
-        $message = array('id' => $this->get('id'), 'message' => 'DELETED!');
-        
-        $this->response($message, 200); // 200 being the HTTP response code
+        $this->db->delete('users', array('user_id' =>  $this->get('id'))); 
+
+        $this->response(array('success' => 'true'), 200); // 200 being the HTTP response code
     }
     
     function users_get()
     {
         $query = $this->db->get('users');
         $this->response($query->result(), 200);
-    }
-
-
-    public function send_post()
-    {
-        var_dump($this->request->body);
-    }
-
-
-    public function send_put()
-    {
-        var_dump($this->put('foo'));
     }
 }
