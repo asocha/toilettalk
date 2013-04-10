@@ -123,7 +123,7 @@ function createNearbyMap(center, success){
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
     var restrooms = getRestrooms1(center);   //get Restrooms from Database
-
+    
     var geocoder = new google.maps.Geocoder();
 
     for (var count = 0; restrooms && count < restrooms.length; count++){
@@ -293,11 +293,15 @@ function attachInfo(map, marker, title, stars, icons){
 //query database for Restrooms nearby 1 location
 function getRestrooms1(location){
     var request = new XMLHttpRequest();
-    request.open("GET", "../Database/phpscript/get_lat_long.php?currentLatitude="+location.lat()+"&currentLongitude="+location.lng()+"&radius=10000", false);
+    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10000", false);
     request.send();
 
-    if(request.status === 200){
+    if(request.status === 200 && request.responseText){
+        alert(request.responseText);
         return $.parseJSON(request.responseText);
+    }
+    else if (!request.responseText){
+        alert("Sorry. Your search returned no restrooms.")
     }
     else {
         alert("Error Retrieving Restrooms: " + request.status);
@@ -312,11 +316,14 @@ function getRestrooms2(location1, location2){
     var distance = Math.sqrt(Math.pow(location1.lat() - location2.lat(),2) + Math.pow(location1.lng() + location2.lng(), 2)) * 69.055;
 
     var request = new XMLHttpRequest();
-    request.open("GET", "../Database/phpscript/get_lat_long.php?currentLatitude="+centerLat+"&currentLongitude="+centerLng+"&radius="+distance+10, false);
+    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10), false);
     request.send();
 
-    if(request.status === 200){
+    if(request.status === 200 && request.responseText){
         return $.parseJSON(request.responseText);
+    }
+    else if (!request.responseText){
+        alert("Sorry. Your search returned no restrooms.")
     }
     else {
         alert("Error Retrieving Restrooms: " + request.status);
