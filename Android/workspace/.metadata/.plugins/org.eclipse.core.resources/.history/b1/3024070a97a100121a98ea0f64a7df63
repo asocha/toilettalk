@@ -10,7 +10,7 @@
         android:orientation="vertical" >
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/editText1"
             android:inputType="text"
             android:hint="@string/uname_hint"
             android:layout_width="match_parent"
@@ -18,26 +18,27 @@
             android:ems="10" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/editText2"
             android:inputType="textPassword"
             android:hint="@string/pass_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10" />
+            android:ems="10"
+            android:inputType="textPassword" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/register"
+                android:id="@+id/button1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:text="@string/register" />
 
             <Button
-                android:id="@+id/submit"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
@@ -45,7 +46,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/guest"
+            android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/continue" />
