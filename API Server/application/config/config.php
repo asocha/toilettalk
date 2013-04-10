@@ -14,7 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']	=  '';//'http://ec2-54-235-5-230.compute-1.amazonaws.com/';
+header('Access-Control-Allow-Origin: *');
+$config['base_url']	=  'http://ec2-54-235-5-230.compute-1.amazonaws.com/';
 
 /*
 |--------------------------------------------------------------------------
