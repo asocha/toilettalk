@@ -20,41 +20,47 @@ public final class R {
         public static final int yellow=0x7f040001;
     }
     public static final class dimen {
-        /**  Default screen margins, per the Android Design guidelines. 
-
+        /** 
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f050000;
-        public static final int activity_vertical_margin=0x7f050001;
-        public static final int alt_logo_margin=0x7f050003;
-        public static final int bottom_spacing=0x7f050009;
-        public static final int button_size=0x7f050002;
-        public static final int input_margin=0x7f050004;
-        public static final int login_width=0x7f050005;
-        public static final int shape_margin=0x7f050006;
-        public static final int text_bottom_button_size=0x7f050008;
-        public static final int text_button_size=0x7f050007;
+        public static final int activity_horizontal_margin=0x7f05000b;
+        /**  Default screen margins, per the Android Design guidelines. 
+         */
+        public static final int activity_vertical_margin=0x7f050000;
+        public static final int alt_logo_margin=0x7f050002;
+        public static final int button_size=0x7f050001;
+        public static final int input_margin=0x7f050003;
+        public static final int login_width=0x7f050004;
+        public static final int margin_login_bottons=0x7f050008;
+        public static final int margin_top_login_viewgroup=0x7f05000a;
+        public static final int shape_margin=0x7f050005;
+        public static final int textSize_login_butons=0x7f050006;
+        public static final int text_bottom_button_size=0x7f050007;
+        public static final int width_login_buttons=0x7f050009;
     }
     public static final class drawable {
         public static final int alt_logo=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int shape_round_bottom_yellow=0x7f020002;
-        public static final int shape_round_left_yellow=0x7f020003;
-        public static final int shape_round_right_yellow=0x7f020004;
-        public static final int shape_round_top_yellow=0x7f020005;
-        public static final int shape_round_yellow=0x7f020006;
+        public static final int button_underline_yellow=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int shape_round_bottom_yellow=0x7f020003;
+        public static final int shape_round_left_yellow=0x7f020004;
+        public static final int shape_round_right_yellow=0x7f020005;
+        public static final int shape_round_top_yellow=0x7f020006;
+        public static final int shape_round_yellow=0x7f020007;
     }
     public static final class id {
-        public static final int action_settings=0x7f090008;
-        public static final int email=0x7f090007;
-        public static final int guest=0x7f090006;
+        public static final int action_settings=0x7f09000a;
+        public static final int button_continue_guest=0x7f090007;
+        public static final int button_login=0x7f090006;
+        public static final int button_register=0x7f090005;
+        public static final int email=0x7f090008;
         public static final int input_elements=0x7f090001;
+        public static final int login_buttons=0x7f090004;
         public static final int logo=0x7f090000;
         public static final int password=0x7f090003;
-        public static final int register=0x7f090004;
-        public static final int submit=0x7f090005;
+        public static final int submit=0x7f090009;
         public static final int username=0x7f090002;
     }
     public static final class layout {
