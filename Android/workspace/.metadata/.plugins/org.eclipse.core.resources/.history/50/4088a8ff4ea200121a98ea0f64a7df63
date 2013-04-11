@@ -9,7 +9,4 @@
     <string name="continue_guest">Continue as guest</string>
 	<string name="uname_hint">Username</string>
 	<string name="pass_hint">Password</string>
-	<string name="email">Email Address</string>
-	<string name="gender">Gender</string>
-	<string name="reg_submit">Sign me up!</string>
 </resources>

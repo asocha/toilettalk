@@ -48,7 +48,7 @@
             android:id="@+id/guest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/continue_guest" />
+            android:text="@string/continue" />
 
     </LinearLayout>
 

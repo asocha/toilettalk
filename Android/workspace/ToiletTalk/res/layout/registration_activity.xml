@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal" >
 
-    <LinearLayout
+   <LinearLayout
         android:layout_width="250dp"
         android:layout_height="match_parent"
         android:orientation="vertical" >
@@ -24,31 +24,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/register"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:text="@string/register" />
-
-            <Button
-                android:id="@+id/submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight=".5"
-                android:text="@string/login" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/guest"
+        
+        <EditText
+            android:id="@+id/email"
+            android:inputType="text"
+            android:hint="@string/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/continue_guest" />
+            android:ems="10" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reg_submit" />
 
     </LinearLayout>
 
