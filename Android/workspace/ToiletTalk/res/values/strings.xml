@@ -12,4 +12,5 @@
 	<string name="email">Email Address</string>
 	<string name="gender">Gender</string>
 	<string name="reg_submit">Sign me up!</string>
+	<string name="logo_description">Toilet Talk</string>
 </resources>
