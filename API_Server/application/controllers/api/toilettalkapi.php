@@ -76,6 +76,8 @@ class toilettalkapi extends REST_Controller
             $this->response(NULL, 400);
         }
 
+
+
         else
         {
             $this->db->where('user_id', $this->get('id'));
@@ -86,18 +88,35 @@ class toilettalkapi extends REST_Controller
     }
     
     function user_post()
-    {
-        $this->db->set('user_id', 'DEFAULT');
-        $this->db->set('username', $this->post('uname'));
-        $this->db->set('first_name', $this->post('fname'));
-        $this->db->set('last_name', $this->post('lname'));
-        $this->db->set('password', $this->post('password'));
-        $this->db->set('gender', $this->post('gender'));
-        $this->db->set('permission', $this->post('permission'));
+    {   
+    	$this->db->where('username', $this->post('uname'));
+	$test_query = $this->db->get('users');
+	
+	$slt = '$5$'.mcrypt_create_iv(40, MCRYPT_RAND);
+	$hash = crypt($this->post('password'), $slt);
 
-        $this->db->insert('users');
+    	if($test_query->num_rows()==0)        
+	{    
+		$this->db->set('user_id', 'DEFAULT');
+		$this->db->set('username', $this->post('uname'));
+		$this->db->set('first_name', $this->post('fname'));
+		$this->db->set('last_name', $this->post('lname'));
+		$this->db->set('hash', $this->post('hash'));
+		$this->db->set('gender', $this->post('gender'));
+		$this->db->set('permission', $this->post('permission'));
+		$this->db->set('email', $this->post('email'));
+		$this->db->set('salt', $slt);
 
-        $this->response(array('success' => 'true'), 200);
+		$this->db->insert('users');
+
+		$this->response(array('success' => 'true'), 200);
+        }
+        
+    	else
+    	{
+		$this->response(array('success' => 'false'), 409);
+    	}
+
     }
     
     function user_delete()
@@ -112,4 +131,5 @@ class toilettalkapi extends REST_Controller
         $query = $this->db->get('users');
         $this->response($query->result(), 200);
     }
+    
 }
