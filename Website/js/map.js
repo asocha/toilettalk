@@ -2,9 +2,16 @@ var lastInfoWindow; //tracks the last info window to open
 
 window.onload = function(){
     initializeNearby();
-    //document.getElementById("Search").onclick=initializeSearch("Plano, TX");
-    //document.getElementById("Nearby").onclick=initializeNearby();
-    //document.getElementById("RoadTrip").onclick=initializeRoute("Dallas, TX", "Austin, TX");
+    if(document.getElementById("SearchButton")){
+        document.getElementById("SearchButton").addEventListener('click',function(){initializeSearch(document.getElementById('location').value);},false);
+        document.getElementById("NearbyButton").addEventListener('click',initializeNearby,false);
+        document.getElementById("RouteButton").addEventListener('click',function(){initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);},false);
+
+        var options = {types: ['geocode']};
+        var autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('location'),options);
+        var autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('origin'),options);
+        var autocomplete3 = new google.maps.places.Autocomplete(document.getElementById('destination'),options);
+    }
 }
 
 //create Road Map and directions
