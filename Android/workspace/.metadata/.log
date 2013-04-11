@@ -1255,3 +1255,45 @@ java.lang.NullPointerException
 
 !ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 13:59:03.212
 !MESSAGE activity_main.xml: "@dimen/activity_vertical_margin" in attribute "paddingBottom" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.916
+!MESSAGE activity_main.xml: Couldn't resolve resource @dimen/activity_horizontal_margin
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.931
+!MESSAGE activity_main.xml: Couldn't resolve resource @dimen/activity_vertical_margin
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.931
+!MESSAGE activity_main.xml: Couldn't resolve resource @dimen/activity_horizontal_margin
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.931
+!MESSAGE activity_main.xml: Couldn't resolve resource @dimen/activity_vertical_margin
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.931
+!MESSAGE activity_main.xml: "@dimen/activity_horizontal_margin" in attribute "paddingLeft" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.931
+!MESSAGE activity_main.xml: "@dimen/activity_vertical_margin" in attribute "paddingTop" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.931
+!MESSAGE activity_main.xml: "@dimen/activity_horizontal_margin" in attribute "paddingRight" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 2 0 2013-04-11 14:04:13.931
+!MESSAGE activity_main.xml: "@dimen/activity_vertical_margin" in attribute "paddingBottom" is not a valid format.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 14:04:36.103
+!MESSAGE registration_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 14:10:09.791
+!MESSAGE registration_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 14:27:15.900
+!MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 14:27:40.212
+!MESSAGE registration_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 14:34:47.766
+!MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 14:35:07.836
+!MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.

@@ -64,7 +64,7 @@
 		android:layout_height="@dimen/height_button_login_bottom"
 		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
-		android:background="@drawable/shape_round_top_yellow_animated"
+		android:background="@drawable/shape_round_top_yellow"
 		android:text="@string/reg_submit"
 		android:textStyle="bold"
 		android:textColor="@color/black"
