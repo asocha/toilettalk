@@ -62,7 +62,7 @@ public final class R {
         public static final int login_buttons=0x7f090004;
         public static final int logo=0x7f090000;
         public static final int password=0x7f090003;
-        public static final int submit=0x7f090009;
+        public static final int register_button=0x7f090009;
         public static final int username=0x7f090002;
     }
     public static final class layout {

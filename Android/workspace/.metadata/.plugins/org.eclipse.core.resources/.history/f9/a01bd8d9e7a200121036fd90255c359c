@@ -16,7 +16,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        ctx = getApplication();
         
         //References buttons
         Button registerButton = (Button) findViewById(R.id.button_register);
