@@ -30,8 +30,6 @@
             android:hint="@string/uname_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/input_margin"
-   	    	android:layout_marginBottom="@dimen/input_margin"
             android:ems="10" />
 
         <EditText
@@ -40,8 +38,6 @@
             android:hint="@string/pass_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/input_margin"
-   	    	android:layout_marginBottom="@dimen/input_margin"
             android:ems="10" />
 
         <LinearLayout

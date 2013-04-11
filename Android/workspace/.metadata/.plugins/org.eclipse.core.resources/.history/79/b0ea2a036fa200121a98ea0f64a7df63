@@ -13,31 +13,32 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         
-        //References buttons
         Button registerButton = (Button) findViewById(R.id.register);
         Button loginButton = (Button) findViewById(R.id.submit);
         Button guestButton = (Button) findViewById(R.id.guest);
         
-        //Create onClickListener Variables
-        View.OnClickListener registerHandler = new View.OnClickListener() {
-            public void onClick(View v) {
-            	setContentView(R.layout.registration_activity);
-            }
-        };
+        View.OnClickListener registerHandler;
+        View.OnClickListener loginHandler;
+        View.OnClickListener guestHandler;
         
-        View.OnClickListener loginHandler = new View.OnClickListener() {
+        registerHandler = new View.OnClickListener() {
             public void onClick(View v) {
 
             }
         };
         
-        View.OnClickListener guestHandler = new View.OnClickListener() {
+        loginHandler = new View.OnClickListener() {
             public void onClick(View v) {
 
             }
         };
         
-        //set onClickListers to buttons
+        guestHandler = new View.OnClickListener() {
+            public void onClick(View v) {
+
+            }
+        };
+        
         registerButton.setOnClickListener(registerHandler);
         loginButton.setOnClickListener(loginHandler);
         guestButton.setOnClickListener(guestHandler);

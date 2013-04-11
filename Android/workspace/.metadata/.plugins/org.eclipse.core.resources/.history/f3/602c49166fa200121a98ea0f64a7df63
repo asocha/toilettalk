@@ -19,25 +19,25 @@ public class MainActivity extends Activity {
         Button guestButton = (Button) findViewById(R.id.guest);
         
         //Create onClickListener Variables
+        
         View.OnClickListener registerHandler = new View.OnClickListener() {
             public void onClick(View v) {
-            	setContentView(R.layout.registration_activity);
+
             }
         };
         
-        View.OnClickListener loginHandler = new View.OnClickListener() {
+        View.OnClickListenerloginHandler = new View.OnClickListener() {
             public void onClick(View v) {
 
             }
         };
         
-        View.OnClickListener guestHandler = new View.OnClickListener() {
+        View.OnClickListenerguestHandler = new View.OnClickListener() {
             public void onClick(View v) {
 
             }
         };
         
-        //set onClickListers to buttons
         registerButton.setOnClickListener(registerHandler);
         loginButton.setOnClickListener(loginHandler);
         guestButton.setOnClickListener(guestHandler);
