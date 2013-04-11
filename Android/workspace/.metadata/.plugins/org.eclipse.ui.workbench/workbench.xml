@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="9" version="2.0">
+<workbench progressCount="27" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="1024" x="250" y="250">
+<window height="768" maximized="true" width="1024" x="792" y="-7">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="250"/>
@@ -16,6 +16,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="107" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -23,6 +24,7 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -33,11 +35,13 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="3"/>
 <part id="0"/>
 <part id="1"/>
+<part id="3"/>
 <part id="2"/>
+<part id="5"/>
 <part id="4"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
@@ -48,14 +52,21 @@
 <editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="colors.xml" partName="colors.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/values/colors.xml" title="colors.xml" tooltip="ToiletTalk/res/values/colors.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/values/colors.xml"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="styles.xml" partName="styles.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/values/styles.xml" title="styles.xml" tooltip="ToiletTalk/res/values/styles.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/values/styles.xml"/>
-</editor>
 <editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="login_activity.xml" partName="login_activity.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/layout/login_activity.xml" title="login_activity.xml" tooltip="ToiletTalk/res/layout/login_activity.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/layout/login_activity.xml"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" partName="strings.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/values/strings.xml" title="strings.xml" tooltip="ToiletTalk/res/values/strings.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/values/strings.xml"/>
+<editor id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" partName="ToiletTalk Manifest" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/AndroidManifest.xml" title="ToiletTalk Manifest" tooltip="ToiletTalk/AndroidManifest.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/AndroidManifest.xml"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="dimens.xml" partName="dimens.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/values/dimens.xml" title="dimens.xml" tooltip="ToiletTalk/res/values/dimens.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/values/dimens.xml"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="registration_activity.xml" partName="registration_activity.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/layout/registration_activity.xml" title="registration_activity.xml" tooltip="ToiletTalk/res/layout/registration_activity.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/layout/registration_activity.xml"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" title="MainActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="849" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -73,7 +84,8 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Errors (2 items)"/>
+<category IMemento.internal.id="Warnings (1 item)"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -119,7 +131,7 @@
 <view id="com.android.ide.eclipse.ddms.views.AllocTrackerView" partName="Allocation Tracker"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="com.android.ide.eclipse.editors.CommonXmlEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="0" fixed="0" version="0.016">
 <descriptor class="com.android.ide.eclipse.ddms.Perspective" id="com.android.ide.eclipse.ddms.Perspective" label="DDMS"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -278,8 +290,8 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="250" ratioRight="750" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.7496136" ratioLeft="485" ratioRight="162" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<info folder="true" part="bottom" ratio="0.7794677" ratioLeft="820" ratioRight="232" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
@@ -315,80 +327,96 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/activity_main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/ToiletTalk/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/colors.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/styles.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/login_activity.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/registration_activity.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/ToiletTalk/AndroidManifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/dimens.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/styles.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/ToiletTalk/res/layout/login_activity.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/strings.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/colors.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/registration_activity.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/activity_main.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/ToiletTalk/res/layout/registration_activity.xml"/>
 </editors>
-<item historyLabel="login_activity.xml" index="5">
-<position info="not_deleted" x="40" y="0"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="MainActivity.java" index="5">
+<position info="not_deleted" x="325" y="0"/>
 </item>
-<item historyLabel="login_activity.xml" index="5">
-<position info="not_deleted" x="1912" y="0"/>
+<item historyLabel="styles.xml" index="4"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="registration_activity.xml" index="1"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="registration_activity.xml" index="1"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="MainActivity.java" index="5">
+<position info="not_deleted" x="325" y="0"/>
 </item>
-<item historyLabel="login_activity.xml" index="5">
-<position info="not_deleted" x="40" y="0"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="styles.xml" index="4"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="registration_activity.xml" index="1"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="login_activity.xml" index="0">
+<position info="not_deleted" x="3052" y="428"/>
 </item>
-<item historyLabel="ToiletTalk Manifest" index="1"/>
-<item historyLabel="activity_main.xml" index="0"/>
-<item historyLabel="ToiletTalk Manifest" index="1"/>
-<item historyLabel="login_activity.xml" index="4">
-<position info="not_deleted" x="1912" y="0"/>
+<item historyLabel="ToiletTalk Manifest" index="2"/>
+<item historyLabel="colors.xml" index="7"/>
+<item historyLabel="ToiletTalk Manifest" index="2"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="registration_activity.xml" index="8"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="registration_activity.xml" index="8"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="registration_activity.xml" index="8"/>
+<item historyLabel="login_activity.xml" index="0">
+<position info="not_deleted" x="3476" y="0"/>
 </item>
-<item historyLabel="login_activity.xml" index="5">
-<position info="not_deleted" x="40" y="0"/>
+<item historyLabel="login_activity.xml" index="6">
+<position info="not_deleted" x="1979" y="502"/>
 </item>
-<item historyLabel="activity_main.xml" index="0"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="styles.xml" index="3"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="styles.xml" index="3"/>
-<item historyLabel="activity_main.xml" index="0"/>
-<item historyLabel="login_activity.xml" index="4">
-<position info="not_deleted" x="979" y="0"/>
+<item historyLabel="MainActivity.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="login_activity.xml" index="5">
-<position info="not_deleted" x="883" y="665"/>
+<item historyLabel="MainActivity.java" index="5">
+<position/>
 </item>
-<item historyLabel="activity_main.xml" index="0"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="styles.xml" index="3"/>
-<item historyLabel="colors.xml" index="2"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4">
-<position info="not_deleted" x="1696" y="193"/>
+<item historyLabel="MainActivity.java" index="5">
+<position info="not_deleted" x="554" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="styles.xml" index="3"/>
-<item historyLabel="colors.xml" index="2"/>
-<item historyLabel="ToiletTalk Manifest" index="1"/>
-<item historyLabel="activity_main.xml" index="0"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="styles.xml" index="3"/>
-<item historyLabel="colors.xml" index="2"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="activity_main.xml" index="0"/>
-<item historyLabel="colors.xml" index="2"/>
-<item historyLabel="styles.xml" index="3"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="strings.xml" index="6"/>
-<item historyLabel="login_activity.xml" index="4"/>
-<item historyLabel="strings.xml" index="6"/>
-<item active="true" historyLabel="login_activity.xml" index="4"/>
+<item historyLabel="registration_activity.xml" index="8"/>
+<item historyLabel="dimens.xml" index="3"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="MainActivity.java" index="5">
+<position info="not_deleted" x="554" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="5">
+<position info="not_deleted" x="849" y="0"/>
+</item>
+<item historyLabel="ToiletTalk Manifest" index="2"/>
+<item historyLabel="colors.xml" index="7"/>
+<item historyLabel="activity_main.xml" index="9"/>
+<item historyLabel="login_activity.xml" index="0"/>
+<item historyLabel="registration_activity.xml" index="8">
+<position info="not_deleted" x="2715" y="0"/>
+</item>
+<item historyLabel="registration_activity.xml" index="10">
+<position info="not_deleted" x="1448" y="393"/>
+</item>
+<item historyLabel="login_activity.xml" index="0">
+<position info="not_deleted" x="1911" y="0"/>
+</item>
+<item active="true" historyLabel="login_activity.xml" index="6">
+<position info="not_deleted" x="1046" y="386"/>
+</item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -407,11 +435,23 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="registration_activity.xml" tooltip="ToiletTalk/res/layout/registration_activity.xml">
+<persistable path="/ToiletTalk/res/layout/registration_activity.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="shape_round_left_yellow.xml" tooltip="ToiletTalk/res/drawable/shape_round_left_yellow.xml">
+<persistable path="/ToiletTalk/res/drawable/shape_round_left_yellow.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="shape_round_right_yellow.xml" tooltip="ToiletTalk/res/drawable/shape_round_right_yellow.xml">
+<persistable path="/ToiletTalk/res/drawable/shape_round_right_yellow.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="shape_round_bottom_yellow.xml" tooltip="ToiletTalk/res/drawable/shape_round_bottom_yellow.xml">
+<persistable path="/ToiletTalk/res/drawable/shape_round_bottom_yellow.xml"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" tooltip="ToiletTalk/res/values/strings.xml">
 <persistable path="/ToiletTalk/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="login_activity.xml" tooltip="ToiletTalk/res/layout/login_activity.xml">
-<persistable path="/ToiletTalk/res/layout/login_activity.xml"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="styles.xml" tooltip="ToiletTalk/res/values/styles.xml">
 <persistable path="/ToiletTalk/res/values/styles.xml"/>
@@ -419,17 +459,26 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="dimens.xml" tooltip="ToiletTalk/res/values/dimens.xml">
 <persistable path="/ToiletTalk/res/values/dimens.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="colors.xml" tooltip="ToiletTalk/res/values/colors.xml">
-<persistable path="/ToiletTalk/res/values/colors.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="shape_round_yellow.xml" tooltip="ToiletTalk/res/drawable/shape_round_yellow.xml">
+<persistable path="/ToiletTalk/res/drawable/shape_round_yellow.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="shape_round_top_yellow.xml" tooltip="ToiletTalk/res/drawable/shape_round_top_yellow.xml">
+<persistable path="/ToiletTalk/res/drawable/shape_round_top_yellow.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UDF.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/UDF.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/UDF.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="Bold.otf" tooltip="ToiletTalk/assets/fonts/Bold.otf">
+<persistable path="/ToiletTalk/assets/fonts/Bold.otf"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="ToiletTalk/AndroidManifest.xml">
 <persistable path="/ToiletTalk/AndroidManifest.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="ic_launcher.png" tooltip="ToiletTalk/res/drawable-xxhdpi/ic_launcher.png">
-<persistable path="/ToiletTalk/res/drawable-xxhdpi/ic_launcher.png"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="login_activity.xml" tooltip="ToiletTalk/res/layout/login_activity.xml">
+<persistable path="/ToiletTalk/res/layout/login_activity.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="ToiletTalk/res/layout/activity_main.xml">
-<persistable path="/ToiletTalk/res/layout/activity_main.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="colors.xml" tooltip="ToiletTalk/res/values/colors.xml">
+<persistable path="/ToiletTalk/res/values/colors.xml"/>
 </file>
 </mruList>
 </workbench>
