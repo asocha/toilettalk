@@ -1,0 +1,5 @@
+package com.pottymouth.toilettalk.api;
+
+public class POST_user {
+
+}

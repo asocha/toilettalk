@@ -7,10 +7,10 @@
   
   <!-- Specify the margins that all content inside the drawable must adhere to -->
   <padding
-    android:left="@dimen/shape_margin"
-    android:right="@dimen/shape_margin"
-    android:top="@dimen/shape_margin"
-    android:bottom="@dimen/shape_margin" />
+    android:left="@dimen/margin_drawable_shape_interior_padding"
+    android:right="@dimen/margin_drawable_shape_interior_padding"
+    android:top="@dimen/margin_drawable_shape_interior_padding"
+    android:bottom="@dimen/margin_drawable_shape_interior_padding" />
   
   <corners
     android:bottomLeftRadius="10dp"

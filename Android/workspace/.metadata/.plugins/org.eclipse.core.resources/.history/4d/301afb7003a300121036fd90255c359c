@@ -1,0 +1,17 @@
+package com.pottymouth.toilettalk;
+
+import android.util.Log;
+
+public class ToiletTalkAPI {
+	
+	public ToiletTalkAPI()
+	{
+		Log.d("log", "Created ToiletTalkAPI");
+		return;
+	}
+	
+	public String hello()
+	{
+		return "hello";
+	}
+}
