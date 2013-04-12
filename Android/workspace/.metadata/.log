@@ -1297,3 +1297,27 @@ java.lang.NullPointerException
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 14:35:07.836
 !MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 15:45:35.410
+!MESSAGE registration_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 15:45:51.163
+!MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 17:32:35.264
+!MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 18:26:35.629
+!MESSAGE registration_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 18:50:33.878
+!MESSAGE registration_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 21:43:44.143
+!MESSAGE registration_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 21:44:19.336
+!MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-11 23:09:09.277
+!MESSAGE login_activity.xml: Different corner sizes are not supported in Path.addRoundRect.

@@ -1,0 +1,14 @@
+package com.pottymouth.toilettalk;
+
+public class ToiletTalkAPI {
+	
+	public ToiletTalkAPI()
+	{
+		return;
+	}
+	
+	public String hello()
+	{
+		return "hello";
+	}
+}
