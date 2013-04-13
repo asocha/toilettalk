@@ -295,6 +295,11 @@ function attachInfo(map, marker, title, stars, icons){
         infoWindow.open(map,marker);
         lastInfoWindow = infoWindow;
     });
+
+
+    //add Restroom to the side navigation list
+    var nav = document.getElementsByClassName("Restrooms")[0];
+    nav.innerHTML += title;
 }
 
 //query database for Restrooms nearby 1 location

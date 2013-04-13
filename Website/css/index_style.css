@@ -33,7 +33,7 @@ body{
 	float:left;
 }
 
-#infor,#Fun_Facts,#map{
+#infor,#Fun_Facts,#mapfield{
     background-color: #001157; 
     color:white;      
 }
@@ -49,7 +49,7 @@ body{
 	float:left;
 }
 
-#map {
+#mapfield {
 	width: 465px;
     height: 450px;
 	margin-top: 0.0002cm;
@@ -168,34 +168,44 @@ ul.sidenav li a{
 
 ul.sidenav li a:hover {
 	background: #003867;
- 	height: 355px;
+ 	height: 250px;
  	overflow: hidden;
    	/*Animation*/
   	transition: height 2s ease;
 }
 
-#home2{
+li#Restrooms a{
+	height: 350px;
+}
+
+li#Restrooms span{
+	display: block;
+}
+
+div.Restrooms{
+	overflow: auto;
+}
+/*
+#Restrooms{
  	height: 314px;
  	width:250px;
  	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	color:#D00000;
-	font-size:30px;
 	text-align:center;
 }
 
-#home2 span{
+#Restrooms span{
 	color:#D00000;
 }
-
+*/
 ul.sidenav li span{ 
 	display: none; 
-	
+	font-size: 0.8em;
+ 	padding: 10px 0;
 }
 
 ul.sidenav li a:hover span {
  	display: block;
- 	font-size: 0.8em;
- 	padding: 10px 0;
 }
 
 #info a,#Fun-Facts p{

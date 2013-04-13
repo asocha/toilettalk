@@ -28,16 +28,17 @@ body{
 	height: 100px;
 }
 
-.infoBox h1.restroomName{
+.infoBox h1.restroomName, div.Restrooms h1.restroomName{
 	margin: 0;
+	font-size: 1.5em;
 }
 
-.infoBox img.star{
+.infoBox img.star, div.Restrooms img.star{
 	height: 15px;
 	width: 15px;
 }
 
-.infoBox img.icon{
+.infoBox img.icon, div.Restrooms img.icon{
 	height: 20px;
 	width: 20px;
 }
