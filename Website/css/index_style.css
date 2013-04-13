@@ -158,19 +158,20 @@ ul.sidenav li a{
  	color: #D00000;
  	text-decoration: none;
  	width: 250px;
+ 	height: 25px;
  	padding: 10px 10px 10px 35px;
  	border-top: 1px solid #3373a9;
  	border-bottom: 1px solid #003867;
  	background-color: #001157;
+ 	overflow: hidden;
  }
 
 ul.sidenav li a:hover {
 	background: #003867;
  	height: 355px;
- 	width:250px;
  	overflow: hidden;
    	/*Animation*/
-  	-webkit-transition: height 2s ease;
+  	transition: height 2s ease;
 }
 
 #home2{
