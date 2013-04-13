@@ -2,6 +2,8 @@ var lastInfoWindow; //tracks the last info window to open
 
 window.onload = function(){
     initializeNearby();
+
+    //remaining code only runs on website, not on Android
     if(document.getElementById("SearchButton")){
         document.getElementById("SearchButton").addEventListener('click',function(){initializeSearch(document.getElementById('location').value);},false);
         document.getElementById("NearbyButton").addEventListener('click',initializeNearby,false);
