@@ -29,7 +29,6 @@ body{
 
 #brand{
 	width: 330px;
-	float: top;
 	float:left;
 }
 
@@ -62,7 +61,7 @@ body{
 
 /*#logining{
 	width: 300px;
-        height: 70px;
+    height: 70px;
 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	float: right;
 }*/
@@ -76,6 +75,12 @@ body{
 	border-color:#001157;
 	margin-top:0.4cm;
         
+}
+
+#border ul{
+	list-style: none;
+	margin: 5px;
+	padding: 0;
 }
 
 div {
@@ -106,10 +111,6 @@ div {
 	font-family:arial;
 	line-height:17px;
 	text-align:center;
-	border-right:5px solid #F0F0F0;
-	border-left:5px solid #F0F0F0;
-	border-top: 5px solid #F0F0F0;
-	border-bottom: 5px solid #F0F0F0;
 	background: #F0F0F0;
 }
 
@@ -153,7 +154,7 @@ ul.sidenav {
  	border-top: 1px solid #003867;
 }
 
-ul.sidenav li a{
+ul.sidenav li{
  	display: block;
  	color: #D00000;
  	text-decoration: none;
@@ -166,7 +167,7 @@ ul.sidenav li a{
  	overflow: hidden;
  }
 
-ul.sidenav li a:hover {
+ul.sidenav li:hover {
 	background: #003867;
  	height: 250px;
  	overflow: hidden;
@@ -174,7 +175,7 @@ ul.sidenav li a:hover {
   	transition: height 2s ease;
 }
 
-li#Restrooms a{
+li#Restrooms{
 	height: 350px;
 }
 
@@ -185,30 +186,18 @@ li#Restrooms span{
 div.Restrooms{
 	overflow: auto;
 }
-/*
-#Restrooms{
- 	height: 314px;
- 	width:250px;
- 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-	color:#D00000;
-	text-align:center;
-}
 
-#Restrooms span{
-	color:#D00000;
-}
-*/
 ul.sidenav li span{ 
 	display: none; 
 	font-size: 0.8em;
  	padding: 10px 0;
 }
 
-ul.sidenav li a:hover span {
+ul.sidenav li:hover span {
  	display: block;
 }
 
-#info a,#Fun-Facts p{
+#Fun-Facts p{
 	width:500px;
 	margin:0px auto;
 	text-align:left;
@@ -216,41 +205,3 @@ ul.sidenav li a:hover span {
 	border:1px dashed #333;
 	background-color:#004a80;
 }
-
-#info a{
-  	width : 200px;
-  	height : auto;
-  	display : block;
-  	text-decoration : none;
-  	background-color : #004a80;
-  	color : white;
-  	font-weight : bold;
-  	padding : 3px 10px; 
-  	outline : 0;
-	color:white;
-	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-    font-size: 40px;
-  	line-height: 65px;
-	padding:14px;
-  	border : 10px outset #909090;
-}
-
-#info a:hover, #info a:focus {
-  	border : 10px outset #909090;
-  	background-color : #000066;
-  	color : #fff;
-}
-
-#info a:active {
-  	border : 10px outset #C0C0C0;
-  	background-color : #000066; /* the darker colors help create the effect */
-  	color : white;
-  	padding : 9px 18px 11px 16px; /* these new padding values are the mainstay or the effect to create natural movement */
-}
-
-#m{
-	margin-top:0.001cm;
-	width: 460px;
-    height: 430px;
-}
-
