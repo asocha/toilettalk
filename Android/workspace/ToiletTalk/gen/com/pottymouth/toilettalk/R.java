@@ -40,17 +40,20 @@ public final class R {
     }
     public static final class drawable {
         public static final int alt_logo=0x7f020000;
-        public static final int button_underline_orange=0x7f020001;
-        public static final int button_underline_yellow=0x7f020002;
-        public static final int button_underline_yellow_animated=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int shape_round_bottom_yellow=0x7f020005;
-        public static final int shape_round_left_yellow=0x7f020006;
-        public static final int shape_round_right_yellow=0x7f020007;
-        public static final int shape_round_top_orange=0x7f020008;
-        public static final int shape_round_top_yellow=0x7f020009;
-        public static final int shape_round_top_yellow_animated=0x7f02000a;
-        public static final int shape_round_yellow=0x7f02000b;
+        public static final int beta_orange=0x7f020001;
+        public static final int beta_white=0x7f020002;
+        public static final int beta_yellow=0x7f020003;
+        public static final int button_underline_orange=0x7f020004;
+        public static final int button_underline_yellow=0x7f020005;
+        public static final int button_underline_yellow_animated=0x7f020006;
+        public static final int ic_launcher=0x7f020007;
+        public static final int shape_round_bottom_yellow=0x7f020008;
+        public static final int shape_round_left_yellow=0x7f020009;
+        public static final int shape_round_right_yellow=0x7f02000a;
+        public static final int shape_round_top_orange=0x7f02000b;
+        public static final int shape_round_top_yellow=0x7f02000c;
+        public static final int shape_round_top_yellow_animated=0x7f02000d;
+        public static final int shape_round_yellow=0x7f02000e;
     }
     public static final class id {
         public static final int action_settings=0x7f09000a;
