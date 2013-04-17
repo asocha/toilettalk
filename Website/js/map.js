@@ -102,26 +102,7 @@ innerloop:      for (index in path){
 }
 
 function GeoLocateSuccess(position){
-    createNearbyMap(new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 1);   //geolocate user's current position
-}
-
-function GeoLocateError(msg){
-    alert("Geolocation error: " + msg.code + "\nCould not get your current location, defaulting to Dallas, Texas.");
-    createNearbyMap(new google.maps.LatLng(32.779193,-96.800537), 0);
-}
-
-//create nearby Restrooms
-function initializeNearby() {
-    if (navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(GeoLocateSuccess,GeoLocateError);
-    }
-    else{
-        alert("Could not get your current location, defaulting to Dallas, Texas.");
-        createNearbyMap(new google.maps.LatLng(32.779193,-96.800537), 0);
-    }
-}
-
-function createNearbyMap(center, success){
+    var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //geolocate user's current position
     var mapOptions = {
         center: center,
         zoom: 7,
@@ -131,6 +112,55 @@ function createNearbyMap(center, success){
     //render map
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
+    var listener = google.maps.event.addListener(map, 'tilesloaded', function(event) {
+        createNearbyMap(map, center, 1);
+        google.maps.event.removeListener(listener);
+    });
+}
+
+function GeoLocateError(msg){
+    alert("Geolocation error: " + msg.code + "\nCould not get your current location, defaulting to Dallas, Texas.");
+    var center = new google.maps.LatLng(32.779193,-96.800537);
+    var mapOptions = {
+        center: center,
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    //render map
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+    var listener = google.maps.event.addListener(map, 'tilesloaded', function(event) {
+        createNearbyMap(map, center, 0);
+        google.maps.event.removeListener(listener);
+    });
+}
+
+//create nearby Restrooms
+function initializeNearby() {
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(GeoLocateSuccess,GeoLocateError);
+    }
+    else{
+        alert("Could not get your current location, defaulting to Dallas, Texas.");
+        var center = new google.maps.LatLng(32.779193,-96.800537);
+        var mapOptions = {
+            center: center,
+            zoom: 7,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        //render map
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        var listener = google.maps.event.addListener(map, 'tilesloaded', function(event) {
+            createNearbyMap(map, center, 0);
+            google.maps.event.removeListener(listener);
+        });
+    }
+}
+
+function createNearbyMap(map, center, success){
     var restrooms = getRestrooms1(center);   //get Restrooms from Database
     
     var geocoder = new google.maps.Geocoder();
@@ -185,7 +215,20 @@ function initializeSearch(address) {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            createSearchMap(results[0].geometry.location, address);
+            var coords = results[0].geometry.location;
+            var mapOptions = {
+                center: coords,
+                zoom: 7,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            //render map
+            var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+            var listener = google.maps.event.addListener(map, 'tilesloaded', function(event) {
+                createSearchMap(map, coords, address);
+                google.maps.event.removeListener(listener);
+            });
         }
         else {
             alert("Sorry. We were unable to find that location.\nError: " + status);
@@ -193,16 +236,7 @@ function initializeSearch(address) {
     });
 }
 
-function createSearchMap(coords, address){
-    var mapOptions = {
-        center: coords,
-        zoom: 7,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    //render map
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
+function createSearchMap(map, coords, address){
     var restrooms = getRestrooms1(coords);   //get Restrooms from Database
 
     var geocoder = new google.maps.Geocoder();
@@ -298,7 +332,6 @@ function attachInfo(map, marker, title, stars, icons){
         lastInfoWindow = infoWindow;
     });
 
-
     //add Restroom to the side navigation list
     var nav = document.getElementsByClassName("Restrooms")[0];
     nav.innerHTML += title;
@@ -307,7 +340,7 @@ function attachInfo(map, marker, title, stars, icons){
 //query database for Restrooms nearby 1 location
 function getRestrooms1(location){
     var request = new XMLHttpRequest();
-    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10000", false);
+    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10", false);
     request.send();
 
     if(request.status === 200 && request.responseText){

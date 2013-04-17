@@ -185,6 +185,8 @@ li#Restrooms span{
 
 div.Restrooms{
 	overflow: auto;
+	max-height: 240px;
+	width: 210px;
 }
 
 ul.sidenav li span{ 
