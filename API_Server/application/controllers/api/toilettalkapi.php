@@ -24,6 +24,36 @@ class toilettalkapi extends REST_Controller
         $this->response($result, 200);
     }
 
+    function login_post()
+    {
+        $this->db->select('hash');
+        $this->db->select('salt');
+        $this->db->where('username', $this->post('uname'));
+
+        $query = $this->db->get('users');
+
+        if(!$query->result()){
+            $this->response(array('success' => 'false'), 400);
+        }
+
+        else{
+            $row = $query->row();
+
+            $hash = $row->hash;
+            $slt = $row->salt;
+
+            $tempHash = crypt($this->post('password'), $slt);
+
+            if($hash == $tempHash){
+                $this->response(array('success' => 'true'), 200);
+            }
+
+            else{
+                $this->response(array('success' => 'false'), 200);
+            }
+        }
+    }
+
     function response_get()
     {
         if(!$this->get('id'))
@@ -87,34 +117,34 @@ class toilettalkapi extends REST_Controller
         }
     }
     
-    function user_post()
-    {   
-    	$this->db->where('username', $this->post('uname'));
-	$test_query = $this->db->get('users');
-	
-	$slt = '$5$'.mcrypt_create_iv(40, MCRYPT_RAND);
-	$hash = crypt($this->post('password'), $slt);
+    function user_post(){   
 
-    	if($test_query->num_rows()==0)        
-	{    
-		$this->db->set('user_id', 'DEFAULT');
-		$this->db->set('username', $this->post('uname'));
-		$this->db->set('first_name', $this->post('fname'));
-		$this->db->set('last_name', $this->post('lname'));
-		$this->db->set('hash', $this->post('hash'));
-		$this->db->set('gender', $this->post('gender'));
-		$this->db->set('permission', $this->post('permission'));
-		$this->db->set('email', $this->post('email'));
-		$this->db->set('salt', $slt);
+        $this->db->where('username', $this->post('uname'));
+        $test_query = $this->db->get('users');
 
-		$this->db->insert('users');
+        $slt = '$5$'.mcrypt_create_iv(5, MCRYPT_RAND);
+        $hash = crypt($this->post('password'), $slt);
 
-		$this->response(array('success' => 'true'), 200);
+        if($test_query->num_rows()==0)        
+        {       
+    		$this->db->set('user_id', 'DEFAULT');
+    		$this->db->set('username', $this->post('uname'));
+    		$this->db->set('first_name', $this->post('fname'));
+    		$this->db->set('last_name', $this->post('lname'));
+    		$this->db->set('hash', $hash);
+    		$this->db->set('gender', $this->post('gender'));
+    		$this->db->set('permission', $this->post('permission'));
+    		$this->db->set('email', $this->post('email'));
+    		$this->db->set('salt', $slt);
+
+    		$this->db->insert('users');
+            $this->response($slt, 200);
+    		//$this->response(array('success' => 'true'), 200);
         }
         
     	else
     	{
-		$this->response(array('success' => 'false'), 409);
+            $this->response(array('success' => 'false'), 409);
     	}
 
     }
