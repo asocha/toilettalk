@@ -12,18 +12,60 @@ require APPPATH.'/libraries/REST_Controller.php';
 
 class toilettalkapi extends REST_Controller
 {
+    /*
+     *  Test Function
+     *  Not part of API
+     */
     function test_get()
     {
         $result = array('key' => $this->get('id'), 'parameter' => $this->get('parm')); 
         $this->response($result, 200);
     }
 
+    /*
+     *  Test Function
+     *  Not part of API
+     */
     function test_post()
     {
         $result = array('key' => $this->post('id'), 'parameter' => $this->post('parm')); 
         $this->response($result, 200);
     }
 
+    /*
+     *  Test Function
+     *  Not part of API
+     */
+    function session_get()
+    {
+        $result = array('key' => $this->get('id'), 'parameter' => $this->get('parm')); 
+        $this->response($this->session->all_userdata(), 200);
+    }
+
+    /*
+     *  Test Function
+     *  Not part of API
+     */
+    function session_delete()
+    {
+        $this->session->sess_destroy(); 
+        $this->response(array('success' => 'true'), 200);
+    }
+
+    /*
+     *  Test Function
+     *  Not part of API
+     */
+    function sessions_delete()
+    {
+        $this->db->truncate('sessions');
+        $this->response(array('success' => 'true'), 200);
+    }
+
+    /*
+     *  Test Function
+     *  Not part of API
+     */
     function login_post()
     {
         $this->db->select('hash');
@@ -45,6 +87,14 @@ class toilettalkapi extends REST_Controller
             $tempHash = crypt($this->post('password'), $slt);
 
             if($hash == $tempHash){
+
+                $userdata = array(
+                    'username'  => $this->post('uname'),
+                    'logged_in' => TRUE
+                );
+
+                $this->session->set_userdata($userdata);
+
                 $this->response(array('success' => 'true'), 200);
             }
 
@@ -52,6 +102,12 @@ class toilettalkapi extends REST_Controller
                 $this->response(array('success' => 'false'), 200);
             }
         }
+    }
+
+    function logout_get()
+    {
+        $this->session->sess_destroy(); 
+        $this->response(array('success' => 'true'), 200);
     }
 
     function response_get()
