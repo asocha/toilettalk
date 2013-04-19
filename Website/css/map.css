@@ -1,3 +1,8 @@
+@font-face {
+  	font-family:"hn_1";
+  	src: local("hn_1"), url("Font/HelveticaNeueLTStd-Hv.otf" ) format("OpenType"); 
+}
+
 /* All */
 html{
 	height: 100%;
@@ -23,14 +28,16 @@ body{
 /* Info Windows */
 .infoBox{
 	border-radius: 15px;
+	padding: 10px;
 	background-color: #00A;
 	width: 200px;
 	height: 100px;
 }
 
 .infoBox h1.restroomName, div.Restrooms h1.restroomName{
+	font-family: "hn_1";
 	margin: 0;
-	font-size: 1.5em;
+	font-size: 17px;
 }
 
 .infoBox img.star, div.Restrooms img.star{
