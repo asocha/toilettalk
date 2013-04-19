@@ -68,7 +68,7 @@ div {
 	background-color:#8392A6;
 }
 
-#navbar #My_account{
+#navbar #about{
 	border-bottom: 2px solid #001157;
 }
 
@@ -106,30 +106,30 @@ div {
 	height:20px
 }
 
-.button1, .button2, .button3{
+.button1, .button2{
 	float:left;
 	display: inline;
 }
 
-.button3{
+#infor{
 	position:relative;
-	top: -465px;
+	left:50px;
 }
 
-.button1 p, .button2 p, .button3 p{
+.button1 p, .button2 p{
 	text-align:center;
 }
 
-#sre, #sro, #rv{
+#sre, #sro{
 	background-color:#8392A6;
-	width: 315px;
+	width: 415px;
     height: 465px;
     font-size:30px;
 	font-family: "hn_2";
 	color:#D00000;
 }
 
-#sre li, #sro li, #rv li{
+#sre a, #sro li{
 	float:left;
 	color:black;
 }
@@ -139,83 +139,6 @@ div {
 }
 
 #sro{
-	margin-left:11px;
-}
-#rv{
-	margin-left:653px;
+	margin-left:50px;
 }
 
-.button1 li{
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	font: 27px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	background-color: #D00000;
-}
-.button1 li:hover {
-	text-decoration: none;
-}
-.button1 li:active {
-	position: relative;
-	top: 1px;
-}
-
-.button2 li{
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	font: 27px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	background-color: #D00000;
-}
-.button2 li:hover {
-	text-decoration: none;
-}
-.button2 li:active {
-	position: relative;
-	top: 1px;
-}
-
-.button3 li{
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	font: 27px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	-webkit-border-radius: .5em; 
-	-moz-border-radius: .5em;
-	border-radius: .5em;
-	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	background-color: #D00000;
-}
-.button3 li:hover {
-	text-decoration: none;
-}
-.button3 li:active {
-	position: relative;
-	top: 1px;
-}
