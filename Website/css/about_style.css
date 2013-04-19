@@ -29,28 +29,27 @@ body{
 
 #brand{
 	width: 330px;
-	float: top;
-	float:left;
+	float: left;
 }
 
 #logo{	
-	float:left;
+	float: left;
 	width: 300px;
-    top:0cm;
+    	top: 0cm;
 }
 
 /*#logining{
 	width: 300px;
-        height: 70px;
+       height: 70px;
 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	float: right;
 }*/
 
 #border{
 	width: 630px;
-    height: 40px;
-    background-color:#F0F0F0;
-    border-style:solid;
+    	height: 40px;
+    	background-color:#F0F0F0;
+    	border-style:solid;
 	border-width:5px;
 	border-color:#001157;
 	margin-top:0.4cm;
@@ -91,10 +90,6 @@ div {
 	font-family:arial;
 	line-height:17px;
 	text-align:center;
-	border-right:5px solid #F0F0F0;
-	border-left:5px solid #F0F0F0;
-	border-top: 5px solid #F0F0F0;
-	border-bottom: 5px solid #F0F0F0;
 	background: #F0F0F0;
 	font-family: "hn_2";
 }
@@ -129,8 +124,8 @@ div {
 #sre, #sro{
 	background-color:#8392A6;
 	width: 415px;
-    height: 465px;
-    font-size:30px;
+    	height: 465px;
+    	font-size:30px;
 	font-family: "hn_2";
 	color:#D00000;
 }
