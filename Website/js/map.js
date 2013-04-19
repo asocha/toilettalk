@@ -1,6 +1,8 @@
 var lastInfoWindow; //tracks the last info window to open
+var geocoder;
 
 window.onload = function(){
+    geocoder = new google.maps.Geocoder();
     initializeNearby();
 
     //remaining code only runs on website, not on Android
@@ -18,7 +20,10 @@ window.onload = function(){
 
 //create Road Map and directions
 function initializeRoute(start, end) {
-    var geocoder = new google.maps.Geocoder();
+    //clear Restrooms list
+    var nav = document.getElementsByClassName("Restrooms")[0];
+    nav.innerHTML = "";
+
     geocoder.geocode( { 'address': start}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             geocoder.geocode( { 'address': end}, function(results2, status) {
@@ -65,34 +70,22 @@ function createRoute(start, end){
             var path = result["routes"][0]["overview_path"];    //Array of LatLng that are positions along route
 
             var restrooms = getRestrooms2(start, end);   //get Restrooms from Database
-            
-            var geocoder = new google.maps.Geocoder();
 
             for (var count = 0; restrooms && count < restrooms.length; count++){
-                var title;
-                var stars = restrooms[count]['stars'];
+                var stars = restrooms[count]['avg_rating'];
                 var lat = restrooms[count]['latitude'];
                 var lng = restrooms[count]['longitude'];
                 var icons = restrooms[count]['icons'];
                 var location = new google.maps.LatLng(lat, lng);
 
-
-                geocoder.geocode( { 'latLng': location}, function(results, status) {
-                    if (status === google.maps.GeocoderStatus.OK) {
-                        title = results[0].formatted_address;
-                    }
-                    else {
-                        title = location;
-                    }
-                });
 innerloop:      for (index in path){
-                    if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 0.1){
+                    if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 10000){ //was 0.1
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: map,
-                            title: String(title)
+                            map: map
                         });
-                        attachInfo(map, marker, title, stars, icons);
+
+                        geocodeMarker(map, marker, location, stars, icons);
                         break innerloop;    //breaks the innerloop so that the same marker isn't added twice
                     }
                 }
@@ -138,6 +131,10 @@ function GeoLocateError(msg){
 
 //create nearby Restrooms
 function initializeNearby() {
+    //clear Restrooms list
+    var nav = document.getElementsByClassName("Restrooms")[0];
+    nav.innerHTML = "";
+
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(GeoLocateSuccess,GeoLocateError);
     }
@@ -163,35 +160,20 @@ function initializeNearby() {
 function createNearbyMap(map, center, success){
     var restrooms = getRestrooms1(center);   //get Restrooms from Database
     
-    var geocoder = new google.maps.Geocoder();
-
     for (var count = 0; restrooms && count < restrooms.length; count++){
-        var title;
-        var stars = restrooms[count]['stars'];
+        var stars = restrooms[count]['avg_rating'];
         var lat = restrooms[count]['latitude'];
         var lng = restrooms[count]['longitude'];
         var icons = restrooms[count]['icons'];
         var location = new google.maps.LatLng(lat, lng);
 
-
-        geocoder.geocode( { 'latLng': location}, function(results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                title = results[0].formatted_address;
-            }
-            else {
-                title = location;
-            }
-        });
-
-        //add if statement to check icons if we do that
-
         var marker = new google.maps.Marker({
             position: location,
-            map: map,
-            title: String(title)
+            map: map
         });
-        attachInfo(map, marker, title, stars, icons);
 
+        geocodeMarker(map, marker, location, stars, icons);
+        
         //zoom map so only a few markers are visible
         while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
             map.setZoom(map.getZoom() + 1);
@@ -210,9 +192,24 @@ function createNearbyMap(map, center, success){
     }
 }
 
+function geocodeMarker(map, marker, location, stars, icons){
+    geocoder.geocode( { 'latLng': location}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            marker.setTitle(results[0].formatted_address);
+            attachInfo(map, marker, results[0].formatted_address, stars, icons);
+        }
+        else {
+            attachInfo(map, marker, location, stars, icons);
+        }
+    });
+}
+
 //create Search
 function initializeSearch(address) {
-    var geocoder = new google.maps.Geocoder();
+    //clear Restrooms list
+    var nav = document.getElementsByClassName("Restrooms")[0];
+    nav.innerHTML = "";
+    
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             var coords = results[0].geometry.location;
@@ -239,34 +236,19 @@ function initializeSearch(address) {
 function createSearchMap(map, coords, address){
     var restrooms = getRestrooms1(coords);   //get Restrooms from Database
 
-    var geocoder = new google.maps.Geocoder();
-
     for (var count = 0; restrooms && count < restrooms.length; count++){
-        var title;
-        var stars = restrooms[count]['stars'];
+        var stars = restrooms[count]['avg_rating'];
         var lat = restrooms[count]['latitude'];
         var lng = restrooms[count]['longitude'];
         var icons = restrooms[count]['icons'];
         var location = new google.maps.LatLng(lat, lng);
 
-
-        geocoder.geocode( { 'latLng': location}, function(results, status) {
-            if (status === google.maps.GeocoderStatus.OK) {
-                title = results[0].formatted_address;
-            }
-            else {
-                title = location;
-            }
-        });
-
-        //add if statement to check icons if we do that
-
         var marker = new google.maps.Marker({
             position: location,
-            map: map,
-            title: String(title)
+            map: map
         });
-        attachInfo(map, marker, title, stars, icons);
+
+        geocodeMarker(map, marker, location, stars, icons);
 
         //zoom map so only a few markers are visible
         while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
@@ -340,7 +322,7 @@ function attachInfo(map, marker, title, stars, icons){
 //query database for Restrooms nearby 1 location
 function getRestrooms1(location){
     var request = new XMLHttpRequest();
-    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10", false);
+    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10000", false);
     request.send();
 
     if(request.status === 200 && request.responseText){
@@ -363,7 +345,7 @@ function getRestrooms2(location1, location2){
     var distance = Math.sqrt(Math.pow(location1.lat() - location2.lat(),2) + Math.pow(location1.lng() + location2.lng(), 2)) * 69.055;
 
     var request = new XMLHttpRequest();
-    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10), false);
+    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10000), false);
     request.send();
 
     if(request.status === 200 && request.responseText){
