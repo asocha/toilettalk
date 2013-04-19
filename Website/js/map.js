@@ -17,7 +17,8 @@ window.onload = function(){
         var autocomplete3 = new google.maps.places.Autocomplete(document.getElementById('destination'),options);
 
         //prevent the autocomplete boxes from messing with the div sizes
-        document.getElementById('location').addEventListener('click',function(){
+        //done via event listeners because the autocomplete divs wont exist until a few seconds after the page loads
+        var event1 = document.getElementById('location').addEventListener('click',function(){
             document.getElementsByClassName('pac-container')[0].addEventListener('mouseover',function(){
                 document.getElementById("Search").style.height="250px";
             },false);
@@ -27,8 +28,10 @@ window.onload = function(){
             document.getElementsByClassName('pac-container')[0].addEventListener('click',function(){
                 document.getElementById("Search").style.height="";
             },false);
+
+            document.removeEventListener('click', event1);
         },false);
-        document.getElementById('origin').addEventListener('click',function(){
+        var event2 = document.getElementById('origin').addEventListener('click',function(){
             document.getElementsByClassName('pac-container')[1].addEventListener('mouseover',function(){
                 document.getElementById("RoadTrip").style.height="250px";
             },false);
@@ -38,8 +41,10 @@ window.onload = function(){
             document.getElementsByClassName('pac-container')[1].addEventListener('click',function(){
                 document.getElementById("RoadTrip").style.height="";
             },false);
+
+            document.removeEventListener('click', event2);
         },false);
-        document.getElementById('destination').addEventListener('click',function(){
+        var event3 = document.getElementById('destination').addEventListener('click',function(){
             document.getElementsByClassName('pac-container')[2].addEventListener('mouseover',function(){
                 document.getElementById("RoadTrip").style.height="250px";
             },false);
@@ -49,9 +54,14 @@ window.onload = function(){
             document.getElementsByClassName('pac-container')[2].addEventListener('click',function(){
                 document.getElementById("RoadTrip").style.height="";
             },false);
+
+            document.removeEventListener('click', event3);
         },false);
     }
 }
+
+
+/* ROAD MAP CREATION */
 
 //create Road Map and directions
 function initializeRoute(start, end) {
@@ -128,6 +138,9 @@ innerloop:      for (index in path){
         }
     });
 }
+
+
+/* NEARBY MAP CREATION */
 
 function GeoLocateSuccess(position){
     var center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude); //geolocate user's current position
@@ -227,17 +240,8 @@ function createNearbyMap(map, center, success){
     }
 }
 
-function geocodeMarker(map, marker, location, stars, icons){
-    geocoder.geocode( { 'latLng': location}, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-            marker.setTitle(results[0].formatted_address);
-            attachInfo(map, marker, results[0].formatted_address, stars, icons);
-        }
-        else {
-            attachInfo(map, marker, location, stars, icons);
-        }
-    });
-}
+
+/* SEARCH MAP CREATION */
 
 //create Search
 function initializeSearch(address) {
@@ -297,6 +301,19 @@ function createSearchMap(map, coords, address){
         map: map,
         icon: "img/you_are_here.png",
         title: address
+    });
+}
+
+//geocode a marker's location and then set it's title and info window
+function geocodeMarker(map, marker, location, stars, icons){
+    geocoder.geocode( { 'latLng': location}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+            marker.setTitle(results[0].formatted_address);
+            attachInfo(map, marker, results[0].formatted_address, stars, icons);
+        }
+        else {
+            attachInfo(map, marker, location, stars, icons);
+        }
     });
 }
 
@@ -361,7 +378,6 @@ function getRestrooms1(location){
     request.send();
 
     if(request.status === 200 && request.responseText){
-        alert(request.responseText);
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
