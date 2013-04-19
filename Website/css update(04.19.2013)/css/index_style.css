@@ -29,11 +29,12 @@ body{
 
 #brand{
 	width: 330px;
+	float: top;
 	float:left;
 }
 
 #infor,#Fun_Facts,#mapfield{
-    background-color: #27ADC3; 
+    background-color: #1C8BFF; 
     color:white;      
 }
 #infor {
@@ -54,17 +55,60 @@ body{
 	margin-top: 0.0002cm;
 }
 #logo{	
+	position:relative;
 	float:left;
 	width: 300px;
-    top:0cm;
+    top:20px;
 }
 
-/*#logining{
-	width: 300px;
-    height: 70px;
+#loginform{
+	display: none;
+	margin-right: auto;
+	margin-left: auto;
 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-	float: right;
-}*/
+	background-color: white;
+	border: solid 1px black;
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+    z-index: 100;
+
+    height: 110px;
+    margin-top: -150px;
+
+    width: 200px;
+    margin-left: -100px;
+
+}
+#Registerform{
+	display: none;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	background-color: white;
+	border: solid 1px #1C8BFF;
+    position:fixed;
+    top: 50%;
+    background-color: #1C8BFF;
+    z-index: 100;
+
+    height: 275px;
+    margin-top: -200px;
+
+    width: 248px;
+    height: 465px;
+
+	top:303px;
+	margin-left:-103px;
+
+
+}
+
+#Registerform label{
+	color: #FFDC00;
+	font-size:20px;
+	
+	text-align:center;
+}
 
 #border{
 	width: 630px;
@@ -72,15 +116,9 @@ body{
     background-color:#F0F0F0;
     border-style:solid;
 	border-width:5px;
-	border-color:#27ADC3;
+	border-color:#1C8BFF;
 	margin-top:0.4cm;
         
-}
-
-#border ul{
-	list-style: none;
-	margin: 5px;
-	padding: 0;
 }
 
 div {
@@ -111,6 +149,10 @@ div {
 	font-family:arial;
 	line-height:17px;
 	text-align:center;
+	border-right:5px solid #F0F0F0;
+	border-left:5px solid #F0F0F0;
+	border-top: 5px solid #F0F0F0;
+	border-bottom: 5px solid #F0F0F0;
 	background: #F0F0F0;
 }
 
@@ -124,47 +166,6 @@ div {
 #empty{
 	width:1000px;
 	height:20px
-}
-#loginform{
-	display: none;
-	margin-right: auto;
-	margin-left: auto;
-	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-	background-color: white;
-	border: solid 3px black;
-    position:fixed;
-    left: 50%;
-    top: 50%;
-    background-color: white;
-    z-index: 100;
-
-    height: 110px;
-    margin-top: -150px;
-
-    width: 200px;
-    margin-left: -100px;
-
-}
-#Registerform{
-	display: none;
-	margin-right: auto;
-	margin-left: auto;
-	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-	background-color: white;
-	border: solid 3px black;
-    position:fixed;
-    left: 50%;
-    top: 50%;
-    background-color: white;
-    z-index: 100;
-
-    height: 275px;
-    margin-top: -200px;
-
-    width: 200px;
-    margin-left: -100px;
-
-
 }
 
 #Fun_Facts h1{
@@ -191,32 +192,32 @@ ul.sidenav {
  	margin: 0;
  	padding: 0;
  	list-style: none;
- 	border-bottom: 1px solid #1C8BFF;
- 	border-top: 1px solid #1C8BFF;
+ 	border-bottom: 1px solid #3373a9;
+ 	border-top: 1px solid #FFDC00;
 }
 
-ul.sidenav li{
+ul.sidenav li a{
  	display: block;
  	color: #FFDC00;
  	text-decoration: none;
  	width: 250px;
  	height: 25px;
  	padding: 10px 10px 10px 35px;
- 	border-top: 1px solid #1C8BFF;
- 	border-bottom: 1px solid #1C8BFF;
- 	background-color: #27ADC3;
+ 	border-top: 1px solid #3373a9;
+ 	border-bottom: 1px solid #27ADC3;
+ 	background-color: #1C8BFF;
  	overflow: hidden;
  }
 
-ul.sidenav li:hover {
-	background: #1C8BFF;
+ul.sidenav li a:hover {
+	background: #27ADC3;
  	height: 250px;
  	overflow: hidden;
    	/*Animation*/
   	transition: height 2s ease;
 }
 
-li#Restrooms{
+li#Restrooms a{
 	height: 350px;
 }
 
@@ -226,21 +227,31 @@ li#Restrooms span{
 
 div.Restrooms{
 	overflow: auto;
-	max-height: 240px;
-	width: 210px;
+}
+/*
+#Restrooms{
+ 	height: 314px;
+ 	width:250px;
+ 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	color:#FFDC00;
+	text-align:center;
 }
 
+#Restrooms span{
+	color:#FFDC00;
+}
+*/
 ul.sidenav li span{ 
 	display: none; 
 	font-size: 0.8em;
  	padding: 10px 0;
 }
 
-ul.sidenav li:hover span {
+ul.sidenav li a:hover span {
  	display: block;
 }
 
-#Fun-Facts p{
+#info a,#Fun-Facts p{
 	width:500px;
 	margin:0px auto;
 	text-align:left;
@@ -248,3 +259,41 @@ ul.sidenav li:hover span {
 	border:1px dashed #333;
 	background-color:#004a80;
 }
+
+#info a{
+  	width : 200px;
+  	height : auto;
+  	display : block;
+  	text-decoration : none;
+  	background-color : #004a80;
+  	color : white;
+  	font-weight : bold;
+  	padding : 3px 10px; 
+  	outline : 0;
+	color:white;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 40px;
+  	line-height: 65px;
+	padding:14px;
+  	border : 10px outset #909090;
+}
+
+#info a:hover, #info a:focus {
+  	border : 10px outset #909090;
+  	background-color : #000066;
+  	color : #fff;
+}
+
+#info a:active {
+  	border : 10px outset #C0C0C0;
+  	background-color : #000066; /* the darker colors help create the effect */
+  	color : white;
+  	padding : 9px 18px 11px 16px; /* these new padding values are the mainstay or the effect to create natural movement */
+}
+
+#m{
+	margin-top:0.001cm;
+	width: 460px;
+    height: 430px;
+}
+

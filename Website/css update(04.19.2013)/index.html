@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--Jiaxin Li
+	31106248-->
+<html>
+<head>
+  <link rel="stylesheet" href="css/index_style.css" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/map.css"/>
+  <script type="text/javascript" src='js/map.js'></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDGOadh9EKbHbQP8S1ceKKlLS_HOVhxU60&sensor=false"></script>
+  <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/src/infobox.js" type="text/javascript"></script>
+<title>ToiletTalk</title>
+
+</head>
+<body id ="body">
+<div id = "wrapper">
+	<div id="brand">
+		<a href="index.html"><img id="logo"src="img/ToiletTalk_logo.png" href="index.html" alt="Toilet_talk_logo"></a>
+	</div>
+	<div id="logining">
+		<p><form id="Registerform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/user/" method = "post">
+			<!--A Form that is used to get user information to login into the site-->
+  			<label id="username">Username: <input type="text" name="uname"></label></br>
+        <label id="firstname">First name: <input type="text" name="fname"></label></br>
+        <label id="lastname">Last name: <input type="text" name="lname"></label></br>
+  			<label id="password">Password: <input type="password" name="password"></label></br>
+        <label id="male">Male: <input type="radio" name="gender"value = 1></label>
+        <label id="male">Female: <input type="radio" name="gender"value = 0></label></br>
+        <label id="email">Email: <input type="text" name="email"></label></br>
+  			<button type="submit" value="submit">Register</button>
+		</form></p>
+	</div>
+  <p><form id="loginform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/login/" method = "post">
+      <!--A Form that is used to get user information to login into the site-->
+        <label id="username">Username: <input type="text" name="uname"></label></br>
+        <label id="password">Password: <input type="password" name="password"></label></br>
+        <button type="submit" value="submit">Login</button>
+    </form></p>
+			<div id="navbar">
+			<div id="border">
+		    	<li><a id="home" href="index.html" >Home</a></li>
+          <li><a id="about" href="about.html">About</a></li>
+          <li id ="register"><a href="#register">Register</a></li>
+          <li id="login"><a href="#Login" >Login</a></li>
+
+			</div>
+			</div>
+<div id="empty">
+</div>
+
+<fieldset id= "Fun_Facts">
+
+  			<h1>Fun Facts</h1>
+    	<div class="menu-item">
+
+        	<h4><a>Latest Review:</a></h4>
+        	<p>Starbucks...</p>
+
+        	<h4><a>Number of users:</a></h4>
+			    <p>2,578</p>
+
+			<h4><a>Number of searches:</a></h4>
+        	<p>23,242</p>
+
+        	<h4><a>Number of reviews:</a></h4>
+        	<p>10,134</p>
+        </div>
+
+</fieldset>
+<!--<fieldset id="info">
+
+<div id="infor">
+<div class="menu-item">
+	<h4><a>Nearby Restroom</a></h4>
+	<p></p>
+	<h4><a>Search</a></h4>
+	<p></p>
+	<h4><a>RoadTrip</a></h4>
+	<p></p>
+</div>
+</div>
+	</fieldset>-->
+
+<div id="infor">
+  <ul class="sidenav">
+    <li id="Nearby">
+      <a href="#">Nearby Restrooms<br /><br />
+        <button id='NearbyButton'>Search</button>
+        <span>......................</span>
+      </a>
+    </li>
+    <li id="Search">
+    <a href="#">Search<br /><br />
+      Location:<br /><input type="text" id="location"><br />
+      <button id='SearchButton'>Search</button>
+      <span>......................</span>
+    </a>
+    </li>
+    <li id="RoadTrip">
+      <a href="#">Road Trip<br /><br />
+        Origin:<br /><input type="text" id="origin">
+        Destination:<br /><input type="text" id="destination"><br />
+        <button id='RouteButton'>Create Route</button>
+        <span>......................</span>
+      </a>
+    </li>
+    <li id="Restrooms">
+      <a href="#">Restrooms<br /><br />
+        <div class="Restrooms">
+        </div>
+        <span>......................</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<fieldset id="mapfield">
+  <div id="map_canvas" />
+</fieldset>
+</body>
+</html>
