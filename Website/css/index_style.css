@@ -55,9 +55,10 @@ body{
 	margin-top: 0.0002cm;
 }
 #logo{	
+	position:relative;
 	float:left;
 	width: 300px;
-    top:0cm;
+    top:20px;
 }
 
 #loginform{
