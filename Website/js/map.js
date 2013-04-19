@@ -15,6 +15,41 @@ window.onload = function(){
         var autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('location'),options);
         var autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('origin'),options);
         var autocomplete3 = new google.maps.places.Autocomplete(document.getElementById('destination'),options);
+
+        //prevent the autocomplete boxes from messing with the div sizes
+        document.getElementById('location').addEventListener('click',function(){
+            document.getElementsByClassName('pac-container')[0].addEventListener('mouseover',function(){
+                document.getElementById("Search").style.height="250px";
+            },false);
+            document.getElementsByClassName('pac-container')[0].addEventListener('mouseout',function(){
+                document.getElementById("Search").style.height="";
+            },false);
+            document.getElementsByClassName('pac-container')[0].addEventListener('click',function(){
+                document.getElementById("Search").style.height="";
+            },false);
+        },false);
+        document.getElementById('origin').addEventListener('click',function(){
+            document.getElementsByClassName('pac-container')[1].addEventListener('mouseover',function(){
+                document.getElementById("RoadTrip").style.height="250px";
+            },false);
+            document.getElementsByClassName('pac-container')[1].addEventListener('mouseout',function(){
+                document.getElementById("RoadTrip").style.height="";
+            },false);
+            document.getElementsByClassName('pac-container')[1].addEventListener('click',function(){
+                document.getElementById("RoadTrip").style.height="";
+            },false);
+        },false);
+        document.getElementById('destination').addEventListener('click',function(){
+            document.getElementsByClassName('pac-container')[2].addEventListener('mouseover',function(){
+                document.getElementById("RoadTrip").style.height="250px";
+            },false);
+            document.getElementsByClassName('pac-container')[2].addEventListener('mouseout',function(){
+                document.getElementById("RoadTrip").style.height="";
+            },false);
+            document.getElementsByClassName('pac-container')[2].addEventListener('click',function(){
+                document.getElementById("RoadTrip").style.height="";
+            },false);
+        },false);
     }
 }
 
