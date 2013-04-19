@@ -33,7 +33,7 @@ body{
 }
 
 #infor,#Fun_Facts,#mapfield{
-    background-color: #001157; 
+    background-color: #27ADC3; 
     color:white;      
 }
 #infor {
@@ -72,7 +72,7 @@ body{
     background-color:#F0F0F0;
     border-style:solid;
 	border-width:5px;
-	border-color:#001157;
+	border-color:#27ADC3;
 	margin-top:0.4cm;
         
 }
@@ -125,9 +125,50 @@ div {
 	width:1000px;
 	height:20px
 }
+#loginform{
+	display: none;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	background-color: white;
+	border: solid 3px black;
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+    z-index: 100;
+
+    height: 110px;
+    margin-top: -150px;
+
+    width: 200px;
+    margin-left: -100px;
+
+}
+#Registerform{
+	display: none;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	background-color: white;
+	border: solid 3px black;
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    background-color: white;
+    z-index: 100;
+
+    height: 275px;
+    margin-top: -200px;
+
+    width: 200px;
+    margin-left: -100px;
+
+
+}
 
 #Fun_Facts h1{
-	color: #D00000;
+	color: #FFDC00;
 	font-family: "hn_1";
 	font-size:30px;
 	margin-left:27px;
@@ -136,7 +177,7 @@ div {
 
 #Fun_Facts h4{
 	margin-top:0.00002cm;
-	color:#FF3366;
+	color:#FFDC00;
 	font-family: "hn_3";
 	font-size:17px;
 }
@@ -150,25 +191,25 @@ ul.sidenav {
  	margin: 0;
  	padding: 0;
  	list-style: none;
- 	border-bottom: 1px solid #3373a9;
- 	border-top: 1px solid #003867;
+ 	border-bottom: 1px solid #1C8BFF;
+ 	border-top: 1px solid #1C8BFF;
 }
 
 ul.sidenav li{
  	display: block;
- 	color: #D00000;
+ 	color: #FFDC00;
  	text-decoration: none;
  	width: 250px;
  	height: 25px;
  	padding: 10px 10px 10px 35px;
- 	border-top: 1px solid #3373a9;
- 	border-bottom: 1px solid #003867;
- 	background-color: #001157;
+ 	border-top: 1px solid #1C8BFF;
+ 	border-bottom: 1px solid #1C8BFF;
+ 	background-color: #27ADC3;
  	overflow: hidden;
  }
 
 ul.sidenav li:hover {
-	background: #003867;
+	background: #1C8BFF;
  	height: 250px;
  	overflow: hidden;
    	/*Animation*/
