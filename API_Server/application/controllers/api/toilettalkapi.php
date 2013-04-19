@@ -178,7 +178,9 @@ class toilettalkapi extends REST_Controller
         $this->db->where('username', $this->post('uname'));
         $test_query = $this->db->get('users');
 
-        $slt = '$5$'.mcrypt_create_iv(5, MCRYPT_RAND);
+        //$slt = '$5$'.mcrypt_create_iv(5, MCRYPT_RAND);
+        //$slt = '$5$'.mcrypt_create_iv(40, MCRYPT_RAND);
+        $slt = '$5$';
         $hash = crypt($this->post('password'), $slt);
 
         if($test_query->num_rows()==0)        
