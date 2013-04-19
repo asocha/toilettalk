@@ -22,7 +22,7 @@ window.onload = function(){
 function initializeRoute(start, end) {
     //clear Restrooms list
     var nav = document.getElementsByClassName("Restrooms")[0];
-    nav.innerHTML = "";
+    if (nav) nav.innerHTML = "";
 
     geocoder.geocode( { 'address': start}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -133,7 +133,7 @@ function GeoLocateError(msg){
 function initializeNearby() {
     //clear Restrooms list
     var nav = document.getElementsByClassName("Restrooms")[0];
-    nav.innerHTML = "";
+    if (nav) nav.innerHTML = "";
 
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(GeoLocateSuccess,GeoLocateError);
@@ -208,7 +208,7 @@ function geocodeMarker(map, marker, location, stars, icons){
 function initializeSearch(address) {
     //clear Restrooms list
     var nav = document.getElementsByClassName("Restrooms")[0];
-    nav.innerHTML = "";
+    if (nav) nav.innerHTML = "";
     
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -281,7 +281,7 @@ function attachInfo(map, marker, title, stars, icons){
         }
     }
 
-    title += "<br>";
+    title += "<br><br>";
 /*
     //add icons
     if (icons[0]){
@@ -316,7 +316,7 @@ function attachInfo(map, marker, title, stars, icons){
 
     //add Restroom to the side navigation list
     var nav = document.getElementsByClassName("Restrooms")[0];
-    nav.innerHTML += title;
+     if (nav) nav.innerHTML += title;
 }
 
 //query database for Restrooms nearby 1 location
