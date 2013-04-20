@@ -1,3 +1,10 @@
+window.onload = function(){
+    checklogin();
+    document.getElementById("register").addEventListener('click',function(){register();},false);
+    document.getElementById("login").addEventListener('click',function(){login();},false);
+    document.getElementById("home").addEventListener('click',function(){home();},false);
+}
+
 function home(){
     document.getElementById("loginform").style.display="none";
     document.getElementById("Registerform").style.display="none";
