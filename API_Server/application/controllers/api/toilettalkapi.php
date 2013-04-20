@@ -103,7 +103,16 @@ class toilettalkapi extends REST_Controller
             }
         }
     }
-
+    function savedrestrooms_get() {
+        if(!$this->get('id')) {
+            $this->response(NULL, 400);
+        }
+        else {
+            $sql = "select restroom_id as saved_restrooms from saved_restrooms where user_id = ?;";
+            $query = $this->db->query($sql, array($this->get('id')));
+            $this->response($query->result(), 200);
+        }
+    }
     function logout_get()
     {
         $this->session->sess_destroy(); 
