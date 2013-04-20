@@ -105,6 +105,12 @@ body{
         
 }
 
+#border ul{
+	list-style: none;
+	margin: 5px;
+	padding: 0;
+}
+
 div {
     overflow: hidden;
 }
@@ -198,19 +204,9 @@ div {
     margin-top:-6px;
 }
 
-#sro a{	
+#sro{	
 	position:relative;
 	color:#FFDC00;
 	top:-18px;
 	font-size:20px;
-}
-
-#sro a2{
-	position:relative;
-    font-size:20px;
-	width: 300px;
-    height: 100px;
-    /*background-color:white;*/
-    top:-35px;
-    color:#FFDC00;
 }

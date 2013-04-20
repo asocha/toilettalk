@@ -415,18 +415,3 @@ function getRestrooms2(location1, location2){
 
 
 }
-function home(){
-    document.getElementById("loginform").style.display="none";
-    //alert("hello");
-    document.getElementById("Registerform").style.display="none";
-}
-function register(){
-    document.getElementById("loginform").style.display="none";
-    //alert("hello");
-    document.getElementById("Registerform").style.display="inline";
-}
-function login(){
-    document.getElementById("Registerform").style.display="none";
-    //alert("hello");
-    document.getElementById("loginform").style.display="inline";
-}
