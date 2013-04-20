@@ -44,11 +44,11 @@ body{
     height: 450px;
 	margin-top: 0.0002cm;
 }
+
 #logo{	
-	position:relative;
-	float:left;
+	float: left;
 	width: 300px;
-    top:20px;
+    top: 0cm;
 }
 
 #loginform{
