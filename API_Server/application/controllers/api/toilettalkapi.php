@@ -161,7 +161,7 @@ class toilettalkapi extends REST_Controller
                 $this->db->where('latitude <= ', $upperBoarder);
                 $this->db->where('latitude >= ', $lowerBoarder);*/
 
-                $query = $this->db->get($sql, array($lowerBoarder, $upperBoarder, $leftBoarder, $rightBoarder));
+                $query = $this->db->query($sql, array($lowerBoarder, $upperBoarder, $leftBoarder, $rightBoarder));
                 $this->response($query->result(), 200);
                 break;
         }
