@@ -168,30 +168,33 @@ div {
 #sre, #sro{
 	background-color:#27ADC3;
 	width: 415px;
-    height: 465px;
+    height: 500px;
 	font-family: "hn_2";
 	color:#FFDC00;
+	padding:10px;
 }
 
 #sre{
 	float:left;
 	color:#FFDC00;
 	font-size:16px;
-	padding-left:10px;
-	margin-top:-10px;
 }
 
 #sro img{
 	width: 60px;
     height: 60px;
-    margin-left:10px;
-    margin-top:-6px;
+    float: left;
+    margin: 5px;
 }
 
 #sro{
 	margin-left:50px;
 	position:relative;
 	color:#FFDC00;
-	top:-18px;
 	font-size:20px;
+}
+
+#sro p{
+	margin-top: 10px;
+	margin-bottom: 0px;
 }
