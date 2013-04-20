@@ -21,14 +21,14 @@ function login(){
 function logout(){
     var request = new XMLHttpRequest();
         //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
-    request.open("GET", "http://ec2-54-234-249-110.compute-1.amazonaws.com/semester_project/Team6/API_Server/index.php/api/toilettalkapi/logout", false);
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/logout", false);
     request.send();
     window.location = "index.html" 
 
 }
 function checklogin(){
     var request = new XMLHttpRequest();
-    request.open("GET", "http://ec2-54-234-249-110.compute-1.amazonaws.com/semester_project/Team6/API_Server/index.php/api/toilettalkapi/session", false);
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);
     //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
     request.send();
     if(request.status === 200 && request.responseText){
