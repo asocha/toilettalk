@@ -1,5 +1,7 @@
 var lastInfoWindow; //tracks the last info window to open
 var geocoder;
+var waypoints = [];
+var waypointStrings = [];
 
 window.onload = function(){
     geocoder = new google.maps.Geocoder();
@@ -11,7 +13,7 @@ window.onload = function(){
     if(document.getElementById("SearchButton")){
         document.getElementById("SearchButton").addEventListener('click',function(){initializeSearch(document.getElementById('location').value);},false);
         document.getElementById("NearbyButton").addEventListener('click',initializeNearby,false);
-        document.getElementById("RouteButton").addEventListener('click',function(){initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);},false);
+        document.getElementById("RouteButton").addEventListener('click',function(){waypoints = []; waypointStrings = []; initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);},false);
         
         var options = {types: ['geocode']};
         var autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('location'),options);
@@ -27,7 +29,7 @@ window.onload = function(){
             document.getElementsByClassName('pac-container')[0].addEventListener('mouseout',function(){
                 document.getElementById("Search").style.height="";
             },false);
-            document.getElementsByClassName('pac-container')[0].addEventListener('click',function(){
+            document.getElementsByClassName('pac-container')[0].addEventListener('mousedown',function(){
                 document.getElementById("Search").style.height="";
             },false);
 
@@ -40,7 +42,7 @@ window.onload = function(){
             document.getElementsByClassName('pac-container')[1].addEventListener('mouseout',function(){
                 document.getElementById("RoadTrip").style.height="";
             },false);
-            document.getElementsByClassName('pac-container')[1].addEventListener('click',function(){
+            document.getElementsByClassName('pac-container')[1].addEventListener('mousedown',function(){
                 document.getElementById("RoadTrip").style.height="";
             },false);
 
@@ -53,11 +55,18 @@ window.onload = function(){
             document.getElementsByClassName('pac-container')[2].addEventListener('mouseout',function(){
                 document.getElementById("RoadTrip").style.height="";
             },false);
-            document.getElementsByClassName('pac-container')[2].addEventListener('click',function(){
+            document.getElementsByClassName('pac-container')[2].addEventListener('mousedown',function(){
                 document.getElementById("RoadTrip").style.height="";
             },false);
 
             document.removeEventListener('click', event3);
+        },false);
+
+        document.addEventListener('keypress',function(event){
+            if(event.keyCode === 13){
+                document.getElementById("Search").style.height="";
+                document.getElementById("RoadTrip").style.height="";
+            }
         },false);
     }
 }
@@ -93,6 +102,7 @@ function createRoute(start, end){
     var directions = {
         origin: start,
         destination: end,
+        waypoints: waypoints,
         travelMode: google.maps.TravelMode.DRIVING
     };
 
@@ -130,10 +140,11 @@ innerloop:      for (index in path){
                     if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 10000){ //was 0.1
                         var marker = new google.maps.Marker({
                             position: location,
-                            map: map
+                            map: map,
+                            zIndex: google.maps.Marker.MAX_ZINDEX + 1
                         });
 
-                        geocodeMarker(map, id, marker, location, stars, icons);
+                        geocodeMarker(map, id, marker, location, stars, icons, true);
                         break innerloop;    //breaks the innerloop so that the same marker isn't added twice
                     }
                 }
@@ -224,7 +235,7 @@ function createNearbyMap(map, center, success){
             map: map
         });
 
-        geocodeMarker(map, id, marker, location, stars, icons);
+        geocodeMarker(map, id, marker, location, stars, icons, false);
         
         //zoom map so only a few markers are visible
         while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
@@ -292,7 +303,7 @@ function createSearchMap(map, coords, address){
             map: map
         });
 
-        geocodeMarker(map, id, marker, location, stars, icons);
+        geocodeMarker(map, id, marker, location, stars, icons, false);
 
         //zoom map so only a few markers are visible
         while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
@@ -310,64 +321,72 @@ function createSearchMap(map, coords, address){
 }
 
 //geocode a marker's location and then set it's title and info window
-function geocodeMarker(map, id, marker, location, stars, icons){
+function geocodeMarker(map, id, marker, location, stars, icons, isRoadMap){
     geocoder.geocode( { 'latLng': location}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             marker.setTitle(results[0].formatted_address);
-            attachInfo(map, id, marker, results[0].formatted_address, stars, icons);
+            attachInfo(map, id, marker, results[0].formatted_address, stars, icons, isRoadMap);
         }
         else {
-            attachInfo(map, id, marker, location, stars, icons);
+            attachInfo(map, id, marker, location, stars, icons, isRoadMap);
         }
     });
 }
 
 //add Info Window for when user clicks on a map marker
-function attachInfo(map, id, marker, title, stars, icons){
-    title = "<h1 class='restroomName'>" + title + "</h1>";
+function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
+    var html = "";
+    html += "<h1 class='restroomName'>" + title + "</h1>";
 
-    //title += "<img class='restroom_image' src=img/" + image + ">";
+    //html += "<img class='restroom_image' src=img/" + image + ">";
 
     //add stars
     for (var count = 1; count <= 5; count++){
         if (stars >= count){
-            title += "<img class='star' src='img/star.png'>";
+            html += "<img class='star' src='img/star.png'>";
         }
         else{
-            title += "<img class='star' src='img/transparentStar.png'>";
+            html += "<img class='star' src='img/transparentStar.png'>";
         }
     }
     
-    title += "<br />";
+    html += "<br />";
 
 /*
     //add icons
     if (icons[0]){
-        title += "<img class='icon' src='img/icon_men.jpg'>";
+        html += "<img class='icon' src='img/icon_men.jpg'>";
     }
     if (icons[1]){
-        title += "<img class='icon' src='img/icon_women.jpg'>";
+        html += "<img class='icon' src='img/icon_women.jpg'>";
     }
     if (icons[2]){
-        title += "<img class='icon' src='img/icon_handicap.jpg'>";
+        html += "<img class='icon' src='img/icon_handicap.jpg'>";
     }
     if (icons[3]){
-        title += "<img class='icon' src='img/icon_24.jpg'>";
+        html += "<img class='icon' src='img/icon_24.jpg'>";
     }
     if (icons[4]){
-        title += "<img class='icon' src='img/icon_diaper.jpg'>";
+        html += "<img class='icon' src='img/icon_diaper.jpg'>";
     }
     if (icons[5]){
-        title += "<img class='icon' src='img/icon_pay.jpg'>";
+        html += "<img class='icon' src='img/icon_pay.jpg'>";
     }
 */
 
-    title += "<img class='viewRestroom' src='img/star.png' onclick='viewRestroom("+id+")'>";
+    html += "<img class='viewRestroom' src='img/star.png' onclick='viewRestroom("+id+")'>";
+    var isWaypoint = false;
+    if (isRoadMap){
+        for (var i = 0; i < waypointStrings.length; i++){
+            if (waypointStrings[i] === title) isWaypoint = true;
+        }
+        if (!isWaypoint) html += "<img class='viewRestroom' src='img/transparentStar.png' onclick='addToRoute("+'"'+title+'"'+")'>";
+    }
 
-    title += "<br /><br />";
+    html += "<br /><br />";
 
     var infoWindow = new InfoBox({
-        content: title
+        content: html
     });
     google.maps.event.addListener(marker, 'click', function() {
         if (lastInfoWindow){
@@ -379,7 +398,7 @@ function attachInfo(map, id, marker, title, stars, icons){
 
     //add Restroom to the side navigation list
     var nav = document.getElementsByClassName("Restrooms")[0];
-     if (nav) nav.innerHTML += title;
+    if (nav) nav.innerHTML += html;
 }
 
 //query database for Restrooms nearby 1 location
@@ -425,4 +444,10 @@ function getRestrooms2(location1, location2){
 
 function viewRestroom(id){
     alert(id);
+}
+
+function addToRoute(title){
+    waypoints.push({location: title});
+    waypointStrings.push(title);
+    initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);
 }
