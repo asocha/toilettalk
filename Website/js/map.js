@@ -10,9 +10,7 @@ window.onload = function(){
         document.getElementById("SearchButton").addEventListener('click',function(){initializeSearch(document.getElementById('location').value);},false);
         document.getElementById("NearbyButton").addEventListener('click',initializeNearby,false);
         document.getElementById("RouteButton").addEventListener('click',function(){initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);},false);
-        document.getElementById("register").addEventListener('click',function(){register();},false);
-        document.getElementById("login").addEventListener('click',function(){login();},false);
-        document.getElementById("home").addEventListener('click',function(){home();},false);
+        
         var options = {types: ['geocode']};
         var autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('location'),options);
         var autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('origin'),options);
