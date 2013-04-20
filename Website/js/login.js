@@ -1,4 +1,4 @@
-body.onload = function(){
+function initializeLogin(){
     checklogin();
     document.getElementById("register").addEventListener('click',function(){register();},false);
     document.getElementById("login").addEventListener('click',function(){login();},false);

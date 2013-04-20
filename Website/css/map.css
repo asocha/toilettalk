@@ -49,3 +49,12 @@ body{
 	height: 20px;
 	width: 20px;
 }
+
+.infoBox img.viewRestroom, div.Restrooms img.viewRestroom{
+	height: 20px;
+	width: 20px;
+}
+
+.infoBox img.viewRestroom:hover, div.Restrooms img.viewRestroom:hover{
+	cursor: pointer;
+}
