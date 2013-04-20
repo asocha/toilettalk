@@ -5,6 +5,8 @@ window.onload = function(){
     geocoder = new google.maps.Geocoder();
     initializeNearby();
 
+	initializeLogin();
+
     //remaining code only runs on website, not on Android
     if(document.getElementById("SearchButton")){
         document.getElementById("SearchButton").addEventListener('click',function(){initializeSearch(document.getElementById('location').value);},false);
@@ -117,6 +119,7 @@ function createRoute(start, end){
             var restrooms = getRestrooms2(start, end);   //get Restrooms from Database
 
             for (var count = 0; restrooms && count < restrooms.length; count++){
+                var id = restrooms[count]['restroom_id'];
                 var stars = restrooms[count]['avg_rating'];
                 var lat = restrooms[count]['latitude'];
                 var lng = restrooms[count]['longitude'];
@@ -130,7 +133,7 @@ innerloop:      for (index in path){
                             map: map
                         });
 
-                        geocodeMarker(map, marker, location, stars, icons);
+                        geocodeMarker(map, id, marker, location, stars, icons);
                         break innerloop;    //breaks the innerloop so that the same marker isn't added twice
                     }
                 }
@@ -209,6 +212,7 @@ function createNearbyMap(map, center, success){
     var restrooms = getRestrooms1(center);   //get Restrooms from Database
     
     for (var count = 0; restrooms && count < restrooms.length; count++){
+        var id = restrooms[count]['restroom_id'];
         var stars = restrooms[count]['avg_rating'];
         var lat = restrooms[count]['latitude'];
         var lng = restrooms[count]['longitude'];
@@ -220,7 +224,7 @@ function createNearbyMap(map, center, success){
             map: map
         });
 
-        geocodeMarker(map, marker, location, stars, icons);
+        geocodeMarker(map, id, marker, location, stars, icons);
         
         //zoom map so only a few markers are visible
         while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
@@ -276,6 +280,7 @@ function createSearchMap(map, coords, address){
     var restrooms = getRestrooms1(coords);   //get Restrooms from Database
 
     for (var count = 0; restrooms && count < restrooms.length; count++){
+        var id = restrooms[count]['restroom_id'];
         var stars = restrooms[count]['avg_rating'];
         var lat = restrooms[count]['latitude'];
         var lng = restrooms[count]['longitude'];
@@ -287,7 +292,7 @@ function createSearchMap(map, coords, address){
             map: map
         });
 
-        geocodeMarker(map, marker, location, stars, icons);
+        geocodeMarker(map, id, marker, location, stars, icons);
 
         //zoom map so only a few markers are visible
         while (map.getBounds() && map.getBounds().contains(location) && map.getZoom() < 18){
@@ -305,20 +310,20 @@ function createSearchMap(map, coords, address){
 }
 
 //geocode a marker's location and then set it's title and info window
-function geocodeMarker(map, marker, location, stars, icons){
+function geocodeMarker(map, id, marker, location, stars, icons){
     geocoder.geocode( { 'latLng': location}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             marker.setTitle(results[0].formatted_address);
-            attachInfo(map, marker, results[0].formatted_address, stars, icons);
+            attachInfo(map, id, marker, results[0].formatted_address, stars, icons);
         }
         else {
-            attachInfo(map, marker, location, stars, icons);
+            attachInfo(map, id, marker, location, stars, icons);
         }
     });
 }
 
 //add Info Window for when user clicks on a map marker
-function attachInfo(map, marker, title, stars, icons){
+function attachInfo(map, id, marker, title, stars, icons){
     title = "<h1 class='restroomName'>" + title + "</h1>";
 
     //title += "<img class='restroom_image' src=img/" + image + ">";
@@ -334,7 +339,7 @@ function attachInfo(map, marker, title, stars, icons){
     }
     
     title += "<br />";
-    
+
 /*
     //add icons
     if (icons[0]){
@@ -357,7 +362,7 @@ function attachInfo(map, marker, title, stars, icons){
     }
 */
 
-    title += "<img class='viewRestroom' src='img/star.png'>";
+    title += "<img class='viewRestroom' src='img/star.png' onclick='viewRestroom("+id+")'>";
 
     title += "<br /><br />";
 
@@ -416,4 +421,8 @@ function getRestrooms2(location1, location2){
         alert("Error Retrieving Restrooms: " + request.status);
         return null;
     }
+}
+
+function viewRestroom(id){
+    alert(id);
 }
