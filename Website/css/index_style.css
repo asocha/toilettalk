@@ -51,11 +51,12 @@ body{
 
 #mapfield {
 	background-color: #27ADC3;
-	color: #D00000;
+	color: #FFDC00;
 	width: 465px;
 	height: 450px;
 	margin-top: 0.0002cm;
 }
+
 #logo{	
 	float:left;
 	width: 300px;
@@ -103,7 +104,6 @@ div {
 }
 
 #navbar li a {
-	
 	float: left;
 	width: 125px;
 	height:10px;
@@ -116,6 +116,7 @@ div {
 	line-height:17px;
 	text-align:center;
 	background: #F0F0F0;
+	font-family: "hn_2";
 }
 
 #navbar li a:hover {
@@ -123,6 +124,7 @@ div {
 	font-size:16pt;
 	font-weight:bold;
 	border-bottom: 2px solid #EB6C4E;
+	font-family: "hn_1";
 }
 
 #empty{
@@ -148,8 +150,8 @@ div {
 
     width: 200px;
     margin-left: -100px;
-
 }
+
 #Registerform{
 	display: none;
 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
@@ -168,8 +170,6 @@ div {
 
 	top:303px;
 	margin-left:-103px;
-
-
 }
 
 #Fun_Facts h1{

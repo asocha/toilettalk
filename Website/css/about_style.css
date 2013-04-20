@@ -29,7 +29,6 @@ body{
 
 #brand{
 	width: 330px;
-	float: top;
 	float:left;
 }
 
@@ -72,6 +71,7 @@ body{
     margin-left: -100px;
 
 }
+
 #Registerform{
 	display: none;
 	margin-right: auto;
@@ -90,8 +90,6 @@ body{
 
     width: 200px;
     margin-left: -100px;
-
-
 }
 
 #border{
@@ -100,7 +98,7 @@ body{
     background-color:#F0F0F0;
     border-style:solid;
 	border-width:5px;
-	border-color:#1C8BFF;
+	border-color:#27ADC3;
 	margin-top:0.4cm;
         
 }
@@ -127,7 +125,6 @@ div {
 }
 
 #navbar li a {
-	
 	float: left;
 	width: 125px;
 	height:10px;
@@ -139,10 +136,6 @@ div {
 	font-family:arial;
 	line-height:17px;
 	text-align:center;
-	border-right:5px solid #F0F0F0;
-	border-left:5px solid #F0F0F0;
-	border-top: 5px solid #F0F0F0;
-	border-bottom: 5px solid #F0F0F0;
 	background: #F0F0F0;
 }
 
@@ -173,12 +166,12 @@ div {
 }
 
 #sre, #sro{
-	background-color:#1C8BFF;
+	background-color:#27ADC3;
 	width: 415px;
     height: 465px;
     font-size:30px;
 	font-family: "hn_2";
-	color:#FFDC00;;
+	color:#FFDC00;
 }
 
 #sre a{
@@ -193,10 +186,6 @@ div {
 	margin-left:2px;
 }
 
-#sro{
-	margin-left:50px;
-}
-
 #sro img{
 	width: 60px;
     height: 60px;
@@ -204,7 +193,8 @@ div {
     margin-top:-6px;
 }
 
-#sro{	
+#sro{
+	margin-left:50px;
 	position:relative;
 	color:#FFDC00;
 	top:-18px;
