@@ -380,6 +380,7 @@ function getRestrooms1(location){
     request.send();
 
     if(request.status === 200 && request.responseText){
+        alert(request.responseText);
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
@@ -411,7 +412,4 @@ function getRestrooms2(location1, location2){
         alert("Error Retrieving Restrooms: " + request.status);
         return null;
     }
-
-
-
 }
