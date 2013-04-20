@@ -1,4 +1,4 @@
-window.onload = function(){
+body.onload = function(){
     checklogin();
     document.getElementById("register").addEventListener('click',function(){register();},false);
     document.getElementById("login").addEventListener('click',function(){login();},false);
@@ -23,7 +23,7 @@ function logout(){
         //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
     request.open("GET", "../API_Server/index.php/api/toilettalkapi/logout", false);
     request.send();
-    window.location = "index.html" 
+    window.location = "index.html";
 
 }
 function checklogin(){

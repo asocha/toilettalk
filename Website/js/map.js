@@ -332,8 +332,9 @@ function attachInfo(map, marker, title, stars, icons){
             title += "<img class='star' src='img/transparentStar.png'>";
         }
     }
-
-    title += "<br><br>";
+    
+    title += "<br />";
+    
 /*
     //add icons
     if (icons[0]){
@@ -355,6 +356,11 @@ function attachInfo(map, marker, title, stars, icons){
         title += "<img class='icon' src='img/icon_pay.jpg'>";
     }
 */
+
+    title += "<img class='viewRestroom' src='img/star.png'>";
+
+    title += "<br /><br />";
+
     var infoWindow = new InfoBox({
         content: title
     });
