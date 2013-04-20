@@ -159,29 +159,26 @@ div {
 	left:50px;
 }
 
-.button1 p, .button2 p{
+.button1 h1, .button2 h1{
 	text-align:center;
+	font-weight: normal;
+	font-size: 30px;
 }
 
 #sre, #sro{
 	background-color:#27ADC3;
 	width: 415px;
     height: 465px;
-    font-size:30px;
 	font-family: "hn_2";
 	color:#FFDC00;
 }
 
-#sre a{
+#sre{
 	float:left;
 	color:#FFDC00;
 	font-size:16px;
-	margin-left:10px;
+	padding-left:10px;
 	margin-top:-10px;
-}
-
-#sre{
-	margin-left:2px;
 }
 
 #sro img{
