@@ -7,6 +7,7 @@
   <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/map.css"/>
   <script type="text/javascript" src='js/map.js'></script>
+  <script type="text/javascript" src='js/login.js'></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&#38;key=AIzaSyDGOadh9EKbHbQP8S1ceKKlLS_HOVhxU60&#38;sensor=false"></script>
@@ -22,21 +23,21 @@
 	<div id="logining">
     <form id="Registerform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/user/" method = "post">
       <!--A Form that is used to get user information to login into the site-->
-        <label id="username">Username: <input type="text" name="uname"></label><br />
-        <label id="firstname">First name: <input type="text" name="fname"></label><br />
-        <label id="lastname">Last name: <input type="text" name="lname"></label><br />
-        <label id="password">Password: <input type="password" name="password"></label><br />
-        <label id="male">Male: <input type="radio" name="gender" value = 1></label>
-        <label id="female">Female: <input type="radio" name="gender" value = 0></label><br />
-        <label id="email">Email: <input type="text" name="email"></label><br />
-        <button type="submit" value="submit">Register</button>
+      <label id="username">Username: <input type="text" name="uname"></label><br />
+      <label id="firstname">First name: <input type="text" name="fname"></label><br />
+      <label id="lastname">Last name: <input type="text" name="lname"></label><br />
+      <label id="password">Password: <input type="password" name="password"></label><br />
+      <label id="male">Male: <input type="radio" name="gender" value = 1></label>
+      <label id="female">Female: <input type="radio" name="gender" value = 0></label><br />
+      <label id="email">Email: <input type="text" name="email"></label><br />
+      <button type="submit" value="submit">Register</button>
     </form>
   </div>
   <form id="loginform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/login/" method = "post">
     <!--A Form that is used to get user information to login into the site-->
-      <label id="usernameLogin">Username: <input type="text" name="uname"></label><br />
-      <label id="passwordLogin">Password: <input type="password" name="password"></label><br />
-      <button type="submit" value="submit">Login</button>
+    <label id="usernameLogin">Username: <input type="text" name="uname"></label><br />
+    <label id="passwordLogin">Password: <input type="password" name="password"></label><br />
+    <button type="submit" value="submit">Login</button>
   </form>
 
 	<div id="navbar">
@@ -44,8 +45,10 @@
       <ul>
 		    <li><a id="home" href="index.html">Home</a></li>
   			<li><a id="about" href="about.html">About</a></li>
-  			<li><a id="My_account" href="myAccount.html">My account</a></li>
-  			<li><a id="log_out" href="logOut.html">Logout</a></li>
+        <li><a id="register" href="#register">Register</a></li>
+  			<li><a id="myaccount" href="myAccount.html">My account</a></li>
+        <li><a id="login" href="#login">Login</a></li>
+  			<li><a id="logout" href="logOut.html">Logout</a></li>
       </ul>
 		</div>
 	</div>
