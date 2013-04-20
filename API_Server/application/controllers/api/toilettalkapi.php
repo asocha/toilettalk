@@ -143,13 +143,20 @@ class toilettalkapi extends REST_Controller
                 $upperBoarder=$currentLatitude+$radius;
                 $rightBoarder=$currentLongitude-$radius;
                 $leftBoarder=$currentLongitude+$radius;
+                
+                $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, sum(diaper_changing_station), sum(handicap_accessible), sum(unisex), sum(customer_only), sum(24_hour) 
+                        from restroom rr, icons i, avg_ratings ar, response re 
+                        where ar.restroom_id = rr.restroom_id and re.review_id = i.review_id and rr.restroom_id = re.restroom_id and 
+                        rr.latitude >= ? and rr.latitude <= ? and rr.longitude >= ? and rr.longitude <=? 
+                        group by rr.restroom_id";
+                
 
-                $this->db->where('longitude <= ', $leftBoarder);
+                /*$this->db->where('longitude <= ', $leftBoarder);
                 $this->db->where('longitude >= ', $rightBoarder);
                 $this->db->where('latitude <= ', $upperBoarder);
-                $this->db->where('latitude >= ', $lowerBoarder);
+                $this->db->where('latitude >= ', $lowerBoarder);*/
 
-                $query = $this->db->get('restroom');
+                $query = $this->db->get($sql, array($lowerBoarder, $upperBoarder, $leftBoarder, $rightBoarder));
                 $this->response($query->result(), 200);
                 break;
         }
