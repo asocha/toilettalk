@@ -21,7 +21,8 @@
 		<img id="logo" src="img/ToiletTalk_logo.svg" alt="Toilet_talk_logo">
 	</div>
 	<div id="logining">
-    <form id="Registerform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/user/" method = "post">
+  <!--  <form id="Registerform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/user/" method = "post"> -->
+      <form id="Registerform" action="http://ec2-54-234-249-110.compute-1.amazonaws.com/semester_project/Team6/API_Server/index.php/api/toilettalkapi/user/" method = "post">
       <!--A Form that is used to get user information to login into the site-->
       <label id="username">Username: <input type="text" name="uname"></label><br />
       <label id="firstname">First name: <input type="text" name="fname"></label><br />
@@ -33,7 +34,8 @@
       <button type="submit" value="submit">Register</button>
     </form>
   </div>
-  <form id="loginform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/login/" method = "post">
+  <!--<form id="loginform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/login/" method = "post">-->
+    <form id="loginform" action="http://ec2-54-234-249-110.compute-1.amazonaws.com/semester_project/Team6/API_Server/index.php/api/toilettalkapi/login/" method = "post" onsubmit= "return validate()">
     <!--A Form that is used to get user information to login into the site-->
     <label id="usernameLogin">Username: <input type="text" name="uname"></label><br />
     <label id="passwordLogin">Password: <input type="password" name="password"></label><br />
@@ -48,7 +50,7 @@
         <li><a id="register" href="#register">Register</a></li>
   			<li><a id="myaccount" href="myAccount.html">My account</a></li>
         <li><a id="login" href="#login">Login</a></li>
-  			<li><a id="logout" href="logOut.html">Logout</a></li>
+  			<li><a id="logout" href="#logout">Logout</a></li>
       </ul>
 		</div>
 	</div>
