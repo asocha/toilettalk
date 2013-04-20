@@ -119,13 +119,18 @@ class toilettalkapi extends REST_Controller
 
         else
         {
-            $this->db->select('responds_to_id');
+            $rrid = $this->get('id');
+            $sql = "select * from response where restroom_id = ? order by review_id, responds_to_id";
+            
+            
+            
+            /*$this->db->select('responds_to_id');
             $this->db->where('review_id', $this->get('id'));
             $this->db->group_by("review_id");
-            $this->db->order_by("review_id", "desc"); 
+            $this->db->order_by("review_id", "desc");*/
 
-            $query = $this->db->get('response');
-            $this->response($query->result(), 200);
+            $query = $this->db->query($sql, array($rrid));
+            $this->response($query->result_array(), 200);
         }
     }
 
