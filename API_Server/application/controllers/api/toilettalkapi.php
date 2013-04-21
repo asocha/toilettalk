@@ -149,14 +149,13 @@ class toilettalkapi extends REST_Controller
         $currentLatitude = $this->get('latitude');
         $currentLongitude = $this->get('longitude');
         $radius = $this->get('radius');
-
         $radius = $radius/69.055;
         $lowerBoarder=$currentLatitude-$radius;
         $upperBoarder=$currentLatitude+$radius;
         $rightBoarder=$currentLongitude+$radius;
         $leftBoarder=$currentLongitude-$radius;
-
-        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, sum(diaper_changing_station), sum(handicap_accessible)
+        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, sum(diaper_changing_station), 
+                sum(handicap_accessible), sum(unisex), sum(customer_only), sum(24_hour) 
                 from restroom rr, icons i, avg_ratings ar, response re 
                 where ar.restroom_id = rr.restroom_id and re.review_id = i.review_id and rr.restroom_id = re.restroom_id and 
                 rr.latitude >= ? and rr.latitude <= ? and rr.longitude >= ? and rr.longitude <= 
@@ -164,7 +163,6 @@ class toilettalkapi extends REST_Controller
         $query = $this->db->query($sql, array($lowerBoarder, $upperBoarder, $leftBoarder, $rightBoarder));
         $this->response($query->result(), 200);
         break;
-        
     }
 
     function user_get()
