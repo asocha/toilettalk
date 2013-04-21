@@ -41,8 +41,7 @@ function load_saved_routes(){
 }
 function load_reviewed_restroom(){
 	var request = new XMLHttpRequest();
-    request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/rrid/"+user_id, false);
-    request.send();
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyuid/uid/"+user_id, false);    request.send();
     if(request.status === 200 && request.responseText){
     	var jsonResponse = JSON.parse(request.responseText);
     	console.log(request.responseText);
@@ -51,7 +50,7 @@ function load_reviewed_restroom(){
     		
     		var ul = document.getElementById("review_list");
         	var li = document.createElement('li');  
-        	li.appendChild(document.createTextNode(jsonResponse[i].restroom_id));
+        	li.appendChild(document.createTextNode("Restroom Id:"+jsonResponse[i].restroom_id));
 	        //var txt=document.createTextNode('text');
 	        
 	        li.addEventListener('click',function(){alert("hi");},false);
@@ -75,9 +74,9 @@ function load_saved_restrooms(){
     		var ul = document.getElementById("saved_restrooms_list");
         	var li = document.createElement('li');  
         	li.appendChild(document.createTextNode("Restroom Id:"+jsonResponse[i].saved_restrooms));
-	        //var txt=document.createTextNode('text');
-	        
-	        li.addEventListener('click',function(){alert("hi");},false);
+	       //var txt=document.createTextNode('text');
+	       var id = jsonResponse[i].saved_restrooms;
+          	li.addEventListener('click',function(){redirect_to_restroom(id);},false);
     		ul.appendChild(li);
     	}
 
@@ -85,8 +84,8 @@ function load_saved_restrooms(){
     }
 
 }
-function redirect_to_restroom(){
-	console.log('click');
+function redirect_to_restroom(id){
+  window.location = "restroomID.html?id="+id;
 
 
 }
