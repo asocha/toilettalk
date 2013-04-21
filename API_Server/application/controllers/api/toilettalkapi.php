@@ -182,26 +182,10 @@ class toilettalkapi extends REST_Controller
 
     function response_get()
     {
-        if(!$this->get('id'))
-        {
-            $this->response(NULL, 400);
-        }
-
-        else
-        {
-            $rrid = $this->get('id');
-            $sql = "select * from response where restroom_id = ? order by review_id, responds_to_id";
-            
-            
-            
-            /*$this->db->select('responds_to_id');
-            $this->db->where('review_id', $this->get('id'));
-            $this->db->group_by("review_id");
-            $this->db->order_by("review_id", "desc");*/
-
-            $query = $this->db->query($sql, array($rrid));
-            $this->response($query->result_array(), 200);
-        }
+        $rrid = $this->get('rrid');
+        $sql = "select * from response where restroom_id = ? order by review_id, responds_to_id";
+        $query = $this->db->query($sql, array($rrid));
+        $this->response($query->result_array(), 200);
     }
 
     function restrooms_get()
