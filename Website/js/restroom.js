@@ -39,24 +39,24 @@ function createSearchMap(){
         map: map
     });
 
-    geocodeMarker(map, id, marker, location, stars, icons);
+    geocodeMarker(map, marker, location, stars, icons);
 }
 
 //geocode a marker's location and then set it's title and info window
-function geocodeMarker(map, id, marker, location, stars, icons){
+function geocodeMarker(map, marker, location, stars, icons){
     geocoder.geocode( { 'latLng': location}, function(results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             marker.setTitle(results[0].formatted_address);
-            attachInfo(map, id, marker, results[0].formatted_address, stars, icons);
+            attachInfo(map, marker, results[0].formatted_address, stars, icons);
         }
         else {
-            attachInfo(map, id, marker, location, stars, icons);
+            attachInfo(map, marker, location, stars, icons);
         }
     });
 }
 
 //add Info Window for when user clicks on a map marker
-function attachInfo(map, id, marker, title, stars, icons){
+function attachInfo(map, marker, title, stars, icons){
     var html = "";
     html += "<h1 class='restroomName'>" + title + "</h1>";
 
@@ -115,12 +115,11 @@ function getRestroom(){
     var id = getUrlVars()["id"];
 
     var request = new XMLHttpRequest();
-    request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/"+id, false);
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/rrid/"+id, false);
     //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restroombyid/method/location/rrid/"+id, false);
     request.send();
 
     if(request.status === 200 && request.responseText){
-        alert(request.responseText);
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
