@@ -45,7 +45,6 @@ window.onload = function(){
             },false);
             document.getElementsByClassName('pac-container')[1].addEventListener('mousedown',function(){
                 document.getElementById("RoadTrip").style.height="";
-                alert("test");
             },false);
 
             document.removeEventListener('click', event2);
@@ -162,6 +161,11 @@ innerloop:      for (index in path){
             }
         }
     });
+
+    //add Save Route Button
+    var html = "<button id='SaveRoute' onclick='saveRoute()'>Save Route</button>";
+    var nav = document.getElementById("RoadTrip");
+    if (nav) nav.innerHTML += html;
 }
 
 
@@ -391,6 +395,7 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
     }
 
     html += "<img class='viewRestroom' src='img/star.png' onclick='viewRestroom("+id+")'>";
+
     var isWaypoint = false;
     if (isRoadMap){
         for (var i = 0; i < waypointStrings.length; i++){
@@ -475,9 +480,22 @@ function addToRoute(title){
 
 //save Road Map
 function saveRoute(){
-    /*
+    //verify logged in
     var request = new XMLHttpRequest();
-    request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/route/origin/"+origin+"/destination/"+destination, false);
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);
+    //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
     request.send();
-    */
+    if(request.status === 200 && request.responseText){
+        alert(request.responseText);
+        var jsonResponse = JSON.parse(request.responseText);
+        if(jsonResponse['logged_in']) {
+            var id = jsonResponse['user_id'];
+            request.open("POST", "../API_Server/index.php/api/toilettalkapi/saveroute/id/"+id+"/origin/"+origin+"/destination/"+destination, false);
+            //request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/saveroute/id/"+window.user_id+"/origin/"+origin+"/destination/"+destination, false);
+            request.send();
+        }
+        else{
+            alert('Please login');
+        }
+    }
 }
