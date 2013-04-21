@@ -243,7 +243,7 @@ function createNearbyMap(map, center, success){
         icons[1] = restrooms[count]['sum(handicap_accessible)'];
         icons[2] = restrooms[count]['sum(diaper_changing_station)'];
         icons[3] = restrooms[count]['sum(24_hour)'];
-        icons[4] = restrooms[count]['sum(customer_only)']; alert(icons);
+        icons[4] = restrooms[count]['sum(customer_only)'];
         var location = new google.maps.LatLng(lat, lng);
 
         var marker = new google.maps.Marker({
@@ -463,7 +463,7 @@ function getRestrooms2(location1, location2){
 
 //view restroom information and comments
 function viewRestroom(id){
-    header("restroomID.html/?"+id);
+    document.location.href = "restroomID.html?id="+id;
 }
 
 //add restroom to Road Map
