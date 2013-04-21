@@ -84,7 +84,7 @@ class toilettalkapi extends REST_Controller
             $hash = $row->hash;
             $slt = $row->salt;
 
-            $slt = '$5$';
+            //$slt = '$5$';
             $tempHash = crypt($this->post('password'), $slt);
 
             if($hash == $tempHash){
@@ -100,8 +100,7 @@ class toilettalkapi extends REST_Controller
             }
 
             else{
-                $this->response($tempHash, 200);
-                //$this->response(array('success' => 'false'), 200);
+                $this->response(array('success' => 'false'), 200);
             }
         }
     }
@@ -191,9 +190,7 @@ class toilettalkapi extends REST_Controller
         $this->db->where('username', $this->post('uname'));
         $test_query = $this->db->get('users');
 
-        //$slt = '$5$'.mcrypt_create_iv(5, MCRYPT_RAND);
-        //$slt = '$5$'.mcrypt_create_iv(40, MCRYPT_RAND);
-        $slt = '$5$';
+        $slt = '$5$'.mcrypt_create_iv(40, MCRYPT_RAND);
         $hash = crypt($this->post('password'), $slt);
 
         if($test_query->num_rows()==0)        
@@ -209,8 +206,8 @@ class toilettalkapi extends REST_Controller
     		$this->db->set('salt', $slt);
 
     		$this->db->insert('users');
-            $this->response($slt, 200);
-    		//$this->response(array('success' => 'true'), 200);
+            //$this->response($slt, 200);
+    		$this->response(array('success' => 'true'), 200);
         }
         
     	else
