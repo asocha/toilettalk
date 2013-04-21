@@ -21,6 +21,18 @@ class toilettalkapi extends REST_Controller
         $result = array('key' => $this->get('id'), 'parameter' => $this->get('parm')); 
         $this->response($result, 200);
     }
+    function saveroute_post() {
+        if(!$this->get('id'))
+        {
+            $this->response(NULL, 400);
+        }
+        else
+        {
+            $sql = "insert into routes(user_id, origin, destination) values(?,?,?);";
+            $query = $this->db->query($sql, array($this->post('id'), $this->post('origin'), $this->post('destination')));
+            $this->response($query, 200);
+        }
+    }
     function restroombyid_get()
     {
         $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, 
