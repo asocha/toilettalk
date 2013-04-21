@@ -1,5 +1,3 @@
-var user_id;
-
 window.onload = function(){
 	document.getElementById("logout").addEventListener('click',function(){logout();},false);
 	checklogin();
@@ -103,7 +101,7 @@ function checklogin(){
         var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['logged_in']) {
 
-		    user_id = jsonResponse['user_id'];
+		    //window.user_id = jsonResponse['user_id'];
 		             
 		}
 		else{

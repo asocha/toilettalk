@@ -72,7 +72,7 @@ class toilettalkapi extends REST_Controller
         $this->response($result, 200);
     }
     function saveroute_post() {
-        if(!$this->get('id'))
+        if(!$this->post('id'))
         {
             $this->response(NULL, 400);
         }
