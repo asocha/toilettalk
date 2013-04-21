@@ -16,6 +16,10 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+    function latestreview_get() {
+        $query = $this->db->query("select max(re.time_stamp) as date, rr.longitude, rr.latitude, re.user_comments from response re, restroom rr$
+        $this->response($query->result(), 200);
+    }
     function restroombyuid_get()
     {
         $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, 
