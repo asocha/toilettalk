@@ -32,8 +32,7 @@ function createSearchMap(){
     for (var i = 0; comments && i < comments.length; i++){
         var html = "";
         var isResponse = comments[i]['responds_to_id'];
-        if (isResponse) html += "&nbsp;&nbsp;&nbsp;&nbsp;";
-        html += "<div class='comment'><p>";
+        html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px'><p>";
         html += comments[i]['user_comments'];
         html += "</p><img class='thumb_up' src='img/thumb_up.png'><img class='thumb_down' src='img/thumb_down.png'></div>";
 
@@ -151,16 +150,15 @@ function getComments(){
     var id = getUrlVars()["id"];
 
     var request = new XMLHttpRequest();
-    request.open("GET", "../API_Server/index.php/api/toilettalkapi/response/id/"+id, false);
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/response/rrid/"+id, false);
     //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/method/location/id/"+id, false);
     request.send();
 
     if(request.status === 200 && request.responseText){
-        alert(request.responseText);
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
-        alert("Somehow you tried to view a restroom that doesn't exist.");
+        alert("This restroom has no comments... Perhaps you could add one!");
         return null;
     }
     else {
