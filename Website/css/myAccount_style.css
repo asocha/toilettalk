@@ -105,6 +105,8 @@ div {
 .button3{
 	position:relative;
 	top: -465px;
+	width: 400px;
+	left: 655px;
 }
 
 .button1 p, .button2 p, .button3 p{
@@ -132,11 +134,9 @@ div {
 #sro{
 	margin-left:11px;
 }
-#rv{
-	margin-left:653px;
-}
 
 .button1 li{
+	width: 100px;
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
@@ -164,6 +164,8 @@ div {
 }
 
 .button2 li{
+	
+	width: 100px;
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
@@ -191,6 +193,7 @@ div {
 }
 
 .button3 li{
+	width: 100px;
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
