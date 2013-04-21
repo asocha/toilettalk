@@ -136,10 +136,15 @@ function createRoute(start, end){
 
             for (var count = 0; restrooms && count < restrooms.length; count++){
                 var id = restrooms[count]['restroom_id'];
-                var stars = restrooms[count]['avg_rating'];
+                var stars = restrooms[count]['final_average'];
                 var lat = restrooms[count]['latitude'];
                 var lng = restrooms[count]['longitude'];
-                var icons = restrooms[count]['icons'];
+                var icons = [];
+                icons[0] = restrooms[count]['sum(unisex)'];
+                icons[1] = restrooms[count]['sum(handicap_accessible)'];
+                icons[2] = restrooms[count]['sum(diaper_changing_station)'];
+                icons[3] = restrooms[count]['sum(24_hour)'];
+                icons[4] = restrooms[count]['sum(customer_only)'];
                 var location = new google.maps.LatLng(lat, lng);
 
 innerloop:      for (index in path){
@@ -230,10 +235,15 @@ function createNearbyMap(map, center, success){
     
     for (var count = 0; restrooms && count < restrooms.length; count++){
         var id = restrooms[count]['restroom_id'];
-        var stars = restrooms[count]['avg_rating'];
+        var stars = restrooms[count]['final_average'];
         var lat = restrooms[count]['latitude'];
         var lng = restrooms[count]['longitude'];
-        var icons = restrooms[count]['icons'];
+        var icons = [];
+        icons[0] = restrooms[count]['sum(unisex)'];
+        icons[1] = restrooms[count]['sum(handicap_accessible)'];
+        icons[2] = restrooms[count]['sum(diaper_changing_station)'];
+        icons[3] = restrooms[count]['sum(24_hour)'];
+        icons[4] = restrooms[count]['sum(customer_only)']; alert(icons);
         var location = new google.maps.LatLng(lat, lng);
 
         var marker = new google.maps.Marker({
@@ -298,10 +308,15 @@ function createSearchMap(map, coords, address){
 
     for (var count = 0; restrooms && count < restrooms.length; count++){
         var id = restrooms[count]['restroom_id'];
-        var stars = restrooms[count]['avg_rating'];
+        var stars = restrooms[count]['final_average'];
         var lat = restrooms[count]['latitude'];
         var lng = restrooms[count]['longitude'];
-        var icons = restrooms[count]['icons'];
+        var icons = [];
+        icons[0] = restrooms[count]['sum(unisex)'];
+        icons[1] = restrooms[count]['sum(handicap_accessible)'];
+        icons[2] = restrooms[count]['sum(diaper_changing_station)'];
+        icons[3] = restrooms[count]['sum(24_hour)'];
+        icons[4] = restrooms[count]['sum(customer_only)'];
         var location = new google.maps.LatLng(lat, lng);
 
         var marker = new google.maps.Marker({
@@ -358,27 +373,22 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
     
     html += "<br />";
 
-/*
     //add icons
-    if (icons[0]){
+    if (icons[0] > 1){
         html += "<img class='icon' src='img/icon_men.jpg'>";
     }
-    if (icons[1]){
-        html += "<img class='icon' src='img/icon_women.jpg'>";
-    }
-    if (icons[2]){
+    if (icons[1] > 1){
         html += "<img class='icon' src='img/icon_handicap.jpg'>";
     }
-    if (icons[3]){
+    if (icons[2] > 1){
         html += "<img class='icon' src='img/icon_24.jpg'>";
     }
-    if (icons[4]){
+    if (icons[3] > 1){
         html += "<img class='icon' src='img/icon_diaper.jpg'>";
     }
-    if (icons[5]){
+    if (icons[4] > 1){
         html += "<img class='icon' src='img/icon_pay.jpg'>";
     }
-*/
 
     html += "<img class='viewRestroom' src='img/star.png' onclick='viewRestroom("+id+")'>";
     var isWaypoint = false;
@@ -410,11 +420,11 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 //query database for Restrooms nearby 1 location
 function getRestrooms1(location){
     var request = new XMLHttpRequest();
-    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10000", false);
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/restrooms/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/100000", false);
+    //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10000", false);
     request.send();
 
     if(request.status === 200 && request.responseText){
-        alert(request.responseText);
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
@@ -434,7 +444,8 @@ function getRestrooms2(location1, location2){
     var distance = Math.sqrt(Math.pow(location1.lat() - location2.lat(),2) + Math.pow(location1.lng() + location2.lng(), 2)) * 69.055;
 
     var request = new XMLHttpRequest();
-    request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10000), false);
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/restrooms/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10000), false);
+    //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10000), false);
     request.send();
 
     if(request.status === 200 && request.responseText){
