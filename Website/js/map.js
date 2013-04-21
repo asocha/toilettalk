@@ -452,7 +452,7 @@ function getRestrooms2(location1, location2){
 
 //view restroom information and comments
 function viewRestroom(id){
-    //header("restroomID.html");
+    header("restroomID.html/?"+id);
 }
 
 //add restroom to Road Map
