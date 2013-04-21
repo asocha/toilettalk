@@ -149,11 +149,13 @@ class toilettalkapi extends REST_Controller
         $currentLatitude = $this->get('latitude');
         $currentLongitude = $this->get('longitude');
         $radius = $this->get('radius');
+
         $radius = $radius/69.055;
         $lowerBoarder=$currentLatitude-$radius;
         $upperBoarder=$currentLatitude+$radius;
         $rightBoarder=$currentLongitude+$radius;
         $leftBoarder=$currentLongitude-$radius;
+
         $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, sum(diaper_changing_station), sum(handicap_accessib$
                 from restroom rr, icons i, avg_ratings ar, response re 
                 where ar.restroom_id = rr.restroom_id and re.review_id = i.review_id and rr.restroom_id = re.restroom_id and 
@@ -171,8 +173,6 @@ class toilettalkapi extends REST_Controller
         {
             $this->response(NULL, 400);
         }
-
-
 
         else
         {
@@ -193,25 +193,25 @@ class toilettalkapi extends REST_Controller
 
         if($test_query->num_rows()==0)        
         {       
-    		$this->db->set('user_id', 'DEFAULT');
-    		$this->db->set('username', $this->post('uname'));
-    		$this->db->set('first_name', $this->post('fname'));
-    		$this->db->set('last_name', $this->post('lname'));
-    		$this->db->set('hash', $hash);
-    		$this->db->set('gender', $this->post('gender'));
-    		$this->db->set('permission', $this->post('permission'));
-    		$this->db->set('email', $this->post('email'));
-    		$this->db->set('salt', $slt);
+            $this->db->set('user_id', 'DEFAULT');
+            $this->db->set('username', $this->post('uname'));
+            $this->db->set('first_name', $this->post('fname'));
+            $this->db->set('last_name', $this->post('lname'));
+            $this->db->set('hash', $hash);
+            $this->db->set('gender', $this->post('gender'));
+            $this->db->set('permission', $this->post('permission'));
+            $this->db->set('email', $this->post('email'));
+            $this->db->set('salt', $slt);
 
-    		$this->db->insert('users');
-            //$this->response($slt, 200);
-    		$this->response(array('success' => 'true'), 200);
+            $this->db->insert('users');
+
+            $this->response(array('success' => 'true'), 200);
         }
         
-    	else
-    	{
+        else
+        {
             $this->response(array('success' => 'false'), 409);
-    	}
+        }
 
     }
     
