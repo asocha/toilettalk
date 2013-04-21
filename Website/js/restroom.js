@@ -12,8 +12,8 @@ window.onload = function(){
 /* MAP CREATION */
 
 function createSearchMap(){
-    var restroom = getRestroom();   //get Restroom from Database
-
+    var restroom = getRestroom()[0];   //get Restroom from Database
+    
     var stars = restroom['final_average'];
     var lat = restroom['latitude'];
     var lng = restroom['longitude'];
@@ -24,10 +24,10 @@ function createSearchMap(){
     icons[3] = restroom['sum(24_hour)'];
     icons[4] = restroom['sum(customer_only)'];
     var location = new google.maps.LatLng(lat, lng);
-
+    
     var mapOptions = {
         center: location,
-        zoom: 5,
+        zoom: 12,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
@@ -74,27 +74,22 @@ function attachInfo(map, marker, title, stars, icons){
     
     html += "<br />";
 
-/*
     //add icons
-    if (icons[0]){
+    if (icons[0] > 1){
         html += "<img class='icon' src='img/icon_men.jpg'>";
     }
-    if (icons[1]){
-        html += "<img class='icon' src='img/icon_women.jpg'>";
-    }
-    if (icons[2]){
+    if (icons[1] > 1){
         html += "<img class='icon' src='img/icon_handicap.jpg'>";
     }
-    if (icons[3]){
+    if (icons[2] > 1){
         html += "<img class='icon' src='img/icon_24.jpg'>";
     }
-    if (icons[4]){
+    if (icons[3] > 1){
         html += "<img class='icon' src='img/icon_diaper.jpg'>";
     }
-    if (icons[5]){
+    if (icons[4] > 1){
         html += "<img class='icon' src='img/icon_pay.jpg'>";
     }
-*/
 
     html += "<br /><br />";
 
