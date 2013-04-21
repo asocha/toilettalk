@@ -16,6 +16,27 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+     function saveresponse_post() {
+        if($this->post('reviewid') != NULL) {
+                $sql = "insert into response(review_id, responds_to_id, user_id, user_comments, gender, flags, 
+                        thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
+                        values(?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?,?);";
+                $query = $this->db->query($sql, array(
+                                $this->post('reviewid'),$this->post('respondstoid'),$this->post('userid'),
+                                $this->post('usercomments'),$this->post('gender'),
+                                0,0,0,$this->post('reviewstarrating'),$this->post('rrid')
+                                ));
+        }
+        else {
+                $sql = "insert into response(responds_to_id, user_id, user_comments, gender, flags, 
+                        thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
+                        values(?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?,?);";
+                $query = $this->db->query($sql, array($this->post('respondstoid'),$this->post('userid'),
+                                $this->post('usercomments'),$this->post('gender'),
+                                0,0,0,$this->post('reviewstarrating'),$this->post('rrid')
+                                ));
+        }
+    }
     function latestreview_get() {
         $query = $this->db->query("select max(re.time_stamp) as date, rr.longitude, rr.latitude, re.user_comments 
             from response re, restroom rr 
