@@ -16,6 +16,25 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+    function restroombyuid_get()
+    {
+        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, 
+                sum(diaper_changing_station),sum(handicap_accessible), sum(unisex), sum(customer_only), sum(24_hour) 
+                from restroom rr, icons i, avg_ratings ar, response re 
+                where ar.restroom_id = rr.restroom_id and re.review_id = i.review_id and rr.restroom_id = re.restroom_id and 
+                rr.user_id = ?;";
+        $query = $this->db->query($sql, array($this->get('uid')));
+        $this->response($query->result(), 200);
+        break;
+    }
+    function reviewno_get() {
+        $query =  $this->db->query("select max(review_id) as numofreviews from response;");
+        $this->response($query->result(), 200);
+    }
+    function userno_get() {
+        $query = $this->db->query("select count(*) as registeredusers from users;");
+        $this->response($query->result(), 200);
+    }
     function rrforroute_get() {
         if(!$this->get('id'))
         {
