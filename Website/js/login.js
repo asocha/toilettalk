@@ -47,11 +47,11 @@ function validatelogin(){
             //alert('hello');
             }
          else{
-        alert("Login is incorrent. Please Try again")
+        alert("Login is incorrect. Please Try again")
              }
     }
     else{
-        alert("Login is incorrent. Please Try again")
+        alert("Login is incorrect. Please Try again")
     }
 
 }
@@ -74,11 +74,11 @@ function validateregister(){
             //alert('hello');
             }
          else{
-        alert("Registeration is incorrent. Please Try again")
+        alert("Registeration is incorrect. Please Try again")
              }
     }
     else{
-        alert("Registeration is incorrent. Please Try again")
+        alert("Registeration is incorrect. Please Try again")
     }
     //return false;
 }
