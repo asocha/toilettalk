@@ -276,3 +276,19 @@ div.Restrooms div.RestroomTitle img.icon{
 	width: 25px;
 	height: 25px;
 }
+
+#addReview{
+	display: block;
+	width: 450px;
+	height: 75px;
+	border-radius: 4px;
+	text-decoration: none;
+	font-family: 'Helvetica';
+	font-weight: bold;
+	font-size: 15pt;
+	margin: 5px 12px;
+	margin-top: 25px;
+	background-color: #F1F09D;
+	background-image: linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
+	overflow: auto;
+}
