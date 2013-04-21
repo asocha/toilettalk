@@ -21,7 +21,18 @@ class toilettalkapi extends REST_Controller
         $result = array('key' => $this->get('id'), 'parameter' => $this->get('parm')); 
         $this->response($result, 200);
     }
-
+    function routerr_post() {
+        if(!$this->post('id'))
+        {
+            $this->response(NULL, 400);
+        }
+        else
+        {
+            $sql = "insert into restrooms_for_route(route_id, restroom_id) values(?,?);";
+            $query = $this->db->query($sql, array($this->post('roid'), $this->post('rrid')));
+            $this->response($query, 200);
+        }
+    }
     /*
      *  Test Function
      *  Not part of API
