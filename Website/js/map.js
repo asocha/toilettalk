@@ -2,6 +2,7 @@ var lastInfoWindow; //tracks the last info window to open
 var geocoder;
 var waypoints = [];
 var waypointStrings = [];
+var origin, destination;
 
 window.onload = function(){
     geocoder = new google.maps.Geocoder();
@@ -44,6 +45,7 @@ window.onload = function(){
             },false);
             document.getElementsByClassName('pac-container')[1].addEventListener('mousedown',function(){
                 document.getElementById("RoadTrip").style.height="";
+                alert("test");
             },false);
 
             document.removeEventListener('click', event2);
@@ -79,6 +81,10 @@ function initializeRoute(start, end) {
     //clear Restrooms list
     var nav = document.getElementsByClassName("Restrooms")[0];
     if (nav) nav.innerHTML = "";
+
+    //save origin and destination for later in case we save the route
+    origin = start;
+    destination = end;
 
     geocoder.geocode( { 'address': start}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
@@ -412,7 +418,8 @@ function getRestrooms1(location){
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
-        alert("Sorry. Your search returned no restrooms.")
+        alert("Sorry. Your search returned no restrooms.");
+        return null;
     }
     else {
         alert("Error Retrieving Restrooms: " + request.status);
@@ -434,7 +441,8 @@ function getRestrooms2(location1, location2){
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
-        alert("Sorry. Your search returned no restrooms.")
+        alert("Sorry. Your search returned no restrooms.");
+        return null;
     }
     else {
         alert("Error Retrieving Restrooms: " + request.status);
@@ -442,12 +450,14 @@ function getRestrooms2(location1, location2){
     }
 }
 
+//view restroom information and comments
 function viewRestroom(id){
     alert(id);
 }
 
+//add restroom to Road Map
 function addToRoute(title){
     waypoints.push({location: title});
     waypointStrings.push(title);
-    initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);
+    initializeRoute(origin,destination);
 }
