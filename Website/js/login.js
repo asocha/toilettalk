@@ -4,6 +4,7 @@ function initializeLogin(){
     document.getElementById("login").addEventListener('click',function(){login();},false);
     document.getElementById("home").addEventListener('click',function(){home();},false);
     document.getElementById("logout").addEventListener('click',function(){logout();},false);
+    document.getElementById("login_button").addEventListener('click',function(){validatelogin();},false);
 }
 
 function home(){
@@ -24,6 +25,34 @@ function logout(){
     request.open("GET", "../API_Server/index.php/api/toilettalkapi/logout", false);
     request.send();
     window.location = "index.html";
+
+}
+function validatelogin(){
+    
+    var uname=document.forms.loginform.uname.value;
+    var password=document.forms.loginform.password.value;
+    var data = new FormData(document.getElementById("loginform"));
+    
+    var request = new XMLHttpRequest();
+    
+    request.open("POST", "../API_Server/index.php/api/toilettalkapi/login", false);
+    
+    request.send(data);
+    console.log(request.status);
+    if(request.status===200 && request.responseText){
+        var jsonResponse = JSON.parse(request.responseText);
+        if(jsonResponse['success']) {
+            window.location = "index.html";
+            alert('hello');
+            }
+         else{
+        alert("Login is incorrent. Please Try again")
+             }
+    }
+    else{
+        alert("Login is incorrent. Please Try again")
+    }
+    //return false;
 
 }
 function checklogin(){

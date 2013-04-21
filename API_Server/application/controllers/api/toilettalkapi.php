@@ -84,6 +84,7 @@ class toilettalkapi extends REST_Controller
             $hash = $row->hash;
             $slt = $row->salt;
 
+            $slt = '$5$';
             $tempHash = crypt($this->post('password'), $slt);
 
             if($hash == $tempHash){
@@ -99,7 +100,8 @@ class toilettalkapi extends REST_Controller
             }
 
             else{
-                $this->response(array('success' => 'false'), 200);
+                $this->response($tempHash, 200);
+                //$this->response(array('success' => 'false'), 200);
             }
         }
     }
