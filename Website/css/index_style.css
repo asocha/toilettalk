@@ -239,13 +239,8 @@ div.Restrooms{
 }
 
 ul.sidenav li span{ 
-	display: none; 
 	font-size: 0.8em;
  	padding: 10px 0;
-}
-
-ul.sidenav li:hover span {
- 	display: block;
 }
 
 #Fun-Facts p{
