@@ -156,7 +156,7 @@ class toilettalkapi extends REST_Controller
         $rightBoarder=$currentLongitude+$radius;
         $leftBoarder=$currentLongitude-$radius;
 
-        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, sum(diaper_changing_station), sum(handicap_accessib$
+        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, sum(diaper_changing_station), sum(handicap_accessible)
                 from restroom rr, icons i, avg_ratings ar, response re 
                 where ar.restroom_id = rr.restroom_id and re.review_id = i.review_id and rr.restroom_id = re.restroom_id and 
                 rr.latitude >= ? and rr.latitude <= ? and rr.longitude >= ? and rr.longitude <= 
