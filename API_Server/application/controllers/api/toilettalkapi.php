@@ -16,6 +16,18 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+    function routesbyid_get() {
+        if(!$this->get('id'))
+        {
+            $this->response(NULL, 400);
+        }
+        else
+        {
+            $sql = "select * from routes where user_id = ?;";
+            $query = $this->db->query($sql, $this->get('id'));
+            $this->response($query->result(), 200);
+        }
+    }
     function test_get()
     {
         $result = array('key' => $this->get('id'), 'parameter' => $this->get('parm')); 
