@@ -452,7 +452,7 @@ function getRestrooms2(location1, location2){
 
 //view restroom information and comments
 function viewRestroom(id){
-    alert(id);
+    //header("restroomID.html");
 }
 
 //add restroom to Road Map
@@ -460,4 +460,13 @@ function addToRoute(title){
     waypoints.push({location: title});
     waypointStrings.push(title);
     initializeRoute(origin,destination);
+}
+
+//save Road Map
+function saveRoute(){
+    /*
+    var request = new XMLHttpRequest();
+    request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/route/origin/"+origin+"/destination/"+destination, false);
+    request.send();
+    */
 }
