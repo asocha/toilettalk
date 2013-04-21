@@ -24,6 +24,21 @@ function createSearchMap(){
     icons[3] = restroom['sum(24_hour)'];
     icons[4] = restroom['sum(customer_only)'];
     var location = new google.maps.LatLng(lat, lng);
+
+    var comments = getComments();
+
+    var commentnav = document.getElementById("comments");
+    
+    for (var i = 0; comments && i < comments.length; i++){
+        var html = "";
+        var isResponse = comments[i]['responds_to_id'];
+        if (isResponse) html += "&nbsp;&nbsp;&nbsp;&nbsp;";
+        html += "<div class='comment'><p>";
+        html += comments[i]['user_comments'];
+        html += "</p><img class='thumb_up' src='img/thumb_up.png'><img class='thumb_down' src='img/thumb_down.png'></div>";
+
+        commentnav.innerHTML += html;
+    }
     
     var mapOptions = {
         center: location,
@@ -103,9 +118,13 @@ function attachInfo(map, marker, title, stars, icons){
         infoWindow.open(map,marker);
         lastInfoWindow = infoWindow;
     });
+
+    //add Restroom to the side navigation list
+    var nav = document.getElementsByClassName("RestroomTitle")[0];
+    if (nav) nav.innerHTML += html;
 }
 
-//query database for Restrooms nearby 1 location
+//query database for a Restroom's data
 function getRestroom(){
     var id = getUrlVars()["id"];
 
@@ -115,6 +134,29 @@ function getRestroom(){
     request.send();
 
     if(request.status === 200 && request.responseText){
+        return $.parseJSON(request.responseText);
+    }
+    else if (!request.responseText){
+        alert("Somehow you tried to view a restroom that doesn't exist.");
+        return null;
+    }
+    else {
+        alert("Error Retrieving Restroom: " + request.status);
+        return null;
+    }
+}
+
+//query database for a Restroom's comments
+function getComments(){
+    var id = getUrlVars()["id"];
+
+    var request = new XMLHttpRequest();
+    request.open("GET", "../API_Server/index.php/api/toilettalkapi/response/id/"+id, false);
+    //request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/method/location/id/"+id, false);
+    request.send();
+
+    if(request.status === 200 && request.responseText){
+        alert(request.responseText);
         return $.parseJSON(request.responseText);
     }
     else if (!request.responseText){
