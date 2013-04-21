@@ -44,7 +44,7 @@ function validatelogin(){
         var jsonResponse = JSON.parse(request.responseText);
         if(jsonResponse['success']) {
             window.location = "index.html";
-            alert('hello');
+            //alert('hello');
             }
          else{
         alert("Login is incorrent. Please Try again")
@@ -71,7 +71,7 @@ function validateregister(){
         var jsonResponse = JSON.parse(request.responseText);
         if(jsonResponse['success']) {
             window.location = "index.html";
-            alert('hello');
+            //alert('hello');
             }
          else{
         alert("Registeration is incorrent. Please Try again")

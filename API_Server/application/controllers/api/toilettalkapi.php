@@ -70,6 +70,7 @@ class toilettalkapi extends REST_Controller
     {
         $this->db->select('hash');
         $this->db->select('salt');
+        $this->db->select('user_id');
         $this->db->where('username', $this->post('uname'));
 
         $query = $this->db->get('users');
@@ -83,7 +84,7 @@ class toilettalkapi extends REST_Controller
 
             $hash = $row->hash;
             $slt = $row->salt;
-
+            $user_id= $row->user_id;
             //$slt = '$5$';
             $tempHash = crypt($this->post('password'), $slt);
 
@@ -91,7 +92,8 @@ class toilettalkapi extends REST_Controller
 
                 $userdata = array(
                     'username'  => $this->post('uname'),
-                    'logged_in' => TRUE
+                    'logged_in' => TRUE ,
+                    'user_id'=> $user_id
                 );
 
                 $this->session->set_userdata($userdata);
