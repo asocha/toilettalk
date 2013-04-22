@@ -32,9 +32,13 @@ function createSearchMap(){
     for (var i = 0; comments && i < comments.length; i++){
         var html = "";
         var isResponse = comments[i]['responds_to_id'];
-        html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px'><p>";
-        html += comments[i]['user_comments'];
-        html += "</p><img class='thumb_up' src='img/thumb_up.png'><img class='thumb_down' src='img/thumb_down.png'></div>";
+        html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px'>";
+        for (var j = 0; j < 5; j++){
+            if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
+            else html += "<img class='star' src='img/transparentStar.png'>";
+        }
+        html += "<p>" + comments[i]['user_comments'];
+        html += "</p></div><img class='thumb_up' src='img/thumb_up.png'><img class='thumb_down' src='img/thumb_down.png'>";
 
         commentnav.innerHTML += html;
     }
@@ -173,4 +177,28 @@ function getUrlVars() {
         vars[key] = value;
     });
     return vars;
+}
+
+function addReview(){
+    var comments = document.getElementById("comments");
+    comments.style.visibility="hidden";
+    comments.style.position="absolute";
+
+    var addReview = document.getElementById("addReview");
+    addReview.style.visibility="visible";
+    addReview.style.position="static";
+
+    var div = document.getElementsByClassName("Restrooms")[0];
+    var stars = div.getElementsByClassName("star");
+    var icons = div.getElementsByClassName("icon");
+    for (var i = 0; i < 5; i++){
+        stars[i].style.visibility="hidden";
+        stars[i].style.position="absolute";
+        if (icons[i]){
+            icons[i].style.visibility="hidden";
+            icons[i].style.position="absolute";
+        }
+    }
+
+    this.addReview = function(){document.location.reload(true);};   //this is just amazing
 }

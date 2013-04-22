@@ -173,25 +173,25 @@ div {
 
 #comments{
 	overflow: auto;
+	height: 325px;
 }
 
 #comments p{
-	display: block;
+	display: inline;
 	height: 55px;
 	border-radius: 4px;
 	line-height: 35px;
 	text-decoration: none;
 	font-family: 'Helvetica';
 	font-weight: bold;
-	font-size: 15pt;
+	font-size: 13pt;
 	margin: 0;
 	margin-left: 5px;
 }
 
-#comments div{
+#comments div.comment{
 	display: block;
-	width: 450px;
-	height: 35px;
+	height: 50px;
 	border-radius: 4px;
 	line-height: 35px;
 	text-decoration: none;
@@ -199,6 +199,7 @@ div {
 	font-weight: bold;
 	font-size: 15pt;
 	margin: 5px 12px;
+	float: left;
 }
 
 .addReview{
@@ -251,9 +252,8 @@ div {
 }
 
 .thumb_up, .thumb_down{
-	width: 50px;
-	height: 50px;
-	margin-top:0.35cm;
+	width: 25px;
+	height: 25px;
 }
 
 div.Restrooms div.RestroomTitle{
@@ -262,6 +262,7 @@ div.Restrooms div.RestroomTitle{
 
 div.Restrooms div.RestroomTitle h1.restroomName{
 	padding: 10px;
+	padding-bottom: 0;
 	font-size: 25px;
 	color: #FFDC00;
 }
@@ -269,7 +270,6 @@ div.Restrooms div.RestroomTitle h1.restroomName{
 div.Restrooms div.RestroomTitle img.star{
 	width: 20px;
 	height: 20px;
-	padding-bottom: 5px;
 }
 
 div.Restrooms div.RestroomTitle img.icon{
@@ -277,10 +277,14 @@ div.Restrooms div.RestroomTitle img.icon{
 	height: 25px;
 }
 
+
 #addReview{
+	visibility: hidden;
+	position: absolute;
+
 	display: block;
 	width: 450px;
-	height: 75px;
+	height: 200px;
 	border-radius: 4px;
 	text-decoration: none;
 	font-family: 'Helvetica';
@@ -288,7 +292,12 @@ div.Restrooms div.RestroomTitle img.icon{
 	font-size: 15pt;
 	margin: 5px 12px;
 	margin-top: 25px;
+	padding: 5px;
 	background-color: #F1F09D;
 	background-image: linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
 	overflow: auto;
+}
+
+.RestroomTitle{
+	height: 100px;
 }
