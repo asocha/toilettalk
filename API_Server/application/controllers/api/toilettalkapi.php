@@ -16,6 +16,11 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+     function promoteadmin_post() {
+        $sql = "update users set permission = 3 where user_id = ?;";
+        $query = $this->db->query($sql, $this->post('id'));
+        $this->response(200);
+     }
      function saveresponse_post() {
         if($this->post('reviewid') != NULL) {
                 $sql = "insert into response(review_id, responds_to_id, user_id, user_comments, gender, flags, 
