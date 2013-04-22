@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ToiletTalk</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="continue_guest">Continue as guest</string>
+	<string name="uname_hint">Username</string>
+	<string name="pass_hint">Password</string>
+	<string name="email">Email Address</string>
+	<string name="gender">Gender</string>
+	<string name="reg_submit">Sign me up!</string>
+	<string name="logo_description">Toilet Talk</string>
+	<string name="error_login">Invalid username/password combination</string>
+</resources>

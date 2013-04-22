@@ -1,0 +1,20 @@
+//Chintan Patel
+
+package com.pottymouth.restapihandler;
+
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.message.BasicNameValuePair;
+
+public class RestClientV2 {
+	
+	static String server = "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/";
+	
+	public static void login(List<NameValuePair>... param)
+	{
+		String request = server + "login";
+		String paramString = URLEncodedUtils.format(param[0], "utf-8");
+	}//end of login
+}

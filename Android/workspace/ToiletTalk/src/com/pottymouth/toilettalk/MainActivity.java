@@ -1,19 +1,30 @@
 package com.pottymouth.toilettalk;
 
 import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 	
-	Context context;
+	//Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
+        
+        /*
+         * Login Page
+         */
+        Intent it = new Intent(getApplicationContext(), LoginActivity.class);
+    	startActivityForResult(it, 1);
+    	
+    	/*
+    	 * Main Activity Page
+    	 */
+    	setContentView(R.layout.activity_main);
 
     }
      
