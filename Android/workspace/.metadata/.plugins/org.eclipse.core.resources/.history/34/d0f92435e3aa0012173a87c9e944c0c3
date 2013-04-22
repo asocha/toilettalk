@@ -1,0 +1,13 @@
+//Chintan Patel
+
+package com.pottymouth.restapihandler;
+
+import org.apache.http.message.BasicNameValuePair;
+
+public class RestClientV2 {
+	
+	public static void login(BasicNameValuePair...param)
+	{
+		String server = "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/";
+	}//end of login
+}

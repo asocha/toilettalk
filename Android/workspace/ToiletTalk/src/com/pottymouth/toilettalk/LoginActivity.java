@@ -7,13 +7,18 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
+import com.pottymouth.restapihandler.LoginTask;
 import com.pottymouth.restapihandler.RestClient;
 
 public class LoginActivity extends Activity implements View.OnClickListener {
@@ -49,6 +54,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 	public void onClick(View v) {
 		
 		RestClient api;
+		List<NameValuePair> request;
 		
 		switch(v.getId())
 		{
@@ -58,20 +64,57 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				break;
 				
 			case R.id.button_login:
-				api = new RestClient();
-				api.get("users");
+				
+				String username = ((EditText) findViewById(R.id.username)).getText().toString();
+				String password = ((EditText) findViewById(R.id.password)).getText().toString();
+				
+				request = new ArrayList<NameValuePair>();
+				request.add(new BasicNameValuePair("uname", username));
+				request.add(new BasicNameValuePair("password", password));
+				
+				ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+				progressDialog.setMessage("Logging in...");
+				progressDialog.setCancelable(false);
+				
+				LoginTask loginTask = new LoginTask(LoginActivity.this, progressDialog);
+				loginTask.execute(request);
+				
 				break;
 				
 			case R.id.button_continue_guest:
 				api = new RestClient();
 				
-				List<NameValuePair> request = new ArrayList<NameValuePair>();
+				request = new ArrayList<NameValuePair>();
 				request.add(new BasicNameValuePair("id", "123"));
 				
 				api.get("user", request);
+				
+				this.finish();
 				break;
 		}//end switch
 		
+	}
+	
+	
+	@Override
+	public void finish() {
+		setResult(1);
+		super.finish();
+	}
+	
+	public void showLoginError(String result)
+	{
+		AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+		builder.setPositiveButton(R.string.error_login_continue, new DialogInterface.OnClickListener()
+		{
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+			}
+		});
+		builder.setMessage(R.string.error_login);
+		AlertDialog alert = builder.create();
+		alert.setCancelable(false);
+		alert.show();
 	}
      
 }

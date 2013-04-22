@@ -1,7 +1,0 @@
-package snippet;
-
-public class Snippet {
-	Intent it = new Intent(registration.this, registration.class);
-	            	startActivityForResult(it, 0);
-}
-

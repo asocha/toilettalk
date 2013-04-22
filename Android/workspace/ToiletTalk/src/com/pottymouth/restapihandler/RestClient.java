@@ -40,7 +40,6 @@ public class RestClient {
 		
 		getApi api = new getApi(this);
 		api.execute(request);
-		
 				
 		return null;
 	}

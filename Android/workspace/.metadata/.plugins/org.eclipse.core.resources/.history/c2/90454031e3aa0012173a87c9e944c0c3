@@ -1,0 +1,5 @@
+package com.pottymouth.restapihandler;
+
+public class RestClientV2 {
+
+}
