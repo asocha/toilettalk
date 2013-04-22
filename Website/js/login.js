@@ -6,8 +6,8 @@ function initializeLogin(){
     document.getElementById("logout").addEventListener('click',function(){logout();},false);
     document.getElementById("login_button").addEventListener('click',function(){validatelogin();},false);
     document.getElementById("register_button").addEventListener('click',function(){validateregister();},false);
-    setnumberofreviews();
-    setnumberofusers();
+    //setnumberofreviews();
+   //setnumberofusers();
 
 }
 
