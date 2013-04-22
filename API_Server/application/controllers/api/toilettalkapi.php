@@ -286,7 +286,7 @@ class toilettalkapi extends REST_Controller
             $this->db->set('last_name', $this->post('lname'));
             $this->db->set('hash', $hash);
             $this->db->set('gender', $this->post('gender'));
-            $this->db->set('permission', $this->post('permission'));
+            $this->db->set('permission', 1);
             $this->db->set('email', $this->post('email'));
             $this->db->set('salt', $slt);
 
