@@ -1,3 +1,4 @@
+var user_id;
 window.onload = function(){
 	document.getElementById("logout").addEventListener('click',function(){logout();},false);
 	checklogin();
@@ -41,12 +42,12 @@ function load_saved_routes(){
 }
 function load_reviewed_restroom(){
 	var request = new XMLHttpRequest();
-<<<<<<< HEAD
+//<<<<<<< HEAD
     request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyuid/uid/"+user_id, false);
     request.send();
-=======
+//=======
     request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyuid/uid/"+user_id, false);    request.send();
->>>>>>> e875465d3572ab497775c6a76b8a352d1523f5e3
+//>>>>>>> e875465d3572ab497775c6a76b8a352d1523f5e3
     if(request.status === 200 && request.responseText){
     	var jsonResponse = JSON.parse(request.responseText);
     	console.log(request.responseText);
@@ -57,8 +58,8 @@ function load_reviewed_restroom(){
         	var li = document.createElement('li');  
         	li.appendChild(document.createTextNode("Restroom Id:"+jsonResponse[i].restroom_id));
 	        //var txt=document.createTextNode('text');
-	        
-	        li.addEventListener('click',function(){alert("hi");},false);
+	        var id =jsonResponse[i].restroom_id;
+	        li.addEventListener('click',function(){redirect_to_restroom(id);},false);
     		ul.appendChild(li);
     	}
 
@@ -79,15 +80,15 @@ function load_saved_restrooms(){
     		var ul = document.getElementById("saved_restrooms_list");
         	var li = document.createElement('li');  
         	li.appendChild(document.createTextNode("Restroom Id:"+jsonResponse[i].saved_restrooms));
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	        //var txt=document.createTextNode('text');
 	     	var id = jsonResponse[i].saved_restrooms;
 	        li.addEventListener('click',function(){redirect_to_restroom(id);},false);
-=======
+//=======
 	       //var txt=document.createTextNode('text');
 	       var id = jsonResponse[i].saved_restrooms;
           	li.addEventListener('click',function(){redirect_to_restroom(id);},false);
->>>>>>> e875465d3572ab497775c6a76b8a352d1523f5e3
+//>>>>>>> e875465d3572ab497775c6a76b8a352d1523f5e3
     		ul.appendChild(li);
     	}
 
@@ -96,11 +97,11 @@ function load_saved_restrooms(){
 
 }
 function redirect_to_restroom(id){
-<<<<<<< HEAD
+//<<<<<<< HEAD
 	window.location = "restroomID.html?id="+id;
-=======
+//=======
   window.location = "restroomID.html?id="+id;
->>>>>>> e875465d3572ab497775c6a76b8a352d1523f5e3
+//>>>>>>> e875465d3572ab497775c6a76b8a352d1523f5e3
 
 
 }
@@ -115,7 +116,7 @@ function checklogin(){
         var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['logged_in']) {
 
-		    //window.user_id = jsonResponse['user_id'];
+		    user_id = jsonResponse['user_id'];
 		             
 		}
 		else{
