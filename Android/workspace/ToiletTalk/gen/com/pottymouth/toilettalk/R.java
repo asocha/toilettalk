@@ -31,8 +31,10 @@ public final class R {
         public static final int height_button_login_bottom=0x7f050003;
         public static final int margin_drawable_shape_interior_padding=0x7f050002;
         public static final int margin_header_alt_logo=0x7f050004;
+        public static final int margin_imagebutton=0x7f05000b;
         public static final int margin_textinputs=0x7f050005;
         public static final int margin_top_login_buttons=0x7f05000a;
+        public static final int padding_imagebutton=0x7f05000c;
         public static final int textSize_buttons_login=0x7f050007;
         public static final int textSize_buttons_login_bottom=0x7f050008;
         public static final int width_login_buttons=0x7f050009;
@@ -46,26 +48,34 @@ public final class R {
         public static final int button_underline_orange=0x7f020004;
         public static final int button_underline_yellow=0x7f020005;
         public static final int button_underline_yellow_animated=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int shape_round_bottom_yellow=0x7f020008;
-        public static final int shape_round_left_yellow=0x7f020009;
-        public static final int shape_round_right_yellow=0x7f02000a;
-        public static final int shape_round_top_orange=0x7f02000b;
-        public static final int shape_round_top_yellow=0x7f02000c;
-        public static final int shape_round_top_yellow_animated=0x7f02000d;
-        public static final int shape_round_yellow=0x7f02000e;
+        public static final int gender_button_man=0x7f020007;
+        public static final int gender_button_woman=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int shape_round_bottom_yellow=0x7f02000a;
+        public static final int shape_round_left_yellow=0x7f02000b;
+        public static final int shape_round_orange=0x7f02000c;
+        public static final int shape_round_right_yellow=0x7f02000d;
+        public static final int shape_round_top_orange=0x7f02000e;
+        public static final int shape_round_top_yellow=0x7f02000f;
+        public static final int shape_round_top_yellow_animated=0x7f020010;
+        public static final int shape_round_yellow=0x7f020011;
+        public static final int shape_round_yellow_animated=0x7f020012;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000a;
+        public static final int action_settings=0x7f09000e;
         public static final int button_continue_guest=0x7f090007;
         public static final int button_login=0x7f090006;
         public static final int button_register=0x7f090005;
-        public static final int email=0x7f090008;
+        public static final int email=0x7f09000c;
+        public static final int fname=0x7f09000a;
+        public static final int gender=0x7f090009;
         public static final int input_elements=0x7f090001;
+        public static final int lname=0x7f09000b;
         public static final int login_buttons=0x7f090004;
         public static final int logo=0x7f090000;
         public static final int password=0x7f090003;
-        public static final int register_button=0x7f090009;
+        public static final int register_button=0x7f09000d;
+        public static final int scrollview_input_elements=0x7f090008;
         public static final int username=0x7f090002;
     }
     public static final class layout {
@@ -81,10 +91,13 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int continue_guest=0x7f060005;
         public static final int email=0x7f060008;
+        public static final int error_continue=0x7f06000e;
         public static final int error_login=0x7f06000c;
-        public static final int error_login_continue=0x7f06000d;
+        public static final int error_reg=0x7f06000d;
+        public static final int first_name=0x7f06000f;
         public static final int gender=0x7f060009;
         public static final int hello_world=0x7f060002;
+        public static final int last_name=0x7f060010;
         public static final int login=0x7f060004;
         public static final int logo_description=0x7f06000b;
         public static final int pass_hint=0x7f060007;

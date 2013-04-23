@@ -1,0 +1,121 @@
+package com.pottymouth.toilettalk;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.pottymouth.restapihandler.LoginTask;
+import com.pottymouth.restapihandler.RestClient;
+
+public class LoginActivity extends Activity implements View.OnClickListener {
+	
+	Context context;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    	
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.login_activity);
+        context = getApplication();
+        
+        //References buttons
+        Button registerButton = (Button) findViewById(R.id.button_register);
+        Button loginButton = (Button) findViewById(R.id.button_login);
+        Button guestButton = (Button) findViewById(R.id.button_continue_guest);
+        
+        //set onClickListers to buttons
+        registerButton.setOnClickListener(this);
+        loginButton.setOnClickListener(this);
+        guestButton.setOnClickListener(this);
+    }
+     
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void onClick(View v) {
+		
+		RestClient api;
+		List<NameValuePair> request;
+		
+		switch(v.getId())
+		{
+			case R.id.button_register:
+				Intent it = new Intent(this.context, RegActivity.class);
+            	startActivityForResult(it, 2);
+				break;
+				
+			case R.id.button_login:
+				
+				String username = ((EditText) findViewById(R.id.username)).getText().toString();
+				String password = ((EditText) findViewById(R.id.password)).getText().toString();
+				
+				request = new ArrayList<NameValuePair>();
+				request.add(new BasicNameValuePair("uname", username));
+				request.add(new BasicNameValuePair("password", password));
+				
+				ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+				progressDialog.setMessage("Logging in...");
+				progressDialog.setCancelable(false);
+				
+				LoginTask loginTask = new LoginTask(LoginActivity.this, progressDialog);
+				loginTask.execute(request);
+				
+				break;
+				
+			case R.id.button_continue_guest:
+				api = new RestClient();
+				
+				request = new ArrayList<NameValuePair>();
+				request.add(new BasicNameValuePair("id", "123"));
+				
+				api.get("user", request);
+				
+				this.finish();
+				break;
+		}//end switch
+		
+	}
+	
+	
+	@Override
+	public void finish() {
+		setResult(1);
+		super.finish();
+	}
+	
+	public void showLoginError(String result)
+	{
+		AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+		builder.setPositiveButton(R.string.error_login_continue, new DialogInterface.OnClickListener()
+		{
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+			}
+		});
+		builder.setMessage(R.string.error_login);
+		AlertDialog alert = builder.create();
+		alert.setCancelable(false);
+		alert.show();
+	}
+     
+}

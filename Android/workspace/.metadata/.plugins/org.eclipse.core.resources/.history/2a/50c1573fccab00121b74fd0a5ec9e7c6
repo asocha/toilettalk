@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/emerald"
+    android:gravity="center_horizontal" >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_header_alt_logo"
+        android:layout_marginTop="@dimen/margin_header_alt_logo"
+        android:contentDescription="@string/logo_description"
+        android:src="@drawable/alt_logo" />
+
+    <ScrollView
+        android:id="@+id/scrollview_input_elements"
+        android:layout_width="@dimen/width_page_container"
+        android:layout_height="170dp"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:requiresFadingEdge="vertical"
+        android:isScrollContainer="false"  >
+
+        <LinearLayout
+            android:id="@+id/input_elements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/gender"
+                android:layout_width="@dimen/width_page_container"
+                android:layout_height="@dimen/height_button_login_bottom"
+                android:layout_marginBottom="@dimen/margin_textinputs"
+                android:src="@drawable/gender_button_man"
+                android:background="@drawable/shape_round_yellow"
+                android:scaleType="fitCenter"
+                android:padding="@demin/margin_imagebutton" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_textinputs"
+                android:layout_marginTop="@dimen/margin_textinputs"
+                android:ems="10"
+                android:hint="@string/uname_hint"
+                android:inputType="text" />
+            
+            <EditText 
+                android:id="@+id/fname" 
+                android:layout_width="match_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginBottom="@dimen/margin_textinputs" 
+                android:layout_marginTop="@dimen/margin_textinputs" 
+                android:ems="10" android:hint="@string/first_name" 
+                android:inputType="textPersonName" />
+
+            <EditText 
+                android:id="@+id/lname" 
+                android:layout_width="match_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginBottom="@dimen/margin_textinputs" 
+                android:layout_marginTop="@dimen/margin_textinputs" 
+                android:ems="10" android:hint="@string/last_name" 
+                android:inputType="textPersonName" />
+            
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_textinputs"
+                android:layout_marginTop="@dimen/margin_textinputs"
+                android:ems="10"
+                android:hint="@string/pass_hint"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_textinputs"
+                android:layout_marginTop="@dimen/margin_textinputs"
+                android:ems="10"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="@dimen/width_page_container"
+        android:layout_height="@dimen/height_button_login_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_round_top_yellow_animated"
+        android:text="@string/reg_submit"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_buttons_login_bottom"
+        android:textStyle="bold" />
+
+</RelativeLayout>

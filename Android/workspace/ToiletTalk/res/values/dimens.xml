@@ -11,4 +11,6 @@
     <dimen name="textSize_buttons_login_bottom">20dp</dimen>
 	<dimen name="width_login_buttons">115dp</dimen>
 	<dimen name="margin_top_login_buttons">10dp</dimen>
+	<dimen name="margin_imagebutton">8dp</dimen>
+	<dimen name="padding_imagebutton">13dp</dimen>
 </resources>
