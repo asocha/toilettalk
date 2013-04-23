@@ -37,6 +37,7 @@ body{
 	width: 475px;
 	height: 470px;
 	float:left;
+	text-align: center;
 }
 
 #mapfield {
@@ -177,10 +178,9 @@ div {
 }
 
 #comments p{
-	display: inline;
-	height: 55px;
+	display: block;
+	float: left;
 	border-radius: 4px;
-	line-height: 35px;
 	text-decoration: none;
 	font-family: 'Helvetica';
 	font-weight: bold;
@@ -193,26 +193,24 @@ div {
 	display: block;
 	height: 50px;
 	border-radius: 4px;
-	line-height: 35px;
 	text-decoration: none;
 	font-family: 'Helvetica';
 	font-weight: bold;
 	font-size: 15pt;
 	margin: 5px 12px;
 	float: left;
+	text-align: center;
 }
 
 .addReview{
 	margin: 5px;
 	padding: 2px;
 	font-size: 15pt;
-	display: block;
 	width: 120px;
 	text-align: center;
-	margin-left: 172px;
 }
 
-.comment, .addReview {
+.comment, .addReview, .addReply {
 	background-color: #EBE584;
 	border: 1px solid #A89917;
 	-moz-box-shadow:inset 0px 0px 1px rgba(184,166,43,1);
@@ -225,6 +223,10 @@ div {
 	background-image: linear-gradient(90deg , rgb(233,220,126) 0%, rgb(246,241,180) 100%);
 	color: #A78E0F;
 	text-shadow: rgba(254,252,252,0.5) 0px 1px 0px;
+}
+
+.comment{
+	text-align: left;
 }
 
 /*Hover*/
@@ -256,6 +258,10 @@ div {
 	height: 25px;
 }
 
+.thumb_up{
+	margin-top: 4px;
+}
+
 div.Restrooms div.RestroomTitle{
 	text-align: center;
 }
@@ -277,12 +283,10 @@ div.Restrooms div.RestroomTitle img.icon{
 	height: 25px;
 }
 
-
 #addReview{
-	visibility: hidden;
-	position: absolute;
+	display: none;
 
-	display: block;
+	text-align: left;
 	width: 450px;
 	height: 200px;
 	border-radius: 4px;
@@ -298,6 +302,22 @@ div.Restrooms div.RestroomTitle img.icon{
 	overflow: auto;
 }
 
+.addReview:hover, .addReply:hover, .thumb_up:hover, .thumb_down:hover{
+	cursor: pointer;
+}
+
 .RestroomTitle{
 	height: 100px;
+}
+
+.addReply{
+	display: block;
+	float: right;
+	margin: 2px;
+	padding: 2px;
+	font-size: 13pt;
+	width: 50px;
+	text-align: center;
+	font-weight: normal;
+	font-family: serif;
 }
