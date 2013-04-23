@@ -6,11 +6,17 @@ function initializeLogin(){
     document.getElementById("logout").addEventListener('click',function(){logout();},false);
     document.getElementById("login_button").addEventListener('click',function(){validatelogin();},false);
     document.getElementById("register_button").addEventListener('click',function(){validateregister();},false);
+    document.getElementById("exit1").addEventListener('click',function(){exit();},false);
+    document.getElementById("exit2").addEventListener('click',function(){exit();},false);
     //setnumberofreviews();
    //setnumberofusers();
 
 }
+function exit(){
+    document.getElementById("loginform").style.display="none";
+    document.getElementById("Registerform").style.display="none";
 
+}
 function home(){
     document.getElementById("loginform").style.display="none";
     document.getElementById("Registerform").style.display="none";
@@ -70,12 +76,14 @@ function validatelogin(){
     console.log(request.status);
     if(request.status===200 && request.responseText){
         var jsonResponse = JSON.parse(request.responseText);
+        console.log(jsonResponse['success']);
         if(jsonResponse['success']) {
             window.location = "index.html";
             //alert('hello');
             }
          else{
         alert("Login is incorrect. Please Try again")
+        return false;
              }
     }
     else{
