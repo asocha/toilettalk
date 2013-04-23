@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ToiletTalk</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="continue_guest">Continue as guest</string>
+    <string name="uname_hint">Username</string>
+    <string name="pass_hint">Password</string>
+    <string name="email">Email Address</string>
+    <string name="gender">Gender</string>
+    <string name="reg_submit">Sign me up!</string>
+    <string name="logo_description">Toilet Talk</string>
+    <string name="title_activity_my_account">My_account</string>
+    <string name="route_1">Route I</string>
+    <string name="route_2">Route II</string>
+    <string name="route_3">Route III</string>
+    <string name="saved_routes">Saved Routes</string>
+    <string name="back">Back</string>
+    <string name="title_activity_review">Review</string>
+    <string name="restroom_name">Restroom Name</string>
+    <string name="review_1">...............................</string>
+    <string name="review_2">...............................</string>
+    <string name="review_3">...............................</string>
+    <string name="title_activity_add_review">Add_review</string>
+    <string name="submit">Submit</string>
+    <string name="title_activity_review_summary">Review_summary</string>
+    <string name="user_name">User Name</string>
+    <string name="button_lets_tag">Lets Tag</string>
+
+</resources>
