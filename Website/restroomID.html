@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="css/restroomID_style.css" type="text/css" />
-  <link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="css/map.css"/>
-  <script type="text/javascript" src='js/restroom.js'></script>
-  <script type="text/javascript" src='js/login.js'></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&#38;key=AIzaSyDGOadh9EKbHbQP8S1ceKKlLS_HOVhxU60&#38;sensor=false"></script>
-  <script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/src/infobox.js" type="text/javascript"></script>
-  <title>ToiletTalk</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/restroomID_style.css" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/map.css"/>
+	<script type="text/javascript" src='js/restroom.js'></script>
+	<script type="text/javascript" src='js/login.js'></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&#38;key=AIzaSyDGOadh9EKbHbQP8S1ceKKlLS_HOVhxU60&#38;sensor=false"></script>
+	<script src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.5/src/infobox.js" type="text/javascript"></script>
+	<title>ToiletTalk</title>
 </head>
 
 <body id ="body">
@@ -21,59 +21,62 @@
 		<img id="logo" src="img/ToiletTalk_logo.png" alt="Toilet_talk_logo">
 	</div>
 	<div id="logining">
-  <!--  <form id="Registerform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/user/" method = "post"> -->
-      <form id="Registerform" action="../API_Server/index.php/api/toilettalkapi/user/" method = "post">
-      <img id = "exit1"class="exit" src="img/cross.png" alt="exit">  
-      <!--A Form that is used to get user information to login into the site-->
-      <label id="username">Username: <input type="text" name="uname"></label><br />
-      <label id="firstname">First name: <input type="text" name="fname"></label><br />
-      <label id="lastname">Last name: <input type="text" name="lname"></label><br />
-      <label id="password">Password: <input type="password" name="password"></label><br />
-      <label id="male">Male: <input type="radio" name="gender" value = 1></label>
-      <label id="female">Female: <input type="radio" name="gender" value = 0></label><br />
-      <label id="email">Email: <input type="text" name="email"></label><br />
-      <button id="register_button" type="submit" value="submit">Register</button>
-    </form>
-  </div>
-  <!--<form id="loginform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/login/" method = "post">-->
-    <form id="loginform" action="../API_Server/index.php/api/toilettalkapi/login/" method = "post" onsubmit= "return validate()">
-    <img id = "exit2"class="exit" src="img/cross.png" alt="exit">
-    <!--A Form that is used to get user information to login into the site-->
-    <label id="usernameLogin">Username: <input type="text" name="uname"></label><br />
-    <label id="passwordLogin">Password: <input type="password" name="password"></label><br />
-    <button id="login_button" type="submit" value="submit">Login</button>
-  </form>
+	<!--  <form id="Registerform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/user/" method = "post"> -->
+			<form id="Registerform" action="../API_Server/index.php/api/toilettalkapi/user/" method = "post">
+			<img id = "exit1"class="exit" src="img/cross.png" alt="exit">  
+			<!--A Form that is used to get user information to login into the site-->
+			<label id="username">Username: <input type="text" name="uname"></label><br />
+			<label id="firstname">First name: <input type="text" name="fname"></label><br />
+			<label id="lastname">Last name: <input type="text" name="lname"></label><br />
+			<label id="password">Password: <input type="password" name="password"></label><br />
+			<label id="male">Male: <input type="radio" name="gender" value = 1></label>
+			<label id="female">Female: <input type="radio" name="gender" value = 0></label><br />
+			<label id="email">Email: <input type="text" name="email"></label><br />
+			<button id="register_button" type="submit" value="submit">Register</button>
+		</form>
+	</div>
+	<!--<form id="loginform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/login/" method = "post">-->
+		<form id="loginform" action="../API_Server/index.php/api/toilettalkapi/login/" method = "post" onsubmit= "return validate()">
+		<img id = "exit2"class="exit" src="img/cross.png" alt="exit">
+		<!--A Form that is used to get user information to login into the site-->
+		<label id="usernameLogin">Username: <input type="text" name="uname"></label><br />
+		<label id="passwordLogin">Password: <input type="password" name="password"></label><br />
+		<button id="login_button" type="submit" value="submit">Login</button>
+	</form>
 
 	<div id="navbar">
 		<div id="border">
-      <ul>
-		    <li><a id="home" href="index.html">Home</a></li>
-  			<li><a id="about" href="about.html">About</a></li>
-        <li><a id="register" href="#register">Register</a></li>
-  			<li><a id="myaccount" href="myAccount.html">My account</a></li>
-        <li><a id="login" href="#login">Login</a></li>
-  			<li><a id="logout" href="#logout">Logout</a></li>
-      </ul>
+			<ul>
+				<li><a id="home" href="index.html">Home</a></li>
+				<li><a id="about" href="about.html">About</a></li>
+				<li><a id="register" href="#register">Register</a></li>
+				<li><a id="myaccount" href="myAccount.html">My account</a></li>
+				<li><a id="login" href="#login">Login</a></li>
+				<li><a id="logout" href="#logout">Logout</a></li>
+			</ul>
 		</div>
 	</div>
-  <div id="empty">
-  </div>
+	<div id="empty">
+	</div>
 
-  <div class="Restrooms">
-    <div class="RestroomTitle">
-    </div>
-    <div id="comments">
-    </div>
+	<div class="Restrooms">
+		<div style="height:440px">
+			<div class="RestroomTitle">
+			</div>
+		
+			<div id="comments">
+			</div>
 
-    <div id="addReview" onClick="this.contentEditable='true';">
-    </div>
-    <a class="addReview" onClick="addReview(0);">Add Review</a>
+			<div id="addReview" onClick="this.contentEditable='true';">
+			</div>
+		</div>
+		<a class="addReview" onClick="addReview(0);">Add Review</a>
 
-  </div>
+	</div>
 
-  <fieldset id="mapfield">
-    <div id="map_canvas"></div>
-  </fieldset>
+	<fieldset id="mapfield">
+		<div id="map_canvas"></div>
+	</fieldset>
 
 </div>
 </body>
