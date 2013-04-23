@@ -16,6 +16,18 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+     function thumbs_post() {
+        if($this->post('up') == 1) {
+            $sql = "update response set thumbs_up = thumbs_up + 1 where review_id = ? and responds_to_id = ?;";
+            $query = $this->db->query($sql, array($this->post('reviewid'), $this->post('respondstoid')));
+            $this->response(200);
+        }
+        else {
+            $sql = "update response set thumbs_down = thumbs_down + 1 where review_id = ? and responds_to_id = ?;";
+            $query = $this->db->query($sql, array($this->post('reviewid'), $this->post('respondstoid')));
+            $this->response(200);
+        }
+}
      function promoteadmin_post() {
         $sql = "update users set permission = 3 where user_id = ?;";
         $query = $this->db->query($sql, $this->post('id'));
