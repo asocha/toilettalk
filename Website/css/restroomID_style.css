@@ -21,7 +21,12 @@
 body{
 	background-color:#F0F0F0;
 }
-
+.exit { 
+	width: 20px; 
+	height: 20px;  
+	resize: both; 
+	overflow: auto; 
+	float: right;}
 #wrapper{
 	width: 1020px;
 	margin: 0 auto;

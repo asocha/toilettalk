@@ -83,6 +83,7 @@ function validatelogin(){
             }
          else{
         alert("Login is incorrect. Please Try again")
+        return false;
              }
     }
     else{
