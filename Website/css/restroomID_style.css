@@ -1,3 +1,327 @@
+<<<<<<< HEAD
+@font-face {
+	font-family:"hn_1";
+	src: local("hn_1"), url("Font/HelveticaNeueLTStd-Hv.otf" ) format("OpenType"); 
+}
+
+@font-face {
+	font-family:"hn_2";
+	src: local("hn_2"), url("Font/HelveticaNeueLTStd-Md.otf" ) format("OpenType"); 
+}
+
+@font-face {
+	font-family:"hn_3";
+	src: local("hn_3"), url("Font/HelveticaNeueLTStd-ThEx.otf" ) format("OpenType"); 
+}
+
+@font-face{
+	font-family:"hn_4";
+	src: local("hn_4"), url("Font/HelveticaNeueLTStd-UltLtEx.otf" ) format("OpenType"); 
+}
+
+body{
+	background-color:#F0F0F0;
+}
+
+#wrapper{
+	width: 1020px;
+	margin: 0 auto;
+}
+
+#brand{
+	width: 330px;
+	float:left;
+}
+
+.Restrooms {
+	background-color: #27ADC3; 
+	width: 475px;
+	height: 470px;
+	float:left;
+	text-align: center;
+}
+
+#mapfield {
+	background-color: #27ADC3;
+	color: #FFDC00;
+	width: 465px;
+	height: 450px;
+	margin-top: 0.0002cm;
+}
+
+#logo{	
+	float:left;
+	width: 300px;
+	top:0cm;
+}
+
+#border{
+	width: 630px;
+	height: 40px;
+	background-color:#F0F0F0;
+	border-style:solid;
+	border-width:5px;
+	border-color:#27ADC3;
+	margin-top:0.4cm;
+}
+
+#border ul{
+	list-style: none;
+	margin: 5px;
+	padding: 0;
+}
+
+#myaccount{
+	display: none;
+}
+
+#logout{
+	display: none;
+}
+
+div {
+	overflow: hidden;
+}
+
+#navbar
+{
+	display: inline;
+	list-style: none;	
+	background-color:#8392A6;
+}
+
+#navbar li a {
+	float: left;
+	width: 125px;
+	height:10px;
+	padding:10px;
+	color:#3D4A59;
+	text-decoration: none;
+	font-size:16pt;
+	font-family:arial;
+	line-height:17px;
+	text-align:center;
+	background: #F0F0F0;
+	font-family: "hn_2";
+}
+
+#navbar li a:hover {
+	background:#F0F0F0;
+	font-size:16pt;
+	font-weight:bold;
+	border-bottom: 2px solid #EB6C4E;
+	font-family: "hn_1";
+}
+
+#empty{
+	width:1000px;
+	height:20px;
+}
+
+#loginform{
+	display: none;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	background-color: white;
+	border: solid 1px black;
+	position:fixed;
+	left: 50%;
+	top: 50%;
+	background-color: white;
+	z-index: 100;
+
+	height: 120px;
+	margin-top: -150px;
+
+	width: 200px;
+	margin-left: -100px;
+}
+
+#Registerform{
+	display: none;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	background-color: white;
+	border: solid 3px black;
+	position:fixed;
+	left: 50%;
+	top: 50%;
+	background-color: white;
+	z-index: 100;
+
+	height: 275px;
+	margin-top: -200px;
+
+	width: 200px;
+	margin-left: -100px;
+}
+
+#restroomPic{
+	margin-top:0.5cm;
+	margin-left:1cm;
+	width:130px;
+	height:90px;
+	float:left;
+}
+
+#restroomName{
+	margin-top:0.5cm;
+	color: #FFDC00;
+	font-family: "hn_2";
+	font-size:30px;
+}
+
+#comments{
+	overflow: auto;
+	height: 325px;
+}
+
+#comments p{
+	display: block;
+	float: left;
+	border-radius: 4px;
+	text-decoration: none;
+	font-family: 'Helvetica';
+	font-weight: bold;
+	font-size: 13pt;
+	margin: 0;
+	margin-left: 5px;
+}
+
+#comments div.comment{
+	display: block;
+	height: 50px;
+	border-radius: 4px;
+	text-decoration: none;
+	font-family: 'Helvetica';
+	font-weight: bold;
+	font-size: 15pt;
+	margin: 5px 12px;
+	float: left;
+	text-align: center;
+}
+
+.addReview{
+	margin: 5px;
+	padding: 2px;
+	font-size: 15pt;
+	width: 120px;
+	text-align: center;
+}
+
+.comment, .addReview, .addReply {
+	background-color: #EBE584;
+	border: 1px solid #A89917;
+	-moz-box-shadow:inset 0px 0px 1px rgba(184,166,43,1);
+	-webkit-box-shadow:inset 0px 0px 1px rgba(184,166,43,1);
+	box-shadow:inset 0px 0px 1px rgba(184,166,43,1);
+	background-image: -o-linear-gradient(90deg , rgb(233,220,126) 0%, rgb(246,241,180) 100%);
+	background-image: -moz-linear-gradient(90deg , rgb(233,220,126) 0%, rgb(246,241,180) 100%);
+	background-image: -webkit-linear-gradient(90deg , rgb(233,220,126) 0%, rgb(246,241,180) 100%);
+	background-image: -ms-linear-gradient(90deg , rgb(233,220,126) 0%, rgb(246,241,180) 100%);
+	background-image: linear-gradient(90deg , rgb(233,220,126) 0%, rgb(246,241,180) 100%);
+	color: #A78E0F;
+	text-shadow: rgba(254,252,252,0.5) 0px 1px 0px;
+}
+
+.comment{
+	text-align: left;
+}
+
+/*Hover*/
+.comment:hover, .addReview:hover {
+	background-color: #F1F09D;
+	background-image: -o-linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
+	background-image: -moz-linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
+	background-image: -webkit-linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
+	background-image: -ms-linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
+	background-image: linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
+}
+
+/*Active*/
+.comment:active, .addReview:active {
+	background-color: #D4CC56;
+	-moz-box-shadow:inset 0px 0px 5px rgba(184,166,43,1);
+	-webkit-box-shadow:inset 0px 0px 5px rgba(184,166,43,1);
+	box-shadow:inset 0px 0px 5px rgba(184,166,43,1);
+	background-image: -o-linear-gradient(90deg , rgb(246,241,180) 0%, rgb(233,220,126) 100%);
+	background-image: -moz-linear-gradient(90deg , rgb(246,241,180) 0%, rgb(233,220,126) 100%);
+	background-image: -webkit-linear-gradient(90deg , rgb(246,241,180) 0%, rgb(233,220,126) 100%);
+	background-image: -ms-linear-gradient(90deg , rgb(246,241,180) 0%, rgb(233,220,126) 100%);
+	background-image: linear-gradient(90deg , rgb(246,241,180) 0%, rgb(233,220,126) 100%);
+	text-shadow: none;
+}
+
+.thumb_up, .thumb_down{
+	width: 25px;
+	height: 25px;
+}
+
+.thumb_up{
+	margin-top: 4px;
+}
+
+div.Restrooms div.RestroomTitle{
+	text-align: center;
+}
+
+div.Restrooms div.RestroomTitle h1.restroomName{
+	padding: 10px;
+	padding-bottom: 0;
+	font-size: 25px;
+	color: #FFDC00;
+}
+
+div.Restrooms div.RestroomTitle img.star{
+	width: 20px;
+	height: 20px;
+}
+
+div.Restrooms div.RestroomTitle img.icon{
+	width: 25px;
+	height: 25px;
+}
+
+#addReview{
+	display: none;
+
+	text-align: left;
+	width: 450px;
+	height: 200px;
+	border-radius: 4px;
+	text-decoration: none;
+	font-family: 'Helvetica';
+	font-weight: bold;
+	font-size: 15pt;
+	margin: 5px 12px;
+	margin-top: 25px;
+	padding: 5px;
+	background-color: #F1F09D;
+	background-image: linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
+	overflow: auto;
+}
+
+.addReview:hover, .addReply:hover, .thumb_up:hover, .thumb_down:hover{
+	cursor: pointer;
+}
+
+.RestroomTitle{
+	height: 100px;
+}
+
+.addReply{
+	display: block;
+	float: right;
+	margin: 2px;
+	padding: 2px;
+	font-size: 13pt;
+	width: 50px;
+	text-align: center;
+	font-weight: normal;
+	font-family: serif;
+=======
 @font-face {
 	font-family:"hn_1";
 	src: local("hn_1"), url("Font/HelveticaNeueLTStd-Hv.otf" ) format("OpenType"); 
@@ -305,4 +629,5 @@ div.Restrooms div.RestroomTitle img.icon{
 
 .RestroomTitle{
 	height: 100px;
+>>>>>>> eb6e1f33afde8433bb1f902b7da3a1ecf2ea5305
 }
