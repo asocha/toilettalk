@@ -1,0 +1,74 @@
+package com.pottymouth.restapihandler;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.ParseException;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.pottymouth.toilettalk.RegActivity;
+
+public class SessionTask extends AsyncTask<Void, Void, Void> {
+	
+	static String server = "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/";
+	
+	private ProgressDialog progressDialog;
+	private RegActivity activity;
+	
+	@Override
+	protected void onPreExecute()
+	{
+		progressDialog.show();
+	}
+	
+	@Override
+	protected Void doInBackground(Void... params) { 
+			JSONObject result;
+			
+			HttpClient client = new DefaultHttpClient();
+			HttpGet get = new HttpGet(server + "user");
+			
+			try {
+				
+				HttpResponse response = client.execute(get); 
+				HttpEntity entity = response.getEntity();
+				
+				if (null != entity) {
+					result = new JSONObject(EntityUtils.toString(entity));
+					Log.d("CNP", result.toString());
+
+				}
+				} catch (ClientProtocolException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (ParseException e) {
+					e.printStackTrace();
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			
+			return null;
+
+	}
+	
+	@Override
+	protected void onPostExecute(JSONObject result)
+	{
+
+	}
+}

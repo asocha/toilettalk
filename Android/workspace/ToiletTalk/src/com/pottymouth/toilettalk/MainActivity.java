@@ -1,3 +1,6 @@
+//Chintan Patel
+//34468165
+
 package com.pottymouth.toilettalk;
 
 import android.app.Activity;
@@ -5,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 	
@@ -14,6 +18,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
+        
         
         /*
          * Login Page
@@ -26,6 +31,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     	 */
     	setContentView(R.layout.activity_main);
 
+    	
+    	Button button = (Button) findViewById(R.id.button1);
+    	button.setOnClickListener(this);
     }
      
     @Override
@@ -38,7 +46,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 	@Override
 	public void onClick(View v) {
 
-		
+	
 	}
+	
      
 }
