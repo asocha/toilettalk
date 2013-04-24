@@ -165,7 +165,7 @@ innerloop:      for (index in path){
 	});
 
 	//add Save Route Button
-	var html = "<button id='SaveRoute' onclick='saveRoute()'>Save Route</button>";
+	var html = "<a id='SaveRoute' class='button' onclick='saveRoute()'>Save Route</a>";
 	var nav = document.getElementById("RoadTrip");
 	if (nav) nav.innerHTML += html;
 }
@@ -396,14 +396,14 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 		html += "<img class='icon' src='img/icon_pay.jpg'>";
 	}
 
-	html += "<img class='viewRestroom' src='img/star.png' onclick='viewRestroom("+id+")'>";
+	html += "<br /><a class='button viewRestroom' onclick='viewRestroom("+id+")'>Reviews</a>"
 
 	var isWaypoint = false;
 	if (isRoadMap){
 		for (var i = 0; i < waypointStrings.length; i++){
 			if (waypointStrings[i] === title) isWaypoint = true;
 		}
-		if (!isWaypoint) html += "<img class='viewRestroom' src='img/transparentStar.png' onclick='addToRoute("+'"'+title+'"'+")'>";
+		if (!isWaypoint) html += "<a class='button viewRestroom' style='float:right;' onclick='addToRoute(\""+title+"\")'>Add to Route</a>";
 	}
 
 	html += "<br /><br />";
