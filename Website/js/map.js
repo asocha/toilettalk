@@ -496,7 +496,7 @@ function saveRoute(){
 					alert("Route Saved.");
 				}).fail(
 				function(jqxhr, errorText, errorThrown){
-					alert("Error saving route.\n"+errorText + ": " + errorThrown);
+					alert("Error saving route.\n"+"Error Type: " + errorThrown);
 				});
 		}
 		else{
