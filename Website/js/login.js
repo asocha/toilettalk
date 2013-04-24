@@ -8,7 +8,6 @@ function initializeLogin(){
 	document.getElementById("register_button").addEventListener('click',function(){validateregister();},false);
 	document.getElementById("exit1").addEventListener('click',function(){exit();},false);
 	document.getElementById("exit2").addEventListener('click',function(){exit();},false);
-	initializefunfacts();
 }
 
 function exit(){
@@ -83,8 +82,8 @@ function validatelogin(){
 	else{
 		alert("Login is invalid. Please try again.");
 	}
-
 }
+
 function validateregister(){
 	var uname=document.forms.Registerform.uname.value;
 	var password=document.forms.Registerform.password.value;
@@ -115,11 +114,9 @@ function checklogin(){
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
 	request.send();
 	if(request.status === 200 && request.responseText){
-		//console.log(request.responseText);
+		console.log(request.responseText);
 		var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['logged_in']) {
-
-			//console.log('hello');
 			document.getElementById("login").style.display='none';
 			document.getElementById("logout").style.display='inline';
 			document.getElementById("register").style.display='none';
