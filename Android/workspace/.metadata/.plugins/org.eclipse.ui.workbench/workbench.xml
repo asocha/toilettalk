@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="28" version="2.0">
+<workbench progressCount="26" version="2.0">
 <workbenchAdvisor/>
-<window height="1160" maximized="true" width="1585" x="331" y="-22">
+<window height="1160" width="1911" x="9" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="250"/>
@@ -38,56 +38,31 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="1"/>
-<part id="5"/>
 <part id="0"/>
+<part id="1"/>
 <part id="2"/>
-<part id="6"/>
 <part id="3"/>
 <part id="4"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestClient.java" partName="RestClient.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/RestClient.java" title="RestClient.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestClient.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestClient.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1120" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" partName="LoginActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java" title="LoginActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2974" selectionTopPixel="717"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestClientV2.java" partName="RestClientV2.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/RestClientV2.java" title="RestClientV2.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestClientV2.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestClientV2.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="87" selectionOffset="621" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" title="MainActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="432" selectionTopPixel="0"/>
-</editor>
-<editor id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" partName="ToiletTalk Manifest" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/AndroidManifest.xml" title="ToiletTalk Manifest" tooltip="ToiletTalk/AndroidManifest.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/AndroidManifest.xml"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegActivity.java" partName="RegActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/RegActivity.java" title="RegActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/RegActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/RegActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3263" selectionTopPixel="1107"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginTask.java" partName="LoginTask.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java" title="LoginTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2357" selectionTopPixel="0"/>
-</editor>
 <editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" partName="strings.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/values/strings.xml" title="strings.xml" tooltip="ToiletTalk/res/values/strings.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/values/strings.xml"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegTask.java" partName="RegTask.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/RegTask.java" title="RegTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RegTask.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/restapihandler/RegTask.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2366" selectionTopPixel="312"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" title="MainActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="990" selectionTopPixel="90"/>
 </editor>
-<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="registration_activity.xml" partName="registration_activity.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/layout/registration_activity.xml" title="registration_activity.xml" tooltip="ToiletTalk/res/layout/registration_activity.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/layout/registration_activity.xml"/>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_menu.xml" partName="activity_menu.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/layout/activity_menu.xml" title="activity_menu.xml" tooltip="ToiletTalk/res/layout/activity_menu.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/layout/activity_menu.xml"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" partName="LoginActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java" title="LoginActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2672" selectionTopPixel="448"/>
+</editor>
+<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" partName="ToiletTalk Manifest" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/AndroidManifest.xml" title="ToiletTalk Manifest" tooltip="ToiletTalk/AndroidManifest.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/AndroidManifest.xml"/>
 </editor>
 </editors>
 <views>
@@ -105,7 +80,8 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (2 items)"/>
+<category IMemento.internal.id="Warnings (1 item)"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -347,169 +323,143 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestClientV2.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/RegActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestClient.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/Login.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=ToiletTalk/Z:\/Dropbox\/School\/GUI - Database Project\/GitHub\/Team6\/Android\/workspace\/ToiletTalk\/libs\/gson-2.2.3.jar&lt;com.google.gson(JsonParser.class"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/RegTask.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/RegActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/strings.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/registration_activity.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestClient.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/ToiletTalk/AndroidManifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/strings.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ExampleListActivity/res/values/styles.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/activity_menu.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/activity_main.xml"/>
+<editor factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" org.eclipse.jdt.ui.ClassFileIdentifier="=ToiletTalk/C:\/Users\/chintanpatel\/Desktop\/adt-bundle-windows-x86_64-20130219\/sdk\/platforms\/android-17\/android.jar&lt;android.app(Activity.class"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/drawable/shadow.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
 </editors>
-<item historyLabel="LoginActivity.java" index="0">
-<position info="not_deleted" x="2646" y="0"/>
-</item>
-<item historyLabel="RestClient.java" index="4">
-<position info="not_deleted" x="1365" y="0"/>
-</item>
-<item historyLabel="RestClientV2.java" index="1">
-<position info="not_deleted" x="860" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="432" y="0"/>
-</item>
-<item historyLabel="Login.java" index="5">
-<position info="not_deleted" x="1110" y="0"/>
-</item>
-<item historyLabel="LoginActivity.java" index="0">
-<position info="not_deleted" x="2532" y="0"/>
-</item>
-<item historyLabel="Login.java" index="5">
-<position info="not_deleted" x="1110" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position info="not_deleted" x="1243" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="LoginActivity.java" index="0">
-<position info="not_deleted" x="3380" y="0"/>
-</item>
-<item historyLabel="strings.xml" index="7"/>
-<item historyLabel="RestClient.java" index="4">
-<position info="not_deleted" x="1365" y="0"/>
-</item>
-<item historyLabel="RegActivity.java" index="3">
-<position info="not_deleted" x="1593" y="188"/>
-</item>
-<item historyLabel="LoginActivity.java" index="0">
-<position info="not_deleted" x="2646" y="0"/>
-</item>
-<item historyLabel="RegActivity.java" index="3">
-<position info="not_deleted" x="1785" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="LoginActivity.java" index="0">
-<position info="not_deleted" x="3005" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="LoginActivity.java" index="0">
-<position info="not_deleted" x="1070" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="RestClient.java" index="4">
-<position info="not_deleted" x="1120" y="0"/>
-</item>
-<item historyLabel="RestClientV2.java" index="1">
-<position info="not_deleted" x="860" y="0"/>
-</item>
-<item historyLabel="strings.xml" index="7"/>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="RestClientV2.java" index="1">
-<position info="not_deleted" x="860" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="RestClientV2.java" index="1">
-<position info="not_deleted" x="860" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="RestClientV2.java" index="1">
-<position info="not_deleted" x="860" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position info="not_deleted" x="1015" y="0"/>
-</item>
-<item historyLabel="RestClientV2.java" index="1">
-<position info="not_deleted" x="1012" y="585"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position info="not_deleted" x="1269" y="0"/>
-</item>
-<item historyLabel="RestClientV2.java" index="1">
-<position info="not_deleted" x="621" y="87"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position info="not_deleted" x="2160" y="0"/>
-</item>
-<item historyLabel="JsonParser.class" index="8">
-<position/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="JsonParser.class" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position info="not_deleted" x="1189" y="0"/>
-</item>
-<item historyLabel="LoginActivity.java" index="0">
-<position info="not_deleted" x="1739" y="27"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position info="not_deleted" x="1338" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position info="not_deleted" x="1472" y="0"/>
-</item>
-<item historyLabel="LoginTask.java" index="6">
-<position/>
-</item>
-<item historyLabel="RegTask.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="RegActivity.java" index="10">
-<position info="not_deleted" x="3184" y="0"/>
-</item>
-<item historyLabel="LoginActivity.java" index="11">
-<position info="not_deleted" x="2974" y="0"/>
-</item>
-<item historyLabel="strings.xml" index="12"/>
-<item historyLabel="RegActivity.java" index="10">
+<item historyLabel="RegActivity.java" index="0">
 <position info="not_deleted" x="3263" y="0"/>
 </item>
-<item active="true" historyLabel="registration_activity.xml" index="13"/>
+<item historyLabel="registration_activity.xml" index="1"/>
+<item historyLabel="RestClient.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="LoginTask.java" index="3">
+<position info="not_deleted" x="2357" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="432" y="0"/>
+</item>
+<item historyLabel="ToiletTalk Manifest" index="5"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="styles.xml" index="7"/>
+<item historyLabel="strings.xml" index="6"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="394" y="0"/>
+</item>
+<item historyLabel="activity_menu.xml" index="8"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="394" y="0"/>
+</item>
+<item historyLabel="activity_menu.xml" index="8"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="394" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="1025" y="0"/>
+</item>
+<item historyLabel="activity_main.xml" index="9"/>
+<item historyLabel="activity_menu.xml" index="8"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="690" y="0"/>
+</item>
+<item historyLabel="ToiletTalk Manifest" index="5"/>
+<item historyLabel="MainActivity.java" index="4">
+<position/>
+</item>
+<item historyLabel="Activity.class" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position/>
+</item>
+<item historyLabel="activity_main.xml" index="9"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="999" y="0"/>
+</item>
+<item historyLabel="shadow.xml" index="11"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="1025" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="287" y="0"/>
+</item>
+<item historyLabel="activity_main.xml" index="9"/>
+<item historyLabel="activity_menu.xml" index="8"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="287" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="1452" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="1702" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="1674" y="0"/>
+</item>
+<item historyLabel="LoginTask.java" index="12">
+<position info="not_deleted" x="3226" y="0"/>
+</item>
+<item historyLabel="LoginActivity.java" index="13">
+<position info="not_deleted" x="2775" y="0"/>
+</item>
+<item historyLabel="LoginTask.java" index="12">
+<position info="not_deleted" x="3226" y="0"/>
+</item>
+<item historyLabel="LoginActivity.java" index="13">
+<position info="not_deleted" x="2778" y="0"/>
+</item>
+<item historyLabel="LoginTask.java" index="12">
+<position info="not_deleted" x="3226" y="0"/>
+</item>
+<item historyLabel="LoginTask.java" index="12">
+<position info="not_deleted" x="3204" y="0"/>
+</item>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="1674" y="0"/>
+</item>
+<item historyLabel="activity_main.xml" index="9"/>
+<item historyLabel="LoginTask.java" index="12">
+<position info="not_deleted" x="3274" y="0"/>
+</item>
+<item historyLabel="activity_main.xml" index="9"/>
+<item historyLabel="LoginActivity.java" index="13">
+<position info="not_deleted" x="2778" y="0"/>
+</item>
+<item historyLabel="LoginActivity.java" index="13">
+<position info="not_deleted" x="2672" y="0"/>
+</item>
+<item historyLabel="ToiletTalk Manifest" index="5"/>
+<item historyLabel="activity_main.xml" index="9"/>
+<item historyLabel="ToiletTalk Manifest" index="5"/>
+<item historyLabel="MainActivity.java" index="4">
+<position info="not_deleted" x="990" y="0"/>
+</item>
+<item active="true" historyLabel="ToiletTalk Manifest" index="5"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="right"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -518,10 +468,35 @@
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.HeapStatus"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="ToiletTalk/AndroidManifest.xml">
+<persistable path="/ToiletTalk/AndroidManifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="shadow.xml" tooltip="ToiletTalk/res/drawable/shadow.xml">
+<persistable path="/ToiletTalk/res/drawable/shadow.xml"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Activity.class" tooltip="android.app.Activity">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=ToiletTalk/C:\/Users\/chintanpatel\/Desktop\/adt-bundle-windows-x86_64-20130219\/sdk\/platforms\/android-17\/android.jar&lt;android.app(Activity.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="ToiletTalk/res/layout/activity_main.xml">
+<persistable path="/ToiletTalk/res/layout/activity_main.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_menu.xml" tooltip="ToiletTalk/res/layout/activity_menu.xml">
+<persistable path="/ToiletTalk/res/layout/activity_menu.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="registration_activity.xml" tooltip="ToiletTalk/res/layout/registration_activity.xml">
 <persistable path="/ToiletTalk/res/layout/registration_activity.xml"/>
 </file>
@@ -537,35 +512,8 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Login.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/Login.java">
 <persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/Login.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="ToiletTalk/res/layout/activity_main.xml">
-<persistable path="/ToiletTalk/res/layout/activity_main.xml"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RegActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/RegActivity.java">
 <persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/RegActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="login_activity.xml" tooltip="ToiletTalk/res/layout/login_activity.xml">
-<persistable path="/ToiletTalk/res/layout/login_activity.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="ToiletTalk/AndroidManifest.xml">
-<persistable path="/ToiletTalk/AndroidManifest.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestClientV2.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestClientV2.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/RestClientV2.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestClient.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestClient.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/RestClient.java"/>
-</file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="InstanceCreator.class" tooltip="com.google.gson.InstanceCreator">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=ToiletTalk/libs\/gson-2.2.3.jar&lt;com.google.gson(InstanceCreator.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="beta_white.png" tooltip="ToiletTalk/res/drawable-xhdpi/beta_white.png">
-<persistable path="/ToiletTalk/res/drawable-xhdpi/beta_white.png"/>
 </file>
 </mruList>
 </workbench>

@@ -108,8 +108,10 @@ public class LoginTask extends AsyncTask<List<NameValuePair>, Void, JSONObject> 
 	{
 		progressDialog.dismiss();
 		try {
-			if(result.getString("success").equalsIgnoreCase("true"))
+			if(result.getString("success").equalsIgnoreCase("true")){
+				activity.setResult(1);
 				activity.finish();
+			}
 			else
 				activity.showLoginError("");
 		} catch (JSONException e) {
