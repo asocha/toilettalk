@@ -142,7 +142,8 @@ function attachInfo(map, marker, title, stars, icons){
 
 	//add Restroom to the side navigation list
 	var nav = document.getElementsByClassName("RestroomTitle")[0];
-	if (nav) nav.innerHTML += html;
+	nav.innerHTML = html;
+	document.getElementById("comments").style.height=(440-nav.offsetHeight)+"px";
 }
 
 //query database for a Restroom's data
@@ -197,7 +198,7 @@ function getUrlVars() {
 	return vars;
 }
 
-//change to add review page or submit review from that page
+//change to add review page review from that page
 function addReview(response){
 	respondid = response;
 
@@ -206,6 +207,9 @@ function addReview(response){
 
 	var addReview = document.getElementById("addReview");
 	addReview.style.display="block";
+
+	var button = document.getElementsByClassName("addReview")[0];
+	button.addEventListener("click",function(){insertReview(response);},false);
 
 	var div = document.getElementsByClassName("Restrooms")[0];
 	var stars = div.getElementsByClassName("star");
@@ -220,43 +224,47 @@ function addReview(response){
 			breaks[i].style.display="none";
 		}
 	}
+	if (response === 0){
+		var div = document.getElementsByClassName("RestroomTitle")[0];
+		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='1' onmouseover='highlight(1);this.style.cursor = \"pointer\";' onclick='setStar(1)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='2' onmouseover='highlight(2);this.style.cursor = \"pointer\";' onclick='setStar(2)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='3' onmouseover='highlight(3);this.style.cursor = \"pointer\";' onclick='setStar(3)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' /><br />";
 
-	var div = document.getElementsByClassName("RestroomTitle")[0];
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='1' onmouseover='highlight(1);this.style.cursor = \"pointer\";' onclick='setStar(1)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='2' onmouseover='highlight(2);this.style.cursor = \"pointer\";' onclick='setStar(2)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='3' onmouseover='highlight(3);this.style.cursor = \"pointer\";' onclick='setStar(3)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' /><br />";
+		div.innerHTML += "<img class='icon 0' src='img/icon_diaper.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 1' src='img/icon_handicap.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 2' src='img/icon_men.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 3' src='img/icon_pay.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 4' src='img/icon_24.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
+	}
+}
 
-	div.innerHTML += "<img class='icon 0' src='img/icon_diaper.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 1' src='img/icon_handicap.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 2' src='img/icon_men.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 3' src='img/icon_pay.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 4' src='img/icon_24.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
+//insert Review into database
+function insertReview(response){
+	comments = document.getElementById("addReview").innerHTML;
+	//get userid and gender
 
-	//rewrite what this function does so that the next time the button is clicked, the review is added to the database
-	this.addReview = function(){
-		comments = document.getElementById("addReview").innerHTML;
-		//get userid and gender
-
-		//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse"
-		$.post("../API_Server/index.php/api/toilettalkapi/saveresponse", {"respondstoid":respondid,"userid":userid,"usercomments":comments,"gender":gender,"reviewstarrating":numstars,"rrid":id},
-			function(result){
-				//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/icons"
-				$.post("../API_Server/index.php/api/toilettalkapi/icons", {"rrid":id,"dcs":icons[0],"ha":icons[1],"unisex":icons[2],"co":icons[3],"24":icons[4]},
+	//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse"
+	$.post("../API_Server/index.php/api/toilettalkapi/saveresponse", {"respondstoid":respondid,"userid":userid,"usercomments":comments,"gender":gender,"reviewstarrating":numstars,"rrid":id},
+		function(result){
+			//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/icons"
+			if (response === 0){
+				$.post("../API_Server/index.php/api/toilettalkapi/icons", {"rrid":result['review_id'],"dcs":icons[0],"ha":icons[1],"unisex":icons[2],"co":icons[3],"24":icons[4]},
 					function(result){
 						document.location.reload(true);	//reload page
 					}).fail(
 					function(jqxhr, errorText, errorThrown){
 						alert("Error adding restroom icons.\n"+"Error Type: " + errorThrown);
+						alert(JSON.stringify(jqxhr));
 						document.location.reload(true);	//reload page
 					});
-			}).fail(
-			function(jqxhr, errorText, errorThrown){
-				alert("Error adding review.\n"+"Error Type: " + errorThrown);
-				alert(JSON.stringify(jqxhr));
-			});
-	};
+			}
+		}).fail(
+		function(jqxhr, errorText, errorThrown){
+			alert("Error adding review.\n"+"Error Type: " + errorThrown);
+			alert(JSON.stringify(jqxhr));
+		});
 }
 
 function upVote(id, respondid, i){
