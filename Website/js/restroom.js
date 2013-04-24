@@ -4,6 +4,7 @@ var set = false; //is star rating set for Add Review
 
 //Add Review Data
 var numstars = 0;
+var reviewid = null;
 var respondid = 0;
 var userid = 0;
 var gender = true;
@@ -50,7 +51,7 @@ function createSearchMap(){
 			if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
 			else html += "<img class='star' src='img/transparentStar.png'>";
 		}
-		html += "<a class='addReply' onclick='addReview("+(comments[i]['responds_to_id']+1)+");'>Reply</a></div>";
+		html += "<a class='addReply' onclick='addReview("+comments[i]['review_id']+","+(isResponse+1)+");'>Reply</a></div>";
 
 		html += "<p style='font-style:italic;'>"+username+":</p>";
 
@@ -60,6 +61,9 @@ function createSearchMap(){
 
 		commentnav.innerHTML += html;
 	}
+
+	var button = document.getElementsByClassName("addReview")[0];
+	button.addEventListener("click",buttonclick,false);
 	
 	var mapOptions = {
 		center: location,
@@ -76,6 +80,10 @@ function createSearchMap(){
 	});
 
 	geocodeMarker(map, marker, location, stars, icons);
+}
+
+function buttonclick(){
+	addReview(0,0);
 }
 
 //geocode a marker's location and then set it's title and info window
@@ -143,7 +151,7 @@ function attachInfo(map, marker, title, stars, icons){
 	//add Restroom to the side navigation list
 	var nav = document.getElementsByClassName("RestroomTitle")[0];
 	nav.innerHTML = html;
-	document.getElementById("comments").style.height=(440-nav.offsetHeight)+"px";
+	document.getElementById("comments").style.height=(435-nav.offsetHeight)+"px";
 }
 
 //query database for a Restroom's data
@@ -199,7 +207,8 @@ function getUrlVars() {
 }
 
 //change to add review page review from that page
-function addReview(response){
+function addReview(review,response){
+	if (response) reviewid = review;
 	respondid = response;
 
 	var comments = document.getElementById("comments");
@@ -209,7 +218,8 @@ function addReview(response){
 	addReview.style.display="block";
 
 	var button = document.getElementsByClassName("addReview")[0];
-	button.addEventListener("click",function(){insertReview(response);},false);
+	button.removeEventListener("click",buttonclick,false);
+	button.addEventListener("click",insertReview,false);
 
 	var div = document.getElementsByClassName("Restrooms")[0];
 	var stars = div.getElementsByClassName("star");
@@ -241,25 +251,24 @@ function addReview(response){
 }
 
 //insert Review into database
-function insertReview(response){
+function insertReview(){
 	comments = document.getElementById("addReview").innerHTML;
 	//get userid and gender
 
 	//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse"
-	$.post("../API_Server/index.php/api/toilettalkapi/saveresponse", {"respondstoid":respondid,"userid":userid,"usercomments":comments,"gender":gender,"reviewstarrating":numstars,"rrid":id},
+	$.post("../API_Server/index.php/api/toilettalkapi/saveresponse", {"reviewid":reviewid,"respondstoid":respondid,"userid":userid,"usercomments":comments,"gender":gender,"reviewstarrating":numstars,"rrid":id},
 		function(result){
 			//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/icons"
-			if (response === 0){
+			if (respondid === 0){
 				$.post("../API_Server/index.php/api/toilettalkapi/icons", {"rrid":result['review_id'],"dcs":icons[0],"ha":icons[1],"unisex":icons[2],"co":icons[3],"24":icons[4]},
 					function(result){
-						document.location.reload(true);	//reload page
 					}).fail(
 					function(jqxhr, errorText, errorThrown){
 						alert("Error adding restroom icons.\n"+"Error Type: " + errorThrown);
 						alert(JSON.stringify(jqxhr));
-						document.location.reload(true);	//reload page
 					});
 			}
+			document.location.reload(true);	//reload page
 		}).fail(
 		function(jqxhr, errorText, errorThrown){
 			alert("Error adding review.\n"+"Error Type: " + errorThrown);
