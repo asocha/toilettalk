@@ -285,12 +285,10 @@ class toilettalkapi extends REST_Controller
         {
             $this->response(NULL, 400);
         }
-
         else
         {
-            $this->db->where('user_id', $this->get('id'));
-
-            $query = $this->db->get('users');
+            $sql = "select username, first_name, last_name, gender, permission, email from users where user_id = ?;";
+            $query = $this->db->query($sql, $this->get('id'));
             $this->response($query->result(), 200);
         }
     }
