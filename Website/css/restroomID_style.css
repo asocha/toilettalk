@@ -22,6 +22,17 @@ body{
 	background-color:#F0F0F0;
 }
 
+.exit{
+	width: 20px; 
+	height: 20px;  
+	resize: both; 
+	float: right;
+}
+
+.exit:hover{
+	cursor: pointer;
+}
+
 #wrapper{
 	width: 1020px;
 	margin: 0 auto;
