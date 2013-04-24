@@ -18,8 +18,8 @@ class toilettalkapi extends REST_Controller
      */
     function icons_post() {
         $sql = "insert into icons values (?,?,?,?,?,?);";
-        $query = $this->db->query($sql, array($this->get('rrid'),$this->get('dcs'),$this->get('ha'),
-        $this->get('unisex'),$this->get('co'),$this->get('24')));
+        $query = $this->db->query($sql, array($this->post('rrid'),$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
+                $this->post('co'),$this->post('24')));
         $this->response(200);
 
 
