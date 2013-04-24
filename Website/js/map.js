@@ -149,7 +149,7 @@ function createRoute(start, end){
 				var location = new google.maps.LatLng(lat, lng);
 
 innerloop:      for (index in path){
-					if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 10000){ //was 0.1
+					if (Math.pow(lat - path[index].lat(),2) + Math.pow(lng - path[index].lng(),2) <= 0.01){
 						var marker = new google.maps.Marker({
 							position: location,
 							map: map,
@@ -427,8 +427,8 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 //query database for Restrooms nearby 1 location
 function getRestrooms1(location){
 	var request = new XMLHttpRequest();
-	request.open("GET", "../API_Server/index.php/api/toilettalkapi/restrooms/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/100000", false);
-	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10000", false);
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/restrooms/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10", false);
+	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+location.lng()+"/latitude/"+location.lat()+"/radius/10", false);
 	request.send();
 
 	if(request.status === 200 && request.responseText){
@@ -451,8 +451,8 @@ function getRestrooms2(location1, location2){
 	var distance = Math.sqrt(Math.pow(location1.lat() - location2.lat(),2) + Math.pow(location1.lng() + location2.lng(), 2)) * 69.055;
 
 	var request = new XMLHttpRequest();
-	request.open("GET", "../API_Server/index.php/api/toilettalkapi/restrooms/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10000), false);
-	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10000), false);
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/restrooms/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10), false);
+	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/location/longitude/"+centerLng+"/latitude/"+centerLat+"/radius/"+(distance+10), false);
 	request.send();
 
 	if(request.status === 200 && request.responseText){
