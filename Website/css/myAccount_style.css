@@ -1,21 +1,21 @@
-
 @font-face {
-    font-family:"hn_1";
-  	src: local("hn_1"), url("Font/HelveticaNeueLTStd-Hv.otf" ) format("OpenType"); 
+	font-family:"hn_1";
+	src: local("hn_1"), url("Font/HelveticaNeueLTStd-Hv.otf" ) format("OpenType"); 
 }
-@font-face {
-  	font-family:"hn_2";
-  	src: local("hn_2"), url("Font/HelveticaNeueLTStd-Md.otf" ) format("OpenType"); 
- }
 
 @font-face {
-  	font-family:"hn_3";
-  	src: local("hn_3"), url("Font/HelveticaNeueLTStd-ThEx.otf" ) format("OpenType"); 
+	font-family:"hn_2";
+	src: local("hn_2"), url("Font/HelveticaNeueLTStd-Md.otf" ) format("OpenType"); 
+}
+
+@font-face {
+	font-family:"hn_3";
+	src: local("hn_3"), url("Font/HelveticaNeueLTStd-ThEx.otf" ) format("OpenType"); 
 }
 
 @font-face{
-  	font-family:"hn_4";
-  	src: local("hn_4"), url("Font/HelveticaNeueLTStd-UltLtEx.otf" ) format("OpenType"); 
+	font-family:"hn_4";
+	src: local("hn_4"), url("Font/HelveticaNeueLTStd-UltLtEx.otf" ) format("OpenType"); 
 }
 
 body{
@@ -35,14 +35,16 @@ body{
 #logo{	
 	float: left;
 	width: 300px;
-    top: 0cm;
+	top: 0cm;
 }
 
 #border{
-	width: 630px;
-    height: 40px;
-    background-color:#F0F0F0;
-    border-style:solid;
+	float: right;
+	margin-right: 50px;
+	width: 580px;
+	height: 40px;
+	background-color:#F0F0F0;
+	border-style:solid;
 	border-width:5px;
 	border-color:#27ADC3;
 	margin-top:0.4cm;
@@ -50,12 +52,12 @@ body{
 
 #border ul{
 	list-style: none;
-	margin: 5px;
+	margin: 0;
 	padding: 0;
 }
 
 div {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 #navbar
@@ -72,7 +74,6 @@ div {
 #navbar li a {
 	float: left;
 	width: 125px;
-	height:10px;
 	padding:10px;
 	color:#3D4A59;
 	text-decoration: none;
@@ -116,8 +117,8 @@ div {
 #sre, #sro, #rv{
 	background-color:#27ADC3;
 	width: 315px;
-    height: 465px;
-    font-size:30px;
+	height: 465px;
+	font-size:30px;
 	font-family: "hn_2";
 	color:#FFDC00;
 }

@@ -60,7 +60,7 @@ function createSearchMap(){
 	
 	var mapOptions = {
 		center: location,
-		zoom: 15,
+		zoom: 16,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
