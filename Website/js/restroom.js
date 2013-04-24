@@ -227,11 +227,11 @@ function addReview(response){
 	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
 	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' /><br />";
 
-	div.innerHTML += "<img class='icon 0' src='img/icon_men.jpg' style='opacity:0.4' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 1' src='img/icon_handicap.jpg' style='opacity:0.4' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 2' src='img/icon_diaper.jpg' style='opacity:0.4' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 3' src='img/icon_24.jpg' style='opacity:0.4' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 4' src='img/icon_pay.jpg' style='opacity:0.4' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 0' src='img/icon_men.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 1' src='img/icon_handicap.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 2' src='img/icon_diaper.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 3' src='img/icon_24.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 4' src='img/icon_pay.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
 
 	//rewrite what this function does so that the next time the button is clicked, the review is added to the database
 	this.addReview = function(){
@@ -313,7 +313,7 @@ function getUser(id){
 	request.send();
 
 	if(request.status === 200 && request.responseText){
-		//return $.parseJSON(request.responseText)[0]['username'];
+		return $.parseJSON(request.responseText)[0]['username'];
 	}
 	else if (!request.responseText){
 		return "Unknown User";
@@ -332,7 +332,7 @@ function setIcon(x)
 		icons[x] = 1;
 	}
 	else{
-		document.getElementsByClassName(x)[0].style.border="";
+		document.getElementsByClassName(x)[0].style.border="1px solid #27ADC3";
 		document.getElementsByClassName(x)[0].style.opacity=0.4;
 		icons[x] = 0;
 	}
