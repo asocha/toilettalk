@@ -36,6 +36,7 @@
 .infoBox img.icon, div.Restrooms img.icon{
 	height: 20px;
 	width: 20px;
+	margin: 1px;
 }
 
 .infoBox br:last-child{
