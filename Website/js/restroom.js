@@ -38,10 +38,12 @@ function createSearchMap(){
 	var commentnav = document.getElementById("comments");
 	
 	for (var i = 0; comments && i < comments.length; i++){
+		var username = getUser(comments[i]['user_id']);
 		var html = "";
 		var isResponse = comments[i]['responds_to_id'];
 		html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px;display:block;'>";
 
+		html += "<p>"+username+"</p></br >";
 		html += "<p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p>";
 
 		for (var j = 0; j < 5; j++){
@@ -177,7 +179,7 @@ function getComments(){
 		return $.parseJSON(request.responseText);
 	}
 	else if (!request.responseText){
-		alert("This restroom has no comments... Perhaps you could add one!");
+		alert("This restroom has no reviews... Perhaps you could add one!");
 		return null;
 	}
 	else {
@@ -296,4 +298,22 @@ function setStar(x)
 	}
 	numstars=x;
 	set=true;
+}
+
+//get username from user id
+function getUser(id){
+	var request = new XMLHttpRequest();
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/user/id/"+id, false);
+	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/users/method/user/id/"+id, false);
+	request.send();
+	alert(request.responseText);
+	if(request.status === 200 && request.responseText){
+		return $.parseJSON(request.responseText)[0]['username'];
+	}
+	else if (!request.responseText){
+		return "Unknown User";
+	}
+	else {
+		return "Error Retrieving User: " + request.status;
+	}
 }
