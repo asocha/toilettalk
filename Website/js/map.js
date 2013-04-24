@@ -264,7 +264,7 @@ function createNearbyMap(map, center, success){
 			map.setZoom(map.getZoom() + 1);
 		}
 	}
-	map.setZoom(map.getZoom() - 2);
+	map.setZoom(map.getZoom() - 1);
 
 	//add You Are Here marker
 	if (success){
@@ -337,7 +337,7 @@ function createSearchMap(map, coords, address){
 			map.setZoom(map.getZoom() + 1);
 		}
 	}
-	map.setZoom(map.getZoom() - 2);
+	map.setZoom(map.getZoom() - 1);
 
 	var marker = new google.maps.Marker({
 		position: coords,
