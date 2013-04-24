@@ -109,19 +109,19 @@ function attachInfo(map, marker, title, stars, icons){
 
 	//add icons
 	if (icons[0] > 1){
-		html += "<img class='icon' src='img/icon_men.jpg'>";
+		html += "<img class='icon' title='Unisex' src='img/icon_men.jpg'>";
 	}
 	if (icons[1] > 1){
-		html += "<img class='icon' src='img/icon_handicap.jpg'>";
+		html += "<img class='icon' title='Handicap Accessible' src='img/icon_handicap.jpg'>";
 	}
 	if (icons[2] > 1){
-		html += "<img class='icon' src='img/icon_24.jpg'>";
+		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
 	}
 	if (icons[3] > 1){
-		html += "<img class='icon' src='img/icon_diaper.jpg'>";
+		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.jpg'>";
 	}
 	if (icons[4] > 1){
-		html += "<img class='icon' src='img/icon_pay.jpg'>";
+		html += "<img class='icon' title='Customers Only' src='img/icon_pay.jpg'>";
 	}
 
 	html += "<br /><br />";
@@ -219,11 +219,11 @@ function addReview(response){
 	}
 
 	var div = document.getElementsByClassName("RestroomTitle")[0];
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='1' onmouseover='highlight(1);this.style.cursor = "+'"'+"pointer"+'"'+";' onclick='setStar(1)' onmouseout='losehighlight();this.style.cursor = "+'"'+"normal"+'"'+";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='2' onmouseover='highlight(2);this.style.cursor = "+'"'+"pointer"+'"'+";' onclick='setStar(2)' onmouseout='losehighlight();this.style.cursor = "+'"'+"normal"+'"'+";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='3' onmouseover='highlight(3);this.style.cursor = "+'"'+"pointer"+'"'+";' onclick='setStar(3)' onmouseout='losehighlight();this.style.cursor = "+'"'+"normal"+'"'+";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = "+'"'+"pointer"+'"'+";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = "+'"'+"normal"+'"'+";' />";
-	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = "+'"'+"pointer"+'"'+";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = "+'"'+"normal"+'"'+";' />";
+	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='1' onmouseover='highlight(1);this.style.cursor = \"pointer\";' onclick='setStar(1)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='2' onmouseover='highlight(2);this.style.cursor = \"pointer\";' onclick='setStar(2)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='3' onmouseover='highlight(3);this.style.cursor = \"pointer\";' onclick='setStar(3)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
 
 
 	//rewrite what this function does so that the next time the button is clicked, the review is added to the database
