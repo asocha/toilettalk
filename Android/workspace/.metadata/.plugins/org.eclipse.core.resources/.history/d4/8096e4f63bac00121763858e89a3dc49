@@ -1,0 +1,14 @@
+package com.pottymouth.restapihandler;
+
+import org.apache.http.cookie.Cookie;
+
+public class MyCookieStorageClass {
+
+	Cookie cookie;
+	
+	public static Cookie getCookie() {
+		
+		return cookie;
+	}
+
+}

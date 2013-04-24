@@ -81,7 +81,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				break;
 				
 			case R.id.button_continue_guest:
-				
+				setResult(1);
 				this.finish();
 				break;
 				
@@ -92,7 +92,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 	
 	@Override
 	public void finish() {
-		setResult(1);
 		super.finish();
 	}
 	

@@ -1,3 +1,6 @@
+//Chintan Patel
+//34468165
+
 package com.pottymouth.restapihandler;
 
 import java.io.IOException;
@@ -8,9 +11,13 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.ParseException;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.AbstractHttpClient;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
@@ -46,6 +53,25 @@ public class RegTask extends AsyncTask<List<NameValuePair>, Void, JSONObject> {
 			JSONObject result;
 			
 			HttpClient client = new DefaultHttpClient();
+			
+			if(MyCookieStorageClass.getCookie() != null){
+				
+				Log.d("Session", "Getting cookie from MyStorageClass");
+				
+				List<Cookie> cookies = MyCookieStorageClass.getCookie();
+				
+				CookieStore store = new BasicCookieStore();
+				
+				for(Cookie cookie : cookies){
+					store.addCookie(cookie);
+				}
+				
+				((DefaultHttpClient) client).setCookieStore(store);
+				
+				Log.d("Session", "Set cookie from MyStorageClass");
+				
+			}
+			
 			HttpPost post = new HttpPost(server + "user");
 			
 			try {
@@ -59,7 +85,9 @@ public class RegTask extends AsyncTask<List<NameValuePair>, Void, JSONObject> {
 				if (null != entity) {
 					result = new JSONObject(EntityUtils.toString(entity));
 					Log.d("CNP", result.toString());
-					return result;
+					
+					MyCookieStorageClass.setCookie(((AbstractHttpClient) client).getCookieStore().getCookies());
+					
 				}
 				} catch (ClientProtocolException e) {
 					e.printStackTrace();

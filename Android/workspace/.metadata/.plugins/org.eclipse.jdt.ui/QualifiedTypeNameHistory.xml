@@ -23,4 +23,5 @@
 <fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="com.google.gson.JsonObject"/>
 <fullyQualifiedTypeName name="org.apache.http.client.entity.UrlEncodedFormEntity"/>
+<fullyQualifiedTypeName name="com.pottymouth.toilettalk.R.drawable"/>
 </qualifiedTypeNameHistroy>
