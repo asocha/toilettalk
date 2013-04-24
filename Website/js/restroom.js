@@ -42,20 +42,18 @@ function createSearchMap(){
 		var isResponse = comments[i]['responds_to_id'];
 		html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px;display:block;'>";
 
-		html += "<p>";
-		if (comments[i]['thumbs_up'] - comments[i]['thumbs_down'] > 0) html += "+";
-		html += comments[i]['thumbs_up'] - comments[i]['thumbs_down'] + "</p>";
+		html += "<p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p>";
 
 		for (var j = 0; j < 5; j++){
 			if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
 			else html += "<img class='star' src='img/transparentStar.png'>";
 		}
 
-		html += "<a class='addReply' onclick='addReview("+comments[i]['review_id']+");'>Reply</a>";
+		html += "<a class='addReply' onclick='addReview("+(comments[i]['responds_to_id']+1)+");'>Reply</a>";
 
 		html += "<br /><p>" + comments[i]['user_comments'] + "</p>";
 
-		html += "</div><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+");'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+");'>";
+		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility="+'"'+"hidden"+'"'+";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility="+'"'+"hidden"+'"'+";'></div>";
 
 		commentnav.innerHTML += html;
 	}
@@ -234,10 +232,10 @@ function addReview(response){
 		//get userid and gender
 
 		var request = new XMLHttpRequest();
-	    request.open("POST", "../API_Server/index.php/api/toilettalkapi/saveresponse/respondstoid/"+respondid+"/userid/"+userid+"/usercomments/"+comments+"/gender/"+gender+"/reviewstarrating/"+numstars+"/rrid/"+id, false);
-	    //request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse/respondstoid/"+respondid+"/userid/"+userid+"/usercomments/"+comments+"/gender/"+gender+"/reviewstarrating/"+numstars+"/rrid/"+id, false);
-	    request.send();
-	    if(request.status === 200 && request.responseText){
+		request.open("POST", "../API_Server/index.php/api/toilettalkapi/saveresponse/respondstoid/"+respondid+"/userid/"+userid+"/usercomments/"+comments+"/gender/"+gender+"/reviewstarrating/"+numstars+"/rrid/"+id, false);
+		//request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse/respondstoid/"+respondid+"/userid/"+userid+"/usercomments/"+comments+"/gender/"+gender+"/reviewstarrating/"+numstars+"/rrid/"+id, false);
+		request.send();
+		if(request.status === 200 && request.responseText){
 			document.location.reload(true);	//reload page
 		}
 		else{
@@ -246,12 +244,28 @@ function addReview(response){
 	};
 }
 
-function upVote(id){
-	document.location.reload(true);	//reload page
+function upVote(id, respondid, i){
+	//request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/thumbs, false);
+	$.post("../API_Server/index.php/api/toilettalkapi/thumbs", {"up":1,"reviewid":id,"respondstoid":respondid},
+		function(result, status){
+			if(status === "success" && result){
+				document.getElementById("up"+i).innerHTML = parseInt(document.getElementById("up"+i).innerHTML)+1;
+			}
+			else{
+				alert("Error upvoting: " + status);
+			}});
 }
 
-function downVote(id){
-	document.location.reload(true);	//reload page
+function downVote(id, respondid, i){
+	//request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/thumbs, false);
+	$.post("../API_Server/index.php/api/toilettalkapi/thumbs", {"up":0,"reviewid":id,"respondstoid":respondid},
+		function(result, status){
+			if(status === "success" && result){
+				document.getElementById("down"+i).innerHTML = parseInt(document.getElementById("down"+i).innerHTML)+1;
+			}
+			else{
+				alert("Error downvoting: " + status);
+			}});
 }
 
 //highlight stars for rating
