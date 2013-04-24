@@ -237,7 +237,8 @@ function addReview(response){
 				document.location.reload(true);	//reload page
 			}).fail(
 			function(jqxhr, errorText, errorThrown){
-				alert("Error adding review.\n"+errorText + ": " + errorThrown);
+				alert("Error adding review.\n"+"Error Type: " + errorThrown);
+				alert(JSON.stringify(jqxhr));
 			});
 	};
 }
@@ -249,7 +250,7 @@ function upVote(id, respondid, i){
 			document.getElementById("up"+i).innerHTML = parseInt(document.getElementById("up"+i).innerHTML)+1;
 		}).fail(
 		function(jqxhr, errorText, errorThrown){
-			alert("Error upvoting.\n"+errorText + ": " + errorThrown);
+			alert("Error upvoting.\n"+"Error Type: " + errorThrown);
 		});
 }
 
@@ -260,7 +261,7 @@ function downVote(id, respondid, i){
 			document.getElementById("down"+i).innerHTML = parseInt(document.getElementById("down"+i).innerHTML)+1;
 		}).fail(
 		function(jqxhr, errorText, errorThrown){
-			alert("Error downvoting.\n"+errorText + ": " + errorThrown);
+			alert("Error downvoting.\n"+"Error Type: " + errorThrown);
 		});
 }
 
