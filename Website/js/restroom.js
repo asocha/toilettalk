@@ -27,11 +27,12 @@ function createSearchMap(){
 	var lat = restroom['latitude'];
 	var lng = restroom['longitude'];
 	var icons = [];
-	icons[0] = restroom['sum(unisex)'];
+	icons[0] = restroom['sum(diaper_changing_station)'];
 	icons[1] = restroom['sum(handicap_accessible)'];
-	icons[2] = restroom['sum(diaper_changing_station)'];
-	icons[3] = restroom['sum(24_hour)'];
-	icons[4] = restroom['sum(customer_only)'];
+	icons[2] = restroom['sum(unisex)'];
+	icons[3] = restroom['sum(customer_only)'];
+	icons[4] = restroom['sum(24_hour)'];
+	
 	var location = new google.maps.LatLng(lat, lng);
 
 	var comments = getComments();
@@ -111,19 +112,19 @@ function attachInfo(map, marker, title, stars, icons){
 
 	//add icons
 	if (icons[0] > 1){
-		html += "<img class='icon' title='Unisex' src='img/icon_men.jpg'>";
+		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.jpg'>";
 	}
 	if (icons[1] > 1){
 		html += "<img class='icon' title='Handicap Accessible' src='img/icon_handicap.jpg'>";
 	}
 	if (icons[2] > 1){
-		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
+		html += "<img class='icon' title='Unisex' src='img/icon_men.jpg'>";
 	}
 	if (icons[3] > 1){
-		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.jpg'>";
+		html += "<img class='icon' title='Customers Only' src='img/icon_pay.jpg'>";
 	}
 	if (icons[4] > 1){
-		html += "<img class='icon' title='Customers Only' src='img/icon_pay.jpg'>";
+		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
 	}
 
 	html += "<br /><br />";
@@ -227,11 +228,11 @@ function addReview(response){
 	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
 	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' /><br />";
 
-	div.innerHTML += "<img class='icon 0' src='img/icon_men.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 0' src='img/icon_diaper.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
 	div.innerHTML += "<img class='icon 1' src='img/icon_handicap.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 2' src='img/icon_diaper.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 3' src='img/icon_24.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
-	div.innerHTML += "<img class='icon 4' src='img/icon_pay.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 2' src='img/icon_men.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 3' src='img/icon_pay.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 4' src='img/icon_24.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
 
 	//rewrite what this function does so that the next time the button is clicked, the review is added to the database
 	this.addReview = function(){
@@ -241,7 +242,15 @@ function addReview(response){
 		//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse"
 		$.post("../API_Server/index.php/api/toilettalkapi/saveresponse", {"respondstoid":respondid,"userid":userid,"usercomments":comments,"gender":gender,"reviewstarrating":numstars,"rrid":id},
 			function(result){
-				document.location.reload(true);	//reload page
+				//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/icons"
+				$.post("../API_Server/index.php/api/toilettalkapi/icons", {"rrid":id,"dcs":icons[0],"ha":icons[1],"unisex":icons[2],"co":icons[3],"24":icons[4]},
+					function(result){
+						document.location.reload(true);	//reload page
+					}).fail(
+					function(jqxhr, errorText, errorThrown){
+						alert("Error adding restroom icons.\n"+"Error Type: " + errorThrown);
+						document.location.reload(true);	//reload page
+					});
 			}).fail(
 			function(jqxhr, errorText, errorThrown){
 				alert("Error adding review.\n"+"Error Type: " + errorThrown);

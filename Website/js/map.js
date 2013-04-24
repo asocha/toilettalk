@@ -141,11 +141,11 @@ function createRoute(start, end){
 				var lat = restrooms[count]['latitude'];
 				var lng = restrooms[count]['longitude'];
 				var icons = [];
-				icons[0] = restrooms[count]['sum(unisex)'];
-				icons[1] = restrooms[count]['sum(handicap_accessible)'];
-				icons[2] = restrooms[count]['sum(diaper_changing_station)'];
-				icons[3] = restrooms[count]['sum(24_hour)'];
-				icons[4] = restrooms[count]['sum(customer_only)'];
+				icons[0] = restrooms['sum(diaper_changing_station)'];
+				icons[1] = restrooms['sum(handicap_accessible)'];
+				icons[2] = restrooms['sum(unisex)'];
+				icons[3] = restrooms['sum(customer_only)'];
+				icons[4] = restrooms['sum(24_hour)'];
 				var location = new google.maps.LatLng(lat, lng);
 
 innerloop:      for (index in path){
@@ -245,11 +245,11 @@ function createNearbyMap(map, center, success){
 		var lat = restrooms[count]['latitude'];
 		var lng = restrooms[count]['longitude'];
 		var icons = [];
-		icons[0] = restrooms[count]['sum(unisex)'];
-		icons[1] = restrooms[count]['sum(handicap_accessible)'];
-		icons[2] = restrooms[count]['sum(diaper_changing_station)'];
-		icons[3] = restrooms[count]['sum(24_hour)'];
-		icons[4] = restrooms[count]['sum(customer_only)'];
+		icons[0] = restrooms['sum(diaper_changing_station)'];
+		icons[1] = restrooms['sum(handicap_accessible)'];
+		icons[2] = restrooms['sum(unisex)'];
+		icons[3] = restrooms['sum(customer_only)'];
+		icons[4] = restrooms['sum(24_hour)'];
 		var location = new google.maps.LatLng(lat, lng);
 
 		var marker = new google.maps.Marker({
@@ -318,11 +318,11 @@ function createSearchMap(map, coords, address){
 		var lat = restrooms[count]['latitude'];
 		var lng = restrooms[count]['longitude'];
 		var icons = [];
-		icons[0] = restrooms[count]['sum(unisex)'];
-		icons[1] = restrooms[count]['sum(handicap_accessible)'];
-		icons[2] = restrooms[count]['sum(diaper_changing_station)'];
-		icons[3] = restrooms[count]['sum(24_hour)'];
-		icons[4] = restrooms[count]['sum(customer_only)'];
+		icons[0] = restrooms['sum(diaper_changing_station)'];
+		icons[1] = restrooms['sum(handicap_accessible)'];
+		icons[2] = restrooms['sum(unisex)'];
+		icons[3] = restrooms['sum(customer_only)'];
+		icons[4] = restrooms['sum(24_hour)'];
 		var location = new google.maps.LatLng(lat, lng);
 
 		var marker = new google.maps.Marker({
@@ -381,19 +381,19 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 
 	//add icons
 	if (icons[0] > 1){
-		html += "<img class='icon' title='Unisex' src='img/icon_men.jpg'>";
+		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.jpg'>";
 	}
 	if (icons[1] > 1){
 		html += "<img class='icon' title='Handicap Accessible' src='img/icon_handicap.jpg'>";
 	}
 	if (icons[2] > 1){
-		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
+		html += "<img class='icon' title='Unisex' src='img/icon_men.jpg'>";
 	}
 	if (icons[3] > 1){
-		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.jpg'>";
+		html += "<img class='icon' title='Customers Only' src='img/icon_pay.jpg'>";
 	}
 	if (icons[4] > 1){
-		html += "<img class='icon' title='Customers Only' src='img/icon_pay.jpg'>";
+		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
 	}
 
 	html += "<br /><a class='button viewRestroom' onclick='viewRestroom("+id+")'>Reviews</a>"
