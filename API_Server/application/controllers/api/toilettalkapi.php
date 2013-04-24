@@ -16,6 +16,14 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+    function icons_post() {
+        $sql = "insert into icons values (?,?,?,?,?,?);";
+        $query = $this->db->query($sql, array($this->get('rrid'),$this->get('dcs'),$this->get('ha'),
+        $this->get('unisex'),$this->get('co'),$this->get('24')));
+        $this->response(200);
+
+
+    }
      function thumbs_post() {
         if($this->post('up') == 1) {
             $sql = "update response set thumbs_up = thumbs_up + 1 where review_id = ? and responds_to_id = ?;";
