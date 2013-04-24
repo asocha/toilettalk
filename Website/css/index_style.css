@@ -75,19 +75,20 @@ body{
 }
 
 #border{
-	width: 630px;
+	float: right;
+	margin-right: 50px;
+	width: 580px;
 	height: 40px;
 	background-color:#F0F0F0;
 	border-style:solid;
 	border-width:5px;
 	border-color:#27ADC3;
 	margin-top:0.4cm;
-		
 }
 
 #border ul{
 	list-style: none;
-	margin: 5px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -117,7 +118,6 @@ div {
 #navbar li a {
 	float: left;
 	width: 125px;
-	height:10px;
 	padding:10px;
 	color:#3D4A59;
 	text-decoration: none;
@@ -193,10 +193,15 @@ div {
 }
 
 #Fun_Facts h4{
-	margin-top:0.00002cm;
+	margin-top: 20px;
+	margin-bottom: 0;
 	color:#FFDC00;
 	font-family: "hn_3";
 	font-size:17px;
+}
+
+#Fun_Facts p{
+	margin-top: 0;
 }
 
 ul.sidenav {
@@ -230,7 +235,6 @@ ul.sidenav li{
 ul.sidenav li:hover {
 	background: #1C8BFF;
 	height: 250px;
-	overflow: hidden;
 	/*Animation*/
 	transition: height 2s ease;
 }
