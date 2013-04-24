@@ -8,6 +8,7 @@ var respondid = 0;
 var userid = 0;
 var gender = true;
 var comments, id;
+var icons = [0, 0, 0, 0, 0];
 
 window.onload = function(){
 	geocoder = new google.maps.Geocoder();
@@ -43,17 +44,16 @@ function createSearchMap(){
 		var isResponse = comments[i]['responds_to_id'];
 		html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px;display:block;'>";
 
-		html += "<p>"+username+"</p></br >";
-		html += "<p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p>";
-
+		html += "<div style=''><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p>";
 		for (var j = 0; j < 5; j++){
 			if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
 			else html += "<img class='star' src='img/transparentStar.png'>";
 		}
+		html += "<a class='addReply' onclick='addReview("+(comments[i]['responds_to_id']+1)+");'>Reply</a></div>";
 
-		html += "<a class='addReply' onclick='addReview("+(comments[i]['responds_to_id']+1)+");'>Reply</a>";
+		html += "<p style='font-style:italic;'>"+username+":</p>";
 
-		html += "<br /><p>" + comments[i]['user_comments'] + "</p>";
+		html += "<p>" + comments[i]['user_comments'] + "</p>";
 
 		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility="+'"'+"hidden"+'"'+";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility="+'"'+"hidden"+'"'+";'></div>";
 
@@ -227,6 +227,11 @@ function addReview(response){
 	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
 	div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
 
+	div.innerHTML += "<img class='icon 1' src='img/icon_men.jpg' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 2' src='img/icon_handicap.jpg' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 3' src='img/icon_diaper.jpg' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 4' src='img/icon_24.jpg' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
+	div.innerHTML += "<img class='icon 5' src='img/icon_pay.jpg' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(5)' onmouseout='this.style.cursor = \"normal\";' />";
 
 	//rewrite what this function does so that the next time the button is clicked, the review is added to the database
 	this.addReview = function(){
@@ -306,9 +311,9 @@ function getUser(id){
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/user/id/"+id, false);
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/users/method/user/id/"+id, false);
 	request.send();
-	alert(request.responseText);
+
 	if(request.status === 200 && request.responseText){
-		return $.parseJSON(request.responseText)[0]['username'];
+		//return $.parseJSON(request.responseText)[0]['username'];
 	}
 	else if (!request.responseText){
 		return "Unknown User";
@@ -316,4 +321,11 @@ function getUser(id){
 	else {
 		return "Error Retrieving User: " + request.status;
 	}
+}
+
+//set selected icons
+function setIcon(x)
+{
+	document.getElementsByClassName(x)[0].style.border="1px solid yellow";
+	icons[x] = 1;
 }

@@ -3,17 +3,6 @@
   	src: local("hn_1"), url("Font/HelveticaNeueLTStd-Hv.otf" ) format("OpenType"); 
 }
 
-/* All */
-html{
-	height: 100%;
-}
-
-body{
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
 /* Map */
 #map_canvas{
 	height: 100%;
@@ -47,15 +36,6 @@ body{
 .infoBox img.icon, div.Restrooms img.icon{
 	height: 20px;
 	width: 20px;
-}
-
-.infoBox img.viewRestroom, div.Restrooms img.viewRestroom{
-	height: 20px;
-	width: 20px;
-}
-
-.infoBox img.viewRestroom:hover, div.Restrooms img.viewRestroom:hover{
-	cursor: pointer;
 }
 
 .infoBox br:last-child{
