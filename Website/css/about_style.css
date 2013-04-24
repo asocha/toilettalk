@@ -91,7 +91,9 @@ body{
 }
 
 #border{
-	width: 630px;
+	float: right;
+	margin-right: 50px;
+	width: 580px;
 	height: 40px;
 	background-color:#F0F0F0;
 	border-style:solid;
