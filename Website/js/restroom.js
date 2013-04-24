@@ -231,41 +231,37 @@ function addReview(response){
 		comments = document.getElementById("addReview").innerHTML;
 		//get userid and gender
 
-		var request = new XMLHttpRequest();
-		request.open("POST", "../API_Server/index.php/api/toilettalkapi/saveresponse/respondstoid/"+respondid+"/userid/"+userid+"/usercomments/"+comments+"/gender/"+gender+"/reviewstarrating/"+numstars+"/rrid/"+id, false);
-		//request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse/respondstoid/"+respondid+"/userid/"+userid+"/usercomments/"+comments+"/gender/"+gender+"/reviewstarrating/"+numstars+"/rrid/"+id, false);
-		request.send();
-		if(request.status === 200 && request.responseText){
-			document.location.reload(true);	//reload page
-		}
-		else{
-			alert("Error adding response: " + request.status);
-		}
+		//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse"
+		$.post("../API_Server/index.php/api/toilettalkapi/saveresponse", {"respondstoid":respondid,"userid":userid,"usercomments":comments,"gender":gender,"reviewstarrating":numstars,"rrid":id},
+			function(result){
+				document.location.reload(true);	//reload page
+			}).fail(
+			function(jqxhr, errorText, errorThrown){
+				alert("Error adding review.\n"+errorText + ": " + errorThrown);
+			});
 	};
 }
 
 function upVote(id, respondid, i){
-	//request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/thumbs, false);
+	//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/thumbs"
 	$.post("../API_Server/index.php/api/toilettalkapi/thumbs", {"up":1,"reviewid":id,"respondstoid":respondid},
-		function(result, status){
-			if(status === "success" && result){
-				document.getElementById("up"+i).innerHTML = parseInt(document.getElementById("up"+i).innerHTML)+1;
-			}
-			else{
-				alert("Error upvoting: " + status);
-			}});
+		function(result){
+			document.getElementById("up"+i).innerHTML = parseInt(document.getElementById("up"+i).innerHTML)+1;
+		}).fail(
+		function(jqxhr, errorText, errorThrown){
+			alert("Error upvoting.\n"+errorText + ": " + errorThrown);
+		});
 }
 
 function downVote(id, respondid, i){
-	//request.open("POST", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/thumbs, false);
+	//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/thumbs"
 	$.post("../API_Server/index.php/api/toilettalkapi/thumbs", {"up":0,"reviewid":id,"respondstoid":respondid},
-		function(result, status){
-			if(status === "success" && result){
-				document.getElementById("down"+i).innerHTML = parseInt(document.getElementById("down"+i).innerHTML)+1;
-			}
-			else{
-				alert("Error downvoting: " + status);
-			}});
+		function(result){
+			document.getElementById("down"+i).innerHTML = parseInt(document.getElementById("down"+i).innerHTML)+1;
+		}).fail(
+		function(jqxhr, errorText, errorThrown){
+			alert("Error downvoting.\n"+errorText + ": " + errorThrown);
+		});
 }
 
 //highlight stars for rating
