@@ -3,12 +3,13 @@ var geocoder;
 var waypoints = [];
 var waypointStrings = [];
 var origin, destination;
+var initializeLogin, initializefunfacts;
 
 window.onload = function(){
 	geocoder = new google.maps.Geocoder();
 	initializeNearby();
 
-	initializeLogin();
+	if (initializeLogin) initializeLogin();
 	if (initializefunfacts) initializefunfacts();
 
 	//remaining code only runs on website, not on Android
