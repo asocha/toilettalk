@@ -9,6 +9,7 @@ window.onload = function(){
 	initializeNearby();
 
 	initializeLogin();
+	if (initializefunfacts) initializefunfacts();
 
 	//remaining code only runs on website, not on Android
 	if(document.getElementById("SearchButton")){
