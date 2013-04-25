@@ -2,6 +2,9 @@ function initializefunfacts(){
 	setnumberofreviews();
 	setnumberofusers();
 	setlatestreview();
+	//var first = getUrlVars()["id"];
+	//var second = getUrlVars()["destination"];
+	//alert(first);
 }
 
 function setlatestreview(){
@@ -48,7 +51,13 @@ function setnumberofreviews(){
 		document.getElementById('numberofreviews').innerHTML=jsonResponse[0].numofreviews;
 	}
 }
-
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
 function setnumberofusers(){
 	var request = new XMLHttpRequest();
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/userno", false);

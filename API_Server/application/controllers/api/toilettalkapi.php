@@ -326,6 +326,27 @@ class toilettalkapi extends REST_Controller
         }
 
     }
+    function allusers_get()
+    {
+            $sql = "select username, user_id from users ";
+            $query = $this->db->query($sql, $this->get('id'));
+            $this->response($query->result(), 200);
+        
+    }
+    function allrestroom_get()
+    {
+            $sql = "select restroom_id, latitude,longitude from restroom ";
+            $query = $this->db->query($sql, $this->get('id'));
+            $this->response($query->result(), 200);
+        
+    }
+    function allresponse_get()
+    {
+            $sql = "select review_id,user_comments  from response ";
+            $query = $this->db->query($sql, $this->get('id'));
+            $this->response($query->result(), 200);
+        
+    }
     
     function user_delete()
     {

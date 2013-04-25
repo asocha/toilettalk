@@ -1,16 +1,11 @@
 var user_id;
 var geocoder;
 window.onload = function(){
-	
-	document.getElementById("logout").addEventListener('click',function(){logout();},false);
-	checklogin();
-	alert(user_id);
-	load_saved_restrooms();
-	load_saved_routes();
-	load_reviewed_restroom();
-	alert(window.lastInfoWindow);
-	
-
+document.getElementById("logout").addEventListener('click',function(){logout();},false);	
+checklogin();
+load_users();
+load_restrooms();
+load_responses();
 	
 }
 
@@ -22,36 +17,42 @@ function logout(){
 	window.location = "index.html";
 }
 
-function load_saved_routes(){
+function load_users(){
 	var request = new XMLHttpRequest();
-	request.open("GET", "../API_Server/index.php/api/toilettalkapi/routesbyid/id/"+user_id, false);
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/allusers", false);
 	request.send();
 	if(request.status === 200 && request.responseText){
+		console.log(request.responseText);
 		var jsonResponse = JSON.parse(request.responseText);
 		//console.log(request.responseText);
 		
 		for(var i= 0; i<jsonResponse.length;i++){
-			var ul = document.getElementById("routes_list");
+			var ul = document.getElementById("users_list");
 			var li = document.createElement('li');  
-			li.appendChild(document.createTextNode(jsonResponse[i].origin + "\n" +jsonResponse[i].destination));
+			li.appendChild(document.createTextNode(jsonResponse[i].username));
+			var btn=document.createElement("BUTTON");
+			var t=document.createTextNode("Delete");
+			btn.appendChild(t);
+			
+			li.appendChild(btn);
 			//var txt=document.createTextNode('text');
 			
-			li.addEventListener('click',function(){redirect_to_route(1);},false);
+			btn.addEventListener('click',function(){alert("hello");},false);
 
 			ul.appendChild(li);
 		}
 	}
 }
 
-function load_reviewed_restroom(){
+function load_restrooms(){
 	var request = new XMLHttpRequest();
-
-	request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyuid/uid/"+user_id, false);
+	console.log('load');
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/allrestroom", false);
 	request.send();
 
 	if(request.status === 200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
-		//console.log(request.responseText);
+		console.log(request.responseText);
 		
 		for(var i= 0; i<jsonResponse.length;i++){
 			geocoder = new google.maps.Geocoder();
@@ -61,15 +62,20 @@ function load_reviewed_restroom(){
 			var id =jsonResponse[i].restroom_id;
 			var latlng = new google.maps.LatLng(jsonResponse[i].latitude,jsonResponse[i].longitude);
 				 geocoder.geocode( { 'latLng': latlng}, function(results, status) {
-				 	var ul = document.getElementById("review_list");
+				 	var ul = document.getElementById("restroom_list");
 					var li = document.createElement('li');
         			if (status === google.maps.GeocoderStatus.OK) {
             		address =results[0].formatted_address ;
             		var txt=document.createTextNode('text');
 					li.appendChild(document.createTextNode(address));
-					li.addEventListener('click',function(){redirect_to_restroom(id);},false);
+					var btn=document.createElement("BUTTON");
+					var t=document.createTextNode("Delete");
+					btn.appendChild(t);
+					li.appendChild(btn);
+					btn.addEventListener('click',function(){},false);
+					
 					ul.appendChild(li);
-					console.log(address);
+					//console.log(address);
         				}
         			});
 			
@@ -77,10 +83,10 @@ function load_reviewed_restroom(){
 	}
 }
 
-function load_saved_restrooms(){
+function load_responses(){
 	var address;
 	var request = new XMLHttpRequest();
-	request.open("GET", "../API_Server/index.php/api/toilettalkapi/savedrestrooms/id/"+user_id, false);
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/allresponse", false);
 	request.send();
 	if(request.status === 200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
@@ -91,35 +97,27 @@ function load_saved_restrooms(){
 
 		for(var i= 0; i<jsonResponse.length;i++){
 			//console.log(jsonResponse[i].saved_restrooms);
-			geocoder = new google.maps.Geocoder();
-			var id = jsonResponse[i].saved_restrooms;
-			//geocoder.geocode( { 'latLng': location}, function(results, status) {
-        	var request2 = new XMLHttpRequest();
-			request2.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/rrid/"+id, false);
-			request2.send();
-			if(request2.status === 200 && request2.responseText){
-				var jsonResponse2 = JSON.parse(request2.responseText);
-				var latlng = new google.maps.LatLng(jsonResponse2[i].latitude,jsonResponse2[i].longitude);
-				 geocoder.geocode( { 'latLng': latlng}, function(results, status) {
-				 	var ul = document.getElementById("saved_restrooms_list");
-					var li = document.createElement('li');  
-					
-        			if (status === google.maps.GeocoderStatus.OK) {
-            			address =results[0].formatted_address ;
-            			var txt=document.createTextNode('text');
-						li.appendChild(document.createTextNode(address));
-						li.addEventListener('click',function(){redirect_to_restroom(id);},false);
-						ul.appendChild(li);
-        				}
-        			});
+			var ul = document.getElementById("responses_list");
+			var li = document.createElement('li');  
+			li.appendChild(document.createTextNode(jsonResponse[i].user_comments));
+			var btn=document.createElement("BUTTON");
+			var t=document.createTextNode("Delete");
+			btn.appendChild(t);
+			
+			li.appendChild(btn);
+			//var txt=document.createTextNode('text');
+			
+			btn.addEventListener('click',function(){alert("hello");},false);
+
+			ul.appendChild(li);
 				
 				
 					//console.log("http://maps.googleapis.com/maps/api/geocode/json?latlng="+jsonResponse2[0].latitude+","+jsonResponse2[0].longitude+"&sensor=false");
 			}
-			console.log(address);
+			//console.log(address);
 
 			
-		}
+		
 	}
 }
 
