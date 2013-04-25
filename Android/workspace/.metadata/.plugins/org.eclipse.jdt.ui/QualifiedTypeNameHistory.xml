@@ -8,14 +8,10 @@
 <fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Constructor"/>
-<fullyQualifiedTypeName name="org.json.JSONArray"/>
 <fullyQualifiedTypeName name="com.pottymouth.restapihandler.RestClient.ApiHandler"/>
 <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
 <fullyQualifiedTypeName name="com.pottymouth.restapihandler.RestClient"/>
 <fullyQualifiedTypeName name="org.apache.http.client.utils.URLEncodedUtils"/>
-<fullyQualifiedTypeName name="com.pottymouth.toilettalk.R.id"/>
-<fullyQualifiedTypeName name="org.apache.http.message.BasicNameValuePair"/>
-<fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="org.apache.http.client.methods.HttpPost"/>
 <fullyQualifiedTypeName name="com.pottymouth.toilettalk.R.layout"/>
@@ -25,4 +21,18 @@
 <fullyQualifiedTypeName name="org.apache.http.client.entity.UrlEncodedFormEntity"/>
 <fullyQualifiedTypeName name="com.pottymouth.toilettalk.R.drawable"/>
 <fullyQualifiedTypeName name="android.view.Window"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.UiSettings"/>
+<fullyQualifiedTypeName name="android.location.LocationListener"/>
+<fullyQualifiedTypeName name="com.google.android.gms.common.ConnectionResult"/>
+<fullyQualifiedTypeName name="android.app.Dialog"/>
+<fullyQualifiedTypeName name="org.apache.http.client.methods.HttpGet"/>
+<fullyQualifiedTypeName name="org.apache.http.message.BasicNameValuePair"/>
+<fullyQualifiedTypeName name="org.json.JSONArray"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.model.LatLng"/>
+<fullyQualifiedTypeName name="com.pottymouth.restapihandler.RestroomTask"/>
+<fullyQualifiedTypeName name="com.google.android.gms.maps.model.Marker"/>
+<fullyQualifiedTypeName name="com.pottymouth.toilettalk.R.id"/>
+<fullyQualifiedTypeName name="android.provider.Settings"/>
+<fullyQualifiedTypeName name="com.pottymouth.toilettalk.LocationHandler.LocationResult"/>
+<fullyQualifiedTypeName name="android.util.Log"/>
 </qualifiedTypeNameHistroy>

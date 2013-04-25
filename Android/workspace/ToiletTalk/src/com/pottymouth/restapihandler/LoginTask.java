@@ -76,6 +76,9 @@ public class LoginTask extends AsyncTask<List<NameValuePair>, Void, JSONObject> 
 			
 			try {
 				post.setEntity(new UrlEncodedFormEntity(params[0], "UTF-8"));
+				
+				Log.d("API", "Post Entity: " + post.getEntity());
+				
 				HttpResponse response = client.execute(post);
 				HttpEntity entity = response.getEntity();
 				

@@ -17,6 +17,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
@@ -31,6 +33,7 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.pottymouth.restapihandler.RestroomTask;
+import com.pottymouth.toilettalk.LocationHandler.LocationResult;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingActivity;
 
@@ -38,6 +41,11 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 	
 	ArrayList<Marker> locations;
 	LocationManager locManager;
+	LocationHandler locHandler;
+	LocationResult locationResult;
+	Location currentLocation;
+	ProgressDialog progressDialog;
+	
 	GoogleMap map;
 
     @Override
@@ -51,20 +59,70 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	setContentView(R.layout.activity_main);
     	setBehindContentView(R.layout.activity_menu);
     	
-    	SlidingMenu menu = getSlidingMenu();
+    	setupMenu();
+        
+       
+        
+        getLocation();
+        
+        //startMap();
+        
+        
+    }
+
+	private void startMap2() {
+
+		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+		map.setMyLocationEnabled(true);
+		
+		LatLng location = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+		
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+		
+		getNearbyRestrooms(currentLocation);
+	}
+
+	private void getLocation() {
+		
+		locations = new ArrayList<Marker>();
+	        
+        locationResult = new LocationResult(){
+            @Override
+            public void gotLocation(Location location){
+            	Log.d("location", "Got a location: " + location.getLongitude());
+            	currentLocation = location;
+            	progressDialog.dismiss();
+            	startMap2();
+            }
+        };
+	        
+        locHandler = new LocationHandler();
+        boolean locationGot = locHandler.getLocation(this, locationResult);
+	     
+		//boolean locationGot = locHandler.getLocation(getApplicationContext(), locationResult);
+        progressDialog = new ProgressDialog(MainActivity.this);
+		progressDialog.setMessage("Logging in...");
+		progressDialog.setCancelable(false);
+		
+		Log.d("location", "locationGot: " + locationGot);
+		
+		
+		
+//		if(currentLocation != null)
+//			onLocationChanged(currentLocation);
+//		Log.d("location", "Called Location Changed");
+		
+	}
+
+	private void setupMenu() {
+		SlidingMenu menu = getSlidingMenu();
         menu.setMode(SlidingMenu.LEFT);
         menu.setShadowDrawable(R.drawable.shadow);
         menu.setShadowWidth(35);
         menu.setBehindWidth(300);
         menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
         menu.setFadeDegree(0.35f);
-        
-        locations = new ArrayList<Marker>();
-        
-        startMap();
-        
-        
-    }
+	}
     
     @SuppressWarnings("unchecked")
 	private void getNearbyRestrooms(Location location) {
@@ -72,7 +130,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	List<NameValuePair> request = new ArrayList<NameValuePair>();
 		request.add(new BasicNameValuePair("latitude", "" + location.getLatitude()));
 		request.add(new BasicNameValuePair("longitude", "" + location.getLongitude()));
-		request.add(new BasicNameValuePair("radius", "" + 5000));
+		request.add(new BasicNameValuePair("radius", "" + 500));
 	 	
 		ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 		progressDialog.setMessage("Getting nearby restrooms...");
@@ -85,7 +143,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 
 	protected void onResume() {
         super.onResume();
-        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        //locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
     }
      
     @Override
@@ -142,6 +200,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		
 		locations.add(map.addMarker(new MarkerOptions()
         .position(coordinates)
+        .snippet("I have " + Double.toString(rating) + " stars")
         .title(name)));
 		
 	}
@@ -153,8 +212,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		    builder.include(m.getPosition());
 		}
 		
-		Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		builder.include(new LatLng(location.getLatitude(), location.getLongitude()));
+		builder.include(new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()));
 		
 		LatLngBounds bounds = builder.build();
 		
@@ -166,15 +224,43 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 
 	public void startMap() {
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-
+		
+		if(locManager == null)
+			locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		
+		boolean gps_enabled = false; 
+		boolean network_enabled = false;
+		
+		if(!gps_enabled && !network_enabled){
+			finish();
+			return;
+		}
+		
+		try{
+			gps_enabled=locManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+			}catch(Exception ex){}
+		
+        try{
+        	network_enabled=locManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        	}catch(Exception ex){}
         
-		locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+        	this.finish();
+        	
+		    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+		    startActivity(intent);
+		    
+		    return;
+        }
         
-        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        
+//        if(gps_enabled)
+//        	locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListenerGps);
+//        if(network_enabled)
+//        	locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListenerNetwork);
+        
         Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         locManager.removeUpdates(this);
-        
-        
         
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         if (resultCode == ConnectionResult.SERVICE_MISSING ||
@@ -186,8 +272,11 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
         
         map.setMyLocationEnabled(true);
         
-        onLocationChanged(location);
+        if(location != null)
+        	onLocationChanged(location);
         getNearbyRestrooms(location);
+        
 		
 	}
+	
 }

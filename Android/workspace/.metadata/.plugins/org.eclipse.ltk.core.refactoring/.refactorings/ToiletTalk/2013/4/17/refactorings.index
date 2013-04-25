@@ -7,3 +7,8 @@
 1366861537511	Change Layout
 1366861584574	Change Layout
 1366866460835	Copy compilation unit
+1366874910070	Extracts string 'Reset Map' into R.string.button_reset_map
+1366905182291	Delete element
+1366905966975	Rename type 'MyLocation'
+1366906165134	Extract method 'setupMenu'
+1366913810620	Rename method 'startMap2'
