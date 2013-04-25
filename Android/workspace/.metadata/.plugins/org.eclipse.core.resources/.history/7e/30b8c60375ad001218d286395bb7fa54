@@ -23,16 +23,11 @@ import com.pottymouth.restapihandler.LoginTask;
 public class LoginActivity extends Activity implements View.OnClickListener {
 	
 	Context context;
-	public boolean login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
-        
-        if(login)
-        	this.finish();
-        
         setContentView(R.layout.login_activity);
         context = getApplication();
         
@@ -86,7 +81,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				break;
 				
 			case R.id.button_continue_guest:
-				this.login = true;
 				this.finish();
 				break;
 				
@@ -96,13 +90,11 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 	
 	
 	@Override
-	public void finish() {
+	public void finish(boolean exit) {
 		super.finish();
 		
-		if(login){
-			Intent it = new Intent(getApplicationContext(), MainActivity.class);
-			startActivity(it);
-		}
+		Intent it = new Intent(getApplicationContext(), MainActivity.class);
+		startActivity(it);
 	}
 	
 	public void showLoginError(String result)

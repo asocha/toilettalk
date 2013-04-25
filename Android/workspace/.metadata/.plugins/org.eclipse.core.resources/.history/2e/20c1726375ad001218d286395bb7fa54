@@ -29,10 +29,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
-        
-        if(login)
-        	this.finish();
-        
         setContentView(R.layout.login_activity);
         context = getApplication();
         

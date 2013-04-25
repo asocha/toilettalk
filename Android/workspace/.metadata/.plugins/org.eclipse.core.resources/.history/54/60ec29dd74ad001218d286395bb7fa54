@@ -109,7 +109,7 @@ public class LoginTask extends AsyncTask<List<NameValuePair>, Void, JSONObject> 
 		progressDialog.dismiss();
 		try {
 			if(result.getString("success").equalsIgnoreCase("true")){
-				activity.login = true;
+				activity.setResult(1);
 				activity.finish();
 			}
 			else
