@@ -33,7 +33,7 @@ function load_saved_routes(){
 		for(var i= 0; i<jsonResponse.length;i++){
 			var ul = document.getElementById("routes_list");
 			var li = document.createElement('li');  
-			li.appendChild(document.createTextNode(jsonResponse[i].origin + "\n" +jsonResponse[i].destination));
+			li.appendChild(document.createTextNode("Origin: "+jsonResponse[i].origin + "\n" +"Destination: "+jsonResponse[i].destination));
 			//var txt=document.createTextNode('text');
 			
 			li.addEventListener('click',function(){redirect_to_route(1);},false);

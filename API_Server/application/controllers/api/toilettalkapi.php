@@ -220,7 +220,7 @@ class toilettalkapi extends REST_Controller
             //$slt = '$5$';
             $tempHash = crypt($this->post('password'), $slt);
 
-            if($hash == $tempHash){
+            if($hash == $tempHash &&$this->post('uname')&&$this->post('password')){
 
                 $userdata = array(
                     'username'  => $this->post('uname'),
@@ -306,8 +306,8 @@ class toilettalkapi extends REST_Controller
         $slt = '$5$'.mcrypt_create_iv(40, MCRYPT_RAND);
         $hash = crypt($this->post('password'), $slt);
 
-        if($test_query->num_rows()==0)        
-        {       
+        if($test_query->num_rows()==0&&$this->post('uname')&&$this->post('fname')&&$this->post('lname')&&$this->post('gender')&&$this->post('email'))        
+        {       $this->post('lname')&&
             $this->db->set('user_id', 'DEFAULT');
             $this->db->set('username', $this->post('uname'));
             $this->db->set('first_name', $this->post('fname'));
