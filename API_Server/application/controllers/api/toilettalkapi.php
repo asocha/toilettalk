@@ -16,6 +16,12 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+     function restroom_post() {
+        $sql = "insert into restroom(user_id, avg_rating, latitude, longitude) values(?,0,?,?);";
+        $query = $this->db->query($sql, array($this->post('uid'),$this->post('lat'),$this->post('long')));
+        $this->response(200);
+    }
+
     function icons_post() {
         $sql = "insert into icons values (?,?,?,?,?,?);";
         $query = $this->db->query($sql, array($this->post('rrid'),$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
