@@ -1,5 +1,8 @@
 var user_id;
 var geocoder;
+var origins = [];
+var destinations = [];
+
 window.onload = function(){
 	
 	document.getElementById("logout").addEventListener('click',function(){logout();},false);
@@ -9,9 +12,6 @@ window.onload = function(){
 	load_saved_routes();
 	load_reviewed_restroom();
 	//alert(window.lastInfoWindow);
-	
-
-	
 }
 
 function logout(){
@@ -28,17 +28,18 @@ function load_saved_routes(){
 	request.send();
 	if(request.status === 200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
-		console.log("hi"+request.responseText);
+		//console.log("hi"+request.responseText);
 		
 		for(var i= 0; i<jsonResponse.length;i++){
 			var ul = document.getElementById("routes_list");
 			var li = document.createElement('li');  
-			var id = jsonResponse[i].route_id;
-			li.addEventListener('click',function(){redirect_to_route(id);},false);
-			li.appendChild(document.createTextNode("Origin: "+jsonResponse[i].origin + "\n" +"Destination: "+jsonResponse[i].destination));1
+			li.className=jsonResponse[i].route_id;
+			li.className+="*"+jsonResponse[i].origin;
+			li.className+="*"+jsonResponse[i].destination;
+			li.addEventListener('click',function(){redirect_to_route(this);},false);
+			li.appendChild(document.createTextNode("Origin: "+jsonResponse[i].origin + "\n" +"Destination: "+jsonResponse[i].destination));
 			//var txt=document.createTextNode('text');
-			console.log(jsonResponse[i].route_id);
-			
+			//console.log(jsonResponse[i].route_id);
 
 			ul.appendChild(li);
 		}
@@ -62,19 +63,18 @@ function load_reviewed_restroom(){
 			//var txt=document.createTextNode('text');
 			var id =jsonResponse[i].restroom_id;
 			var latlng = new google.maps.LatLng(jsonResponse[i].latitude,jsonResponse[i].longitude);
-				 geocoder.geocode( { 'latLng': latlng}, function(results, status) {
-				 	var ul = document.getElementById("review_list");
-					var li = document.createElement('li');
-        			if (status === google.maps.GeocoderStatus.OK) {
-            		address =results[0].formatted_address ;
-            		var txt=document.createTextNode('text');
+			geocoder.geocode( { 'latLng': latlng}, function(results, status) {
+				var ul = document.getElementById("review_list");
+				var li = document.createElement('li');
+				if (status === google.maps.GeocoderStatus.OK) {
+					address =results[0].formatted_address ;
+					var txt=document.createTextNode('text');
 					li.appendChild(document.createTextNode(address));
 					li.addEventListener('click',function(){redirect_to_restroom(id);},false);
 					ul.appendChild(li);
-					console.log(address);
-        				}
-        			});
-			
+					//console.log(address);
+				}
+			});
 		}
 	}
 }
@@ -87,50 +87,50 @@ function load_saved_restrooms(){
 	if(request.status === 200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
 		//console.log(request.responseText);
-		
-		
-
 
 		for(var i= 0; i<jsonResponse.length;i++){
 			//console.log(jsonResponse[i].saved_restrooms);
 			geocoder = new google.maps.Geocoder();
 			var id = jsonResponse[i].saved_restrooms;
 			//geocoder.geocode( { 'latLng': location}, function(results, status) {
-        	var request2 = new XMLHttpRequest();
+			var request2 = new XMLHttpRequest();
 			request2.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/rrid/"+id, false);
 			request2.send();
 			if(request2.status === 200 && request2.responseText){
 				var jsonResponse2 = JSON.parse(request2.responseText);
 				var latlng = new google.maps.LatLng(jsonResponse2[i].latitude,jsonResponse2[i].longitude);
-				 geocoder.geocode( { 'latLng': latlng}, function(results, status) {
-				 	var ul = document.getElementById("saved_restrooms_list");
+				geocoder.geocode( { 'latLng': latlng}, function(results, status) {
+					var ul = document.getElementById("saved_restrooms_list");
 					var li = document.createElement('li');  
 					
-        			if (status === google.maps.GeocoderStatus.OK) {
-            			address =results[0].formatted_address ;
-            			var txt=document.createTextNode('text');
+					if (status === google.maps.GeocoderStatus.OK) {
+						address =results[0].formatted_address ;
+						var txt=document.createTextNode('text');
 						li.appendChild(document.createTextNode(address));
 						li.addEventListener('click',function(){redirect_to_restroom(id);},false);
 						ul.appendChild(li);
-        				}
-        			});
-				
-				
-					//console.log("http://maps.googleapis.com/maps/api/geocode/json?latlng="+jsonResponse2[0].latitude+","+jsonResponse2[0].longitude+"&sensor=false");
+					}
+				});
+				//console.log("http://maps.googleapis.com/maps/api/geocode/json?latlng="+jsonResponse2[0].latitude+","+jsonResponse2[0].longitude+"&sensor=false");
 			}
-			console.log(address);
-
-			
+			//console.log(address);
 		}
 	}
 }
 
-
 function redirect_to_restroom(id){
 	window.location = "restroomID.html?id="+id;
 }
-function redirect_to_route(id){
-	window.location = "index.html?id="+id;
+
+function redirect_to_route(li){
+	var data = li.className;
+	var mydata = ["", "", ""];
+	var count = 0;
+	for (var i = 0; i < data.length; i++){
+		if (data[i] != '*') mydata[count] += data[i];
+		else count++;
+	}
+	window.location = "index.html?id="+mydata[0]+"&origin="+mydata[1]+"&destination="+mydata[2];
 }
 
 function checklogin(){
