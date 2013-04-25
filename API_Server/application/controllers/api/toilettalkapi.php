@@ -282,7 +282,10 @@ class toilettalkapi extends REST_Controller
     }
     function savedrestrooms_get() {
         if(!$this->get('id')) {
-            $this->response(NULL, 400);
+                $udata = unserialize($this->session->all_userdata());
+                $sql = "select restroom_id as saved_restrooms from saved_restrooms where user_id = ?;";
+                $query = $this->db->query($sql, $udata['user_id']);
+                $this->response($udata['user_id'], 200);
         }
         else {
             $sql = "select restroom_id as saved_restrooms from saved_restrooms where user_id = ?;";
