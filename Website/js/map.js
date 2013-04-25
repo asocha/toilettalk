@@ -11,7 +11,7 @@ var userid;
 window.onload = function(){
 	geocoder = new google.maps.Geocoder();
 
-	//verify logged in
+	//check logged in
 	var request = new XMLHttpRequest();
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
