@@ -60,6 +60,8 @@ class toilettalkapi extends REST_Controller
                                 $this->post('usercomments'),$this->post('gender'),
                                 0,0,0,$this->post('reviewstarrating'),$this->post('rrid')
                                 ));
+                $query = $this->db->query("select LAST_INSERT_ID();");
+                $this->response($query->result());
         }
     }
     function latestreview_get() {
