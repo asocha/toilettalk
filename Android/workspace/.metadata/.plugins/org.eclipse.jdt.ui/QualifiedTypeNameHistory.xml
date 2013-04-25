@@ -24,4 +24,5 @@
 <fullyQualifiedTypeName name="com.google.gson.JsonObject"/>
 <fullyQualifiedTypeName name="org.apache.http.client.entity.UrlEncodedFormEntity"/>
 <fullyQualifiedTypeName name="com.pottymouth.toilettalk.R.drawable"/>
+<fullyQualifiedTypeName name="android.view.Window"/>
 </qualifiedTypeNameHistroy>

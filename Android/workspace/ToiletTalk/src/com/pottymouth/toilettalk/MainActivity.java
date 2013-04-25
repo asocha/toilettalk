@@ -37,7 +37,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
         menu.setShadowDrawable(R.drawable.shadow);
         menu.setShadowWidth(35);
         menu.setBehindWidth(300);
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
         menu.setFadeDegree(0.35f);
     }
      
