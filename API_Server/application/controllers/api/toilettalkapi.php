@@ -32,7 +32,7 @@ class toilettalkapi extends REST_Controller
             $this->response(200);
     }
     function deluser_post() {
-            $sql = "delete from user where user_id = ?";
+            $sql = "delete from users where user_id = ?";
             $query = $this->db->query($sql, $this->post('uid'));
             $this->response(200);
     }
@@ -390,7 +390,7 @@ class toilettalkapi extends REST_Controller
     }
     function allresponse_get()
     {
-            $sql = "select review_id,user_comments  from response ";
+            $sql = "select review_id,responds_to_id,user_comments  from response ";
             $query = $this->db->query($sql, $this->get('id'));
             $this->response($query->result(), 200);
         

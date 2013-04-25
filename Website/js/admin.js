@@ -30,6 +30,7 @@ function load_users(){
 			var ul = document.getElementById("users_list");
 			var li = document.createElement('li');  
 			li.appendChild(document.createTextNode(jsonResponse[i].username));
+			var id = jsonResponse[i].user_id;
 			var btn=document.createElement("BUTTON");
 			var t=document.createTextNode("Delete");
 			btn.appendChild(t);
@@ -37,7 +38,7 @@ function load_users(){
 			li.appendChild(btn);
 			//var txt=document.createTextNode('text');
 			
-			btn.addEventListener('click',function(){alert("hello");},false);
+			btn.addEventListener('click',function(){deleteuser(id);},false);
 
 			ul.appendChild(li);
 		}
@@ -72,7 +73,8 @@ function load_restrooms(){
 					var t=document.createTextNode("Delete");
 					btn.appendChild(t);
 					li.appendChild(btn);
-					btn.addEventListener('click',function(){},false);
+
+					btn.addEventListener('click',function(){deleterestroom(id);},false);
 					
 					ul.appendChild(li);
 					//console.log(address);
@@ -106,8 +108,9 @@ function load_responses(){
 			
 			li.appendChild(btn);
 			//var txt=document.createTextNode('text');
-			
-			btn.addEventListener('click',function(){alert("hello");},false);
+			var rid = jsonResponse[i].review_id;
+			var rtid= jsonResponse[i].responds_to_id;
+			btn.addEventListener('click',function(){deleteresponse(rid,rtid);},false);
 
 			ul.appendChild(li);
 				
@@ -119,6 +122,41 @@ function load_responses(){
 			
 		
 	}
+}
+function deleteuser(uid){
+	alert(uid);
+	$.post("../API_Server/index.php/api/toilettalkapi/deluser", {"uid":uid},
+		function(result){
+			window.location= "admin.html"
+		}).fail(
+		function(jqxhr, errorText, errorThrown){
+			alert("deletion failure");
+		});	
+
+
+
+}
+function deleterestroom(rrid){
+	$.post("../API_Server/index.php/api/toilettalkapi/delrestroom", {"rrid":rrid},
+		function(result){
+			window.location= "admin.html"
+		}).fail(
+		function(jqxhr, errorText, errorThrown){
+			alert("deletion failure");
+		});	
+
+
+
+}
+function deleteresponse(rid,rtid){
+	$.post("../API_Server/index.php/api/toilettalkapi/delresponse", {"rid":rid,"rtid":rtid},
+		function(result){
+			window.location= "admin.html"
+		}).fail(
+		function(jqxhr, errorText, errorThrown){
+			
+			alert("deletion failure");
+		});	
 }
 
 
