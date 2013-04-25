@@ -333,6 +333,8 @@ function setStar(x)
 
 //get username from user id
 function getUser(id){
+	if (id === "0") return "anonymous";
+
 	var request = new XMLHttpRequest();
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/user/id/"+id, false);
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/users/method/user/id/"+id, false);
