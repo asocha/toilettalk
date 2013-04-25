@@ -43,7 +43,7 @@ function createSearchMap(){
 	for (var i = 0; comments && i < comments.length; i++){
 		var username = getUser(comments[i]['user_id']);
 		var html = "";
-		var isResponse = comments[i]['responds_to_id'];
+		var isResponse = parseInt(comments[i]['responds_to_id']);
 		html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px;display:block;'>";
 
 		html += "<div style=''><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p>";
@@ -214,6 +214,9 @@ function addReview(review,response){
 	var comments = document.getElementById("comments");
 	comments.style.display="none";
 
+	var saveButton = document.getElementById("saveButton");
+	saveButton.style.display="none";
+
 	var addReview = document.getElementById("addReview");
 	addReview.style.display="block";
 
@@ -253,7 +256,17 @@ function addReview(review,response){
 //insert Review into database
 function insertReview(){
 	comments = document.getElementById("addReview").innerHTML;
-	//get userid and gender
+	//check logged in
+	var request = new XMLHttpRequest();
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);
+	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
+	request.send();
+	if(request.status === 200 && request.responseText){
+		var jsonResponse = JSON.parse(request.responseText);
+		if(jsonResponse['logged_in']) {
+			userid = jsonResponse['user_id'];
+		}
+	}
 
 	//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/saveresponse"
 	$.post("../API_Server/index.php/api/toilettalkapi/saveresponse", {"reviewid":reviewid,"respondstoid":respondid,"userid":userid,"usercomments":comments,"gender":gender,"reviewstarrating":numstars,"rrid":id},
@@ -273,6 +286,7 @@ function insertReview(){
 		}).fail(
 		function(jqxhr, errorText, errorThrown){
 			alert("Error adding review.\n"+"Error Type: " + errorThrown);
+			alert(JSON.stringify(jqxhr));
 		});
 }
 

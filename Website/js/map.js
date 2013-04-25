@@ -488,7 +488,6 @@ function saveRoute(){
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
 	request.send();
 	if(request.status === 200 && request.responseText){
-		alert(request.responseText);
 		var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['logged_in']) {
 			var id = jsonResponse['user_id'];
