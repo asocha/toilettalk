@@ -2,6 +2,7 @@ var lastInfoWindow; //tracks the last info window to open
 var geocoder;
 var waypoints = [];
 var waypointStrings = [];
+var waypointIDs = [];
 var origin, destination;
 var initializeLogin, initializefunfacts;
 var userid;
@@ -25,8 +26,10 @@ window.onload = function(){
 	}
 
 	var routeid = getUrlVars()["id"];
-	origin = getUrlVars()["origin"].replace(/%20/g," ");
-	destination = getUrlVars()["destination"].replace(/%20/g," ");;
+	origin = getUrlVars()["origin"];
+	if (origin) origin = origin.replace(/%20/g," ");
+	destination = getUrlVars()["destination"];
+	if (destination) destination = destination.replace(/%20/g," ");;
 	if (!routeid || !origin || !destination) initializeNearby();	//normal page view... show nearby restrooms
 	else if(!userid) alert("You must log in to view this route.");
 	else{	//loaded a saved route from the user accounts page
@@ -51,7 +54,7 @@ window.onload = function(){
 	if(document.getElementById("SearchButton")){
 		document.getElementById("SearchButton").addEventListener('click',function(){initializeSearch(document.getElementById('location').value);},false);
 		document.getElementById("NearbyButton").addEventListener('click',initializeNearby,false);
-		document.getElementById("RouteButton").addEventListener('click',function(){waypoints = []; waypointStrings = []; initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);},false);
+		document.getElementById("RouteButton").addEventListener('click',function(){waypoints = []; waypointStrings = []; waypointIDs = []; initializeRoute(document.getElementById('origin').value,document.getElementById('destination').value);},false);
 		
 		var options = {types: ['geocode']};
 		var autocomplete1 = new google.maps.places.Autocomplete(document.getElementById('location'),options);
@@ -438,7 +441,7 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 		for (var i = 0; i < waypointStrings.length; i++){
 			if (waypointStrings[i] === title) isWaypoint = true;
 		}
-		if (!isWaypoint) html += "<a class='button viewRestroom' style='float:right;' onclick='addToRoute(\""+title+"\")'>Add to Route</a>";
+		if (!isWaypoint) html += "<a class='button viewRestroom' style='float:right;' onclick='addToRoute(\""+title+"\","+id+")'>Add to Route</a>";
 	}
 
 	html += "<br /><br />";
@@ -509,9 +512,10 @@ function viewRestroom(id){
 }
 
 //add restroom to Road Map
-function addToRoute(title){
+function addToRoute(title, id){
 	waypoints.push({location: title});
 	waypointStrings.push(title);
+	waypointIDs.push(id);
 	initializeRoute(origin,destination);
 }
 
@@ -522,7 +526,16 @@ function saveRoute(){
 		//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/saveroute"
 		$.post("../API_Server/index.php/api/toilettalkapi/saveroute", {"id":userid,"origin":origin,"destination":destination},
 			function(result){
-				alert("Route Saved.");
+				for (var i = 0; i < waypointIDs.length; i++){
+					//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/saveroute"
+					$.post("../API_Server/index.php/api/toilettalkapi/routerr", {"roid":routeid,"rrid":waypointIDs[i]},
+						function(result){
+							alert("Route Saved.");
+						}).fail(
+						function(jqxhr, errorText, errorThrown){
+							alert("Error saving route.\n"+"Error Type: " + errorThrown);
+						});
+				}
 			}).fail(
 			function(jqxhr, errorText, errorThrown){
 				alert("Error saving route.\n"+"Error Type: " + errorThrown);
