@@ -260,19 +260,19 @@ function insertReview(){
 		function(result){
 			//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/response/icons"
 			if (respondid === 0){
-				$.post("../API_Server/index.php/api/toilettalkapi/icons", {"rrid":result['review_id'],"dcs":icons[0],"ha":icons[1],"unisex":icons[2],"co":icons[3],"24":icons[4]},
+				$.post("../API_Server/index.php/api/toilettalkapi/icons", {"rrid":result[0]['LAST_INSERT_ID()'],"dcs":icons[0],"ha":icons[1],"unisex":icons[2],"co":icons[3],"24":icons[4]},
 					function(result){
+						document.location.reload(true);
 					}).fail(
 					function(jqxhr, errorText, errorThrown){
 						alert("Error adding restroom icons.\n"+"Error Type: " + errorThrown);
-						alert(JSON.stringify(jqxhr));
+						document.location.reload(true);
 					});
 			}
-			document.location.reload(true);	//reload page
+			else document.location.reload(true);	//reload page
 		}).fail(
 		function(jqxhr, errorText, errorThrown){
 			alert("Error adding review.\n"+"Error Type: " + errorThrown);
-			alert(JSON.stringify(jqxhr));
 		});
 }
 
