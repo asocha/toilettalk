@@ -10,6 +10,8 @@ var userid = 0;
 var gender = true;
 var comments, id;
 var icons = [0, 0, 0, 0, 0];
+var id;
+var user_id=0;
 
 window.onload = function(){
 	geocoder = new google.maps.Geocoder();
@@ -17,6 +19,32 @@ window.onload = function(){
 	initializeLogin();
 
 	createSearchMap();
+	checklogin2();
+	loadsavebutton();
+}
+
+function loadsavebutton(){
+	alert(user_id);
+	var savebutton = document.getElementById("SaveButton");
+	savebutton.addEventListener("click",function(){saverestroom();},false);
+	if(user_id===0){
+		savebutton.style.display="none";
+
+	}
+
+}
+function saverestroom(){
+$.post("../API_Server/index.php/api/toilettalkapi/saverestroom", {"rrid":id,"uid":user_id},
+		function(result){
+		var savebutton = document.getElementById("SaveButton");
+		savebutton.style.display="none";
+		}).fail(
+		function(jqxhr, errorText, errorThrown){
+			var savebutton = document.getElementById("SaveButton");
+			savebutton.style.display="none";
+			alert("Restroom is already saved");
+		});	
+
 }
 
 /* MAP CREATION */
@@ -156,7 +184,7 @@ function attachInfo(map, marker, title, stars, icons){
 
 //query database for a Restroom's data
 function getRestroom(){
-	var id = getUrlVars()["id"];
+	id = getUrlVars()["id"];
 
 	var request = new XMLHttpRequest();
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/rrid/"+id, false);
@@ -377,5 +405,21 @@ function setIcon(x)
 		document.getElementsByClassName(x)[0].style.border="1px solid #27ADC3";
 		document.getElementsByClassName(x)[0].style.opacity=0.4;
 		icons[x] = 0;
+	}
+}
+function checklogin2(){
+	var request = new XMLHttpRequest();
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);
+	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
+	request.send();
+	if(request.status === 200 && request.responseText){
+		//console.log(request.responseText);
+		var jsonResponse = JSON.parse(request.responseText);
+		if(jsonResponse['logged_in']) {
+			user_id = jsonResponse['user_id'];
+
+
+		}
+		
 	}
 }
