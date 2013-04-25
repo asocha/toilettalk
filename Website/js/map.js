@@ -25,8 +25,8 @@ window.onload = function(){
 	}
 
 	var routeid = getUrlVars()["id"];
-	origin = getUrlVars()["origin"];
-	destination = getUrlVars()["destination"];
+	origin = getUrlVars()["origin"].replace(/%20/g," ");
+	destination = getUrlVars()["destination"].replace(/%20/g," ");;
 	if (!routeid || !origin || !destination) initializeNearby();	//normal page view... show nearby restrooms
 	else if(!userid) alert("You must log in to view this route.");
 	else{	//loaded a saved route from the user accounts page
@@ -35,8 +35,8 @@ window.onload = function(){
 		//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/rrforroute/id/"+userid+"/rid/"+routeid, false);
 		request.send();
 
-		if(request.status === 200 && request.responseText){
-			alert($.parseJSON(request.responseText));
+		if(request.status === 200){
+			if(request.responseText)alert($.parseJSON(request.responseText));
 			initializeRoute(origin, destination);
 		}
 		else {
