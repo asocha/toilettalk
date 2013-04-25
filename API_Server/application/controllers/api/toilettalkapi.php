@@ -16,6 +16,36 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+     function delrrforroute_post() {
+        $sql = "delete from restrooms_for_route where route_id = ? and restroom_id = ?";
+        $query = $this->db->query($sql, array($this->post('roid'),$this->post(rrid)));
+        $this->response(200);
+    }
+    function delroute_post() {
+            $sql = "delete from routes where route_id = ?";
+            $query = $this->db->query($sql, $this->post('roid'));
+            $this->response(200);
+    }
+    function delsavedrestroom_post() {
+            $sql = "delete from saved_resrooms where restroom_id=? and user_id=?";
+            $query = $this->db->query($sql, array($this->post('rrid'),$this->post(uid)));
+            $this->response(200);
+    }
+    function deluser_post() {
+            $sql = "delete from user where user_id = ?";
+            $query = $this->db->query($sql, $this->post('uid'));
+            $this->response(200);
+    }
+    function delrestroom_post() {
+            $sql = "delete from restroom where restroom_id = ?";
+            $query = $this->db->query($sql, $this->post('rrid'));
+            $this->response(200);
+    }
+    function delresponse_post() {
+            $sql = "delete from response where review_id = ? and responds_to_id = ?";
+            $query = $this->db->query($sql, array($this->post('rid'),$this->post('rtid')));
+            $this->response(200);
+    }
      function saverestroom_post() {
         $sql = "insert into saved_restrooms(restroom_id, user_id) values(?,?);";
         $query = $this->db->query($sql, array($this->post('rrid'), $this->post('uid')));
