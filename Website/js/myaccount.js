@@ -4,11 +4,11 @@ window.onload = function(){
 	
 	document.getElementById("logout").addEventListener('click',function(){logout();},false);
 	checklogin();
-	alert(user_id);
+	//alert(user_id);
 	load_saved_restrooms();
 	load_saved_routes();
 	load_reviewed_restroom();
-	alert(window.lastInfoWindow);
+	//alert(window.lastInfoWindow);
 	
 
 	
@@ -28,15 +28,17 @@ function load_saved_routes(){
 	request.send();
 	if(request.status === 200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
-		//console.log(request.responseText);
+		console.log("hi"+request.responseText);
 		
 		for(var i= 0; i<jsonResponse.length;i++){
 			var ul = document.getElementById("routes_list");
 			var li = document.createElement('li');  
-			li.appendChild(document.createTextNode("Origin: "+jsonResponse[i].origin + "\n" +"Destination: "+jsonResponse[i].destination));
+			var id = jsonResponse[i].route_id;
+			li.addEventListener('click',function(){redirect_to_route(id);},false);
+			li.appendChild(document.createTextNode("Origin: "+jsonResponse[i].origin + "\n" +"Destination: "+jsonResponse[i].destination));1
 			//var txt=document.createTextNode('text');
+			console.log(jsonResponse[i].route_id);
 			
-			li.addEventListener('click',function(){redirect_to_route(1);},false);
 
 			ul.appendChild(li);
 		}
