@@ -167,7 +167,8 @@ class toilettalkapi extends REST_Controller
         {
             $sql = "insert into routes(user_id, origin, destination) values(?,?,?);";
             $query = $this->db->query($sql, array($this->post('id'), $this->post('origin'), $this->post('destination')));
-            $this->response($query, 200);
+            $query = $this->db->query("select LAST_INSERT_ID();");
+            $this->response($query->result());
         }
     }
     function restroombyid_get()
