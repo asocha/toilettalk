@@ -1,0 +1,130 @@
+//Chintan Patel
+//34468165
+
+package com.pottymouth.toilettalk;
+
+import android.content.Context;
+import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.LatLng;
+import com.slidingmenu.lib.SlidingMenu;
+import com.slidingmenu.lib.app.SlidingActivity;
+
+public class MainActivity extends SlidingActivity implements View.OnClickListener, LocationListener {
+	
+	LocationManager locManager;
+	GoogleMap map;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+    	
+        super.onCreate(savedInstanceState);
+        
+        
+        /*
+         * Login Page
+         */
+        this.login();
+    	
+    	/*
+    	 * Main Activity Page
+    	 */
+    	setContentView(R.layout.activity_main);
+    	setBehindContentView(R.layout.activity_menu);
+    	
+    	SlidingMenu menu = getSlidingMenu();
+        menu.setMode(SlidingMenu.LEFT);
+        menu.setShadowDrawable(R.drawable.shadow);
+        menu.setShadowWidth(35);
+        menu.setBehindWidth(300);
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+        menu.setFadeDegree(0.35f);
+        
+        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        UiSettings mapUi = map.getUiSettings();
+        Location location;
+                
+		locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        locManager.removeUpdates(this);
+        
+        onLocationChanged(location);
+        Log.d("Map",GooglePlayServicesUtil.isGooglePlayServicesAvailable(this).toString());
+        map.setMyLocationEnabled(true);
+    }
+    
+    protected void onResume() {
+        super.onResume();
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+    }
+     
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+	@Override
+	public void onClick(View v) {
+
+	
+	}
+	
+	private void login()
+	{
+		Intent it = new Intent(getApplicationContext(), LoginActivity.class);
+    	startActivityForResult(it, 1);
+	}
+	
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
+    	
+    	if(requestCode == 1 && requestCode != resultCode){
+    		this.finish();
+    	}
+    }
+
+	@Override
+	public void onLocationChanged(Location location) {
+		double lat =  location.getLatitude();
+        double lng = location.getLongitude();
+        
+        LatLng currentLocation = new LatLng(lat, lng);
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 15));
+		
+	}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
+}

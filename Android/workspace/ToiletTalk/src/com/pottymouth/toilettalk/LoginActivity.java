@@ -93,6 +93,9 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 	@Override
 	public void finish() {
 		super.finish();
+		
+		Intent it = new Intent(getApplicationContext(), MainActivity.class);
+		startActivity(it);
 	}
 	
 	public void showLoginError(String result)

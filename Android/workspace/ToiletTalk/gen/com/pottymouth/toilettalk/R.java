@@ -293,34 +293,35 @@ containing a value of this type.
         public static final int xhdpi=0x7f020014;
     }
     public static final class id {
-        public static final int action_settings=0x7f04001b;
-        public static final int button_continue_guest=0x7f040013;
-        public static final int button_login=0x7f040012;
-        public static final int button_register=0x7f040011;
-        public static final int email=0x7f040018;
-        public static final int fname=0x7f040016;
+        public static final int LinearLayout1=0x7f04000a;
+        public static final int action_settings=0x7f04001c;
+        public static final int button_continue_guest=0x7f040014;
+        public static final int button_login=0x7f040013;
+        public static final int button_register=0x7f040012;
+        public static final int email=0x7f040019;
+        public static final int fname=0x7f040017;
         public static final int fullscreen=0x7f040008;
-        public static final int gender=0x7f040015;
+        public static final int gender=0x7f040016;
         public static final int hybrid=0x7f040004;
-        public static final int input_elements=0x7f04000d;
+        public static final int input_elements=0x7f04000e;
         public static final int left=0x7f040005;
-        public static final int lname=0x7f040017;
-        public static final int login_buttons=0x7f040010;
-        public static final int logo=0x7f04000c;
-        public static final int map=0x7f04000a;
+        public static final int lname=0x7f040018;
+        public static final int login_buttons=0x7f040011;
+        public static final int logo=0x7f04000d;
+        public static final int map=0x7f04000c;
         public static final int margin=0x7f040007;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
-        public static final int password=0x7f04000f;
-        public static final int register_button=0x7f040019;
+        public static final int password=0x7f040010;
+        public static final int register_button=0x7f04001a;
         public static final int right=0x7f040006;
         public static final int satellite=0x7f040002;
-        public static final int scrollview_input_elements=0x7f040014;
+        public static final int scrollview_input_elements=0x7f040015;
         public static final int selected_view=0x7f040009;
-        public static final int slidingmenumain=0x7f04001a;
+        public static final int slidingmenumain=0x7f04001b;
         public static final int terrain=0x7f040003;
         public static final int textView1=0x7f04000b;
-        public static final int username=0x7f04000e;
+        public static final int username=0x7f04000f;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
