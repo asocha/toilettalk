@@ -527,13 +527,13 @@ function saveRoute(){
 		$.post("../API_Server/index.php/api/toilettalkapi/saveroute", {"id":userid,"origin":origin,"destination":destination},
 			function(result){
 				for (var i = 0; i < waypointIDs.length; i++){
-					//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/saveroute"
-					$.post("../API_Server/index.php/api/toilettalkapi/routerr", {"roid":routeid,"rrid":waypointIDs[i]},
+					//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/routerr"
+					$.post("../API_Server/index.php/api/toilettalkapi/routerr", {"roid":result[0]['LAST_INSERT_ID()'],"rrid":waypointIDs[i]},
 						function(result){
 							alert("Route Saved.");
 						}).fail(
 						function(jqxhr, errorText, errorThrown){
-							alert("Error saving route.\n"+"Error Type: " + errorThrown);
+							alert("Error saving your route's restrooms.\n"+"Error Type: " + errorThrown);
 						});
 				}
 			}).fail(
