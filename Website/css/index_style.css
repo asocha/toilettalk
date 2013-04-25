@@ -17,7 +17,11 @@
 	font-family:"hn_4";
 	src: local("hn_4"), url("Font/HelveticaNeueLTStd-UltLtEx.otf" ) format("OpenType"); 
 }
+#Fun_Facts #latestreview{
+	cursor: pointer;
 
+
+}
 .exit{
 	width: 20px; 
 	height: 20px;  

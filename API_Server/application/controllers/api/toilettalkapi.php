@@ -63,7 +63,7 @@ class toilettalkapi extends REST_Controller
         }
     }
     function latestreview_get() {
-        $query = $this->db->query("select max(re.time_stamp) as date, rr.longitude, rr.latitude, re.user_comments 
+        $query = $this->db->query("select max(re.time_stamp) as date, rr.longitude, rr.latitude, re.user_comments,rr.restroom_id
             from response re, restroom rr 
             where re.responds_to_id = 0 and rr.restroom_id = re.restroom_id 
             order by time_stamp desc;;");
