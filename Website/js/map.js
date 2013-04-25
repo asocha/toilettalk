@@ -30,11 +30,10 @@ window.onload = function(){
 	origin = getUrlVars()["origin"];
 	if (origin) origin = origin.replace(/%20/g," ");
 	destination = getUrlVars()["destination"];
-	if (destination) destination = destination.replace(/%20/g," ");;
+	if (destination) destination = destination.replace(/%20/g," ");
 	if (!routeid || !origin || !destination) initializeNearby();	//normal page view... show nearby restrooms
 	else if(!userid) alert("You must log in to view this route.");
 	else{	//loaded a saved route from the user accounts page
-		var request = new XMLHttpRequest();
 		request.open("GET", "../API_Server/index.php/api/toilettalkapi/rrforroute/id/"+userid+"/rid/"+routeid, false);
 		//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/rrforroute/id/"+userid+"/rid/"+routeid, false);
 		request.send();
@@ -310,7 +309,7 @@ function createNearbyMap(map, center, success){
 
 	//add You Are Here marker
 	if (success){
-		var marker = new google.maps.Marker({
+		var marker2 = new google.maps.Marker({
 			position: center,
 			map: map,
 			icon: "img/you_are_here.png",
@@ -381,7 +380,7 @@ function createSearchMap(map, coords, address){
 	}
 	map.setZoom(map.getZoom() - 1);
 
-	var marker = new google.maps.Marker({
+	var marker2 = new google.maps.Marker({
 		position: coords,
 		map: map,
 		icon: "img/you_are_here.png",
@@ -438,7 +437,7 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
 	}
 
-	html += "<br /><a class='button viewRestroom' onclick='viewRestroom("+id+")'>Reviews</a>"
+	html += "<br /><a class='button viewRestroom' onclick='viewRestroom("+id+")'>Reviews</a>";
 
 	var isWaypoint = false;
 	if (isRoadMap){
@@ -534,12 +533,12 @@ function saveRoute(){
 					//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/routerr"
 					$.post("../API_Server/index.php/api/toilettalkapi/routerr", {"roid":result[0]['LAST_INSERT_ID()'],"rrid":waypointIDs[i]},
 						function(result){
-							alert("Route Saved.");
 						}).fail(
 						function(jqxhr, errorText, errorThrown){
 							alert("Error saving your route's restrooms.\n"+"Error Type: " + errorThrown);
 						});
 				}
+				alert("Route Saved.");
 			}).fail(
 			function(jqxhr, errorText, errorThrown){
 				alert("Error saving route.\n"+"Error Type: " + errorThrown);
