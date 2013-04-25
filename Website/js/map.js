@@ -4,10 +4,45 @@ var waypoints = [];
 var waypointStrings = [];
 var origin, destination;
 var initializeLogin, initializefunfacts;
+var userid;
 
 window.onload = function(){
 	geocoder = new google.maps.Geocoder();
-	initializeNearby();
+
+	//verify logged in
+	var request = new XMLHttpRequest();
+	request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);
+	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
+	request.send();
+	if(request.status === 200 && request.responseText){
+		var jsonResponse = JSON.parse(request.responseText);
+		if(jsonResponse['logged_in']) {
+			userid = jsonResponse['user_id'];
+		}
+		else{
+			userid = 0;
+		}
+	}
+
+	var routeid = getUrlVars()["id"];
+	origin = getUrlVars()["origin"];
+	destination = getUrlVars()["destination"];
+	if (!routeid || !origin || !destination) initializeNearby();	//normal page view... show nearby restrooms
+	else if(!userid) alert("You must log in to view this route.");
+	else{	//loaded a saved route from the user accounts page
+		var request = new XMLHttpRequest();
+		request.open("GET", "../API_Server/index.php/api/toilettalkapi/rrforroute/id/"+userid+"/rid/"+routeid, false);
+		//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/rrforroute/id/"+userid+"/rid/"+routeid, false);
+		request.send();
+
+		if(request.status === 200 && request.responseText){
+			alert($.parseJSON(request.responseText));
+			initializeRoute(origin, destination);
+		}
+		else {
+			alert("Error Retrieving Restrooms: " + request.status);
+		}
+	}
 
 	if (initializeLogin) initializeLogin();
 	if (initializefunfacts) initializefunfacts();
@@ -482,26 +517,23 @@ function addToRoute(title){
 
 //save Road Map
 function saveRoute(){
-	//verify logged in
-	var request = new XMLHttpRequest();
-	request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);
-	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
-	request.send();
-	if(request.status === 200 && request.responseText){
-		var jsonResponse = JSON.parse(request.responseText);
-		if(jsonResponse['logged_in']) {
-			var id = jsonResponse['user_id'];
-			//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/saveroute"
-			$.post("../API_Server/index.php/api/toilettalkapi/saveroute", {"id":id,"origin":origin,"destination":destination},
-				function(result){
-					alert("Route Saved.");
-				}).fail(
-				function(jqxhr, errorText, errorThrown){
-					alert("Error saving route.\n"+"Error Type: " + errorThrown);
-				});
-		}
-		else{
-			alert('Please login.');
-		}
+	if (userid === 0) alert("Please Login.");
+	else{
+		//"http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restrooms/method/saveroute"
+		$.post("../API_Server/index.php/api/toilettalkapi/saveroute", {"id":userid,"origin":origin,"destination":destination},
+			function(result){
+				alert("Route Saved.");
+			}).fail(
+			function(jqxhr, errorText, errorThrown){
+				alert("Error saving route.\n"+"Error Type: " + errorThrown);
+			});
 	}
+}
+
+function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		vars[key] = value;
+	});
+	return vars;
 }
