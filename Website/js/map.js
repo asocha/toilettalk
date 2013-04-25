@@ -1,4 +1,5 @@
 var lastInfoWindow; //tracks the last info window to open
+var routeCreated = false;
 var geocoder;
 var waypoints = [];
 var waypointStrings = [];
@@ -205,7 +206,10 @@ innerloop:      for (index in path){
 	//add Save Route Button
 	var html = "<a id='SaveRoute' class='button' onclick='saveRoute()'>Save Route</a>";
 	var nav = document.getElementById("RoadTrip");
-	if (nav) nav.innerHTML += html;
+	if (nav && !routeCreated){
+		nav.innerHTML += html;
+		routeCreated = true;
+	}
 }
 
 
