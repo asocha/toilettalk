@@ -121,6 +121,7 @@ div {
 	font-size:30px;
 	font-family: "hn_2";
 	color:#FFDC00;
+	overflow: scroll;
 }
 
 #sre li, #sro li, #rv li{
@@ -137,6 +138,7 @@ div {
 }
 
 .button1 li{
+	margin-bottom: 10px;
 	width: 100px;
 	display: inline-block;
 	outline: none;
@@ -165,7 +167,7 @@ div {
 }
 
 .button2 li{
-	
+	margin-bottom: 10px;
 	width: 100px;
 	display: inline-block;
 	outline: none;
@@ -195,12 +197,13 @@ div {
 
 .button3 li{
 	width: 100px;
+	margin-bottom: 10px;
 	display: inline-block;
 	outline: none;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 27px/100% Arial, Helvetica, sans-serif;
+	font: 20px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 

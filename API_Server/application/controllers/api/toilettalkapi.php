@@ -71,7 +71,7 @@ class toilettalkapi extends REST_Controller
     }
     function restroombyuid_get()
     {
-        $sql = "select rr.restroom_id
+        $sql = "select rr.restroom_id,rr.latitude,rr.longitude
                 from restroom rr 
                 where rr.user_id = ?;";
         $query = $this->db->query($sql, array($this->get('uid')));
