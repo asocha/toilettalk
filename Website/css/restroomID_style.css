@@ -202,6 +202,8 @@ div {
 	font-size: 13pt;
 	margin: 0;
 	margin-left: 5px;
+	max-width: 400px;
+	word-wrap: break-word;
 }
 
 #comments div.comment{
