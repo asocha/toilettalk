@@ -354,7 +354,7 @@ class toilettalkapi extends REST_Controller
         $hash = crypt($this->post('password'), $slt);
 
         if($test_query->num_rows()==0&&$this->post('uname')&&$this->post('fname')&&$this->post('lname')&&$this->post('gender')&&$this->post('email'))        
-        {       $this->post('lname')&&
+        {
             $this->db->set('user_id', 'DEFAULT');
             $this->db->set('username', $this->post('uname'));
             $this->db->set('first_name', $this->post('fname'));
