@@ -121,6 +121,12 @@ function checklogin(){
 			document.getElementById("logout").style.display='inline';
 			document.getElementById("register").style.display='none';
 			document.getElementById("myaccount").style.display='inline';
+			if(jsonResponse['permission']==='2'){
+				console.log('admin');
+				document.getElementById("myaccount").style.display='none';
+				document.getElementById("admin").style.display='inline';
+
+			}
 		}
 	}
 }

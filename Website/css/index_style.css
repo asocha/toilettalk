@@ -21,7 +21,9 @@
 #Fun_Facts #latestreview{
 	cursor: pointer;
 }
-
+#admin{
+	display: none;
+}
 .exit{
 	width: 20px; 
 	height: 20px;  
