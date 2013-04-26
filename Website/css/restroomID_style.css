@@ -325,3 +325,7 @@ div.Restrooms div.RestroomTitle img.icon{
 	font-weight: normal;
 	font-family: serif;
 }
+
+#admin{
+	display: none;
+}
