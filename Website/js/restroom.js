@@ -85,7 +85,7 @@ function createSearchMap(){
 
 		html += "<p>" + comments[i]['user_comments'] + "</p>";
 
-		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'></div></div>";
+		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' style='margin-top:"+(16-10*isResponse)+"px;' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'></div></div>";
 
 		commentnav.innerHTML += html;
 	}
