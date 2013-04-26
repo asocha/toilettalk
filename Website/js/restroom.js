@@ -240,7 +240,7 @@ function addReview(review,response){
 	var comments = document.getElementById("comments");
 	comments.style.display="none";
 
-	var saveButton = document.getElementById("saveButton");
+	var saveButton = document.getElementById("SaveButton");
 	saveButton.style.display="none";
 
 	var addReview = document.getElementById("addReview");
