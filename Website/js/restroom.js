@@ -271,11 +271,11 @@ function addReview(review,response){
 		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
 		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' /><br />";
 
-		div.innerHTML += "<img class='icon 0' src='img/icon_diaper.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 1' src='img/icon_handicap.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 2' src='img/icon_men.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 3' src='img/icon_pay.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 4' src='img/icon_24.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 0' src='img/icon_diaper.png' title='Diaper Changing Station' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 1' src='img/icon_handicap.png' title='Handicap Accessible' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 2' src='img/icon_men.png' title='Unisex' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 3' src='img/icon_pay.png' title='Customers Only' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 4' src='img/icon_24.png' title='Open 24/7' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
 	}
 }
 
