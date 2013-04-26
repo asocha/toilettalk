@@ -24,27 +24,24 @@ window.onload = function(){
 }
 
 function loadsavebutton(){
-	alert(user_id);
 	var savebutton = document.getElementById("SaveButton");
 	savebutton.addEventListener("click",function(){saverestroom();},false);
 	if(user_id===0){
 		savebutton.style.display="none";
-
 	}
-
 }
+
 function saverestroom(){
 $.post("../API_Server/index.php/api/toilettalkapi/saverestroom", {"rrid":id,"uid":user_id},
 		function(result){
-		var savebutton = document.getElementById("SaveButton");
-		savebutton.style.display="none";
+			var savebutton = document.getElementById("SaveButton");
+			savebutton.style.display="none";
 		}).fail(
 		function(jqxhr, errorText, errorThrown){
 			var savebutton = document.getElementById("SaveButton");
 			savebutton.style.display="none";
 			alert("Restroom is already saved");
 		});	
-
 }
 
 /* MAP CREATION */
