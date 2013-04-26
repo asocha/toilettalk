@@ -25,6 +25,7 @@ body{
 #wrapper{
 	width: 1020px;
 	margin: 0 auto;
+	height: 600px;
 }
 
 #brand{
@@ -67,7 +68,7 @@ div {
 	background-color:#8392A6;
 }
 
-#navbar #My_account{
+#navbar #myaccount{
 	border-bottom: 2px solid #A62000;
 }
 
