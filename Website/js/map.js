@@ -185,11 +185,11 @@ function createRoute(start, end){
 				var lat = restrooms[count]['latitude'];
 				var lng = restrooms[count]['longitude'];
 				var icons = [];
-				icons[0] = restrooms['sum(diaper_changing_station)'];
-				icons[1] = restrooms['sum(handicap_accessible)'];
-				icons[2] = restrooms['sum(unisex)'];
-				icons[3] = restrooms['sum(customer_only)'];
-				icons[4] = restrooms['sum(24_hour)'];
+				icons[0] = restrooms[count]['sum(diaper_changing_station)'];
+				icons[1] = restrooms[count]['sum(handicap_accessible)'];
+				icons[2] = restrooms[count]['sum(unisex)'];
+				icons[3] = restrooms[count]['sum(customer_only)'];
+				icons[4] = restrooms[count]['sum(24_hour)'];
 				var location = new google.maps.LatLng(lat, lng);
 
 innerloop:      for (index in path){
@@ -292,11 +292,11 @@ function createNearbyMap(map, center, success){
 		var lat = restrooms[count]['latitude'];
 		var lng = restrooms[count]['longitude'];
 		var icons = [];
-		icons[0] = restrooms['sum(diaper_changing_station)'];
-		icons[1] = restrooms['sum(handicap_accessible)'];
-		icons[2] = restrooms['sum(unisex)'];
-		icons[3] = restrooms['sum(customer_only)'];
-		icons[4] = restrooms['sum(24_hour)'];
+		icons[0] = restrooms[count]['sum(diaper_changing_station)'];
+		icons[1] = restrooms[count]['sum(handicap_accessible)'];
+		icons[2] = restrooms[count]['sum(unisex)'];
+		icons[3] = restrooms[count]['sum(customer_only)'];
+		icons[4] = restrooms[count]['sum(24_hour)'];
 		var location = new google.maps.LatLng(lat, lng);
 
 		var marker = new google.maps.Marker({
@@ -365,11 +365,11 @@ function createSearchMap(map, coords, address){
 		var lat = restrooms[count]['latitude'];
 		var lng = restrooms[count]['longitude'];
 		var icons = [];
-		icons[0] = restrooms['sum(diaper_changing_station)'];
-		icons[1] = restrooms['sum(handicap_accessible)'];
-		icons[2] = restrooms['sum(unisex)'];
-		icons[3] = restrooms['sum(customer_only)'];
-		icons[4] = restrooms['sum(24_hour)'];
+		icons[0] = restrooms[count]['sum(diaper_changing_station)'];
+		icons[1] = restrooms[count]['sum(handicap_accessible)'];
+		icons[2] = restrooms[count]['sum(unisex)'];
+		icons[3] = restrooms[count]['sum(customer_only)'];
+		icons[4] = restrooms[count]['sum(24_hour)'];
 		var location = new google.maps.LatLng(lat, lng);
 
 		var marker = new google.maps.Marker({
