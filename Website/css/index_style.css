@@ -17,11 +17,11 @@
 	font-family:"hn_4";
 	src: local("hn_4"), url("Font/HelveticaNeueLTStd-UltLtEx.otf" ) format("OpenType"); 
 }
+
 #Fun_Facts #latestreview{
 	cursor: pointer;
-
-
 }
+
 .exit{
 	width: 20px; 
 	height: 20px;  
@@ -186,8 +186,6 @@ div {
 
 	width: 200px;
 	margin-left: -100px;
-
-
 }
 
 #Fun_Facts h1{
@@ -235,14 +233,14 @@ ul.sidenav li{
 	background-color: #27ADC3;
 	overflow: hidden;
 	/*Animation*/
-	transition: height 2s ease;
+	-webkit-transition: height 2s ease;
 }
 
 ul.sidenav li:hover {
 	background: #1C8BFF;
 	height: 250px;
 	/*Animation*/
-	transition: height 2s ease;
+	-webkit-transition: height 2s ease;
 }
 
 li#Restrooms{
