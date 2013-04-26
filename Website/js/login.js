@@ -13,6 +13,7 @@ function initializeLogin(){
 function exit(){
 	document.getElementById("loginform").style.display="none";
 	document.getElementById("Registerform").style.display="none";
+	document.getElementById("fadeout").style.display="none";
 }
 function home(){
 	document.getElementById("loginform").style.display="none";
@@ -21,10 +22,12 @@ function home(){
 function register(){
 	document.getElementById("loginform").style.display="none";
 	document.getElementById("Registerform").style.display="inline";
+	document.getElementById("fadeout").style.display="block";
 }
 function login(){
 	document.getElementById("Registerform").style.display="none";
 	document.getElementById("loginform").style.display="inline";
+	document.getElementById("fadeout").style.display="block";
 }
 
 function logout(){
