@@ -37,10 +37,11 @@ body{
 	width: 300px;
 	top: 0cm;
 }
+
 #admin{
 	display: none;
-
 }
+
 #border{
 	float: right;
 	margin-right: 50px;
@@ -200,10 +201,12 @@ div {
 	position: relative;
 	top: 1px;
 }
+
 .button3 ul {
 	padding: 0;
 	text-align: center;
 }
+
 .button3 li{
 	width: 100px;
 	margin-bottom: 10px;
