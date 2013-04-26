@@ -147,7 +147,6 @@ div {
 	width: 100px;
 	display: inline-block;
 	outline: none;
-	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
 	font: 15px/100% Arial, Helvetica, sans-serif;
@@ -179,7 +178,6 @@ div {
 	width: 100px;
 	display: inline-block;
 	outline: none;
-	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
 	font: 15px/100% Arial, Helvetica, sans-serif;
@@ -211,7 +209,6 @@ div {
 	margin-bottom: 10px;
 	display: inline-block;
 	outline: none;
-	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
 	font: 15px/100% Arial, Helvetica, sans-serif;

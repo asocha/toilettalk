@@ -30,6 +30,9 @@ function load_users(){
 			var ul = document.getElementById("users_list");
 			var li = document.createElement('li');  
 			li.appendChild(document.createTextNode(jsonResponse[i].username));
+
+			var breaknode = document.createElement("BR");
+			li.appendChild(breaknode);
 			var id = jsonResponse[i].user_id;
 			var btn=document.createElement("BUTTON");
 			var t=document.createTextNode("Delete");
@@ -69,6 +72,8 @@ function load_restrooms(){
             		address =results[0].formatted_address ;
             		var txt=document.createTextNode('text');
 					li.appendChild(document.createTextNode(address));
+					var breaknode = document.createElement("BR");
+					li.appendChild(breaknode);
 					var btn=document.createElement("BUTTON");
 					var t=document.createTextNode("Delete");
 					btn.appendChild(t);
@@ -102,6 +107,8 @@ function load_responses(){
 			var ul = document.getElementById("responses_list");
 			var li = document.createElement('li');  
 			li.appendChild(document.createTextNode(jsonResponse[i].user_comments));
+			var breaknode = document.createElement("BR");
+			li.appendChild(breaknode);
 			var btn=document.createElement("BUTTON");
 			var t=document.createTextNode("Delete");
 			btn.appendChild(t);
