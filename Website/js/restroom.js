@@ -70,7 +70,7 @@ function createSearchMap(){
 		var html = "";
 		var isResponse = parseInt(comments[i]['responds_to_id']);
 		if (isResponse !== 0) isResponse = 1;	//fix to remove broking threading
-		html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px;display:block;'>";
+		html += "<div style=''><div class='comment' style='margin-left:"+(12+10*isResponse)+"px; margin-top:"+(15-10*isResponse)+"px; width:"+(405-10*isResponse)+"px;display:block;'>";
 
 		html += "<div style=''><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p><p>&nbsp;&nbsp;&nbsp;&nbsp;";
 		if (isResponse === 0) html+= "&nbsp;&nbsp;";
@@ -85,7 +85,7 @@ function createSearchMap(){
 
 		html += "<p>" + comments[i]['user_comments'] + "</p>";
 
-		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'></div>";
+		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'></div></div>";
 
 		commentnav.innerHTML += html;
 	}
@@ -148,22 +148,20 @@ function attachInfo(map, marker, title, stars, icons){
 
 	//add icons
 	if (icons[0] > 1){
-		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.jpg'>";
+		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.png'>";
 	}
 	if (icons[1] > 1){
-		html += "<img class='icon' title='Handicap Accessible' src='img/icon_handicap.jpg'>";
+		html += "<img class='icon' title='Handicap Accessible' src='img/icon_handicap.png'>";
 	}
 	if (icons[2] > 1){
-		html += "<img class='icon' title='Unisex' src='img/icon_men.jpg'>";
+		html += "<img class='icon' title='Unisex' src='img/icon_men.png'>";
 	}
 	if (icons[3] > 1){
-		html += "<img class='icon' title='Customers Only' src='img/icon_pay.jpg'>";
+		html += "<img class='icon' title='Customers Only' src='img/icon_pay.png'>";
 	}
 	if (icons[4] > 1){
-		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
+		html += "<img class='icon' title='Open 24/7' src='img/icon_24.png'>";
 	}
-
-	html += "<br /><br />";
 
 	var infoWindow = new InfoBox({
 		content: html
@@ -273,11 +271,11 @@ function addReview(review,response){
 		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='4' onmouseover='highlight(4);this.style.cursor = \"pointer\";' onclick='setStar(4)' onmouseout='losehighlight();this.style.cursor = \"normal\";' />";
 		div.innerHTML += "<img class='star' src='img/transparentStar.png' id='5' onmouseover='highlight(5);this.style.cursor = \"pointer\";' onclick='setStar(5)' onmouseout='losehighlight();this.style.cursor = \"normal\";' /><br />";
 
-		div.innerHTML += "<img class='icon 0' src='img/icon_diaper.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 1' src='img/icon_handicap.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 2' src='img/icon_men.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 3' src='img/icon_pay.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
-		div.innerHTML += "<img class='icon 4' src='img/icon_24.jpg' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 0' src='img/icon_diaper.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(0)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 1' src='img/icon_handicap.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(1)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 2' src='img/icon_men.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(2)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 3' src='img/icon_pay.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(3)' onmouseout='this.style.cursor = \"normal\";' />";
+		div.innerHTML += "<img class='icon 4' src='img/icon_24.png' style='opacity:0.4;border:1px solid #27ADC3;' onmouseover='this.style.cursor = \"pointer\";' onclick='setIcon(4)' onmouseout='this.style.cursor = \"normal\";' />";
 	}
 }
 

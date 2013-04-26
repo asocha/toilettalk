@@ -428,19 +428,19 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 
 	//add icons
 	if (icons[0] > 1){
-		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.jpg'>";
+		html += "<img class='icon' title='Diaper Changing Station' src='img/icon_diaper.png'>";
 	}
 	if (icons[1] > 1){
-		html += "<img class='icon' title='Handicap Accessible' src='img/icon_handicap.jpg'>";
+		html += "<img class='icon' title='Handicap Accessible' src='img/icon_handicap.png'>";
 	}
 	if (icons[2] > 1){
-		html += "<img class='icon' title='Unisex' src='img/icon_men.jpg'>";
+		html += "<img class='icon' title='Unisex' src='img/icon_men.png'>";
 	}
 	if (icons[3] > 1){
-		html += "<img class='icon' title='Customers Only' src='img/icon_pay.jpg'>";
+		html += "<img class='icon' title='Customers Only' src='img/icon_pay.png'>";
 	}
 	if (icons[4] > 1){
-		html += "<img class='icon' title='Open 24/7' src='img/icon_24.jpg'>";
+		html += "<img class='icon' title='Open 24/7' src='img/icon_24.png'>";
 	}
 
 	html += "<br /><a class='button viewRestroom' onclick='viewRestroom("+id+")'>Reviews</a>";
