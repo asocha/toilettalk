@@ -178,6 +178,15 @@ function checklogin(){
 		var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['logged_in']) {
 			user_id = jsonResponse['user_id'];
+		if(jsonResponse['permission']==='2')
+		{		console.log('admin');
+				document.getElementById("myaccount").style.display='none';
+				document.getElementById("admin").style.display='inline';
+		}
+		else{
+			alert('Access Denied! Authorized Admins only');
+			window.location = "index.html";
+		}
 		}
 		else{
 			alert('Please login.');

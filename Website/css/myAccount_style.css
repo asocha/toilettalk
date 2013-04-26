@@ -121,7 +121,7 @@ div {
 	font-size:30px;
 	font-family: "hn_2";
 	color:#FFDC00;
-	overflow: scroll;
+	overflow: auto;
 }
 
 #sre li, #sro li, #rv li{

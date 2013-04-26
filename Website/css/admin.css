@@ -37,7 +37,10 @@ body{
 	width: 300px;
 	top: 0cm;
 }
+#admin{
+	display: none;
 
+}
 #border{
 	float: right;
 	margin-right: 50px;
@@ -121,11 +124,10 @@ div {
 	font-size:30px;
 	font-family: "hn_2";
 	color:#FFDC00;
-	overflow: scroll;
+	overflow: auto;
 }
 
 #sre li, #sro li, #rv li{
-	float:left;
 	color:black;
 }
 
@@ -136,7 +138,10 @@ div {
 #sro{
 	margin-left:11px;
 }
-
+.button1 ul {
+	padding: 0;
+	text-align: center;
+}
 .button1 li{
 	margin-bottom: 10px;
 	width: 100px;
@@ -145,7 +150,7 @@ div {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 27px/100% Arial, Helvetica, sans-serif;
+	font: 15px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 
@@ -165,7 +170,10 @@ div {
 	position: relative;
 	top: 1px;
 }
-
+.button2 ul {
+	padding: 0;
+	text-align: center;
+}
 .button2 li{
 	margin-bottom: 10px;
 	width: 100px;
@@ -174,7 +182,7 @@ div {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 27px/100% Arial, Helvetica, sans-serif;
+	font: 15px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 
@@ -194,7 +202,10 @@ div {
 	position: relative;
 	top: 1px;
 }
-
+.button3 ul {
+	padding: 0;
+	text-align: center;
+}
 .button3 li{
 	width: 100px;
 	margin-bottom: 10px;
@@ -203,7 +214,7 @@ div {
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-	font: 20px/100% Arial, Helvetica, sans-serif;
+	font: 15px/100% Arial, Helvetica, sans-serif;
 	padding: .5em 2em .55em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	-webkit-border-radius: .5em; 
