@@ -149,6 +149,7 @@ div {
 }
 
 #loginform{
+	color: #A78E0F;
 	background-image: linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
 	display: none;
 	margin-right: auto;
@@ -170,6 +171,7 @@ div {
 }
 
 #Registerform{
+	color: #A78E0F;
 	background-image: linear-gradient(90deg , rgb(237,227,150) 0%, rgb(246,242,199) 100%);
 	display: none;
 	margin-right: auto;
