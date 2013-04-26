@@ -21,9 +21,11 @@
 #Fun_Facts #latestreview{
 	cursor: pointer;
 }
+
 #admin{
 	display: none;
 }
+
 .exit{
 	width: 20px; 
 	height: 20px;  
@@ -237,14 +239,12 @@ ul.sidenav li{
 	background-color: #27ADC3;
 	overflow: hidden;
 	/*Animation*/
-	-webkit-transition: height 2s ease;
+	/*-webkit-transition: height 2s ease;*/
 }
 
 ul.sidenav li:hover {
 	background: #1C8BFF;
 	height: 250px;
-	/*Animation*/
-	-webkit-transition: height 2s ease;
 }
 
 li#Restrooms{
