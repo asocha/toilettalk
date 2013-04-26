@@ -51,9 +51,10 @@ class toilettalkapi extends REST_Controller
         $query = $this->db->query($sql, array($this->post('rrid'), $this->post('uid')));
         $this->response(200);
     }
-     function restroom_post() {
-        $sql = "insert into restroom(user_id, avg_rating, latitude, longitude) values(?,0,?,?);";
-        $query = $this->db->query($sql, array($this->post('uid'),$this->post('lat'),$this->post('long')));
+    function restroom_post() {
+        $sql = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
+        $query = $this->db->query($sql, array($this->post('uid'),$this->post('lat'),$this->post('long'),$this->post('name')
+        ,$this->post('address')));
         $this->response(200);
     }
 
@@ -115,7 +116,7 @@ class toilettalkapi extends REST_Controller
     }
     function restroombyuid_get()
     {
-        $sql = "select rr.restroom_id,rr.latitude,rr.longitude
+        $sql = "select rr.restroom_id,rr.latitude,rr.longitude, rr.name, rr.address
                 from restroom rr 
                 where rr.user_id = ?;";
         $query = $this->db->query($sql, array($this->get('uid')));
@@ -174,7 +175,7 @@ class toilettalkapi extends REST_Controller
     }
     function restroombyid_get()
     {
-        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, 
+        $sql = "select rr.restroom_id, rr.latitude, rr.name, rr.address, rr.longitude, ar.final_average, 
                 sum(diaper_changing_station),sum(handicap_accessible), sum(unisex), sum(customer_only), sum(24_hour) 
                 from restroom rr, icons i, avg_ratings ar, response re 
                 where ar.restroom_id = rr.restroom_id and re.review_id = i.review_id and rr.restroom_id = re.restroom_id and 
@@ -319,7 +320,7 @@ class toilettalkapi extends REST_Controller
         $upperBoarder=$currentLatitude+$radius;
         $rightBoarder=$currentLongitude+$radius;
         $leftBoarder=$currentLongitude-$radius;
-        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, sum(diaper_changing_station), 
+        $sql = "select rr.restroom_id, rr.latitude, rr.longitude, ar.final_average, rr.address, rr.name, sum(diaper_changing_station), 
                 sum(handicap_accessible), sum(unisex), sum(customer_only), sum(24_hour) 
                 from restroom rr, icons i, avg_ratings ar, response re 
                 where ar.restroom_id = rr.restroom_id and re.review_id = i.review_id and rr.restroom_id = re.restroom_id and 
