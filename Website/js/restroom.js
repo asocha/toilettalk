@@ -64,7 +64,7 @@ function createSearchMap(){
 	var comments = getComments();
 
 	var commentnav = document.getElementById("comments");
-	
+
 	for (var i = 0; comments && i < comments.length; i++){
 		var username = getUser(comments[i]['user_id']);
 		var html = "";
@@ -77,9 +77,9 @@ function createSearchMap(){
 			if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
 			else html += "<img class='star' src='img/transparentStar.png'>";
 		}
-		html += "<a class='addReply' onclick='addReview("+comments[i]['review_id']+","+(parseInt(comments[i]['responds_to_id'])+1)+");'>Reply</a></div>";
+		if (!comments[i+1] || comments[i+1]['responds_to_id'] <= comments[i]['responds_to_id']) html += "<a class='addReply' onclick='addReview("+comments[i]['review_id']+","+(parseInt(comments[i]['responds_to_id'])+1)+");'>Reply</a>";
 
-		html += "<p style='font-style:italic;'>"+username+":</p>";
+		html += "</div><p style='font-style:italic;'>"+username+":</p>";
 
 		html += "<p>" + comments[i]['user_comments'] + "</p>";
 
