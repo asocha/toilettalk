@@ -49,6 +49,9 @@
             android:name="com.pottymouth.toilettalk.RegActivity"/>
         
         <activity 
+            android:name="com.pottymouth.toilettalk.ComposeReviewActivity"/>
+        
+        <activity 
             android:name="com.pottymouth.toilettalk.MainActivity"
             android:theme="@style/Theme.Main"/>
         

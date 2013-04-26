@@ -11,6 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.ActionBar;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationManager;
@@ -38,22 +39,18 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 	SlidingMenu menu;
 	ArrayList<Marker> locations;
 	LocationManager locManager;
-	LocationHandler locHandler;
-	LocationResult locationResult;
-	Location currentLocation;
+	static LocationHandler locHandler;
+	static LocationResult locationResult;
+	static Location currentLocation;
 	ProgressDialog progressDialog;
+	private static Context context;
 	
 	GoogleMap map;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	
-    	ActionBar actionBar = getActionBar();
-    	View mActionBarView = getLayoutInflater().inflate(R.layout.action_bar, null);
-    	actionBar.setCustomView(mActionBarView);
-    	actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-    	actionBar.setDisplayShowHomeEnabled(false);
-    	actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.stroke_actionbar_underline_yellow));
+    	setupActionBar();
     	
         super.onCreate (savedInstanceState);
     	
@@ -63,10 +60,21 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	setContentView(R.layout.activity_main);
     	setBehindContentView(R.layout.activity_menu);
     	
+    	context = getApplicationContext();
+    	
     	setupMenu();        
         getLocation();
 
     }
+
+	private void setupActionBar() {
+		ActionBar actionBar = getActionBar();
+    	View mActionBarView = getLayoutInflater().inflate(R.layout.action_bar, null);
+    	actionBar.setCustomView(mActionBarView);
+    	actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+    	actionBar.setDisplayShowHomeEnabled(false);
+    	actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.stroke_actionbar_underline_yellow));
+	}
 
 	private void startMap() {
 
@@ -102,6 +110,20 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		progressDialog.setCancelable(false);
 		
 		Log.d("location", "locationGot: " + locationGot);
+	}
+	
+	public static void updateLocation() {
+		
+		locationResult = new LocationResult(){
+            @Override
+            public void gotLocation(Location location){
+            	Log.d("location", "Got a location: " + location.getLongitude());
+            	currentLocation = location;
+            }
+        };
+        
+		locHandler.getLocation(context, locationResult);
+
 	}
 
 	private void setupMenu() {
@@ -192,7 +214,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 			//creates new review
 			case R.id.button_compose_review:
 				Intent it = new Intent(getApplicationContext(), ComposeReviewActivity.class);
-				startActivityForResult(it, 1);
+				startActivityForResult(it, RESULT_OK);
 				break;
 				
 		}//end of switch
@@ -204,5 +226,22 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 	    // All other menu item clicks are handled by onOptionsItemSelected()
 		
 		menu.toggle();
+	}
+
+	public static void updateLocation(ComposeReviewActivity composeReviewActivity) {
+		
+		final ComposeReviewActivity activity = composeReviewActivity;
+		
+		locationResult = new LocationResult(){
+            @Override
+            public void gotLocation(Location location){
+            	Log.d("location", "Got a location: " + location.getLongitude());
+            	currentLocation = location;
+            	
+            	activity.getAddress();
+            }
+        };
+        
+		locHandler.getLocation(context, locationResult);
 	}
 }

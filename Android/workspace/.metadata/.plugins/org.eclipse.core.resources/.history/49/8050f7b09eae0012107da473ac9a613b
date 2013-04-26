@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal" >
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp" />
+
+    <LinearLayout
+        android:id="@+id/input_elements"
+        android:layout_width="@dimen/width_page_container"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+        
+        <EditText
+            android:id="@+id/compose_location_name"
+            style="@style/EditText.InputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/location_name"
+            android:inputType="textPostalAddress" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="565 Atlanta South Pkwy\nAtlanta, GA 30349-5958"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_continue_guest"
+        android:layout_width="@dimen/width_page_container"
+        android:layout_height="@dimen/height_button_login_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_round_top_yellow_animated"
+        android:text="@string/button_review"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_buttons_login_bottom"
+        android:textStyle="bold" />
+
+</RelativeLayout>

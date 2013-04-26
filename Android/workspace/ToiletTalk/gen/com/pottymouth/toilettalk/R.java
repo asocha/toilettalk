@@ -276,67 +276,98 @@ containing a value of this type.
         public static final int beta_orange=0x7f020001;
         public static final int beta_white=0x7f020002;
         public static final int beta_yellow=0x7f020003;
-        public static final int button_underline_orange=0x7f020004;
-        public static final int button_underline_yellow=0x7f020005;
-        public static final int button_underline_yellow_actionbar=0x7f020006;
-        public static final int button_underline_yellow_animated=0x7f020007;
-        public static final int gender_button_man=0x7f020008;
-        public static final int gender_button_woman=0x7f020009;
-        public static final int ic_launcher=0x7f02000a;
-        public static final int icon_logo=0x7f02000b;
-        public static final int icon_new=0x7f02000c;
-        public static final int shadow=0x7f02000d;
-        public static final int shape_round_bottom_yellow=0x7f02000e;
-        public static final int shape_round_left_yellow=0x7f02000f;
-        public static final int shape_round_orange=0x7f020010;
-        public static final int shape_round_right_yellow=0x7f020011;
-        public static final int shape_round_top_orange=0x7f020012;
-        public static final int shape_round_top_yellow=0x7f020013;
-        public static final int shape_round_top_yellow_animated=0x7f020014;
-        public static final int shape_round_yellow=0x7f020015;
-        public static final int shape_round_yellow_animated=0x7f020016;
-        public static final int stroke_actionbar_underline_yellow=0x7f020017;
-        public static final int xhdpi=0x7f020018;
+        public static final int button_24hours=0x7f020004;
+        public static final int button_baby_station=0x7f020005;
+        public static final int button_handicap=0x7f020006;
+        public static final int button_money=0x7f020007;
+        public static final int button_underline_orange=0x7f020008;
+        public static final int button_underline_yellow=0x7f020009;
+        public static final int button_underline_yellow_actionbar=0x7f02000a;
+        public static final int button_underline_yellow_animated=0x7f02000b;
+        public static final int button_unisex=0x7f02000c;
+        public static final int custom_rating_bar_full=0x7f02000d;
+        public static final int gender_button_man=0x7f02000e;
+        public static final int gender_button_woman=0x7f02000f;
+        public static final int ic_launcher=0x7f020010;
+        public static final int icon_24hours_selected=0x7f020011;
+        public static final int icon_24hours_unselected=0x7f020012;
+        public static final int icon_baby_station_selected=0x7f020013;
+        public static final int icon_baby_station_unselected=0x7f020014;
+        public static final int icon_handicap_selected=0x7f020015;
+        public static final int icon_handicap_unselected=0x7f020016;
+        public static final int icon_logo=0x7f020017;
+        public static final int icon_money_selected=0x7f020018;
+        public static final int icon_money_unselected=0x7f020019;
+        public static final int icon_new=0x7f02001a;
+        public static final int icon_unisex_selected=0x7f02001b;
+        public static final int icon_unisex_unselected=0x7f02001c;
+        public static final int ratingbar_selected=0x7f02001d;
+        public static final int ratingbar_unselected=0x7f02001e;
+        public static final int shadow=0x7f02001f;
+        public static final int shape_round_bottom_yellow=0x7f020020;
+        public static final int shape_round_left_yellow=0x7f020021;
+        public static final int shape_round_orange=0x7f020022;
+        public static final int shape_round_right_yellow=0x7f020023;
+        public static final int shape_round_top_orange=0x7f020024;
+        public static final int shape_round_top_yellow=0x7f020025;
+        public static final int shape_round_top_yellow_animated=0x7f020026;
+        public static final int shape_round_yellow=0x7f020027;
+        public static final int shape_round_yellow_animated=0x7f020028;
+        public static final int shape_star=0x7f020029;
+        public static final int stroke_actionbar_underline_yellow=0x7f02002a;
+        public static final int xhdpi=0x7f02002b;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f04000b;
-        public static final int action_settings=0x7f04001c;
-        public static final int button_compose_review=0x7f04001d;
-        public static final int button_continue_guest=0x7f040014;
-        public static final int button_login=0x7f040013;
-        public static final int button_register=0x7f040012;
-        public static final int email=0x7f040019;
-        public static final int fname=0x7f040017;
+        public static final int action_settings=0x7f040027;
+        public static final int button_24hours=0x7f040017;
+        public static final int button_babystation=0x7f040015;
+        public static final int button_compose_review=0x7f040028;
+        public static final int button_continue_guest=0x7f04001f;
+        public static final int button_handicap=0x7f040016;
+        public static final int button_login=0x7f04001e;
+        public static final int button_money=0x7f040018;
+        public static final int button_register=0x7f04001d;
+        public static final int button_submitreview=0x7f040012;
+        public static final int button_unisex=0x7f040014;
+        public static final int compose_address=0x7f040010;
+        public static final int compose_comment=0x7f040019;
+        public static final int compose_location_name=0x7f04000f;
+        public static final int email=0x7f040024;
+        public static final int fname=0x7f040022;
         public static final int fullscreen=0x7f040008;
-        public static final int gender=0x7f040016;
+        public static final int gender=0x7f040021;
         public static final int hybrid=0x7f040004;
         public static final int input_elements=0x7f04000e;
         public static final int left=0x7f040005;
-        public static final int lname=0x7f040018;
-        public static final int login_buttons=0x7f040011;
+        public static final int lname=0x7f040023;
+        public static final int login_buttons=0x7f04001c;
         public static final int logo=0x7f04000a;
         public static final int map=0x7f04000d;
         public static final int margin=0x7f040007;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
-        public static final int password=0x7f040010;
-        public static final int register_button=0x7f04001a;
+        public static final int password=0x7f04001b;
+        public static final int ratingBar=0x7f040011;
+        public static final int register_button=0x7f040025;
         public static final int right=0x7f040006;
         public static final int satellite=0x7f040002;
-        public static final int scrollview_input_elements=0x7f040015;
+        public static final int scrollview_input_elements=0x7f040020;
         public static final int selected_view=0x7f040009;
-        public static final int slidingmenumain=0x7f04001b;
+        public static final int slidingmenumain=0x7f040026;
         public static final int terrain=0x7f040003;
         public static final int textView1=0x7f04000c;
-        public static final int username=0x7f04000f;
+        public static final int username=0x7f04001a;
+        public static final int view_icons=0x7f040013;
     }
     public static final class layout {
         public static final int action_bar=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_menu=0x7f030002;
-        public static final int login_activity=0x7f030003;
-        public static final int registration_activity=0x7f030004;
-        public static final int slidingmenumain=0x7f030005;
+        public static final int compose_review_activity=0x7f030003;
+        public static final int login_activity=0x7f030004;
+        public static final int registration_activity=0x7f030005;
+        public static final int slidingmenumain=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -353,9 +384,10 @@ containing a value of this type.
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
         public static final int auth_client_requested_by_msg=0x7f050010;
-        public static final int button_menu=0x7f050024;
-        public static final int button_reset_map=0x7f050022;
-        public static final int button_text_compose_review=0x7f050023;
+        public static final int button_menu=0x7f050025;
+        public static final int button_reset_map=0x7f050023;
+        public static final int button_review=0x7f050026;
+        public static final int button_text_compose_review=0x7f050024;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -411,13 +443,15 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f05000d;
         public static final int continue_guest=0x7f050016;
         public static final int email=0x7f050019;
-        public static final int error_continue=0x7f05001f;
+        public static final int error_continue=0x7f050020;
+        public static final int error_generic=0x7f05001f;
         public static final int error_login=0x7f05001d;
         public static final int error_reg=0x7f05001e;
-        public static final int first_name=0x7f050020;
+        public static final int first_name=0x7f050021;
         public static final int gender=0x7f05001a;
         public static final int hello_world=0x7f050013;
-        public static final int last_name=0x7f050021;
+        public static final int last_name=0x7f050022;
+        public static final int location_name=0x7f050027;
         public static final int login=0x7f050015;
         public static final int logo_description=0x7f05001c;
         public static final int pass_hint=0x7f050018;
@@ -452,7 +486,9 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        public static final int EditText_InputStyle=0x7f080003;
         public static final int Theme_Main=0x7f080002;
+        public static final int customRatingBar=0x7f080004;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.

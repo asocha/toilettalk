@@ -21,3 +21,22 @@
 1366934904265	Copy file
 1366935305114	Rename resource 'button_underline_yellow_actionbar2.9.png'
 1366935322304	Delete element
+1366937574404	Extracts string 'Review' into R.string.button_review
+1366988065853	Delete element
+1366994646300	Extract method 'setupActionBar'
+1366995004003	Wrap in Container
+1366995883911	Extract Style
+1366996080793	Extracts string 'Location Name' into R.string.location_name
+1366997914896	Copy file
+1366999089850	Delete element
+1366999523973	Delete element
+1367001572754	Rename resource 'button_toggle_unisex.xml'
+1367001829406	Delete elements
+1367001836869	Delete elements
+1367001844886	Delete elements
+1367002390541	Extract Style
+1367002473374	Copy file
+1367002489042	Copy file
+1367002567010	Copy file
+1367002614275	Copy file
+1367010640141	Copy compilation unit

@@ -1,0 +1,69 @@
+package com.pottymouth.restapihandler;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
+import com.pottymouth.toilettalk.LoginActivity;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.os.AsyncTask;
+import android.os.Message;
+
+public class ReverseGeocodingTask extends AsyncTask<Location, Void, String> {
+    Context mContext;
+    ProgressDialog progressDialog;
+    
+    public ReverseGeocodingTask(Context context) {
+        super();
+        mContext = context;
+    }
+
+    @Override
+    protected void onPreExecute() {
+    	// TODO Auto-generated method stub
+    	super.onPreExecute();
+    	
+    	progressDialog = new ProgressDialog(mContext);
+		progressDialog.setMessage("Getting your current address...");
+		progressDialog.setCancelable(false);
+    }
+    
+    @Override
+    protected String doInBackground(Location... params) {
+        Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+        String addressText = "Could not get you address :(";;
+        
+        Location loc = params[0];
+        List<Address> addresses = null;
+        try {
+            // Call the synchronous getFromLocation() method by passing in the lat/long values.
+            addresses = geocoder.getFromLocation(loc.getLatitude(), loc.getLongitude(), 1);
+        } catch (IOException e) {
+        	
+            e.printStackTrace();
+        }
+        if (addresses != null && addresses.size() > 0) {
+            Address address = addresses.get(0);
+            // Format the first line of address (if available), city, and country name.
+            addressText = String.format("%s, %s, %s",
+                    address.getMaxAddressLineIndex() > 0 ? address.getAddressLine(0) : "",
+                    address.getLocality(),
+                    address.getCountryName());
+            // Update the UI via a message handler.
+        }
+
+        return addressText;
+    }
+    
+    @Override
+    protected void onPostExecute(Void result) {
+    	super.onPostExecute(result);
+    	
+    	progressDialog.dismiss();
+    }
+}
