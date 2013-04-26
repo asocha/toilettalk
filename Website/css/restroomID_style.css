@@ -214,7 +214,7 @@ div {
 	text-align: center;
 }
 
-.addReview{
+.addReview, #SaveButton{
 	margin: 5px;
 	padding: 2px;
 	font-size: 15pt;
