@@ -506,7 +506,7 @@ function getRestrooms2(location1, location2){
 		return $.parseJSON(request.responseText);
 	}
 	else if (!request.responseText){
-		alert("Sorry. Your search returned no restrooms.");
+		alert("Sorry. There are no restrooms along your route.");
 		return null;
 	}
 	else {
