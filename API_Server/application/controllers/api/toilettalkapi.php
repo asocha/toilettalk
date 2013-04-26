@@ -106,10 +106,11 @@ class toilettalkapi extends REST_Controller
         }
     }
     function latestreview_get() {
-        $query = $this->db->query("select max(re.time_stamp) as date, rr.longitude, rr.latitude, re.user_comments,rr.restroom_id
+        $query = $this->db->query("select re.time_stamp as date, rr.longitude, rr.latitude, re.user_comments,rr.restroom_id
             from response re, restroom rr 
             where re.responds_to_id = 0 and rr.restroom_id = re.restroom_id 
-            order by time_stamp desc;;");
+            order by time_stamp desc
+            limit 1;");
         $this->response($query->result(), 200);
     }
     function restroombyuid_get()
