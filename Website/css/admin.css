@@ -145,6 +145,7 @@ div {
 	text-align: center;
 }
 .button1 li{
+	overflow: hidden;
 	margin-bottom: 10px;
 	width: 100px;
 	display: inline-block;
@@ -176,6 +177,7 @@ div {
 	text-align: center;
 }
 .button2 li{
+	overflow: hidden;
 	margin-bottom: 10px;
 	width: 100px;
 	display: inline-block;
@@ -209,6 +211,7 @@ div {
 }
 
 .button3 li{
+	overflow: hidden;
 	width: 100px;
 	margin-bottom: 10px;
 	display: inline-block;
