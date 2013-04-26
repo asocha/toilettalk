@@ -13,4 +13,6 @@
 	<dimen name="margin_top_login_buttons">10dp</dimen>
 	<dimen name="margin_imagebutton">8dp</dimen>
 	<dimen name="padding_imagebutton">13dp</dimen>
+	<dimen name="padding_menubutton_topbottom">6dp</dimen>
+	<dimen name="padding_menubutton_sides">10dp</dimen>
 </resources>

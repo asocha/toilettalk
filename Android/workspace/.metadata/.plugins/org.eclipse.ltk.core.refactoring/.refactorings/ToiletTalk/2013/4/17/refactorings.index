@@ -12,3 +12,12 @@
 1366905966975	Rename type 'MyLocation'
 1366906165134	Extract method 'setupMenu'
 1366913810620	Rename method 'startMap2'
+1366919523126	Rename method 'startMap2'
+1366922109623	Extracts string 'Compose' into R.string.button_text_compose_review
+1366925142450	Delete element
+1366926709318	Delete element
+1366926973073	Extracts string 'Menu' into R.string.button_menu
+1366928110659	Delete element
+1366934904265	Copy file
+1366935305114	Rename resource 'button_underline_yellow_actionbar2.9.png'
+1366935322304	Delete element

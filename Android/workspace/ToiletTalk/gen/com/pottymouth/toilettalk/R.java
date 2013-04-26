@@ -264,6 +264,8 @@ containing a value of this type.
         public static final int margin_textinputs=0x7f070005;
         public static final int margin_top_login_buttons=0x7f07000a;
         public static final int padding_imagebutton=0x7f07000c;
+        public static final int padding_menubutton_sides=0x7f07000e;
+        public static final int padding_menubutton_topbottom=0x7f07000d;
         public static final int textSize_buttons_login=0x7f070007;
         public static final int textSize_buttons_login_bottom=0x7f070008;
         public static final int width_login_buttons=0x7f070009;
@@ -276,25 +278,30 @@ containing a value of this type.
         public static final int beta_yellow=0x7f020003;
         public static final int button_underline_orange=0x7f020004;
         public static final int button_underline_yellow=0x7f020005;
-        public static final int button_underline_yellow_animated=0x7f020006;
-        public static final int gender_button_man=0x7f020007;
-        public static final int gender_button_woman=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int shadow=0x7f02000a;
-        public static final int shape_round_bottom_yellow=0x7f02000b;
-        public static final int shape_round_left_yellow=0x7f02000c;
-        public static final int shape_round_orange=0x7f02000d;
-        public static final int shape_round_right_yellow=0x7f02000e;
-        public static final int shape_round_top_orange=0x7f02000f;
-        public static final int shape_round_top_yellow=0x7f020010;
-        public static final int shape_round_top_yellow_animated=0x7f020011;
-        public static final int shape_round_yellow=0x7f020012;
-        public static final int shape_round_yellow_animated=0x7f020013;
-        public static final int xhdpi=0x7f020014;
+        public static final int button_underline_yellow_actionbar=0x7f020006;
+        public static final int button_underline_yellow_animated=0x7f020007;
+        public static final int gender_button_man=0x7f020008;
+        public static final int gender_button_woman=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int icon_logo=0x7f02000b;
+        public static final int icon_new=0x7f02000c;
+        public static final int shadow=0x7f02000d;
+        public static final int shape_round_bottom_yellow=0x7f02000e;
+        public static final int shape_round_left_yellow=0x7f02000f;
+        public static final int shape_round_orange=0x7f020010;
+        public static final int shape_round_right_yellow=0x7f020011;
+        public static final int shape_round_top_orange=0x7f020012;
+        public static final int shape_round_top_yellow=0x7f020013;
+        public static final int shape_round_top_yellow_animated=0x7f020014;
+        public static final int shape_round_yellow=0x7f020015;
+        public static final int shape_round_yellow_animated=0x7f020016;
+        public static final int stroke_actionbar_underline_yellow=0x7f020017;
+        public static final int xhdpi=0x7f020018;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f04000a;
+        public static final int LinearLayout1=0x7f04000b;
         public static final int action_settings=0x7f04001c;
+        public static final int button_compose_review=0x7f04001d;
         public static final int button_continue_guest=0x7f040014;
         public static final int button_login=0x7f040013;
         public static final int button_register=0x7f040012;
@@ -307,8 +314,8 @@ containing a value of this type.
         public static final int left=0x7f040005;
         public static final int lname=0x7f040018;
         public static final int login_buttons=0x7f040011;
-        public static final int logo=0x7f04000d;
-        public static final int map=0x7f04000c;
+        public static final int logo=0x7f04000a;
+        public static final int map=0x7f04000d;
         public static final int margin=0x7f040007;
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
@@ -320,15 +327,16 @@ containing a value of this type.
         public static final int selected_view=0x7f040009;
         public static final int slidingmenumain=0x7f04001b;
         public static final int terrain=0x7f040003;
-        public static final int textView1=0x7f04000b;
+        public static final int textView1=0x7f04000c;
         public static final int username=0x7f04000f;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int activity_menu=0x7f030001;
-        public static final int login_activity=0x7f030002;
-        public static final int registration_activity=0x7f030003;
-        public static final int slidingmenumain=0x7f030004;
+        public static final int action_bar=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_menu=0x7f030002;
+        public static final int login_activity=0x7f030003;
+        public static final int registration_activity=0x7f030004;
+        public static final int slidingmenumain=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -345,7 +353,9 @@ containing a value of this type.
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
         public static final int auth_client_requested_by_msg=0x7f050010;
+        public static final int button_menu=0x7f050024;
         public static final int button_reset_map=0x7f050022;
+        public static final int button_text_compose_review=0x7f050023;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -442,6 +452,7 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
+        public static final int Theme_Main=0x7f080002;
     }
     public static final class styleable {
         /** Attributes that can be used with a MapAttrs.

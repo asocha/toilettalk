@@ -9,21 +9,17 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import android.app.Dialog;
+import android.app.ActionBar;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -37,8 +33,9 @@ import com.pottymouth.toilettalk.LocationHandler.LocationResult;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingActivity;
 
-public class MainActivity extends SlidingActivity implements View.OnClickListener, LocationListener {
+public class MainActivity extends SlidingActivity implements View.OnClickListener {
 	
+	SlidingMenu menu;
 	ArrayList<Marker> locations;
 	LocationManager locManager;
 	LocationHandler locHandler;
@@ -51,7 +48,14 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     @Override
     public void onCreate(Bundle savedInstanceState) {
     	
-        super.onCreate(savedInstanceState);
+    	ActionBar actionBar = getActionBar();
+    	View mActionBarView = getLayoutInflater().inflate(R.layout.action_bar, null);
+    	actionBar.setCustomView(mActionBarView);
+    	actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+    	actionBar.setDisplayShowHomeEnabled(false);
+    	actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.stroke_actionbar_underline_yellow));
+    	
+        super.onCreate (savedInstanceState);
     	
     	/*
     	 * Main Activity Page
@@ -59,18 +63,12 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	setContentView(R.layout.activity_main);
     	setBehindContentView(R.layout.activity_menu);
     	
-    	setupMenu();
-        
-       
-        
+    	setupMenu();        
         getLocation();
-        
-        //startMap();
-        
-        
+
     }
 
-	private void startMap2() {
+	private void startMap() {
 
 		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 		map.setMyLocationEnabled(true);
@@ -92,30 +90,22 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
             	Log.d("location", "Got a location: " + location.getLongitude());
             	currentLocation = location;
             	progressDialog.dismiss();
-            	startMap2();
+            	startMap();
             }
         };
 	        
         locHandler = new LocationHandler();
         boolean locationGot = locHandler.getLocation(this, locationResult);
 	     
-		//boolean locationGot = locHandler.getLocation(getApplicationContext(), locationResult);
         progressDialog = new ProgressDialog(MainActivity.this);
 		progressDialog.setMessage("Logging in...");
 		progressDialog.setCancelable(false);
 		
 		Log.d("location", "locationGot: " + locationGot);
-		
-		
-		
-//		if(currentLocation != null)
-//			onLocationChanged(currentLocation);
-//		Log.d("location", "Called Location Changed");
-		
 	}
 
 	private void setupMenu() {
-		SlidingMenu menu = getSlidingMenu();
+		menu = getSlidingMenu();
         menu.setMode(SlidingMenu.LEFT);
         menu.setShadowDrawable(R.drawable.shadow);
         menu.setShadowWidth(35);
@@ -143,7 +133,6 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 
 	protected void onResume() {
         super.onResume();
-        //locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
     }
      
     @Override
@@ -155,8 +144,6 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 
 	@Override
 	public void onClick(View v) {
-
-	
 	}
 	
     @Override
@@ -167,34 +154,6 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     		this.finish();
     	}
     }
-
-	@Override
-	public void onLocationChanged(Location location) {
-		double lat =  location.getLatitude();
-        double lng = location.getLongitude();
-        
-        LatLng currentLocation = new LatLng(lat, lng);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 15));
-		
-	}
-
-	@Override
-	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public void addFlag(LatLng coordinates, String name, double rating) {
 		
@@ -222,61 +181,28 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		map.moveCamera(cu);
 	}
 
-	public void startMap() {
-		map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+	
+	public void onGroupItemClick(MenuItem item) {
+	    // One of the group items (using the onClick attribute) was clicked
+	    // The item parameter passed here indicates which item it is
+	    // All other menu item clicks are handled by onOptionsItemSelected()
 		
-		if(locManager == null)
-			locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		switch(item.getItemId()){
 		
-		boolean gps_enabled = false; 
-		boolean network_enabled = false;
-		
-		if(!gps_enabled && !network_enabled){
-			finish();
-			return;
-		}
-		
-		try{
-			gps_enabled=locManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-			}catch(Exception ex){}
-		
-        try{
-        	network_enabled=locManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-        	}catch(Exception ex){}
-        
-        if (!locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-        	this.finish();
-        	
-		    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-		    startActivity(intent);
-		    
-		    return;
-        }
-        
-        
-//        if(gps_enabled)
-//        	locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListenerGps);
-//        if(network_enabled)
-//        	locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListenerNetwork);
-        
-        Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        locManager.removeUpdates(this);
-        
-        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-        if (resultCode == ConnectionResult.SERVICE_MISSING ||
-            resultCode == ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED ||
-            resultCode == ConnectionResult.SERVICE_DISABLED) {
-            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(resultCode, this, 1);
-            dialog.show();
-        }
-        
-        map.setMyLocationEnabled(true);
-        
-        if(location != null)
-        	onLocationChanged(location);
-        getNearbyRestrooms(location);
-        
-		
+			//creates new review
+			case R.id.button_compose_review:
+				Intent it = new Intent(getApplicationContext(), ComposeReviewActivity.class);
+				startActivityForResult(it, 1);
+				break;
+				
+		}//end of switch
 	}
 	
+	public void toggleMenu(View item) {
+	    // One of the group items (using the onClick attribute) was clicked
+	    // The item parameter passed here indicates which item it is
+	    // All other menu item clicks are handled by onOptionsItemSelected()
+		
+		menu.toggle();
+	}
 }

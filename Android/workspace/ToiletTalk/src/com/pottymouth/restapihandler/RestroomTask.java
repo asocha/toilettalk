@@ -112,32 +112,34 @@ public class RestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONArray
 	{
 		progressDialog.dismiss();
 
-		for(int x = 0; x < restrooms.length(); x++){
-			
-			JSONObject location = restrooms.optJSONObject(x);
-			
-			try {
-				double latitude = location.getDouble("latitude");
-				double longitude = location.getDouble("longitude");
-				String name = location.getString("restroom_id");
-				double rating = location.getDouble("final_average");
+		if(restrooms != null)
+			for(int x = 0; x < restrooms.length(); x++){
 				
-				LatLng coordinates = new LatLng(latitude, longitude);
+				JSONObject location = restrooms.optJSONObject(x);
 				
-				Log.d("RestroomTask", "Putting into database latitude: " + latitude);
-				Log.d("RestroomTask", "Putting into database longitude: " + longitude);
-				Log.d("RestroomTask", "Putting into database name: " + name);
-				Log.d("RestroomTask", "Putting into database rating: " + rating);
+				try {
+					double latitude = location.getDouble("latitude");
+					double longitude = location.getDouble("longitude");
+					String name = location.getString("restroom_id");
+					double rating = location.getDouble("final_average");
+					
+					LatLng coordinates = new LatLng(latitude, longitude);
+					
+					Log.d("RestroomTask", "Putting into database latitude: " + latitude);
+					Log.d("RestroomTask", "Putting into database longitude: " + longitude);
+					Log.d("RestroomTask", "Putting into database name: " + name);
+					Log.d("RestroomTask", "Putting into database rating: " + rating);
+					
+					activity.addFlag(coordinates, name, rating);
+					
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
 				
-				activity.addFlag(coordinates, name, rating);
-				
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			
-		}//end of for
+			}//end of for
 		
 		activity.refreshMap();
 		
 	}//end of onPostExecute
+	
 }
