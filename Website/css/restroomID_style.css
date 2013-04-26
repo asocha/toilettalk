@@ -46,9 +46,10 @@ body{
 .Restrooms {
 	background-color: #27ADC3; 
 	width: 475px;
-	height: 470px;
+	height: 466px;
 	float:left;
 	text-align: center;
+	border: 2px groove threedface;
 }
 
 #mapfield {
@@ -211,7 +212,7 @@ div {
 	font-size: 15pt;
 	margin: 5px 12px;
 	float: left;
-	text-align: center;
+	text-align: left;
 }
 
 .addReview, #SaveButton{

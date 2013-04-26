@@ -72,7 +72,9 @@ function createSearchMap(){
 		if (isResponse !== 0) isResponse = 1;	//fix to remove broking threading
 		html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px;display:block;'>";
 
-		html += "<div style=''><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p>";
+		html += "<div style=''><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p><p>&nbsp;&nbsp;&nbsp;&nbsp;";
+		if (isResponse === 0) html+= "&nbsp;&nbsp;";
+		html += "</p>";
 		for (var j = 0; j < 5; j++){
 			if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
 			else html += "<img class='star' src='img/transparentStar.png'>";
