@@ -183,7 +183,7 @@ div {
 	margin-left: auto;
 	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 	background-color: white;
-	border: solid 3px black;
+	border: solid 1px black;
 	position:fixed;
 	left: 50%;
 	top: 50%;
