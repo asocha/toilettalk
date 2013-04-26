@@ -405,6 +405,7 @@ function setIcon(x)
 		icons[x] = 0;
 	}
 }
+
 function checklogin2(){
 	var request = new XMLHttpRequest();
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/session", false);

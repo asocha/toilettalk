@@ -21,10 +21,9 @@
 		<a href="index.html"><img id="logo" src="img/ToiletTalk_logo.png" alt="Toilet_talk_logo"></a>
 	</div>
 	<div id="logining">
-	<!--  <form id="Registerform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/user/" method = "post"> -->
-		<form id="Registerform" action="" method = "post">
+		<!--A Form that is used to get user information to login into the site-->
+		<form id="Registerform" method = "post">
 			<img id = "exit1" class="exit" src="img/cross.png" alt="exit">  
-			<!--A Form that is used to get user information to login into the site-->
 			<label id="username">Username: <input type="text" name="uname"></label><br />
 			<label id="firstname">First name: <input type="text" name="fname"></label><br />
 			<label id="lastname">Last name: <input type="text" name="lname"></label><br />
@@ -35,10 +34,9 @@
 			<button id="register_button" type="submit" value="submit">Register</button>
 		</form>
 	</div>
-	<!--<form id="loginform" action="http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/login/" method = "post">-->
-	<form id="loginform" action="" method = "post" onsubmit= "return validate()">
+	<!--A Form that is used to get user information to login into the site-->
+	<form id="loginform" method = "post" onsubmit="return validate()">
 		<img id = "exit2" class="exit" src="img/cross.png" alt="exit">
-		<!--A Form that is used to get user information to login into the site-->
 		<label id="usernameLogin">Username: <input type="text" name="uname"></label><br />
 		<label id="passwordLogin">Password: <input type="password" name="password"></label><br />
 		<button id="login_button" type="submit" value="submit">Login</button>

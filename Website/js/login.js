@@ -41,8 +41,6 @@ function setnumberofreviews(){
 	request.send();
 	if(request.status===200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
-		//console.log(request.responseText);
-		//console.log(jsonResponse[0].numofreviews);
 		document.getElementById('numberofreviews').innerHTML=jsonResponse[0].numofreviews;
 	}
 }
@@ -53,8 +51,6 @@ function setnumberofusers(){
 	request.send();
 	if(request.status===200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
-		//console.log(request.responseText);
-		//console.log(jsonResponse[0].numofreviews);
 		document.getElementById('numberofusers').innerHTML=jsonResponse[0].registeredusers;
 	}
 }
@@ -68,10 +64,8 @@ function validatelogin(){
 	
 	request.open("POST", "../API_Server/index.php/api/toilettalkapi/login", false);
 	request.send(data);
-	//console.log(request.status);
 	if(request.status===200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
-		//console.log(jsonResponse['success']);
 		if(jsonResponse['success']) {
 			window.location = "index.html";
 		}
@@ -93,7 +87,6 @@ function validateregister(){
 	
 	request.open("POST", "../API_Server/index.php/api/toilettalkapi/user", false);
 	request.send(data);
-	//console.log(request.status);
 	if(request.status===200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['success']) {
@@ -114,7 +107,6 @@ function checklogin(){
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
 	request.send();
 	if(request.status === 200 && request.responseText){
-		console.log(request.responseText);
 		var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['logged_in']) {
 			document.getElementById("login").style.display='none';
@@ -122,10 +114,8 @@ function checklogin(){
 			document.getElementById("register").style.display='none';
 			document.getElementById("myaccount").style.display='inline';
 			if(jsonResponse['permission']==='2'){
-				console.log('admin');
 				document.getElementById("myaccount").style.display='none';
 				document.getElementById("admin").style.display='inline';
-
 			}
 		}
 	}
