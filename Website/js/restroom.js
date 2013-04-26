@@ -69,6 +69,7 @@ function createSearchMap(){
 		var username = getUser(comments[i]['user_id']);
 		var html = "";
 		var isResponse = parseInt(comments[i]['responds_to_id']);
+		if (isResponse !== 0) isResponse = 1;	//fix to remove broking threading
 		html += "<div class='comment' style='margin-left:"+(12+10*isResponse)+"px; width:"+(400-10*isResponse)+"px;display:block;'>";
 
 		html += "<div style=''><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p>";
@@ -76,13 +77,13 @@ function createSearchMap(){
 			if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
 			else html += "<img class='star' src='img/transparentStar.png'>";
 		}
-		html += "<a class='addReply' onclick='addReview("+comments[i]['review_id']+","+(isResponse+1)+");'>Reply</a></div>";
+		html += "<a class='addReply' onclick='addReview("+comments[i]['review_id']+","+(parseInt(comments[i]['responds_to_id'])+1)+");'>Reply</a></div>";
 
 		html += "<p style='font-style:italic;'>"+username+":</p>";
 
 		html += "<p>" + comments[i]['user_comments'] + "</p>";
 
-		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility="+'"'+"hidden"+'"'+";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility="+'"'+"hidden"+'"'+";'></div>";
+		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'></div>";
 
 		commentnav.innerHTML += html;
 	}
@@ -410,13 +411,13 @@ function checklogin2(){
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/session", false);
 	request.send();
 	if(request.status === 200 && request.responseText){
-		//console.log(request.responseText);
 		var jsonResponse = JSON.parse(request.responseText);
 		if(jsonResponse['logged_in']) {
 			user_id = jsonResponse['user_id'];
-
-
+			if(jsonResponse['permission']==='2'){
+				document.getElementById("myaccount").style.display='none';
+				document.getElementById("admin").style.display='inline';
+			}
 		}
-		
 	}
 }
