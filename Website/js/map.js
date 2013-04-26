@@ -75,9 +75,6 @@ window.onload = function(){
 			document.getElementsByClassName('pac-container')[0].addEventListener('mouseout',function(){
 				document.getElementById("Search").style.height="";
 			},false);
-			document.getElementsByClassName('pac-container')[0].addEventListener('mousedown',function(){
-				document.getElementById("Search").style.height="";
-			},false);
 
 			document.removeEventListener('click', event1);
 		},false);
@@ -88,9 +85,6 @@ window.onload = function(){
 			document.getElementsByClassName('pac-container')[1].addEventListener('mouseout',function(){
 				document.getElementById("RoadTrip").style.height="";
 			},false);
-			document.getElementsByClassName('pac-container')[1].addEventListener('mousedown',function(){
-				document.getElementById("RoadTrip").style.height="";
-			},false);
 
 			document.removeEventListener('click', event2);
 		},false);
@@ -99,9 +93,6 @@ window.onload = function(){
 				document.getElementById("RoadTrip").style.height="250px";
 			},false);
 			document.getElementsByClassName('pac-container')[2].addEventListener('mouseout',function(){
-				document.getElementById("RoadTrip").style.height="";
-			},false);
-			document.getElementsByClassName('pac-container')[2].addEventListener('mousedown',function(){
 				document.getElementById("RoadTrip").style.height="";
 			},false);
 
@@ -167,7 +158,6 @@ function createRoute(start, end){
 	var renderer = new google.maps.DirectionsRenderer();
 	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 	renderer.setMap(map);
-	//renderer.setPanel(document.getElementById("directions")); //render directions
 
 	//render route overlay
 	var service = new google.maps.DirectionsService();
