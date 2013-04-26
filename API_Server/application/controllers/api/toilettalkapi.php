@@ -136,7 +136,7 @@ class toilettalkapi extends REST_Controller
         }
         else
         {
-            $sql = "select rfr.route_id, rfr.restroom_id, rr.latitude, rr.longitude from restroom rr, restrooms_for_route rfr where rfr.route_id = 1 and rfr.restroom_id = rr.restroom_id;";
+            $sql = "select rfr.route_id, rfr.restroom_id, rr.latitude, rr.longitude from restroom rr, restrooms_for_route rfr where rfr.route_id = ? and rfr.restroom_id = rr.restroom_id;";
             $query = $this->db->query($sql, $this->get('rid'));
             $this->response($query->result(), 200);
         }
