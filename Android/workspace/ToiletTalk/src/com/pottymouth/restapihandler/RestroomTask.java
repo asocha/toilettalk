@@ -125,10 +125,10 @@ public class RestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONArray
 					
 					LatLng coordinates = new LatLng(latitude, longitude);
 					
-					Log.d("RestroomTask", "Putting into database latitude: " + latitude);
-					Log.d("RestroomTask", "Putting into database longitude: " + longitude);
-					Log.d("RestroomTask", "Putting into database name: " + name);
-					Log.d("RestroomTask", "Putting into database rating: " + rating);
+					Log.d("RestroomTask", "Putting into map latitude: " + latitude);
+					Log.d("RestroomTask", "Putting into map longitude: " + longitude);
+					Log.d("RestroomTask", "Putting into map name: " + name);
+					Log.d("RestroomTask", "Putting into map rating: " + rating);
 					
 					activity.addFlag(coordinates, name, rating);
 					

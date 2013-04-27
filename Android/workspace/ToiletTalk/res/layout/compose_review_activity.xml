@@ -30,7 +30,7 @@
     </LinearLayout>
 
     <RatingBar
-        android:id="@+id/ratingBar"
+        android:id="@+id/compose_ratingbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_height="40dp"
-        android:layout_below="@+id/ratingBar"
+        android:layout_below="@+id/compose_ratingbar"
         android:layout_centerHorizontal="true" >
 
         <ToggleButton

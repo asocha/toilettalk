@@ -142,7 +142,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	List<NameValuePair> request = new ArrayList<NameValuePair>();
 		request.add(new BasicNameValuePair("latitude", "" + location.getLatitude()));
 		request.add(new BasicNameValuePair("longitude", "" + location.getLongitude()));
-		request.add(new BasicNameValuePair("radius", "" + 500));
+		request.add(new BasicNameValuePair("radius", "" + 10));
 	 	
 		ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 		progressDialog.setMessage("Getting nearby restrooms...");

@@ -336,6 +336,7 @@ containing a value of this type.
         public static final int compose_image=0x7f04001a;
         public static final int compose_image_instructions=0x7f04001b;
         public static final int compose_location_name=0x7f04000f;
+        public static final int compose_ratingbar=0x7f040011;
         public static final int email=0x7f040026;
         public static final int fname=0x7f040024;
         public static final int fullscreen=0x7f040008;
@@ -351,7 +352,6 @@ containing a value of this type.
         public static final int none=0x7f040000;
         public static final int normal=0x7f040001;
         public static final int password=0x7f04001d;
-        public static final int ratingBar=0x7f040011;
         public static final int register_button=0x7f040027;
         public static final int right=0x7f040006;
         public static final int satellite=0x7f040002;

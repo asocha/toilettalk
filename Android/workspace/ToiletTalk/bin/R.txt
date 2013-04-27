@@ -110,6 +110,7 @@ int id compose_comment 0x7f040019
 int id compose_image 0x7f04001a
 int id compose_image_instructions 0x7f04001b
 int id compose_location_name 0x7f04000f
+int id compose_ratingbar 0x7f040011
 int id email 0x7f040026
 int id fname 0x7f040024
 int id fullscreen 0x7f040008
@@ -125,7 +126,6 @@ int id margin 0x7f040007
 int id none 0x7f040000
 int id normal 0x7f040001
 int id password 0x7f04001d
-int id ratingBar 0x7f040011
 int id register_button 0x7f040027
 int id right 0x7f040006
 int id satellite 0x7f040002

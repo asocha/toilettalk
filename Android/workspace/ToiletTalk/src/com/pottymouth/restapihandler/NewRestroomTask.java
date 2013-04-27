@@ -71,7 +71,7 @@ public class NewRestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONOb
 				
 			}
 			
-			HttpPost post = new HttpPost(server + "uploadimage");
+			HttpPost post = new HttpPost(server + "restroom");
 			
 			try {
 				post.setEntity(new UrlEncodedFormEntity(params[0], "UTF-8"));
