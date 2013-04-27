@@ -104,7 +104,7 @@ class toilettalkapi extends REST_Controller
                         0,0,0,$this->post('reviewstarrating')
                         ));
         $sql = "insert into icons values (?,?,?,?,?,?);";
-        $query = $this->db->query($sql, array($this->post('rrid'),$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
+        $query = $this->db->query($sql, array($rrid,$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
                 $this->post('co'),$this->post('24')));
         $queryr = $this->db->query("select LAST_INSERT_ID();");
         $reviewid = $this->row('LAST_INSTERT_ID()');
