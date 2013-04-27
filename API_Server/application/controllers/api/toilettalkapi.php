@@ -77,51 +77,6 @@ class toilettalkapi extends REST_Controller
         $query = $this->db->query($sql, array($this->post('rrid'), $this->post('uid')));
         $this->response(200);
     }
-    function restroom_post() {
-        $uid = $this->session->userdata('user_id');
-        if($uid == NULL) {
-            $uid = 0;
-        }
-        $sql = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
-        $query = $this->db->query($sql, array($uid 
-        ,$this->post('lat'),$this->post('long'),$this->post('name')
-        ,$this->post('address')));
-        $query = $this->db->query("select LAST_INSERT_ID();");
-        $rrid = $query->row('LAST_INSERT_ID()');
-        $sql = "insert into response(responds_to_id, user_id, user_comments, gender, flags, 
-                    thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
-                    values(?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?, $rrid);";
-        
-        $gender = $this->session->userdata('gender');
-        $query = $this->db->query("select LAST_INSERT_ID();");
-        $reid = $query->row('LAST_INSERT_ID()');
-        if($this->post('respondstoid') == NULL)
-            $respondstoid = 0;
-        else
-            $respondstoid = $this->post('respondstoid');
-        
-        $query = $this->db->query($sql, array($respondstoid, $uid,
-                        $this->post('usercomments'),$gender,
-                        0,0,0,$this->post('reviewstarrating')
-                        ));
-        $sql = "insert into icons values (?,?,?,?,?,?);";
-        $query = $this->db->query($sql, array($reid,$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
-                $this->post('co'),$this->post('24')));
-        $queryr = $this->db->query("select LAST_INSERT_ID();");
-        $reviewid = $this->row('LAST_INSTERT_ID()');
-        
-        $base64Image = $this->post('image');
-        $decoded=base64_decode($base64Image);
-
-        $randomString = $this->generateName();
-        $filename = 'img/';
-        $filename .= $randomString;
-        $filename .= '.png';
-        file_put_contents($filename,$decoded);
-        $sql = "insert into images(filepath, restroom_id, user_id, review_id) values(?,?,?,?)";
-        $this->db->query($sql, array($filename,$rrid,$uid,$reviewid));
-    }
-
     function icons_post() {
         $sql = "insert into icons values (?,?,?,?,?,?);";
         $query = $this->db->query($sql, array($this->post('rrid'),$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
