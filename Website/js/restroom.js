@@ -70,7 +70,7 @@ function createSearchMap(){
 		var html = "";
 		var isResponse = parseInt(comments[i]['responds_to_id']);
 		if (isResponse !== 0) isResponse = 1;	//fix to remove broking threading
-		html += "<div style=''><div class='comment' style='margin-left:"+(12+10*isResponse)+"px; margin-top:"+(15-10*isResponse)+"px; width:"+(405-10*isResponse)+"px;display:block;'>";
+		html += "<div style=''><div class='comment' style='margin-left:"+(12+10*isResponse)+"px; margin-top:"+(15-10*isResponse)+"px; width:"+(410-10*isResponse)+"px;display:block;'>";
 
 		//add thumbs counts
 		html += "<div style='overflow:visible;height:23px;'><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p><p>&nbsp;&nbsp;&nbsp;</p>";
