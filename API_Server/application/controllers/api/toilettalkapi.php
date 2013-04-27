@@ -93,7 +93,8 @@ class toilettalkapi extends REST_Controller
                     values(?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?, $rrid);";
         
         $gender = $this->session->userdata('gender');
-        
+        $query = $this->db->query("select LAST_INSERT_ID();");
+        $reid = $query->row('LAST_INSERT_ID()');
         if($this->post('respondstoid') == NULL)
             $respondstoid = 0;
         else
@@ -104,7 +105,7 @@ class toilettalkapi extends REST_Controller
                         0,0,0,$this->post('reviewstarrating')
                         ));
         $sql = "insert into icons values (?,?,?,?,?,?);";
-        $query = $this->db->query($sql, array($rrid,$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
+        $query = $this->db->query($sql, array($reid,$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
                 $this->post('co'),$this->post('24')));
         $queryr = $this->db->query("select LAST_INSERT_ID();");
         $reviewid = $this->row('LAST_INSTERT_ID()');
