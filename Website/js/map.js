@@ -1,5 +1,4 @@
 var lastInfoWindow; //tracks the last info window to open
-var routeCreated = false;
 var geocoder;
 var waypoints = [];
 var waypointIDs = [];
@@ -199,12 +198,8 @@ innerloop:      for (index in path){
 	});
 
 	//add Save Route Button
-	var html = "<a id='SaveRoute' class='button' onclick='saveRoute()'>Save Route</a>";
-	var nav = document.getElementById("RoadTrip");
-	if (nav && !routeCreated){
-		nav.innerHTML += html;
-		routeCreated = true;
-	}
+	var button = document.getElementById("SaveRoute");
+	if (button) button.style.display="inline";
 }
 
 
@@ -247,6 +242,10 @@ function GeoLocateError(msg){
 
 //create nearby Restrooms
 function initializeNearby() {
+	//remove Save Route Button
+	var button = document.getElementById("SaveRoute");
+	if (button) button.style.display="none";
+
 	//clear Restrooms list
 	var nav = document.getElementsByClassName("Restrooms")[0];
 	if (nav) nav.innerHTML = "";
@@ -319,6 +318,10 @@ function createNearbyMap(map, center, success){
 
 //create Search
 function initializeSearch(address) {
+	//remove Save Route Button
+	var button = document.getElementById("SaveRoute");
+	if (button) button.style.display="inline";
+
 	//clear Restrooms list
 	var nav = document.getElementsByClassName("Restrooms")[0];
 	if (nav) nav.innerHTML = "";
