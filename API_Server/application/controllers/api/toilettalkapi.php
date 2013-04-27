@@ -277,6 +277,7 @@ class toilettalkapi extends REST_Controller
         $this->db->select('salt');
         $this->db->select('user_id');
         $this->db->select('permission');
+        $this->db->select('gender');
         $this->db->where('username', $this->post('uname'));
 
         $query = $this->db->get('users');
@@ -288,6 +289,7 @@ class toilettalkapi extends REST_Controller
         else{
             $row = $query->row();
 
+            $gender = $row->gender;
             $hash = $row->hash;
             $slt = $row->salt;
             $user_id= $row->user_id;
@@ -301,7 +303,8 @@ class toilettalkapi extends REST_Controller
                     'username'  => $this->post('uname'),
                     'logged_in' => TRUE ,
                     'user_id'=> $user_id,
-                    'permission'=> $permission
+                    'permission'=> $permission,
+                    'gender' => $gender
                 );
 
                 $this->session->set_userdata($userdata);
