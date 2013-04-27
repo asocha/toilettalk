@@ -195,15 +195,17 @@ function getRestroom(){
 	//request.open("GET", "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/restroombyid/method/location/rrid/"+id, false);
 	request.send();
 
-	if(request.status === 200 && request.responseText){
+	if(request.status === 200 && request.responseText && $.parseJSON(request.responseText)[0]['restroom_id']){
 		return $.parseJSON(request.responseText);
 	}
-	else if (!request.responseText){
+	else if (!request.responseText || !$.parseJSON(request.responseText)[0]['restroom_id']){
 		alert("Somehow you tried to view a restroom that doesn't exist.");
+		window.location = "index.html";
 		return null;
 	}
 	else {
 		alert("Error Retrieving Restroom: " + request.status);
+		window.location = "index.html";
 		return null;
 	}
 }
