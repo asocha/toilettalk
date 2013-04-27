@@ -16,6 +16,27 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+     function restroomtotal_post() {
+        $sqlrr = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
+        $query = $this->db->query($sqlrr, array($this->post('uid'),$this->post('lat'),$this->post('long'),$this->post('name')
+        ,$this->post('address')));
+        $sqli = "insert into icons values (?,?,?,?,?,?);";
+        $query = $this->db->query($sqli, array($this->post('rrid'),$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
+        $this->post('co'),$this->post('24')));
+        $sqlim = "insert into Images(image_type, image, image_size, image_category, image_name) 
+                values(?,?,?,?,?)";
+        $this->db->query($sqlim, array($this->post('imgtype'),$this->post('img'),$this->post('imgsize'),$this->post('imgcategory'),
+        $this->post('imgname')));
+    }
+    function delimg_post() {
+        $sql = "delete from images where image_id = ?;";
+        $this->db->query($sql, $this->post('imgid'));
+    }
+    function images_get() {
+        $sql = "select * from images where restroom_id = ?;";
+        $query = $this->db->query($sql, $this->post('rrid'));
+        $this->response($query->result(), 200);
+    }
      function delrrforroute_post() {
         $sql = "delete from restrooms_for_route where route_id = ? and restroom_id = ?";
         $query = $this->db->query($sql, array($this->post('roid'),$this->post(rrid)));
@@ -55,7 +76,15 @@ class toilettalkapi extends REST_Controller
         $sql = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
         $query = $this->db->query($sql, array($this->post('uid'),$this->post('lat'),$this->post('long'),$this->post('name')
         ,$this->post('address')));
-        $this->response(200);
+        $sql = "insert into response(responds_to_id, user_id, user_comments, gender, flags, 
+                    thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
+                    values(?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?,?);";
+            $query = $this->db->query($sql, array($this->post('respondstoid'),$this->post('uid'),
+                            $this->post('usercomments'),$this->post('gender'),
+                            0,0,0,$this->post('reviewstarrating'),$this->post('rrid')
+                            ));
+            $query = $this->db->query("select LAST_INSERT_ID();");
+            $this->response($query->result());
     }
 
     function icons_post() {
