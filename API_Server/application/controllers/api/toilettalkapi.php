@@ -12,6 +12,15 @@ require APPPATH.'/libraries/REST_Controller.php';
 
 class toilettalkapi extends REST_Controller
 {
+    function getID()
+    {
+        $uid = $this->session->userdata('user_id');
+        if($uid)
+            return $uid;
+        else
+            return 0;
+    }
+
     /*
      *  Test Function
      *  Not part of API
@@ -158,7 +167,7 @@ class toilettalkapi extends REST_Controller
                         thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
                         values(?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?,?);";
                 $query = $this->db->query($sql, array(
-                                $this->post('reviewid'),$this->post('respondstoid'),$this->post('userid'),
+                                $this->post('reviewid'),$this->post('respondstoid'),$this->getID(),
                                 $this->post('usercomments'),$this->post('gender'),
                                 0,0,0,$this->post('reviewstarrating'),$this->post('rrid')
                                 ));
