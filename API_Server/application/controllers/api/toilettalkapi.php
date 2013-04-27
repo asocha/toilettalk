@@ -16,6 +16,11 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
+     function image_get() {
+         $sql = "select * from image";
+         
+         
+     }
      function restroomtotal_post() {
         $sqlrr = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
         $query = $this->db->query($sqlrr, array($this->post('uid'),$this->post('lat'),$this->post('long'),$this->post('name')
@@ -98,7 +103,9 @@ class toilettalkapi extends REST_Controller
                         $this->post('usercomments'),$gender,
                         0,0,0,$this->post('reviewstarrating')
                         ));
-        
+        $sql = "insert into icons values (?,?,?,?,?,?);";
+        $query = $this->db->query($sql, array($this->post('rrid'),$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
+                $this->post('co'),$this->post('24')));
         $queryr = $this->db->query("select LAST_INSERT_ID();");
         $reviewid = $this->row('LAST_INSTERT_ID()');
         
@@ -364,7 +371,8 @@ class toilettalkapi extends REST_Controller
     function response_get()
     {
         $rrid = $this->get('rrid');
-        $sql = "select * from response where restroom_id = ? order by review_id, responds_to_id";
+        $sql = "select * from response re, images i where i.review_id = re.review_id and re.restroom_id = ? 
+        and re.responds_to_id = 0 order by re.review_id, re.responds_to_id;";
         $query = $this->db->query($sql, array($rrid));
         $this->response($query->result_array(), 200);
     }
