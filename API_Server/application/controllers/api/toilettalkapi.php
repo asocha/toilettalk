@@ -73,20 +73,45 @@ class toilettalkapi extends REST_Controller
         $this->response(200);
     }
     function restroom_post() {
+        $uid = $this->session->userdata('user_id');
+        if($uid == NULL) {
+            $uid = 0;
+        }
         $sql = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
-        $query = $this->db->query($sql, array($this->post('uid'),$this->post('lat'),$this->post('long'),$this->post('name')
+        $query = $this->db->query($sql, array($uid 
+        ,$this->post('lat'),$this->post('long'),$this->post('name')
         ,$this->post('address')));
         $query = $this->db->query("select LAST_INSERT_ID();");
         $rrid = $query->result();
         $sql = "insert into response(responds_to_id, user_id, user_comments, gender, flags, 
                     thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
                     values(?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?, $rrid);";
-            $query = $this->db->query($sql, array($this->post('respondstoid'),$this->post('uid'),
-                            $this->post('usercomments'),$this->post('gender'),
-                            0,0,0,$this->post('reviewstarrating')
-                            ));
-            $query = $this->db->query("select LAST_INSERT_ID();");
-            $this->response($query->result());
+        
+        $gender = $this->session->userdata('gender');
+        
+        if($this->post('respondstoid') == NULL)
+            $respondstoid = 0;
+        else
+            $respondstoid = $this->post('respondstoid');
+        
+        $query = $this->db->query($sql, array($respondstoid, $uid,
+                        $this->post('usercomments'),$gender,
+                        0,0,0,$this->post('reviewstarrating')
+                        ));
+        
+        $queryr = $this->db->query("select LAST_INSERT_ID();");
+        $reviewid = $this->row('LAST_INSTERT_ID()');
+        
+        $base64Image = $this->post('image');
+        $decoded=base64_decode($base64Image);
+
+        $randomString = $this->generateName();
+        $filename = 'img/';
+        $filename .= $randomString;
+        $filename .= '.png';
+        file_put_contents($filename,$decoded);
+        $sql = "insert into images(filepath, restroom_id, user_id, review_id) values(?,?,?,?)";
+        $this->db->query($sql, array($filename,$rrid,$uid,$reviewid));
     }
 
     function icons_post() {
@@ -155,7 +180,7 @@ class toilettalkapi extends REST_Controller
         break;
     }
     function reviewno_get() {
-        $query =  $this->db->query("select count(review_id) as numofreviews from response;");
+        $query =  $this->db->query("select max(review_id) as numofreviews from response;");
         $this->response($query->result(), 200);
     }
     function userno_get() {
