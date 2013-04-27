@@ -21,7 +21,7 @@ function load_users(){
 		console.log(request.responseText);
 		var jsonResponse = JSON.parse(request.responseText);
 		
-		for(var i= 0; i<jsonResponse.length;i++){
+		for(var i= 1; i<jsonResponse.length;i++){
 			var ul = document.getElementById("users_list");
 			var li = document.createElement('li');  
 			li.appendChild(document.createTextNode(jsonResponse[i].username));
