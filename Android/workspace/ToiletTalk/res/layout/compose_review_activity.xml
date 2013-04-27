@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal" >
+
+    <LinearLayout
+        android:id="@+id/input_elements"
+        android:layout_width="@dimen/width_page_container"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/compose_location_name"
+            style="@style/EditText.InputStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/location_name"
+            android:inputType="textPersonName"/>
+
+        <TextView
+            android:id="@+id/compose_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Getting address..."
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/input_elements"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button_submitreview"
+        android:layout_width="@dimen/width_page_container"
+        android:layout_height="@dimen/height_button_login_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_round_top_yellow_animated"
+        android:text="@string/button_review"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSize_buttons_login_bottom"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/view_icons"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ratingBar"
+        android:layout_centerHorizontal="true" >
+
+        <ToggleButton
+            android:id="@+id/button_unisex"
+            android:layout_marginRight="10dp"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_unisex"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_babystation"
+            android:layout_marginRight="10dp"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_baby_station"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_handicap"
+            android:layout_marginRight="10dp"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_handicap"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_24hours"
+            android:layout_marginRight="10dp"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_24hours"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_money"
+            android:layout_marginRight="10dp"
+            android:layout_width="40dp"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_money"
+            android:textOn=""
+            android:textOff="" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/compose_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_icons"
+		android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:minLines="2"
+        android:maxLines="3" >
+
+        <requestFocus />
+    </EditText>
+
+    <ImageView
+        android:id="@+id/compose_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_above="@+id/button_submitreview"
+        android:layout_alignLeft="@+id/view_icons"
+        android:layout_alignRight="@+id/compose_comment"
+        android:layout_below="@+id/compose_comment"
+        android:layout_marginBottom="72dp"
+        android:layout_marginRight="145dp"
+        android:layout_marginTop="22dp"
+        android:contentDescription="@string/restroom_image"
+        android:src="@drawable/icon_placeholder" />
+
+    <TextView
+        android:id="@+id/compose_image_instructions"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_submitreview"
+        android:layout_alignLeft="@+id/compose_image"
+        android:layout_marginBottom="14dp"
+        android:text="@string/image_instructions" />
+   
+</RelativeLayout>

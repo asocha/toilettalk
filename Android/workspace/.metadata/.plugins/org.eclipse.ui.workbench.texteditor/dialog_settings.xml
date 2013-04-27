@@ -2,9 +2,9 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
-		<item value="327" key="DIALOG_Y_ORIGIN"/>
+		<item value="231" key="DIALOG_Y_ORIGIN"/>
 		<item value="380" key="DIALOG_HEIGHT"/>
-		<item value="664" key="DIALOG_X_ORIGIN"/>
+		<item value="1038" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,15 +13,22 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="Post" key="selection"/>
 		<list key="findhistory">
-			<item value="layout"/>
-			<item value="parms"/>
-			<item value="LoginAc"/>
-			<item value="context"/>
-			<item value="async"/>
+			<item value="post"/>
+			<item value="photo"/>
+			<item value="oncli"/>
+			<item value="address"/>
+			<item value="could"/>
+			<item value="button"/>
+			<item value="comment"/>
+			<item value="mainac"/>
 		</list>
 		<list key="replacehistory">
 		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="456" key="DIALOG_Y_ORIGIN"/>
+		<item value="533" key="DIALOG_X_ORIGIN"/>
 	</section>
 </section>

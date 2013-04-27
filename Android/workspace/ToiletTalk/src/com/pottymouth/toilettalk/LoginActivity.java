@@ -12,6 +12,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -23,11 +24,17 @@ import com.pottymouth.restapihandler.LoginTask;
 public class LoginActivity extends Activity implements View.OnClickListener {
 	
 	Context context;
+	public boolean login;
+	Bitmap photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	
         super.onCreate(savedInstanceState);
+        
+        if(login)
+        	this.finish();
+        
         setContentView(R.layout.login_activity);
         context = getApplication();
         
@@ -81,7 +88,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 				break;
 				
 			case R.id.button_continue_guest:
-				setResult(1);
+				this.login = true;
 				this.finish();
 				break;
 				
@@ -93,6 +100,11 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 	@Override
 	public void finish() {
 		super.finish();
+		
+		if(login){
+			Intent it = new Intent(getApplicationContext(), MainActivity.class);
+			startActivity(it);
+		}
 	}
 	
 	public void showLoginError(String result)

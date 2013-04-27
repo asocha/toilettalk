@@ -1,0 +1,11 @@
+package snippet;
+
+public class Snippet {
+	<item
+	        android:id="@+id/button_compose_review" 
+	        android:title="@string/button_text_compose_review" 
+	        android:orderInCategory="1" 
+	        android:showAsAction="always"
+	        android:onClick="toggleMenu"/>
+}
+

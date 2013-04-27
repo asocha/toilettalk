@@ -76,6 +76,9 @@ public class LoginTask extends AsyncTask<List<NameValuePair>, Void, JSONObject> 
 			
 			try {
 				post.setEntity(new UrlEncodedFormEntity(params[0], "UTF-8"));
+				
+				Log.d("API", "Post Entity: " + post.getEntity());
+				
 				HttpResponse response = client.execute(post);
 				HttpEntity entity = response.getEntity();
 				
@@ -109,7 +112,7 @@ public class LoginTask extends AsyncTask<List<NameValuePair>, Void, JSONObject> 
 		progressDialog.dismiss();
 		try {
 			if(result.getString("success").equalsIgnoreCase("true")){
-				activity.setResult(1);
+				activity.login = true;
 				activity.finish();
 			}
 			else

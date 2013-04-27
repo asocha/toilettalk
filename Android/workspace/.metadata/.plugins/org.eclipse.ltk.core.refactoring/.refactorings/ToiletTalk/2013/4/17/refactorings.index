@@ -3,3 +3,43 @@
 1366736551368	Copy compilation unit
 1366753010620	Delete element
 1366753257963	Copy file
+1366854111708	Delete elements
+1366861537511	Change Layout
+1366861584574	Change Layout
+1366866460835	Copy compilation unit
+1366874910070	Extracts string 'Reset Map' into R.string.button_reset_map
+1366905182291	Delete element
+1366905966975	Rename type 'MyLocation'
+1366906165134	Extract method 'setupMenu'
+1366913810620	Rename method 'startMap2'
+1366919523126	Rename method 'startMap2'
+1366922109623	Extracts string 'Compose' into R.string.button_text_compose_review
+1366925142450	Delete element
+1366926709318	Delete element
+1366926973073	Extracts string 'Menu' into R.string.button_menu
+1366928110659	Delete element
+1366934904265	Copy file
+1366935305114	Rename resource 'button_underline_yellow_actionbar2.9.png'
+1366935322304	Delete element
+1366937574404	Extracts string 'Review' into R.string.button_review
+1366988065853	Delete element
+1366994646300	Extract method 'setupActionBar'
+1366995004003	Wrap in Container
+1366995883911	Extract Style
+1366996080793	Extracts string 'Location Name' into R.string.location_name
+1366997914896	Copy file
+1366999089850	Delete element
+1366999523973	Delete element
+1367001572754	Rename resource 'button_toggle_unisex.xml'
+1367001829406	Delete elements
+1367001836869	Delete elements
+1367001844886	Delete elements
+1367002390541	Extract Style
+1367002473374	Copy file
+1367002489042	Copy file
+1367002567010	Copy file
+1367002614275	Copy file
+1367010640141	Copy compilation unit
+1367015306178	Extracts string 'Restroom Image' into R.string.restroom_image
+1367015750958	Extracts string 'Tap on the above thumbnail to attach a new image' into R.string.image_instructions
+1367017295968	Delete element

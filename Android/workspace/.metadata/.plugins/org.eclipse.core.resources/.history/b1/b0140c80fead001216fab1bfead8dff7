@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/logo"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:background="@color/emerald"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_logo"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:onClick="toggleMenu"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:contentDescription="@string/button_menu"/>
+    
+    
+</RelativeLayout>

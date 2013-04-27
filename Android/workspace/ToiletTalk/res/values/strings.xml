@@ -15,7 +15,15 @@
 	<string name="logo_description">Toilet Talk</string>
 	<string name="error_login">Invalid username/password combination</string>
 	<string name="error_reg">Registration Failed. Please check imput.</string>
+	<string name="error_generic">Submittion failed due to network error.</string>
 	<string name="error_continue">Return</string>
 	<string name="first_name">First Name</string>
 	<string name="last_name">Last Name</string>
+	<string name="button_reset_map">Reset Map</string>
+	<string name="button_text_compose_review">Compose</string>
+	<string name="button_menu">Menu</string>
+	<string name="button_review">Submit</string>
+	<string name="location_name">Location Name</string>
+	<string name="restroom_image">Restroom Image</string>
+	<string name="image_instructions">Tap on the above thumbnail to attach a new image</string>
 </resources>
