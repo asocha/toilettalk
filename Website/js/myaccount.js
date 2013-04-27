@@ -36,7 +36,9 @@ function load_saved_routes(){
 			li.className+="*"+jsonResponse[i].origin;
 			li.className+="*"+jsonResponse[i].destination;
 			li.addEventListener('click',function(){redirect_to_route(this);},false);
-			li.appendChild(document.createTextNode("Origin: "+jsonResponse[i].origin + "\n" +"Destination: "+jsonResponse[i].destination));
+			li.innerHTML += "<em>Origin</em>: "+jsonResponse[i].origin;
+			li.innerHTML += "<br />";
+			li.innerHTML += "<em>Destination</em>: "+jsonResponse[i].destination;
 			ul.appendChild(li);
 		}
 	}
