@@ -60,24 +60,29 @@ function load_restrooms(){
 
 function load_restrooms2(latlng, id){
 	geocoder.geocode( { 'latLng': latlng}, function(results, status) {
+		var address = "";
 		if (status === google.maps.GeocoderStatus.OK) {
-			var ul = document.getElementById("restroom_list");
-			var li = document.createElement('li');
-			var address =results[0].formatted_address ;
-			var txt=document.createTextNode('text');
-			li.appendChild(document.createTextNode(address));
-			var breaknode = document.createElement("BR");
-			li.appendChild(breaknode);
-			var btn=document.createElement("BUTTON");
-			var t=document.createTextNode("Delete");
-			btn.appendChild(t);
-			li.appendChild(btn);
-
-			btn.id=id;
-			btn.addEventListener('click',function(){deleterestroom(this.id);},false);
-			
-			ul.appendChild(li);
+			address = results[0].formatted_address;
 		}
+		else{
+			address = latlng;
+		}
+		var ul = document.getElementById("restroom_list");
+		var li = document.createElement('li');
+		
+		var txt=document.createTextNode('text');
+		li.appendChild(document.createTextNode(address));
+		var breaknode = document.createElement("BR");
+		li.appendChild(breaknode);
+		var btn=document.createElement("BUTTON");
+		var t=document.createTextNode("Delete");
+		btn.appendChild(t);
+		li.appendChild(btn);
+
+		btn.id=id;
+		btn.addEventListener('click',function(){deleterestroom(this.id);},false);
+		
+		ul.appendChild(li);
 	});
 }
 

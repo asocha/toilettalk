@@ -14,6 +14,20 @@ var id;
 var user_id=0;
 
 window.onload = function(){
+	/*	//add 100 restrooms to the database
+	for (var i = 0; i < 100; i++){
+		var lat = 32.8 + (Math.random());
+		var lng = -96.8 + (Math.random());
+
+		$.post("../API_Server/index.php/api/toilettalkapi/restroom", {"lat":lat,"long":lng,"name":"test","address":"test","respondstoid":0,"usercomments":"test","gender":0,"reviewstarrating":3,"dcs":0,"ha":0,"unisex":0,"co":0,"24":0},
+			function(result){
+			}).fail(
+			function(jqxhr, errorText, errorThrown){
+				alert("Restroom is already saved");
+				alert(JSON.stringify(jqxhr));
+			});	
+	}
+	*/
 	geocoder = new google.maps.Geocoder();
 
 	initializeLogin();
@@ -32,7 +46,7 @@ function loadsavebutton(){
 }
 
 function saverestroom(){
-$.post("../API_Server/index.php/api/toilettalkapi/saverestroom", {"rrid":id,"uid":user_id},
+	$.post("../API_Server/index.php/api/toilettalkapi/saverestroom", {"rrid":id,"uid":user_id},
 		function(result){
 			var savebutton = document.getElementById("SaveButton");
 			savebutton.style.display="none";

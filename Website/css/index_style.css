@@ -288,3 +288,12 @@ ul.sidenav span{
 	height: 100%;
 	z-index: 99;
 }
+
+#addtoroute{
+	margin-right:2px;
+	float: right;
+}
+
+.viewRestroom{
+	float: left;
+}

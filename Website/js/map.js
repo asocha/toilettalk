@@ -443,7 +443,7 @@ function attachInfo(map, id, marker, title, stars, icons, isRoadMap){
 		for (var i = 0; i < waypointIDs.length; i++){
 			if (waypointIDs[i] === id) isWaypoint = true;
 		}
-		if (!isWaypoint) html += "<a class='button viewRestroom' style='float:right;' onclick='addToRoute(\""+title+"\","+id+")'>Add to Route</a>";
+		if (!isWaypoint) html += "<a id='addtoroute' class='button' onclick='addToRoute(\""+title+"\","+id+")'>Add to Route</a>";
 	}
 
 	html += "<br /><br />";
