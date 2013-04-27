@@ -16,11 +16,6 @@ class toilettalkapi extends REST_Controller
      *  Test Function
      *  Not part of API
      */
-     function image_get() {
-         $sql = "select * from image";
-         
-         
-     }
      function restroomtotal_post() {
         $sqlrr = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
         $query = $this->db->query($sqlrr, array($this->post('uid'),$this->post('lat'),$this->post('long'),$this->post('name')
@@ -77,6 +72,59 @@ class toilettalkapi extends REST_Controller
         $query = $this->db->query($sql, array($this->post('rrid'), $this->post('uid')));
         $this->response(200);
     }
+
+    function restroom_post() {
+        $uid = $this->session->userdata('user_id');
+        if($uid == NULL) {
+            $uid = 0;
+        }
+        $sql = "insert into restroom(user_id, avg_rating, latitude, longitude, name, address) values(?,0,?,?,?,?);";
+        $this->db->query($sql, array($uid,$this->post('lat'),$this->post('long'),$this->post('name'),$this->post('address')));
+        $query = $this->db->query("select LAST_INSERT_ID() as id;");
+        $rrid = $query->row('id');
+        
+        $sql = "insert into response(responds_to_id, user_id, user_comments, gender, flags, 
+                    thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
+                    values(?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?, $rrid);";
+        
+        $gender = $this->session->userdata('gender');
+        if($gender == NULL) {
+            $gender = 0;
+        }
+        
+        if($this->post('respondstoid') == NULL){
+            $respondstoid = 0;
+        }
+        else{
+            $respondstoid = $this->post('respondstoid');
+        }
+        
+        $this->db->query($sql, array($respondstoid, $uid,
+                        $this->post('usercomments'),$gender,
+                        0,0,0,$this->post('reviewstarrating')
+                        ));
+
+        $query = $this->db->query("select LAST_INSERT_ID() as id;");
+        $reid = $query->row('id');
+
+        $sql = "insert into icons values (?,?,?,?,?,?);";
+        $query = $this->db->query($sql, array($reid,$this->post('dcs'),$this->post('ha'),$this->post('unisex'),$this->post('co'),$this->post('24')));
+        /*
+        $this->db->query("select LAST_INSERT_ID() as id;");
+        $reviewid = $this->row('id');
+        
+        $base64Image = $this->post('image');
+        $decoded=base64_decode($base64Image);
+
+        $randomString = $this->generateName();
+        $filename = 'img/';
+        $filename .= $randomString;
+        $filename .= '.png';
+        file_put_contents($filename,$decoded);
+        $sql = "insert into images(filepath, restroom_id, user_id, review_id) values(?,?,?,?)";
+        $this->db->query($sql, array($filename,$rrid,$uid,$reviewid));*/
+    }
+
     function icons_post() {
         $sql = "insert into icons values (?,?,?,?,?,?);";
         $query = $this->db->query($sql, array($this->post('rrid'),$this->post('dcs'),$this->post('ha'),$this->post('unisex'),
@@ -327,8 +375,7 @@ class toilettalkapi extends REST_Controller
     function response_get()
     {
         $rrid = $this->get('rrid');
-        $sql = "select * from response re, images i where i.review_id = re.review_id and re.restroom_id = ? 
-        and re.responds_to_id = 0 order by re.review_id, re.responds_to_id;";
+        $sql = "select * from response where restroom_id = ? order by review_id, responds_to_id";
         $query = $this->db->query($sql, array($rrid));
         $this->response($query->result_array(), 200);
     }
