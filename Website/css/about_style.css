@@ -173,8 +173,9 @@ div {
 }
 
 #sre, #sro{
+	border: 2px groove threedface;
 	background-color:#27ADC3;
-	width: 415px;
+	width: 436px;
 	height: 500px;
 	font-family: "hn_2";
 	color:#FFDC00;
@@ -183,7 +184,6 @@ div {
 
 #sre{
 	float:left;
-	color:#FFDC00;
 	font-size:16px;
 }
 
@@ -196,8 +196,6 @@ div {
 
 #sro{
 	margin-left:50px;
-	position:relative;
-	color:#FFDC00;
 	font-size:20px;
 }
 
