@@ -40,3 +40,6 @@
 1367002567010	Copy file
 1367002614275	Copy file
 1367010640141	Copy compilation unit
+1367015306178	Extracts string 'Restroom Image' into R.string.restroom_image
+1367015750958	Extracts string 'Tap on the above thumbnail to attach a new image' into R.string.image_instructions
+1367017295968	Delete element

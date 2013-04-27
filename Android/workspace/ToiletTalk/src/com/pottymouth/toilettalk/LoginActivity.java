@@ -12,6 +12,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -24,6 +25,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
 	
 	Context context;
 	public boolean login;
+	Bitmap photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

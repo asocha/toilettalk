@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="finish" key="selection"/>
+		<item value="Post" key="selection"/>
 		<list key="findhistory">
-			<item value="MainA"/>
-			<item value="Mian"/>
-			<item value="finish"/>
-			<item value="startintent"/>
-			<item value="onclick"/>
-			<item value="r.id"/>
-			<item value="context"/>
-			<item value="Restroom"/>
+			<item value="post"/>
+			<item value="photo"/>
+			<item value="oncli"/>
+			<item value="address"/>
+			<item value="could"/>
+			<item value="button"/>
+			<item value="comment"/>
+			<item value="mainac"/>
 		</list>
 		<list key="replacehistory">
 		</list>

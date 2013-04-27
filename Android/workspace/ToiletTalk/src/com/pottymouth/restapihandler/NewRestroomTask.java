@@ -71,7 +71,7 @@ public class NewRestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONOb
 				
 			}
 			
-			HttpPost post = new HttpPost(server + "login");
+			HttpPost post = new HttpPost(server + "uploadimage");
 			
 			try {
 				post.setEntity(new UrlEncodedFormEntity(params[0], "UTF-8"));
@@ -82,9 +82,11 @@ public class NewRestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONOb
 				HttpEntity entity = response.getEntity();
 				
 				if (null != entity) {
-					result = new JSONObject(EntityUtils.toString(entity));
-					Log.d("CNP", result.toString());
 					
+					String responseStr = EntityUtils.toString(entity);
+					Log.d("NewRestroomTask", "Entity: " + responseStr);
+					result = new JSONObject(responseStr);
+
 					MyCookieStorageClass.setCookie(((AbstractHttpClient) client).getCookieStore().getCookies());
 					
 					for(Cookie cookie : MyCookieStorageClass.getCookie())

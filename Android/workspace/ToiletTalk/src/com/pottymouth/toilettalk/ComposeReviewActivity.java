@@ -1,5 +1,6 @@
 package com.pottymouth.toilettalk;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +11,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -22,6 +27,10 @@ import com.pottymouth.restapihandler.ReverseGeocodingTask;
 
 public class ComposeReviewActivity extends Activity implements View.OnClickListener {
 	
+	int CAMERA_REQUEST = 1387;
+	ImageView imageView;
+	Bitmap photo;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +38,11 @@ public class ComposeReviewActivity extends Activity implements View.OnClickListe
         
         Button submitButton = (Button) findViewById(R.id.button_submitreview);
         submitButton.setOnClickListener(this);
+        
+        imageView = (ImageView) findViewById(R.id.compose_image);
+        imageView.setOnClickListener(this);
+        
+        photo = imageView.getDrawingCache(true);
         
         updateLocation();
     }
@@ -44,21 +58,43 @@ public class ComposeReviewActivity extends Activity implements View.OnClickListe
 		List<NameValuePair> request;
 		
 		if(v.getId() == R.id.button_submitreview){
+			Log.d("Compose", "Submit Button Pushed");
+			
+			ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			photo.compress(Bitmap.CompressFormat.PNG, 100, bos);
+			byte[] byteArray = bos.toByteArray();
+            String image_str = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            Log.d("Compose", image_str);
 			
 			ProgressDialog progressDialog = new ProgressDialog(ComposeReviewActivity.this);
 			progressDialog.setMessage("Submitting...");
 			progressDialog.setCancelable(false);
 			
-			request = new ArrayList<NameValuePair>();
-			request.add(new BasicNameValuePair("uname", "hi"));
-			request.add(new BasicNameValuePair("password", "hi"));
 			
+			
+			request = new ArrayList<NameValuePair>();
+			request.add(new BasicNameValuePair("image", image_str));
 			
 			NewRestroomTask submitTask = new NewRestroomTask(ComposeReviewActivity.this, progressDialog);
 			submitTask.execute(request);
-			Log.d("Compose", "Submit Button Pushed");
+			
+			Log.d("Compose", "Submited NewRestroomTask request");
+		}
+		
+		if(v.getId() == R.id.compose_image){
+			Log.d("Compose", "Image Button Pushed");
+			
+			Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE); 
+            startActivityForResult(cameraIntent, CAMERA_REQUEST); 
 		}
 	}
+	
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {  
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {  
+            photo = (Bitmap) data.getExtras().get("data"); 
+            imageView.setImageBitmap(photo);
+        }  
+    } 
 	
 	@Override
 	public void finish() {
