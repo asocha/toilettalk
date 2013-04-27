@@ -58,7 +58,7 @@ body{
 }
 
 #infor {
-	width: 250px;
+	width: 258px;
 	height: 466px;
 	float:left;
 	margin:0;
@@ -234,7 +234,7 @@ ul.sidenav li{
 	display: block;
 	color: #FFDC00;
 	text-decoration: none;
-	width: 210px;
+	width: 215px;
 	height: 25px;
 	padding: 10px 10px 10px 35px;
 	border-top: 1px solid #1C8BFF;
