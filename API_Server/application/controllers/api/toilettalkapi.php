@@ -119,8 +119,10 @@ class toilettalkapi extends REST_Controller
         $filename .= '.png';
         file_put_contents($filename,$decoded);
 
+        $url = 'http://toilettalkapiv1.apiary.io/'.$filename;
+
         $sql = "insert into images(filepath, restroom_id, user_id, review_id) values(?,?,?,?)";
-        $this->db->query($sql, array($filename,$rrid,$uid,$reid));
+        $this->db->query($sql, array($url,$rrid,$uid,$reid));
 
         $this->response(array('success' => 'true'), 200);
     }
