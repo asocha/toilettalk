@@ -87,7 +87,7 @@ class toilettalkapi extends REST_Controller
         ,$this->post('lat'),$this->post('long'),$this->post('name')
         ,$this->post('address')));
         $query = $this->db->query("select LAST_INSERT_ID();");
-        $rrid = $query->result();
+        $rrid = $query->row('LAST_INSERT_ID()');
         $sql = "insert into response(responds_to_id, user_id, user_comments, gender, flags, 
                     thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
                     values(?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?, $rrid);";
