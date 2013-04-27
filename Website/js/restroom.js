@@ -72,19 +72,25 @@ function createSearchMap(){
 		if (isResponse !== 0) isResponse = 1;	//fix to remove broking threading
 		html += "<div style=''><div class='comment' style='margin-left:"+(12+10*isResponse)+"px; margin-top:"+(15-10*isResponse)+"px; width:"+(405-10*isResponse)+"px;display:block;'>";
 
-		html += "<div style=''><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p><p>&nbsp;&nbsp;&nbsp;&nbsp;";
-		if (isResponse === 0) html+= "&nbsp;&nbsp;";
-		html += "</p>";
-		for (var j = 0; j < 5; j++){
-			if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
-			else html += "<img class='star' src='img/transparentStar.png'>";
+		//add thumbs counts
+		html += "<div style='overflow:visible;height:23px;'><p>+</p><p id='up"+i+"' style='margin:0;'>"+comments[i]['thumbs_up']+"</p><p> -</p><p id='down"+i+"' style='margin:0;'>"+comments[i]['thumbs_down']+"</p><p>&nbsp;&nbsp;&nbsp;</p>";
+
+		if (isResponse === 0){	//add stars
+			for (var j = 0; j < 5; j++){
+				if (comments[i]['review_star_rating'] > j) html += "<img class='star' src='img/star.png'>";
+				else html += "<img class='star' src='img/transparentStar.png'>";
+			}
 		}
+
+		//add reply button
 		if (!comments[i+1] || comments[i+1]['responds_to_id'] <= comments[i]['responds_to_id']) html += "<a class='addReply' onclick='addReview("+comments[i]['review_id']+","+(parseInt(comments[i]['responds_to_id'])+1)+");'>Reply</a>";
 
 		html += "</div><p style='font-style:italic;'>"+username+":</p>";
 
+		//add comment
 		html += "<p>" + comments[i]['user_comments'] + "</p>";
 
+		//add thumbs images
 		html += "</div><div style=''><img class='thumb_up' src='img/thumb_up.png' style='margin-top:"+(16-10*isResponse)+"px;' onClick='upVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'><img class='thumb_down' src='img/thumb_down.png' onClick='downVote("+comments[i]['review_id']+","+comments[i]['responds_to_id']+","+i+");this.parentNode.style.visibility=\""+"hidden"+"\";'></div></div>";
 
 		commentnav.innerHTML += html;

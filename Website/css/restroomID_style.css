@@ -286,6 +286,10 @@ div.Restrooms div.RestroomTitle img.star{
 	height: 20px;
 }
 
+.comment img.star{
+	margin-bottom: 2px;
+}
+
 div.Restrooms div.RestroomTitle img.icon{
 	width: 25px;
 	height: 25px;
@@ -318,6 +322,7 @@ div.Restrooms div.RestroomTitle img.icon{
 	display: block;
 	float: right;
 	margin: 2px;
+	margin-bottom: -5px;
 	padding: 2px;
 	font-size: 13pt;
 	width: 50px;
