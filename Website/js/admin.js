@@ -2,13 +2,7 @@ var user_id;
 var geocoder;
 
 window.onload = function(){
-	geocoder = new google.maps.Geocoder();
-
-	document.getElementById("logout").addEventListener('click',function(){logout();},false);	
 	checklogin();
-	load_users();
-	load_restrooms();
-	load_responses();
 }
 
 function logout(){
@@ -161,9 +155,16 @@ function checklogin(){
 		if(jsonResponse['logged_in']) {
 			user_id = jsonResponse['user_id'];
 			if(jsonResponse['permission']==='2')
-			{		console.log('admin');
+			{
 					document.getElementById("myaccount").style.display='none';
 					document.getElementById("admin").style.display='inline';
+					geocoder = new google.maps.Geocoder();
+
+					document.getElementById("logout").addEventListener('click',function(){logout();},false);	
+					
+					load_users();
+					load_restrooms();
+					load_responses();
 			}
 			else{
 				alert('Access Denied! Authorized Admins only');

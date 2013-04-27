@@ -23,7 +23,8 @@ body{
 	margin: 0;
 }
 #download{
-	margin-top: 70px;
+	margin-top: 50px;
+	position: relative;
 }
 
 #wrapper{
