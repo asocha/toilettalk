@@ -442,4 +442,29 @@ class toilettalkapi extends REST_Controller
         $this->response($query->result(), 200);
     }
     
+    function generateName()
+    {
+        $chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        $length = strlen($chars) - 1;
+        $filename = '';
+        for($i = 0; $i < $length; $i++)
+        {
+            $filename .= $chars[mt_rand(0, $length-1)];
+        }
+
+        return $filename;
+    }
+
+    function uploadimage_post()
+    {
+        $base64Image = $this->post('image');
+        $decoded=base64_decode($base64Image);
+
+        $filename = 'img/';
+        $filename .= $this->generateName();
+        $filename .= '.png';
+        file_put_contents($filename,$decoded);
+
+        $this->response(array('success' => 'true', "filename" => $filename), 200);
+    }
 }
