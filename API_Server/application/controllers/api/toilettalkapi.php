@@ -109,10 +109,7 @@ class toilettalkapi extends REST_Controller
 
         $sql = "insert into icons values (?,?,?,?,?,?);";
         $query = $this->db->query($sql, array($reid,$this->post('dcs'),$this->post('ha'),$this->post('unisex'),$this->post('co'),$this->post('24')));
-        /*
-        $this->db->query("select LAST_INSERT_ID() as id;");
-        $reviewid = $this->row('id');
-        
+
         $base64Image = $this->post('image');
         $decoded=base64_decode($base64Image);
 
@@ -121,8 +118,11 @@ class toilettalkapi extends REST_Controller
         $filename .= $randomString;
         $filename .= '.png';
         file_put_contents($filename,$decoded);
+
         $sql = "insert into images(filepath, restroom_id, user_id, review_id) values(?,?,?,?)";
-        $this->db->query($sql, array($filename,$rrid,$uid,$reviewid));*/
+        $this->db->query($sql, array($filename,$rrid,$uid,$reid));
+
+        $this->response(array('success' => 'true'), 200);
     }
 
     function icons_post() {
