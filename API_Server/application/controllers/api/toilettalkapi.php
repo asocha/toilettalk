@@ -155,7 +155,7 @@ class toilettalkapi extends REST_Controller
         break;
     }
     function reviewno_get() {
-        $query =  $this->db->query("select max(review_id) as numofreviews from response;");
+        $query =  $this->db->query("select count(review_id) as numofreviews from response;");
         $this->response($query->result(), 200);
     }
     function userno_get() {
