@@ -21,6 +21,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,7 +40,7 @@ import com.slidingmenu.lib.app.SlidingActivity;
 public class MainActivity extends SlidingActivity implements View.OnClickListener {
 	
 	SlidingMenu menu;
-	ArrayList<Marker> restroomMarkers;
+	static ArrayList<Marker> restroomMarkers;
 	LocationManager locManager;
 	static LocationHandler locHandler;
 	static LocationResult locationResult;
@@ -62,6 +64,9 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	 */
     	setContentView(R.layout.activity_main);
     	setBehindContentView(R.layout.activity_menu);
+    	
+    	ImageButton imageButton = (ImageButton) findViewById(R.id.button_toggle_map_list);
+    	imageButton.setOnClickListener(this);
     	
     	context = getApplicationContext();
     	
@@ -170,6 +175,15 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 
 	@Override
 	public void onClick(View v) {
+		
+		switch(v.getId()){
+		
+			case R.id.button_toggle_map_list:
+				Intent it = new Intent(this, RestroomListActivity.class);
+				
+            	startActivityForResult(it, RESULT_OK);
+				break;
+		}
 	}
 	
     @Override
