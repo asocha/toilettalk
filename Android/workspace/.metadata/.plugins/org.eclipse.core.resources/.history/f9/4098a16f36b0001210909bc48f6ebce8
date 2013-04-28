@@ -1,0 +1,22 @@
+package com.pottymouth.toilettalk;
+
+import android.content.Context;
+import android.widget.ArrayAdapter;
+
+public class UserRestroomAdapter extends ArrayAdapter<String>{
+
+	private Context context;
+	private int layout;
+	private int view;
+	private String[] restrooms;
+
+	public UserRestroomAdapter(Context context, int resource, String[] objects) {
+		super(context, resource, objects);
+		
+		this.context = context;
+		this.layout = resource;
+		this.view = textViewResourceId;
+		this.restrooms = objects;
+	}
+
+}

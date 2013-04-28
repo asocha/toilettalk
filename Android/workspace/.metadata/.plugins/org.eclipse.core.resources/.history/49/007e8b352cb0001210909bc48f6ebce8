@@ -1,0 +1,21 @@
+package com.pottymouth.toilettalk;
+
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+
+public class SavedRestRoomActivity extends ListActivity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		ProgressDialog progressDialog;
+		
+		super.onCreate(savedInstanceState);
+		
+		ProgressDialog progressDialog = new ProgressDialog(SavedRestRoomActivity.this);
+		progressDialog.setMessage("Logging in...");
+		progressDialog.setCancelable(false);
+	}
+	
+}

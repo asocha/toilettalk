@@ -22,7 +22,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -70,7 +69,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	
     	context = getApplicationContext();
     	
-    	setupMenu();        
+    	//setupMenu();        
         getLocation();
 
     }
@@ -92,7 +91,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		LatLng location = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 		
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
-		map.setInfoWindowAdapter(new GoogleMapsMarker(getLayoutInflater()));
+		map.setInfoWindowAdapter(new GoogleMapsMarker(getLayoutInflater(), map));
 		
 		getNearbyRestrooms(currentLocation);
 	}
@@ -151,7 +150,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	List<NameValuePair> request = new ArrayList<NameValuePair>();
 		request.add(new BasicNameValuePair("latitude", "" + location.getLatitude()));
 		request.add(new BasicNameValuePair("longitude", "" + location.getLongitude()));
-		request.add(new BasicNameValuePair("radius", "" + 50));
+		request.add(new BasicNameValuePair("radius", "" + 3));
 	 	
 		ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 		progressDialog.setMessage("Getting nearby restrooms...");
@@ -231,8 +230,13 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		
 			//creates new review
 			case R.id.button_compose_review:
-				Intent it = new Intent(getApplicationContext(), ComposeReviewActivity.class);
-				startActivityForResult(it, RESULT_OK);
+				startActivityForResult(new Intent(getApplicationContext(), ComposeReviewActivity.class), RESULT_OK);
+				break;
+				
+			case R.id.button_logout:
+				this.finish();
+				Log.d("Main", "Sign out button clicked");
+				startActivity(new Intent(this, LoginActivity.class));
 				break;
 				
 		}//end of switch
@@ -243,7 +247,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 	    // The item parameter passed here indicates which item it is
 	    // All other menu item clicks are handled by onOptionsItemSelected()
 		
-		menu.toggle();
+		//menu.toggle();
 	}
 
 	public static void updateLocation(ComposeReviewActivity composeReviewActivity) {
@@ -268,4 +272,5 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		restrooms = tempRestrooms;
 		
 	}
+
 }

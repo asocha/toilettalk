@@ -1,19 +1,29 @@
 package com.pottymouth.toilettalk;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
+import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
-class GoogleMapsMarker implements InfoWindowAdapter {
+class GoogleMapsMarker implements InfoWindowAdapter, OnInfoWindowClickListener {
 	LayoutInflater inflater=null;
 
-	GoogleMapsMarker(LayoutInflater inflater) {
+	GoogleMap map;
+	
+	GoogleMapsMarker(LayoutInflater inflater, GoogleMap map) {
 	  this.inflater=inflater;
+	  
+	  this.map = map;
+	  
+	  this.map.setOnInfoWindowClickListener(this);
 	}
 
 	@Override
@@ -35,5 +45,15 @@ class GoogleMapsMarker implements InfoWindowAdapter {
 		ratingBar.setRating((float) Double.parseDouble(marker.getSnippet()));
   
 		return(popup);	
+	}
+
+
+	@Override
+	public void onInfoWindowClick(Marker marker) {
+		// TODO Auto-generated method stub
+		LatLng latlong = marker.getPosition();
+		
+		Log.d("Marker", "" + latlong.toString());
+
 	}
 }

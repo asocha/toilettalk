@@ -1,0 +1,59 @@
+package com.pottymouth.toilettalk;
+
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.pottymouth.restapihandler.SavedRestroomTask;
+
+public class SavedRestRoomActivity extends ListActivity{
+
+	ProgressDialog progressDialog;
+	JSONArray restrooms;
+	SavedRestroomAdapter adapter;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		
+		progressDialog = new ProgressDialog(SavedRestRoomActivity.this);
+		progressDialog.setMessage("Retrieving your restrooms");
+		progressDialog.setCancelable(false);
+		
+		getSavedRestrooms();
+	}
+
+	private void getSavedRestrooms() {
+
+		SavedRestroomTask savedRestroomTask = new SavedRestroomTask(SavedRestRoomActivity.this, progressDialog);
+		savedRestroomTask.execute();
+	}
+
+	public void setSavedRestroom(JSONArray restrooms) {
+		this.restrooms = restrooms;
+	}
+
+	public void createList() {
+		
+		ArrayList<String> items = new ArrayList<String>();
+		
+		JSONObject = json_data;
+		
+		for(int i=0; i < restrooms.length() ; i++) {
+		    json_data = restrooms.getJSONObject(i);
+		    int id=json_data.getInt("id");
+		    String name=json_data.getString("name");
+		    items.add(name);
+		    Log.d(name,"Output");
+		}
+		
+		adapter = new SavedRestroomAdapter(this, R.layout.activity_savedrestroom, restrooms);
+	}
+	
+}
