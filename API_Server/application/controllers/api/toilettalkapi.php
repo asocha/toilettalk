@@ -167,7 +167,7 @@ class toilettalkapi extends REST_Controller
                         thumbs_up, thumbs_down, time_stamp, review_star_rating, restroom_id) 
                         values(?,?,?,?,?,?,?,?,CURRENT_TIMESTAMP,?,?);";
                 $query = $this->db->query($sql, array(
-                                $this->post('reviewid'),$this->post('respondstoid'),$this->post('userid'),
+                                $this->post('reviewid'),$this->post('respondstoid'),$this->getID(),
                                 $this->post('usercomments'),$this->post('gender'),
                                 0,0,0,$this->post('reviewstarrating'),$this->post('rrid')
                                 ));
