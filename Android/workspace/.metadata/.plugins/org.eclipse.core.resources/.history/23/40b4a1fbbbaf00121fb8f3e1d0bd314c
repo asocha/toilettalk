@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ToiletTalk</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="continue_guest">Continue as guest</string>
+	<string name="uname_hint">Username</string>
+	<string name="pass_hint">Password</string>
+	<string name="email">Email Address</string>
+	<string name="gender">Gender</string>
+	<string name="reg_submit">Sign me up!</string>
+	<string name="logo_description">Toilet Talk</string>
+	<string name="error_login">Invalid username/password combination</string>
+	<string name="error_reg">Registration Failed. Please check imput.</string>
+	<string name="error_generic">Submittion failed due to network error.</string>
+	<string name="error_continue">Return</string>
+	<string name="first_name">First Name</string>
+	<string name="last_name">Last Name</string>
+	<string name="button_reset_map">Reset Map</string>
+	<string name="button_text_compose_review">Compose</string>
+	<string name="button_menu">Menu</string>
+	<string name="button_review">Submit</string>
+	<string name="location_name">Location Name</string>
+	<string name="restroom_image">Restroom Image</string>
+	<string name="image_instructions">Tap on the above thumbnail to attach a new image</string>
+</resources>

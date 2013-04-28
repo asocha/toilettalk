@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 
 import android.app.ActionBar;
 import android.app.ProgressDialog;
@@ -37,12 +38,14 @@ import com.slidingmenu.lib.app.SlidingActivity;
 public class MainActivity extends SlidingActivity implements View.OnClickListener {
 	
 	SlidingMenu menu;
-	ArrayList<Marker> locations;
+	ArrayList<Marker> restroomMarkers;
 	LocationManager locManager;
 	static LocationHandler locHandler;
 	static LocationResult locationResult;
 	static Location currentLocation;
+	static JSONArray restrooms;
 	ProgressDialog progressDialog;
+	
 	private static Context context;
 	
 	GoogleMap map;
@@ -84,13 +87,14 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		LatLng location = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 		
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+		map.setInfoWindowAdapter(new GoogleMapsMarker(getLayoutInflater()));
 		
 		getNearbyRestrooms(currentLocation);
 	}
 
 	private void getLocation() {
 		
-		locations = new ArrayList<Marker>();
+		restroomMarkers = new ArrayList<Marker>();
 	        
         locationResult = new LocationResult(){
             @Override
@@ -142,7 +146,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	List<NameValuePair> request = new ArrayList<NameValuePair>();
 		request.add(new BasicNameValuePair("latitude", "" + location.getLatitude()));
 		request.add(new BasicNameValuePair("longitude", "" + location.getLongitude()));
-		request.add(new BasicNameValuePair("radius", "" + 10));
+		request.add(new BasicNameValuePair("radius", "" + 50));
 	 	
 		ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 		progressDialog.setMessage("Getting nearby restrooms...");
@@ -179,9 +183,9 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 
 	public void addFlag(LatLng coordinates, String name, double rating) {
 		
-		locations.add(map.addMarker(new MarkerOptions()
+		restroomMarkers.add(map.addMarker(new MarkerOptions()
         .position(coordinates)
-        .snippet("I have " + Double.toString(rating) + " stars")
+        .snippet(Double.toString(rating))
         .title(name)));
 		
 	}
@@ -189,7 +193,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 	public void refreshMap() {
 		
 		LatLngBounds.Builder builder = new LatLngBounds.Builder();
-		for(Marker m : locations) {
+		for(Marker m : restroomMarkers) {
 		    builder.include(m.getPosition());
 		}
 		
@@ -243,5 +247,11 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
         };
         
 		locHandler.getLocation(context, locationResult);
+	}
+
+	public static void setRestrooms(JSONArray tempRestrooms) {
+		
+		restrooms = tempRestrooms;
+		
 	}
 }

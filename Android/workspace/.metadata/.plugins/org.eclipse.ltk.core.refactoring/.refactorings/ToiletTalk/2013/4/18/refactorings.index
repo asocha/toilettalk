@@ -1,0 +1,7 @@
+1367114893221	Rename field 'locations'
+1367121077110	Delete element
+1367121219532	Extracts string 'Location Image' into R.string.restroom_image
+1367123269139	Extracts string 'Expand' into R.string.expand
+1367123347798	Rename resource '1_navigation_forward.png'
+1367123473271	Rename resource 'button_next'
+1367126279671	Delete elements

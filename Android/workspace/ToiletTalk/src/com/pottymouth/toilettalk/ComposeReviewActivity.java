@@ -107,7 +107,7 @@ public class ComposeReviewActivity extends Activity implements View.OnClickListe
 		request.add(new BasicNameValuePair("name", name));
 		request.add(new BasicNameValuePair("address", address));
 		request.add(new BasicNameValuePair("lat", "" + latlong[0]));
-		request.add(new BasicNameValuePair("lat", "" + latlong[1]));
+		request.add(new BasicNameValuePair("long", "" + latlong[1]));
 		request.add(new BasicNameValuePair("comment", "" + comment));
 		request.add(new BasicNameValuePair("reviewstarrating", "" + rating));
 		request.add(new BasicNameValuePair("des", "" + icons[0]));

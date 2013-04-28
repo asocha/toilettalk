@@ -1,0 +1,47 @@
+package com.pottymouth.toilettalk;
+
+import org.json.JSONArray;
+
+import android.app.ListActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ListView;
+
+
+public class RestroomListActivity extends ListActivity{
+
+String[] selectedToppings;
+JSONArray restrooms;
+
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	
+	
+}
+
+@Override
+protected void onListItemClick(ListView l, View v, int position, long id) {
+	super.onListItemClick(l, v, position, id);
+	
+	//toggle value of checked item in the array
+	selected[position] = !selected[position];
+	CheckBox box = (CheckBox) v.findViewById(R.id.list_checkbox);
+			
+	//toggle value of checkbox
+	box.setChecked(!box.isChecked());
+}
+
+@Override
+public void finish()
+{
+	
+	super.finish();
+}
+
+
+}
+

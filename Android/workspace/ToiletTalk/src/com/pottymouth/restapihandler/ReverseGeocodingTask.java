@@ -37,7 +37,7 @@ public class ReverseGeocodingTask extends AsyncTask<Location, Void, String> {
     @Override
     protected String doInBackground(Location... params) {
         Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
-        String addressText = "Could not get you address :(";
+        String addressText = "Could not get your address :(";
         
         Location loc = params[0];
         List<Address> addresses = null;

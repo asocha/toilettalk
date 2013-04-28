@@ -84,7 +84,12 @@ public class NewRestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONOb
 				if (null != entity) {
 					
 					String responseStr = EntityUtils.toString(entity);
-					Log.d("NewRestroomTask", "Entity: " + responseStr);
+					
+					if(responseStr.length() == 0)
+						Log.d("NewRestroomTask", "Entity is empty");
+					else
+						Log.d("NewRestroomTask", "Entity: " + responseStr);
+					
 					result = new JSONObject(responseStr);
 
 					MyCookieStorageClass.setCookie(((AbstractHttpClient) client).getCookieStore().getCookies());
