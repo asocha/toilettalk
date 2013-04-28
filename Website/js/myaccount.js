@@ -49,7 +49,7 @@ function load_reviewed_restroom(){
 
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyuid/uid/"+user_id, false);
 	request.send();
-
+	
 	if(request.status === 200 && request.responseText){
 		var jsonResponse = JSON.parse(request.responseText);
 		
