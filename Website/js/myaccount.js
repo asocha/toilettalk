@@ -73,7 +73,6 @@ function load_reviewed_restroom(){
 }
 
 function load_saved_restrooms(){
-	var address;
 	var request = new XMLHttpRequest();
 	request.open("GET", "../API_Server/index.php/api/toilettalkapi/savedrestrooms/id/"+user_id, false);
 	request.send();
@@ -82,26 +81,29 @@ function load_saved_restrooms(){
 
 		for(var i= 0; i<jsonResponse.length;i++){
 			var id = jsonResponse[i].saved_restrooms;
-			var request2 = new XMLHttpRequest();
-			request2.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/rrid/"+id, false);
-			request2.send();
-			if(request2.status === 200 && request2.responseText){
-				var jsonResponse2 = JSON.parse(request2.responseText);
-				var latlng = new google.maps.LatLng(jsonResponse2[i].latitude,jsonResponse2[i].longitude);
-				geocoder.geocode( { 'latLng': latlng}, function(results, status) {
-					var ul = document.getElementById("saved_restrooms_list");
-					var li = document.createElement('li');  
-					
-					if (status === google.maps.GeocoderStatus.OK) {
-						address =results[0].formatted_address ;
-						var txt=document.createTextNode('text');
-						li.appendChild(document.createTextNode(address));
-						li.addEventListener('click',function(){redirect_to_restroom(id);},false);
-						ul.appendChild(li);
-					}
-				});
-			}
+			load_saved_restrooms2(id);
 		}
+	}
+}
+
+function load_saved_restrooms2(id){
+	var request2 = new XMLHttpRequest();
+	request2.open("GET", "../API_Server/index.php/api/toilettalkapi/restroombyid/rrid/"+id, false);
+	request2.send();
+	if(request2.status === 200 && request2.responseText){
+		var jsonResponse2 = JSON.parse(request2.responseText);
+		var latlng = new google.maps.LatLng(jsonResponse2[0].latitude,jsonResponse2[0].longitude);
+		geocoder.geocode( { 'latLng': latlng}, function(results, status) {
+			var ul = document.getElementById("saved_restrooms_list");
+			var li = document.createElement('li');  
+			if (status === google.maps.GeocoderStatus.OK) {
+				var address =results[0].formatted_address ;
+				var txt=document.createTextNode('text');
+				li.appendChild(document.createTextNode(address));
+				li.addEventListener('click',function(){redirect_to_restroom(id);},false);
+				ul.appendChild(li);
+			}
+		});
 	}
 }
 
