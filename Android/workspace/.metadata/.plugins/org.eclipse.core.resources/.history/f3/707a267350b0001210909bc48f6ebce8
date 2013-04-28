@@ -146,8 +146,6 @@ public class RestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONArray
 					
 					activity.addFlag(coordinates, location.toString(), rating);
 					
-					
-					
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}

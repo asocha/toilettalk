@@ -50,7 +50,7 @@
         
         <ToggleButton
             android:id="@+id/button_babystation"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_width="@dimen/icons_size"
             android:layout_height="fill_parent"
             android:background="@drawable/button_baby_station"
@@ -59,7 +59,7 @@
         
         <ToggleButton
             android:id="@+id/button_handicap"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_width="@dimen/icons_size"
             android:layout_height="fill_parent"
             android:background="@drawable/button_handicap"
@@ -68,7 +68,7 @@
         
         <ToggleButton
             android:id="@+id/button_24hours"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_width="@dimen/icons_size"
             android:layout_height="fill_parent"
             android:background="@drawable/button_24hours"
@@ -77,7 +77,7 @@
         
         <ToggleButton
             android:id="@+id/button_money"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
             android:layout_width="@dimen/icons_size"
             android:layout_height="fill_parent"
             android:background="@drawable/button_money"
@@ -90,6 +90,5 @@
 		android:layout_below="@id/marker_address"
 		android:layout_width="40dp"
 		android:layout_height="40dp"
-		android:visibility="gone"
 		android:contentDescription="@string/restroom_image"/>
 </RelativeLayout>
