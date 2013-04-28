@@ -194,12 +194,11 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	}
     }
 
-	public void addFlag(LatLng coordinates, String name, double rating) {
+	public void addFlag(LatLng coordinates, String jsonObject, double rating) {
 		
 		restroomMarkers.add(map.addMarker(new MarkerOptions()
         .position(coordinates)
-        .snippet(Double.toString(rating))
-        .title(name)));
+        .snippet(jsonObject)));
 		
 	}
 

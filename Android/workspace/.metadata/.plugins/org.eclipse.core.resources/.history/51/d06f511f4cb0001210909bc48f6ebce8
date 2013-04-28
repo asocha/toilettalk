@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="horizontal">
+
+
+	<LinearLayout
+	    android:id="@+id/marker_content"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/marker_image"
+		android:paddingLeft="6dp"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/marker_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+		<RatingBar
+		    android:id="@+id/marking_rating"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    style="?android:attr/ratingBarStyleSmall" />
+	</LinearLayout>
+	
+	<TextView
+		android:id="@+id/marker_address"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/marker_image"
+		android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+	<LinearLayout
+        android:id="@+id/view_icons"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_height="@dimen/icons_size"
+        android:layout_below="@+id/marker_address"
+        android:layout_centerHorizontal="true" >
+
+        <ToggleButton
+            android:id="@+id/button_unisex"
+            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/icons_size"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_unisex"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_babystation"
+            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/icons_size"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_baby_station"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_handicap"
+            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/icons_size"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_handicap"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_24hours"
+            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/icons_size"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_24hours"
+            android:textOn=""
+            android:textOff="" />
+        
+        <ToggleButton
+            android:id="@+id/button_money"
+            android:layout_marginRight="10dp"
+            android:layout_width="@dimen/icons_size"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_money"
+            android:textOn=""
+            android:textOff="" />
+    </LinearLayout>
+
+	
+</RelativeLayout>

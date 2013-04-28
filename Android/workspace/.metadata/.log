@@ -5557,3 +5557,6 @@ Contains: Could not delete: Z:\Dropbox\School\GUI - Database Project\GitHub\Team
 !MESSAGE Problems encountered while deleting files.
 !SUBENTRY 4 org.eclipse.core.filesystem 4 273 2013-04-28 13:57:19.383
 !MESSAGE Could not delete: Z:\Dropbox\School\GUI - Database Project\GitHub\Team6\Android\workspace\library\bin\library.jar.
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2013-04-28 15:48:58.727
+!MESSAGE compose_review_activity.xml: Different corner sizes are not supported in Path.addRoundRect.
