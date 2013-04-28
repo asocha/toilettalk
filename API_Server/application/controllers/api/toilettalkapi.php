@@ -386,7 +386,10 @@ class toilettalkapi extends REST_Controller
     function response_get()
     {
         $rrid = $this->get('rrid');
-        $sql = "select * from response re LEFT JOIN images im on re.review_id = im.review_id 
+        $sql = "select re.review_id, re.responds_to_id, re.user_id, re.user_comments, 
+                re.gender,re.flags,re.thumbs_up,re.thumbs_down,re.timestamp,re.review_star_rating,
+                re.restroom_id,im.img_ig,im.filepath
+                from response re LEFT JOIN images im on re.review_id = im.review_id 
                 where re.restroom_id = ? order by re.review_id, re.responds_to_id;";
         $query = $this->db->query($sql, array($rrid));
         $this->response($query->result_array(), 200);
