@@ -1,0 +1,7 @@
+package com.pottymouth.toilettalk;
+
+import android.app.ListActivity;
+
+public class SavedRestRoomActivity extends ListActivity{
+
+}

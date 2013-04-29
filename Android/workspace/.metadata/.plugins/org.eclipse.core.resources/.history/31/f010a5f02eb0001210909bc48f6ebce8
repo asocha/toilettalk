@@ -1,0 +1,42 @@
+package com.pottymouth.toilettalk;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import com.pottymouth.restapihandler.LoginTask;
+
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+
+public class SavedRestRoomActivity extends ListActivity{
+
+	ProgressDialog progressDialog;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		
+		progressDialog = new ProgressDialog(SavedRestRoomActivity.this);
+		progressDialog.setMessage("Logging in...");
+		progressDialog.setCancelable(false);
+		
+		getSavedRestrooms();
+	}
+
+	private void getSavedRestrooms() {
+
+		List<NameValuePair> request = new ArrayList<NameValuePair>();
+		request.add(new BasicNameValuePair("latitude", "" + location.getLatitude()));
+		request.add(new BasicNameValuePair("longitude", "" + location.getLongitude()));
+		request.add(new BasicNameValuePair("radius", "" + 50));
+		
+		SavedRestroomTask savedRestroomTask = new SavedRestroomTask(SavedRestRoomActivity.this, progressDialog);
+		savedRestroomTask.execute(request);
+	}
+	
+}

@@ -111,6 +111,8 @@ public class RestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONArray
 	protected void onPostExecute(JSONArray restrooms)
 	{
 		progressDialog.dismiss();
+		
+		MainActivity.setRestrooms(restrooms);
 
 		if(restrooms != null)
 			for(int x = 0; x < restrooms.length(); x++){
@@ -118,19 +120,33 @@ public class RestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONArray
 				JSONObject location = restrooms.optJSONObject(x);
 				
 				try {
+					String name = location.getString("name");
+					String address = location.getString("address");
 					double latitude = location.getDouble("latitude");
 					double longitude = location.getDouble("longitude");
-					String name = location.getString("restroom_id");
 					double rating = location.getDouble("final_average");
+					boolean babystation = location.getInt("sum(diaper_changing_station)") == 1;
+					boolean handycap = location.getInt("sum(handicap_accessible)") == 1;
+					boolean unisex = location.getInt("sum(unisex)") == 1;
+					boolean money = location.getInt("sum(customer_only)") == 1;
+					boolean twentyfourhour = location.getInt("sum(24_hour)") == 1;
 					
 					LatLng coordinates = new LatLng(latitude, longitude);
 					
-					Log.d("RestroomTask", "Putting into database latitude: " + latitude);
-					Log.d("RestroomTask", "Putting into database longitude: " + longitude);
-					Log.d("RestroomTask", "Putting into database name: " + name);
-					Log.d("RestroomTask", "Putting into database rating: " + rating);
+					Log.d("RestroomTask", "Putting into map address: " + address);
+					Log.d("RestroomTask", "Putting into map name: " + name);
+					Log.d("RestroomTask", "Putting into map latitude: " + latitude);
+					Log.d("RestroomTask", "Putting into map longitude: " + longitude);
+					Log.d("RestroomTask", "Putting into map rating: " + rating);
+					Log.d("RestroomTask", "Putting into map babystation: " + babystation);
+					Log.d("RestroomTask", "Putting into map handycap: " + handycap);
+					Log.d("RestroomTask", "Putting into map unisex: " + unisex);
+					Log.d("RestroomTask", "Putting into map money: " + money);
+					Log.d("RestroomTask", "Putting into map twentyfourhour: " + twentyfourhour);
 					
-					activity.addFlag(coordinates, name, rating);
+					activity.addFlag(coordinates, location.toString(), rating);
+					
+					
 					
 				} catch (JSONException e) {
 					e.printStackTrace();

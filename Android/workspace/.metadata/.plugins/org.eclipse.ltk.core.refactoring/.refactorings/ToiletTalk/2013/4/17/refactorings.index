@@ -43,3 +43,12 @@
 1367015306178	Extracts string 'Restroom Image' into R.string.restroom_image
 1367015750958	Extracts string 'Tap on the above thumbnail to attach a new image' into R.string.image_instructions
 1367017295968	Delete element
+1367087450400	Extract method 'progressDialog'
+1367087473416	Extract method 'getImage'
+1367088303612	Extract method 'getName'
+1367088386068	Extract method 'retrieveAddress'
+1367088683358	Extract method 'getLatLong'
+1367088972459	Extract method 'getComment'
+1367089201291	Extract method 'getRating'
+1367089704256	Extract method 'getIcons'
+1367092452599	Extract method 'submitReview'

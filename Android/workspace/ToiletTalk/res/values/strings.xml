@@ -26,4 +26,5 @@
 	<string name="location_name">Location Name</string>
 	<string name="restroom_image">Restroom Image</string>
 	<string name="image_instructions">Tap on the above thumbnail to attach a new image</string>
+	<string name="expand">Expand</string>
 </resources>

@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity" >
+
+        <RelativeLayout
+            android:id="@+id/restroom_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <ImageView
+                android:id="@+id/list_image"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/restroom_image" />
+
+            <LinearLayout
+                android:id="@+id/list_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/list_image"
+                android:orientation="vertical"
+                android:paddingLeft="6dp" >
+
+                <TextView
+                    android:id="@+id/list_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textIsSelectable="true" />
+
+                <RatingBar
+                    android:id="@+id/list_rating"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            
+        </RelativeLayout>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+    
+     <ImageButton
+            android:id="@+id/button_toggle_map_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_list"
+			android:contentDescription="List/Map Toggle Button"/>
+
+</RelativeLayout>

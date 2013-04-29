@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
 
 import android.app.ActionBar;
 import android.app.ProgressDialog;
@@ -20,6 +21,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -37,12 +39,14 @@ import com.slidingmenu.lib.app.SlidingActivity;
 public class MainActivity extends SlidingActivity implements View.OnClickListener {
 	
 	SlidingMenu menu;
-	ArrayList<Marker> locations;
+	static ArrayList<Marker> restroomMarkers;
 	LocationManager locManager;
 	static LocationHandler locHandler;
 	static LocationResult locationResult;
 	static Location currentLocation;
+	static JSONArray restrooms;
 	ProgressDialog progressDialog;
+	
 	private static Context context;
 	
 	GoogleMap map;
@@ -60,9 +64,12 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	setContentView(R.layout.activity_main);
     	setBehindContentView(R.layout.activity_menu);
     	
+    	ImageButton imageButton = (ImageButton) findViewById(R.id.button_toggle_map_list);
+    	imageButton.setOnClickListener(this);
+    	
     	context = getApplicationContext();
     	
-    	setupMenu();        
+    	//setupMenu();        
         getLocation();
 
     }
@@ -84,13 +91,14 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		LatLng location = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 		
 		map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+		map.setInfoWindowAdapter(new GoogleMapsMarker(getLayoutInflater(), map));
 		
 		getNearbyRestrooms(currentLocation);
 	}
 
 	private void getLocation() {
 		
-		locations = new ArrayList<Marker>();
+		restroomMarkers = new ArrayList<Marker>();
 	        
         locationResult = new LocationResult(){
             @Override
@@ -142,7 +150,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	List<NameValuePair> request = new ArrayList<NameValuePair>();
 		request.add(new BasicNameValuePair("latitude", "" + location.getLatitude()));
 		request.add(new BasicNameValuePair("longitude", "" + location.getLongitude()));
-		request.add(new BasicNameValuePair("radius", "" + 500));
+		request.add(new BasicNameValuePair("radius", "" + 3));
 	 	
 		ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 		progressDialog.setMessage("Getting nearby restrooms...");
@@ -166,6 +174,15 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 
 	@Override
 	public void onClick(View v) {
+		
+		switch(v.getId()){
+		
+			case R.id.button_toggle_map_list:
+				Intent it = new Intent(this, RestroomListActivity.class);
+				
+            	startActivityForResult(it, RESULT_OK);
+				break;
+		}
 	}
 	
     @Override
@@ -177,19 +194,18 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
     	}
     }
 
-	public void addFlag(LatLng coordinates, String name, double rating) {
+	public void addFlag(LatLng coordinates, String jsonObject, double rating) {
 		
-		locations.add(map.addMarker(new MarkerOptions()
+		restroomMarkers.add(map.addMarker(new MarkerOptions()
         .position(coordinates)
-        .snippet("I have " + Double.toString(rating) + " stars")
-        .title(name)));
+        .snippet(jsonObject)));
 		
 	}
 
 	public void refreshMap() {
 		
 		LatLngBounds.Builder builder = new LatLngBounds.Builder();
-		for(Marker m : locations) {
+		for(Marker m : restroomMarkers) {
 		    builder.include(m.getPosition());
 		}
 		
@@ -213,8 +229,13 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 		
 			//creates new review
 			case R.id.button_compose_review:
-				Intent it = new Intent(getApplicationContext(), ComposeReviewActivity.class);
-				startActivityForResult(it, RESULT_OK);
+				startActivityForResult(new Intent(getApplicationContext(), ComposeReviewActivity.class), RESULT_OK);
+				break;
+				
+			case R.id.button_logout:
+				this.finish();
+				Log.d("Main", "Sign out button clicked");
+				startActivity(new Intent(this, LoginActivity.class));
 				break;
 				
 		}//end of switch
@@ -225,7 +246,7 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
 	    // The item parameter passed here indicates which item it is
 	    // All other menu item clicks are handled by onOptionsItemSelected()
 		
-		menu.toggle();
+		//menu.toggle();
 	}
 
 	public static void updateLocation(ComposeReviewActivity composeReviewActivity) {
@@ -244,4 +265,11 @@ public class MainActivity extends SlidingActivity implements View.OnClickListene
         
 		locHandler.getLocation(context, locationResult);
 	}
+
+	public static void setRestrooms(JSONArray tempRestrooms) {
+		
+		restrooms = tempRestrooms;
+		
+	}
+
 }

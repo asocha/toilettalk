@@ -1,0 +1,62 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    android:visibility="invisible">
+	
+	    <ImageView
+		android:id="@+id/list_image"
+		android:layout_width="40dp"
+		android:layout_height="40dp"
+		android:contentDescription="@string/restroom_image"/>
+	
+		<LinearLayout
+		    android:id="@+id/list_content"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/marker_image"
+			android:paddingLeft="6dp"
+			android:orientation="vertical">
+	
+			<TextView
+				android:id="@+id/list_title"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textIsSelectable="true"
+				android:textAppearance="?android:attr/textAppearanceSmall"/>
+	
+			<RatingBar
+			    android:id="@+id/list_rating"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    style="?android:attr/ratingBarStyleSmall" />
+		</LinearLayout>
+	
+		<ImageButton
+		    android:id="@+id/list_button_expand"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_toRightOf="@id/marker_content"
+		    android:layout_centerVertical="true"
+		    android:paddingLeft="6dp"
+		    android:src="@drawable/button_next"
+		    android:background="@null"
+		    android:contentDescription="@string/expand" />
+		
+	</RelativeLayout>
+    
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

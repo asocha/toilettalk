@@ -57,6 +57,12 @@
             android:name="com.pottymouth.toilettalk.MainActivity"
             android:theme="@style/Theme.Main"/>
         
+        <activity 
+            android:name="com.pottymouth.toilettalk.RestroomListActivity"/>
+        
+        <activity 
+            android:name="com.pottymouth.toilettalk.SavedRestRoomActivity"/>
+        
         <meta-data
 		    android:name="com.google.android.maps.v2.API_KEY"
 		    android:value="AIzaSyCtjdxk2XKtxY-6QCRGHZNac-Xz6gKdcOA" />

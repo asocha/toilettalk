@@ -1,0 +1,84 @@
+package com.pottymouth.toilettalk;
+
+import android.app.ListActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.ListView;
+
+public class RestroomListActivity extends ListActivity{
+
+String[] selectedToppings;
+RestroomAdapter adapter;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	
+	adapter = new RestroomAdapter(this, R.layout.activity_list, toppings, selected);
+	
+	setListAdapter(adapter);
+}
+
+@Override
+protected void onListItemClick(ListView l, View v, int position, long id) {
+	super.onListItemClick(l, v, position, id);
+	
+	//toggle value of checked item in the array
+	selected[position] = !selected[position];
+	CheckBox box = (CheckBox) v.findViewById(R.id.list_checkbox);
+	
+	//toggle value of checkbox
+	box.setChecked(!box.isChecked());
+}
+
+@Override
+public void finish()
+{
+	String[] toppingsNames = getSelectedNames();
+	
+	Intent data = getIntent();
+	data.putExtra("toppingsCheckBoxes", selected);
+	data.putExtra("selectedToppingNames", toppingsNames);
+	
+	//return result code 1 if at least one topping wass selected
+	if(toppingsNames != null)
+		setResult(1, data);
+	
+	//return result code 2 if no topping were selected
+	else
+		setResult(2, data);
+	
+	super.finish();
+}
+
+private String[] getSelectedNames() {
+	
+	int size = 0;
+	
+	for(boolean checked : selected)
+		if(checked)
+			size++;
+	
+	if(size == 0)
+		return null;
+	
+	else{
+		String[] toppingNames = new String[size];
+		
+		int iterator = 0;
+		
+		for(int x = 0; x < selected.length; x++){
+			if(selected[x])
+			{
+				toppingNames[iterator] = toppings[x].title;
+				iterator++;
+			}
+		}//end of for
+		
+		return toppingNames;
+	}
+}
+
+}

@@ -1,0 +1,163 @@
+//Chintan Patel
+//34468165
+
+package com.pottymouth.restapihandler;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CookieStore;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.AbstractHttpClient;
+import org.apache.http.impl.client.BasicCookieStore;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.ProgressDialog;
+import android.net.ParseException;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.google.android.gms.maps.model.LatLng;
+import com.pottymouth.toilettalk.MainActivity;
+import com.pottymouth.toilettalk.SavedRestRoomActivity;
+
+public class SavedRestroomTask extends AsyncTask<List<NameValuePair>, Void, JSONArray> {
+	
+	static String server = "http://toilettalkapiv1.apiary.io/index.php/api/toilettalkapi/";
+	
+	private ProgressDialog progressDialog;
+	private SavedRestRoomActivity activity;
+ 
+	public SavedRestroomTask(SavedRestRoomActivity savedRestRoomActivity, ProgressDialog progressDialog)
+	{
+		this.activity = savedRestRoomActivity;
+		this.progressDialog = progressDialog;
+	}
+	
+	@Override
+	protected void onPreExecute()
+	{
+		progressDialog.show();
+	}
+	
+	@Override
+	protected JSONArray doInBackground(List<NameValuePair>... params) { 
+		
+			JSONArray result;
+			
+			HttpClient client = new DefaultHttpClient();
+			
+			if(MyCookieStorageClass.getCookie() != null){
+				
+				Log.d("Session", "Getting cookie from MyStorageClass");
+				
+				List<Cookie> cookies = MyCookieStorageClass.getCookie();
+				
+				CookieStore store = new BasicCookieStore();
+				
+				for(Cookie cookie : cookies){
+					store.addCookie(cookie);
+				}
+				
+				((DefaultHttpClient) client).setCookieStore(store);
+				
+				Log.d("Session", "Set cookie from MyStorageClass");
+				
+			}
+			
+			String paramString = URLEncodedUtils.format(params[0], "utf-8");
+			HttpGet get = new HttpGet(server + "restrooms" + "?" + paramString);
+			
+			try {
+				
+				HttpResponse response = client.execute(get);
+				HttpEntity entity = response.getEntity();
+				
+				if (null != entity) {
+					result = new JSONArray(EntityUtils.toString(entity));
+					Log.d("RestroomTask", result.toString());
+					
+					MyCookieStorageClass.setCookie(((AbstractHttpClient) client).getCookieStore().getCookies());
+					
+					for(Cookie cookie : MyCookieStorageClass.getCookie())
+						Log.d("Cookie Values", cookie.toString());
+					
+					return result;
+				}
+				} catch (ClientProtocolException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (ParseException e) {
+					e.printStackTrace();
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			
+			return null;
+	}
+	
+	@Override
+	protected void onPostExecute(JSONArray restrooms)
+	{
+		progressDialog.dismiss();
+		
+		MainActivity.setRestrooms(restrooms);
+
+		if(restrooms != null)
+			for(int x = 0; x < restrooms.length(); x++){
+				
+				JSONObject location = restrooms.optJSONObject(x);
+				
+				try {
+					String name = location.getString("name");
+					String address = location.getString("address");
+					double latitude = location.getDouble("latitude");
+					double longitude = location.getDouble("longitude");
+					double rating = location.getDouble("final_average");
+					boolean babystation = location.getInt("sum(diaper_changing_station)") == 1;
+					boolean handycap = location.getInt("sum(handicap_accessible)") == 1;
+					boolean unisex = location.getInt("sum(unisex)") == 1;
+					boolean money = location.getInt("sum(customer_only)") == 1;
+					boolean twentyfourhour = location.getInt("sum(24_hour)") == 1;
+					
+					LatLng coordinates = new LatLng(latitude, longitude);
+					
+					Log.d("RestroomTask", "Putting into map address: " + address);
+					Log.d("RestroomTask", "Putting into map name: " + name);
+					Log.d("RestroomTask", "Putting into map latitude: " + latitude);
+					Log.d("RestroomTask", "Putting into map longitude: " + longitude);
+					Log.d("RestroomTask", "Putting into map rating: " + rating);
+					Log.d("RestroomTask", "Putting into map babystation: " + babystation);
+					Log.d("RestroomTask", "Putting into map handycap: " + handycap);
+					Log.d("RestroomTask", "Putting into map unisex: " + unisex);
+					Log.d("RestroomTask", "Putting into map money: " + money);
+					Log.d("RestroomTask", "Putting into map twentyfourhour: " + twentyfourhour);
+					
+					if(name.length() != 0)
+						activity.addFlag(coordinates, name, rating);
+					else
+						activity.addFlag(coordinates, address, rating);
+					
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				
+			}//end of for
+		
+		activity.refreshMap();
+		
+	}//end of onPostExecute
+	
+}

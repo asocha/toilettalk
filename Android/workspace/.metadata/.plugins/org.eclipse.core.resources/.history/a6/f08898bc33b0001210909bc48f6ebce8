@@ -1,0 +1,61 @@
+package com.pottymouth.toilettalk;
+
+import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.pottymouth.restapihandler.SavedRestroomTask;
+
+public class SavedRestRoomActivity extends ListActivity{
+
+	ProgressDialog progressDialog;
+	JSONArray restrooms;
+	SavedRestroomAdapter adapter;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		super.onCreate(savedInstanceState);
+		
+		progressDialog = new ProgressDialog(SavedRestRoomActivity.this);
+		progressDialog.setMessage("Retrieving your restrooms");
+		progressDialog.setCancelable(false);
+		
+		getSavedRestrooms();
+	}
+
+	private void getSavedRestrooms() {
+
+		SavedRestroomTask savedRestroomTask = new SavedRestroomTask(SavedRestRoomActivity.this, progressDialog);
+		savedRestroomTask.execute();
+	}
+
+	public void setSavedRestroom(JSONArray restrooms) {
+		this.restrooms = restrooms;
+	}
+
+	public void createList() {
+		
+		String json = "[\"Country1\",\"Country2\",\"Country3\"]";
+		try {
+		        JSONArray array = (JSONArray) new JSONTokener(json).nextValue();
+
+		        String[] stringarray = new String[array.length()];
+		        for (int i = 0; i < array.length(); i++) {
+		            stringarray[i] = array.getString(i);
+		        }
+		        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, stringarray); 
+		        list.setAdapter(adapter);
+		} catch (JSONException e) {
+		        // handle JSON parsing exceptions...
+		}
+		adapter = new SavedRestroomAdapter(this, R.layout.activity_savedrestroom, restrooms);
+	}
+	
+}
