@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="14" version="2.0">
+<workbench progressCount="28" version="2.0">
 <workbenchAdvisor/>
-<window height="1160" width="1925" x="-5" y="0">
+<window height="1160" maximized="true" width="1925" x="-833" y="-20">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="250"/>
@@ -40,36 +40,49 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="1"/>
 <part id="4"/>
 <part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" title="MainActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1388" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="6144" selectionTopPixel="2760"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" partName="strings.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/values/strings.xml" title="strings.xml" tooltip="ToiletTalk/res/values/strings.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/values/strings.xml"/>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main.xml" partName="main.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/menu/main.xml" title="main.xml" tooltip="ToiletTalk/res/menu/main.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/menu/main.xml"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" partName="activity_main.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/layout/activity_main.xml" title="activity_main.xml" tooltip="ToiletTalk/res/layout/activity_main.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/layout/activity_main.xml"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GoogleMapsMarker.java" partName="GoogleMapsMarker.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/GoogleMapsMarker.java" title="GoogleMapsMarker.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/GoogleMapsMarker.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/GoogleMapsMarker.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1840" selectionTopPixel="205"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ComposeReviewActivity.java" partName="ComposeReviewActivity.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/ComposeReviewActivity.java" title="ComposeReviewActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/ComposeReviewActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/ComposeReviewActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1856" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NewRestroomTask.java" partName="NewRestroomTask.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/NewRestroomTask.java" title="NewRestroomTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/NewRestroomTask.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/restapihandler/NewRestroomTask.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2087" selectionTopPixel="880"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestroomTask.java" partName="RestroomTask.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java" title="RestroomTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestroomTask.java" partName="RestroomTask.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java" title="RestroomTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4915" selectionTopPixel="1301"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4919" selectionTopPixel="1285"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="google_maps_marker.xml" partName="google_maps_marker.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/layout/google_maps_marker.xml" title="google_maps_marker.xml" tooltip="ToiletTalk/res/layout/google_maps_marker.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/layout/google_maps_marker.xml"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="dimens.xml" partName="dimens.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/values/dimens.xml" title="dimens.xml" tooltip="ToiletTalk/res/values/dimens.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/values/dimens.xml"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginTask.java" partName="LoginTask.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java" title="LoginTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1455" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestroomListAdapter.java" partName="RestroomListAdapter.java" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/src/com/pottymouth/toilettalk/RestroomListAdapter.java" title="RestroomListAdapter.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/RestroomListAdapter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/src/com/pottymouth/toilettalk/RestroomListAdapter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1341" selectionTopPixel="220"/>
+</editor>
+<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="compose_review_activity.xml" partName="compose_review_activity.xml" path="Z:/Dropbox/School/GUI - Database Project/GitHub/Team6/Android/workspace/ToiletTalk/res/layout/compose_review_activity.xml" title="compose_review_activity.xml" tooltip="ToiletTalk/res/layout/compose_review_activity.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ToiletTalk/res/layout/compose_review_activity.xml"/>
 </editor>
 </editors>
 <views>
@@ -111,6 +124,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (6 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -159,7 +175,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="com.android.ide.eclipse.editors.CommonXmlEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="0" fixed="0" version="0.016">
 <descriptor class="com.android.ide.eclipse.ddms.Perspective" id="com.android.ide.eclipse.ddms.Perspective" label="DDMS"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -481,145 +497,139 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/NewRestroomTask.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/ComposeReviewActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/menu/main.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/GoogleMapsMarker.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/google_maps_marker.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/dimens.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/ToiletTalk/res/layout/google_maps_marker.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/RestroomListAdapter.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/compose_review_activity.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/ToiletTalk/res/layout/compose_review_activity.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/toilettalk/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ToiletTalk/src/com/pottymouth/restapihandler/ReverseGeocodingTask.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/ToiletTalk/res/layout/activity_main.xml"/>
 </editors>
-<item historyLabel="compose_review_activity.xml" index="3">
-<position info="not_deleted" x="3717" y="317"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="1723" y="0"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position info="not_deleted" x="2164" y="0"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="2569" y="0"/>
+<item historyLabel="RestroomTask.java" index="3">
+<position info="not_deleted" x="3707" y="345"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="2616" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="4">
+<position info="not_deleted" x="1186" y="0"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="6791" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="6">
+<position info="not_deleted" x="237" y="576"/>
 </item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="7401" y="0"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="1566" y="0"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="6791" y="0"/>
+<item historyLabel="LoginTask.java" index="7">
+<position info="not_deleted" x="1455" y="0"/>
 </item>
-<item historyLabel="compose_review_activity.xml" index="2"/>
-<item historyLabel="NewRestroomTask.java" index="0">
-<position info="not_deleted" x="2213" y="0"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="6144" y="10"/>
 </item>
-<item historyLabel="compose_review_activity.xml" index="2"/>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="6791" y="0"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position info="not_deleted" x="2164" y="0"/>
 </item>
-<item historyLabel="compose_review_activity.xml" index="2"/>
-<item historyLabel="NewRestroomTask.java" index="0">
-<position info="not_deleted" x="2213" y="0"/>
+<item historyLabel="RestroomTask.java" index="3">
+<position info="not_deleted" x="4885" y="10"/>
 </item>
-<item historyLabel="compose_review_activity.xml" index="2"/>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="6791" y="0"/>
+<item historyLabel="main.xml" index="1"/>
+<item historyLabel="google_maps_marker.xml" index="4"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="6136" y="7"/>
 </item>
-<item historyLabel="NewRestroomTask.java" index="0">
-<position info="not_deleted" x="2486" y="0"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position info="not_deleted" x="2164" y="0"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="6791" y="0"/>
+<item historyLabel="RestroomTask.java" index="3">
+<position info="not_deleted" x="4885" y="10"/>
 </item>
-<item historyLabel="compose_review_activity.xml" index="2"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="1584" y="0"/>
+<item historyLabel="LoginTask.java" index="7">
+<position info="not_deleted" x="1455" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="1584" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="4"/>
+<item historyLabel="dimens.xml" index="5"/>
+<item historyLabel="google_maps_marker.xml" index="4">
+<position info="not_deleted" x="1099" y="0"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="3029" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="6">
+<position info="not_deleted" x="2375" y="333"/>
 </item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="3699" y="5"/>
+<item historyLabel="google_maps_marker.xml" index="6">
+<position/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="3935" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="6">
+<position info="not_deleted" x="237" y="576"/>
 </item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="4588" y="0"/>
+<item historyLabel="main.xml" index="1"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="6158" y="0"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="1724" y="0"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position info="not_deleted" x="2635" y="0"/>
 </item>
-<item historyLabel="NewRestroomTask.java" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="NewRestroomTask.java" index="0">
+<item historyLabel="MainActivity.java" index="0">
 <position info="not_deleted" x="3001" y="0"/>
 </item>
-<item historyLabel="ReverseGeocodingTask.java" index="7">
-<position info="not_deleted" x="1058" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="4"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="3001" y="0"/>
 </item>
-<item historyLabel="NewRestroomTask.java" index="0">
-<position info="not_deleted" x="2087" y="0"/>
+<item historyLabel="RestroomTask.java" index="3">
+<position info="not_deleted" x="4919" y="0"/>
 </item>
-<item historyLabel="ComposeReviewActivity.java" index="1">
-<position info="not_deleted" x="1856" y="0"/>
+<item historyLabel="main.xml" index="1"/>
+<item historyLabel="google_maps_marker.xml" index="4">
+<position info="not_deleted" x="1240" y="0"/>
 </item>
-<item historyLabel="activity_main.xml" index="8"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="4262" y="9"/>
+<item historyLabel="google_maps_marker.xml" index="6">
+<position info="not_deleted" x="3321" y="0"/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="4261" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="6">
+<position info="not_deleted" x="40" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="4587" y="0"/>
+<item historyLabel="RestroomListAdapter.java" index="8">
+<position info="not_deleted" x="1341" y="0"/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="4261" y="0"/>
+<item historyLabel="MainActivity.java" index="0">
+<position info="not_deleted" x="6144" y="10"/>
 </item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="4616" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="4"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position info="not_deleted" x="2635" y="0"/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="4261" y="0"/>
+<item historyLabel="google_maps_marker.xml" index="4"/>
+<item historyLabel="dimens.xml" index="5"/>
+<item historyLabel="google_maps_marker.xml" index="4"/>
+<item historyLabel="dimens.xml" index="5"/>
+<item historyLabel="google_maps_marker.xml" index="4"/>
+<item historyLabel="dimens.xml" index="5"/>
+<item historyLabel="RestroomListAdapter.java" index="8">
+<position info="not_deleted" x="1341" y="0"/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="4857" y="0"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position info="not_deleted" x="2635" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="4616" y="0"/>
+<item historyLabel="GoogleMapsMarker.java" index="2">
+<position info="not_deleted" x="1840" y="0"/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="4857" y="0"/>
+<item historyLabel="compose_review_activity.xml" index="9">
+<position info="not_deleted" x="1393" y="0"/>
 </item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="5772" y="0"/>
+<item historyLabel="compose_review_activity.xml" index="10">
+<position info="not_deleted" x="4513" y="0"/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="4857" y="0"/>
+<item historyLabel="compose_review_activity.xml" index="10">
+<position info="not_deleted" x="4513" y="0"/>
 </item>
-<item historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="3253" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="7503" y="6"/>
-</item>
-<item historyLabel="MainActivity.java" index="4">
-<position info="not_deleted" x="1388" y="0"/>
-</item>
-<item active="true" historyLabel="RestroomTask.java" index="6">
-<position info="not_deleted" x="3253" y="0"/>
+<item active="true" historyLabel="compose_review_activity.xml" index="10">
+<position info="not_deleted" x="4911" y="375"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -639,50 +649,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestroomTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ReverseGeocodingTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/ReverseGeocodingTask.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/ReverseGeocodingTask.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NewRestroomTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/NewRestroomTask.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/NewRestroomTask.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ComposeReviewActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/ComposeReviewActivity.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/ComposeReviewActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="ToiletTalk/res/layout/activity_main.xml">
-<persistable path="/ToiletTalk/res/layout/activity_main.xml"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="compose_review_activity.xml" tooltip="ToiletTalk/res/layout/compose_review_activity.xml">
 <persistable path="/ToiletTalk/res/layout/compose_review_activity.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="ToiletTalk/AndroidManifest.xml">
-<persistable path="/ToiletTalk/AndroidManifest.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" tooltip="ToiletTalk/res/values/strings.xml">
-<persistable path="/ToiletTalk/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="styles.xml" tooltip="ToiletTalk/res/values/styles.xml">
-<persistable path="/ToiletTalk/res/values/styles.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java">
-<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestroomListAdapter.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/RestroomListAdapter.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/RestroomListAdapter.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java">
 <persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/LoginTask.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="button_handicap.xml" tooltip="ToiletTalk/res/drawable/button_handicap.xml">
-<persistable path="/ToiletTalk/res/drawable/button_handicap.xml"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="JSONObject.class" tooltip="org.json.JSONObject">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=ToiletTalk/C:\/Users\/chintanpatel\/Desktop\/adt-bundle-windows-x86_64-20130219\/sdk\/platforms\/android-17\/android.jar&lt;org.json(JSONObject.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="button_money.xml" tooltip="ToiletTalk/res/drawable/button_money.xml">
-<persistable path="/ToiletTalk/res/drawable/button_money.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="dimens.xml" tooltip="ToiletTalk/res/values/dimens.xml">
+<persistable path="/ToiletTalk/res/values/dimens.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="button_baby_station.xml" tooltip="ToiletTalk/res/drawable/button_baby_station.xml">
-<persistable path="/ToiletTalk/res/drawable/button_baby_station.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="google_maps_marker.xml" tooltip="ToiletTalk/res/layout/google_maps_marker.xml">
+<persistable path="/ToiletTalk/res/layout/google_maps_marker.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="button_24hours.xml" tooltip="ToiletTalk/res/drawable/button_24hours.xml">
-<persistable path="/ToiletTalk/res/drawable/button_24hours.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RestroomTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/RestroomTask.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GoogleMapsMarker.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/GoogleMapsMarker.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/GoogleMapsMarker.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main.xml" tooltip="ToiletTalk/res/menu/main.xml">
+<persistable path="/ToiletTalk/res/menu/main.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserRestroomAdapter.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/UserRestroomAdapter.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/UserRestroomAdapter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SavedRestroomAdapter.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/SavedRestroomAdapter.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/SavedRestroomAdapter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_savedrestroom.xml" tooltip="ToiletTalk/res/layout/activity_savedrestroom.xml">
+<persistable path="/ToiletTalk/res/layout/activity_savedrestroom.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="ToiletTalk/AndroidManifest.xml">
+<persistable path="/ToiletTalk/AndroidManifest.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SavedRestroomTask.java" tooltip="ToiletTalk/src/com/pottymouth/restapihandler/SavedRestroomTask.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/restapihandler/SavedRestroomTask.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginActivity.java" tooltip="ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java">
+<persistable path="/ToiletTalk/src/com/pottymouth/toilettalk/LoginActivity.java"/>
 </file>
 </mruList>
 </workbench>
