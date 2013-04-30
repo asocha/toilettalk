@@ -55,7 +55,8 @@ class GoogleMapsMarker implements InfoWindowAdapter, OnInfoWindowClickListener {
 			textView.setText(json.getString("name"));
 			
 			textView = (TextView)popup.findViewById(R.id.marker_address);
-			textView.setText(json.getString("address"));
+			String address = json.getString("address").replaceFirst(", ", "\n");
+			textView.setText(address);
 			
 			RatingBar ratingBar =(RatingBar)popup.findViewById(R.id.marking_rating);
 			ratingBar.setRating((float) json.getDouble("final_average"));

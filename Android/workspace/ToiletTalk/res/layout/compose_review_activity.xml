@@ -122,13 +122,9 @@
         android:id="@+id/compose_image"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_above="@+id/button_submitreview"
-        android:layout_alignLeft="@+id/view_icons"
-        android:layout_alignRight="@+id/compose_comment"
         android:layout_below="@+id/compose_comment"
-        android:layout_marginBottom="72dp"
-        android:layout_marginRight="145dp"
-        android:layout_marginTop="22dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
         android:contentDescription="@string/restroom_image"
         android:src="@drawable/icon_placeholder" />
 
@@ -136,9 +132,10 @@
         android:id="@+id/compose_image_instructions"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_submitreview"
-        android:layout_alignLeft="@+id/compose_image"
-        android:layout_marginBottom="14dp"
+        android:layout_below="@+id/compose_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
         android:text="@string/image_instructions" />
    
 </RelativeLayout>
